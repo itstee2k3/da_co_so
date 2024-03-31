@@ -1,0 +1,773 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/obj/Release/net6.0/scopedcss/projectbundle/do_an.bundle.scp.css",
+      "PackagePath": "staticwebassets/do_an.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/.DS_Store",
+      "PackagePath": "staticwebassets/css/.DS_Store"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/animate.min.css",
+      "PackagePath": "staticwebassets/css/animate.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap.css",
+      "PackagePath": "staticwebassets/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/cochin.css",
+      "PackagePath": "staticwebassets/css/cochin.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/default-skin.css",
+      "PackagePath": "staticwebassets/css/default-skin.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/font-awesome.min.css",
+      "PackagePath": "staticwebassets/css/font-awesome.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/icomoon.css",
+      "PackagePath": "staticwebassets/css/icomoon.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/jquery-ui.css",
+      "PackagePath": "staticwebassets/css/jquery-ui.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/jquery.fancybox.min.css",
+      "PackagePath": "staticwebassets/css/jquery.fancybox.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/jquery.mCustomScrollbar.min.css",
+      "PackagePath": "staticwebassets/css/jquery.mCustomScrollbar.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/meanmenu.css",
+      "PackagePath": "staticwebassets/css/meanmenu.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/nice-select.css",
+      "PackagePath": "staticwebassets/css/nice-select.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/normalize.css",
+      "PackagePath": "staticwebassets/css/normalize.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/owl.carousel.min.css",
+      "PackagePath": "staticwebassets/css/owl.carousel.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/responsive.css",
+      "PackagePath": "staticwebassets/css/responsive.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/slick.css",
+      "PackagePath": "staticwebassets/css/slick.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/style.css",
+      "PackagePath": "staticwebassets/css/style.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/FontAwesome.otf",
+      "PackagePath": "staticwebassets/fonts/FontAwesome.otf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/IcoMoon-Free.ttf",
+      "PackagePath": "staticwebassets/fonts/IcoMoon-Free.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-Black.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-Black.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-BlackItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-BlackItalic.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-Bold.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-Bold.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-BoldItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-BoldItalic.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-ExtraBold.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-ExtraBold.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-ExtraBoldItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-ExtraBoldItalic.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-ExtraLight.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-ExtraLight.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-ExtraLightItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-ExtraLightItalic.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-Italic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-Italic.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-Light.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-Light.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-LightItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-LightItalic.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-Medium.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-Medium.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-MediumItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-MediumItalic.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-Regular.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-Regular.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-SemiBold.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-SemiBold.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-SemiBoldItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-SemiBoldItalic.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-Thin.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-Thin.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/Poppins-ThinItalic.ttf",
+      "PackagePath": "staticwebassets/fonts/Poppins-ThinItalic.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/cochin.woff",
+      "PackagePath": "staticwebassets/fonts/cochin.woff"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/cochin.woff2",
+      "PackagePath": "staticwebassets/fonts/cochin.woff2"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/cochinbold_italic.ttf",
+      "PackagePath": "staticwebassets/fonts/cochinbold_italic.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/cochinbold_italic.woff",
+      "PackagePath": "staticwebassets/fonts/cochinbold_italic.woff"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/cochinbold_italic.woff2",
+      "PackagePath": "staticwebassets/fonts/cochinbold_italic.woff2"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets/fonts/fontawesome-webfont.eot"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets/fonts/fontawesome-webfont.svg"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/fontawesome-webfont.ttf",
+      "PackagePath": "staticwebassets/fonts/fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets/fonts/fontawesome-webfont.woff"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/fonts/fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets/fonts/fontawesome-webfont.woff2"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/.DS_Store",
+      "PackagePath": "staticwebassets/images/.DS_Store"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/about_img.png",
+      "PackagePath": "staticwebassets/images/about_img.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/about_right_cross.jpg",
+      "PackagePath": "staticwebassets/images/about_right_cross.jpg"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/banner_img.png",
+      "PackagePath": "staticwebassets/images/banner_img.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/glass1.png",
+      "PackagePath": "staticwebassets/images/glass1.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/glass2.png",
+      "PackagePath": "staticwebassets/images/glass2.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/glass3.png",
+      "PackagePath": "staticwebassets/images/glass3.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/glass4.png",
+      "PackagePath": "staticwebassets/images/glass4.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/glass5.png",
+      "PackagePath": "staticwebassets/images/glass5.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/glass6.png",
+      "PackagePath": "staticwebassets/images/glass6.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/glass7.png",
+      "PackagePath": "staticwebassets/images/glass7.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/glass8.png",
+      "PackagePath": "staticwebassets/images/glass8.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/loading.gif",
+      "PackagePath": "staticwebassets/images/loading.gif"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/logo.png",
+      "PackagePath": "staticwebassets/images/logo.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/logo1.png",
+      "PackagePath": "staticwebassets/images/logo1.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/menu_icon.png",
+      "PackagePath": "staticwebassets/images/menu_icon.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/our.png",
+      "PackagePath": "staticwebassets/images/our.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/shop_img.png",
+      "PackagePath": "staticwebassets/images/shop_img.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/.DS_Store",
+      "PackagePath": "staticwebassets/js/.DS_Store"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/bootstrap.js",
+      "PackagePath": "staticwebassets/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/custom.js",
+      "PackagePath": "staticwebassets/js/custom.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/jquery-3.0.0.min.js",
+      "PackagePath": "staticwebassets/js/jquery-3.0.0.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/jquery.mCustomScrollbar.concat.min.js",
+      "PackagePath": "staticwebassets/js/jquery.mCustomScrollbar.concat.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/jquery.min.js",
+      "PackagePath": "staticwebassets/js/jquery.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/jquery.validate.js",
+      "PackagePath": "staticwebassets/js/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/modernizer.js",
+      "PackagePath": "staticwebassets/js/modernizer.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/plugin.js",
+      "PackagePath": "staticwebassets/js/plugin.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/popper.min.js",
+      "PackagePath": "staticwebassets/js/popper.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/.DS_Store",
+      "PackagePath": "staticwebassets/js/revolution/.DS_Store"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/assets/coloredbg.png",
+      "PackagePath": "staticwebassets/js/revolution/assets/coloredbg.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/assets/gridtile.png",
+      "PackagePath": "staticwebassets/js/revolution/assets/gridtile.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/assets/gridtile_3x3.png",
+      "PackagePath": "staticwebassets/js/revolution/assets/gridtile_3x3.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/assets/gridtile_3x3_white.png",
+      "PackagePath": "staticwebassets/js/revolution/assets/gridtile_3x3_white.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/assets/gridtile_white.png",
+      "PackagePath": "staticwebassets/js/revolution/assets/gridtile_white.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/assets/loader.gif",
+      "PackagePath": "staticwebassets/js/revolution/assets/loader.gif"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/css/closedhand.html",
+      "PackagePath": "staticwebassets/js/revolution/css/closedhand.html"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/css/layers.css",
+      "PackagePath": "staticwebassets/js/revolution/css/layers.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/css/navigation.css",
+      "PackagePath": "staticwebassets/js/revolution/css/navigation.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/css/openhand.html",
+      "PackagePath": "staticwebassets/js/revolution/css/openhand.html"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/css/settings.css",
+      "PackagePath": "staticwebassets/js/revolution/css/settings.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css",
+      "PackagePath": "staticwebassets/js/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.eot",
+      "PackagePath": "staticwebassets/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.eot"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.svg",
+      "PackagePath": "staticwebassets/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.svg"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.ttf",
+      "PackagePath": "staticwebassets/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.woff",
+      "PackagePath": "staticwebassets/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.woff"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroked41d.eot",
+      "PackagePath": "staticwebassets/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroked41d.eot"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/fonts/revicons/revicons90c6.eot",
+      "PackagePath": "staticwebassets/js/revolution/fonts/revicons/revicons90c6.eot"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/fonts/revicons/revicons90c6.svg",
+      "PackagePath": "staticwebassets/js/revolution/fonts/revicons/revicons90c6.svg"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/fonts/revicons/revicons90c6.ttf",
+      "PackagePath": "staticwebassets/js/revolution/fonts/revicons/revicons90c6.ttf"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/fonts/revicons/revicons90c6.woff",
+      "PackagePath": "staticwebassets/js/revolution/fonts/revicons/revicons90c6.woff"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/.DS_Store",
+      "PackagePath": "staticwebassets/js/revolution/js/.DS_Store"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/extensions/revolution.extension.actions.min.js",
+      "PackagePath": "staticwebassets/js/revolution/js/extensions/revolution.extension.actions.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/extensions/revolution.extension.carousel.min.js",
+      "PackagePath": "staticwebassets/js/revolution/js/extensions/revolution.extension.carousel.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/extensions/revolution.extension.kenburn.min.js",
+      "PackagePath": "staticwebassets/js/revolution/js/extensions/revolution.extension.kenburn.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/extensions/revolution.extension.layeranimation.min.js",
+      "PackagePath": "staticwebassets/js/revolution/js/extensions/revolution.extension.layeranimation.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/extensions/revolution.extension.migration.min.js",
+      "PackagePath": "staticwebassets/js/revolution/js/extensions/revolution.extension.migration.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/extensions/revolution.extension.navigation.min.js",
+      "PackagePath": "staticwebassets/js/revolution/js/extensions/revolution.extension.navigation.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/extensions/revolution.extension.parallax.min.js",
+      "PackagePath": "staticwebassets/js/revolution/js/extensions/revolution.extension.parallax.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/extensions/revolution.extension.slideanims.min.js",
+      "PackagePath": "staticwebassets/js/revolution/js/extensions/revolution.extension.slideanims.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/extensions/revolution.extension.video.min.js",
+      "PackagePath": "staticwebassets/js/revolution/js/extensions/revolution.extension.video.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/jquery.themepunch.revolution.min.js",
+      "PackagePath": "staticwebassets/js/revolution/js/jquery.themepunch.revolution.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/jquery.themepunch.tools.min.js",
+      "PackagePath": "staticwebassets/js/revolution/js/jquery.themepunch.tools.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/slider-setting.js",
+      "PackagePath": "staticwebassets/js/slider-setting.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "obj/Release/net6.0/staticwebassets/msbuild.build.do_an.props",
+      "PackagePath": "build\\do_an.props"
+    },
+    {
+      "Id": "obj/Release/net6.0/staticwebassets/msbuild.buildMultiTargeting.do_an.props",
+      "PackagePath": "buildMultiTargeting\\do_an.props"
+    },
+    {
+      "Id": "obj/Release/net6.0/staticwebassets/msbuild.buildTransitive.do_an.props",
+      "PackagePath": "buildTransitive\\do_an.props"
+    },
+    {
+      "Id": "obj/Release/net6.0/staticwebassets/msbuild.do_an.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
