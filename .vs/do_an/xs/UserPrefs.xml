@@ -1,18 +1,122 @@
 ﻿<Properties StartupConfiguration="{25F43D0C-DE9A-4EAB-A2C6-306D1D05A0A0}|Default">
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Shop/Index.cshtml">
+    <Files>
+      <File FileName="Areas/Admin/Pages/Users/_StatusMessage.cshtml" />
+      <File FileName="Areas/Admin/Pages/Users/_ViewImports.cshtml" />
+      <File FileName="Views/_ViewStart.cshtml" Line="4" Column="1" />
+      <File FileName="Views/_ViewImports.cshtml" Line="1" Column="1" />
+      <File FileName="Areas/Admin/Pages/Role/_ViewImports.cshtml" />
+      <File FileName="Areas/Admin/Pages/Role/_StatusMessage.cshtml" />
+      <File FileName="Areas/Admin/Pages/Users/AddRole.cshtml" />
+      <File FileName="Areas/Admin/Pages/Users/AddRole.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Users/EditUserRoleClaim.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/SetPassword.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/Email.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/Index.cshtml" />
+      <File FileName="Areas/Admin/Pages/Users/Index.cshtml" />
+      <File FileName="Areas/Admin/Pages/Role/Index.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/ManageNavPages.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/PersonalData.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml" />
+      <File FileName="Models/ApplicationDbContext.cs" Line="16" Column="28" />
+      <File FileName="Views/Shared/_PagingXTL.cshtml" Line="1" Column="1" />
+      <File FileName="Helpers/PagingModel.cs" />
+      <File FileName="Program.cs" Line="122" Column="28" />
+      <File FileName="Areas/Admin/Pages/Role/Edit.cshtml" />
+      <File FileName="Areas/Admin/Pages/Role/Index.cshtml.cs" />
+      <File FileName="Areas/Identity/Pages/Account/AccessDenied.cshtml" />
+      <File FileName="Areas/Identity/Pages/_ViewImports.cshtml" />
+      <File FileName="Areas/Admin/Pages/Users/Index.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Users/SetPassword.cshtml" />
+      <File FileName="Areas/Admin/Pages/Users/SetPassword.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Role/AddRoleClaim.cshtml.cs" />
+      <File FileName="libman.json" />
+      <File FileName="Areas/Admin/Pages/Role/_ViewStart.cshtml" />
+      <File FileName="Areas/Identity/Pages/_ViewStart.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/_Layout.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/_StatusMessage.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/_ViewImports.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ConfirmEmail.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ExternalLogin.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ForgotPassword.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Lockout.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Login.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Logout.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/RegisterConfirmation.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Register.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ResetPassword.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml" />
+      <File FileName="Areas/Identity/Pages/_ValidationScriptsPartial.cshtml" />
+      <File FileName="Areas/Admin/Pages/Role/EditRoleClaim.cshtml" />
+      <File FileName="Areas/Admin/Pages/Role/Edit.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Role/AddRoleClaim.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/Index.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Users/EditUserRoleClaim.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Role/EditRoleClaim.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Role/Delete.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/Role/Delete.cshtml" />
+      <File FileName="Areas/Admin/Pages/Role/RolePageModel.cs" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="159" Column="21" />
+      <File FileName="wwwroot/css/style.css" Line="872" Column="4" />
+      <File FileName="Views/Home/Index.cshtml" Line="303" Column="38" />
+      <File FileName="Controllers/SuitableController.cs" Line="12" Column="61" />
+      <File FileName="Controllers/ShopController.cs" Line="1" Column="1" />
+      <File FileName="Views/Contact/Index.cshtml" Line="25" Column="121" />
+      <File FileName="Models/Feedback.cs" Line="1" Column="1" />
+      <File FileName="Models/ErrorViewModel.cs" Line="1" Column="1" />
+      <File FileName="Models/Product.cs" Line="18" Column="1" />
+      <File FileName="Views/Shop/Index.cshtml" Line="282" Column="35" />
+      <File FileName="Views/Shared/_AdminMenu.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Home/Privacy.cshtml" Line="1" Column="1" />
+      <File FileName="Areas/Admin/Pages/Users/_ViewStart.cshtml" Line="4" Column="1" />
+      <File FileName="Views/Suitable/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Shared/Error.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Shared/_ValidationScriptsPartial.cshtml" Line="1" Column="1" />
+      <File FileName="Views/Shared/_LoginPartial.cshtml" Line="1" Column="1" />
+      <File FileName="Views/About/Index.cshtml" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="do_an" expanded="True" selected="True" />
+          <Node name="do_an" expanded="True">
+            <Node name="do_an">
+              <Node name="Areas" expanded="True">
+                <Node name="Admin" expanded="True">
+                  <Node name="Pages" expanded="True">
+                    <Node name="Users" expanded="True" />
+                  </Node>
+                </Node>
+              </Node>
+              <Node name="Models" expanded="True" />
+              <Node name="Views">
+                <Node name="About" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Shared" expanded="True" />
+                <Node name="Shop">
+                  <Node name="Index.cshtml" selected="True" />
+                </Node>
+                <Node name="Suitable" expanded="True" />
+              </Node>
+              <Node name="wwwroot">
+                <Node name="css" expanded="True" />
+                <Node name="images" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.do__an PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.do__an PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
 </Properties>

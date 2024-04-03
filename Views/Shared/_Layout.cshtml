@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>sungla</title>
+    <title>SmartByGlasses</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -24,6 +24,7 @@
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
     <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
     <!-- Phần 'Scripts' -->
@@ -34,24 +35,30 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>*@
 </head>
+
 <!-- body -->
 <body class="main-layout">
+
     <!-- loader  -->
     @*<div class="loader_bg">
            <div class="loader"><img src="/images/loading.gif" alt="#" /></div>
         </div>*@
     <!-- end loader -->
+
     <!-- header -->
     <header>
         <!-- header inner -->
         <div class="header">
             <div class="container-fluid">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                         <div class="full">
                             <div class="center-desk">
-                                <div class="logo">
-                                    <a asp-controller="Home" asp-action="Index"><img src="/images/logo.png" alt="#" /></a>
+                                @*<div class="logo">*@
+                                <div>
+                                    <a asp-controller="Home" asp-action="Index">
+                                        <img src="/images/logo-t.png" alt="logo" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -66,14 +73,14 @@
                                     <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Home") ? "login_btn" : "")">
                                         <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                                     </li>
+                                    <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Product") ? "login_btn" : "")">
+                                        <a class="nav-link" asp-controller="Product" asp-action="Index">Shop</a>
+                                    </li>
                                     <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("About") ? "login_btn" : "")">
                                         <a class="nav-link" asp-controller="About" asp-action="Index">About</a>
                                     </li>
-                                    <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Glasses") ? "login_btn" : "")">
-                                        <a class="nav-link" asp-controller="Glasses" asp-action="Index">Glasses</a>
-                                    </li>
-                                    <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Shop") ? "login_btn" : "")">
-                                        <a class="nav-link" asp-controller="Shop" asp-action="Index">Shop</a>
+                                    <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Suitable") ? "login_btn" : "")">
+                                        <a class="nav-link" asp-controller="Suitable" asp-action="Index">Suitable</a>
                                     </li>
                                     <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Contact") ? "login_btn" : "")">
                                         <a class="nav-link" asp-controller="Contact" asp-action="Index">Contact</a>
@@ -81,16 +88,20 @@
 
                                     <partial name="_LoginPartial" />
 
-                                    @*<li class="nav-item d_none">
-                                        <a class="nav-link" href="#">Login</a>
-                                    </li>
-                                    <li class="nav-item d_none">
-                                        <a class="nav-link" href="#">Register</a>
-                                    </li>*@
-                                    <li class="nav-item d_none sea_icon">
-                                        <a class="nav-link" href="#">
+                                    <li class="nav-item sea_icon">
+                                        <button class="nav-link bg-none" id="searchLink">
                                             <i class="fa fa-search" aria-hidden="true"></i>
-                                        </a>
+                                        </button>
+                                        <button class="nav-link bg-none" id="closeLink" style="display: none;">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
+                                        <form class="search-box" id="searchBox" asp-controller="Product" asp-action="Index">
+                                            <input name="searchString" type="text" id="searchInput" placeholder="Search...">
+                                            <span class="search-separator"></span>
+                                            <button class="search-icon" id="searchIcon" type="submit">
+                                                <i class="icon-search-link bg-none fa fa-search"></i>
+                                            </button>
+                                        </form>
                                     </li>
                                 </ul>
                             </div>
@@ -99,12 +110,14 @@
                 </div>
             </div>
         </div>
+        <!-- end header inner -->
     </header>
-    <!-- end header inner -->
     <!-- end header -->
+    <!-- render -->
     <div class="render">
         @RenderBody()
     </div>
+    <!-- end render -->
     <!--  footer -->
     <footer>
         <div class="footer">
@@ -120,14 +133,14 @@
                 </div>
             </div>
             @*<div class="copyright">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p>© 2019 All Rights Reserved. Design by<a href="https://html.design/"> Free Html Templates</a></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>*@
+                </div>*@
         </div>
     </footer>
     <!-- end footer -->
@@ -154,9 +167,43 @@
                 icon: image
             });
         }</script>*@
+
     <!-- google map js -->
     <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>-->
     <!-- end google map js -->
+    <script>
+        $(document).ready(function () {
+            $("#searchLink").click(function (e) {
+                e.preventDefault();
+                $("#searchBox").fadeToggle(); // Hiển thị ô tìm kiếm
+                $("#searchLink").hide(); // Ẩn lại SearchIcon
+                $("#closeLink").show(); // Hiển thị CloseIcon
+                $("#searchInput").focus(); // Trỏ chuột vào input
+            });
+
+            $("#closeLink").click(function () {
+                $("#searchBox").fadeOut(); // Đóng ô tìm kiếm
+                $("#closeLink").hide(); // Ẩn nút close
+                $("#searchLink").show(); // Hiển thị nút search
+            });
+
+            $(document).click(function (e) {
+                // Nếu click ra ngoài ô tìm kiếm, đóng ô tìm kiếm đi
+                if (!$(e.target).closest('#searchBox').length && !$(e.target).closest('#searchLink').length) {
+                    $("#searchBox").fadeOut();
+                    $("#searchLink").show(); // Hiển thị lại SearchIcon khi đóng ô tìm kiếm
+                    $("#closeLink").hide(); // Ẩn CloseIcon khi đóng ô tìm kiếm
+                }
+            });
+
+            //$("#searchIcon").click(function () {
+            //    //e.stopPropagation(); // Ngăn chặn sự kiện click lan rộng đến phần tử cha
+            //    var searchText = $("#searchBox input").val(); // Lấy nội dung tìm kiếm từ ô input
+            //    console.log("Đang tìm kiếm: " + searchText); // In ra nội dung tìm kiếm để kiểm tra
+            //    // Thực hiện chức năng tìm kiếm dữ liệu ở đây
+            //});
+        });
+    </script>
 </body>
 </html>
 

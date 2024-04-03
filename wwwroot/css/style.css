@@ -317,6 +317,10 @@ button {
      padding-top: 14px;
 }
 
+.logo-s{
+    margin-top: -15px;
+}
+
 
 /** banner section **/
 
@@ -366,7 +370,7 @@ button {
      font-size: 30px;
      color: #131215;
      border-radius: 60px;
-     top: 43%;
+     top: 60%;
 }
 
 #banner1 .carousel-control-prev:hover,
@@ -487,7 +491,7 @@ button {
 
 .glasses {
      background: #fff;
-     padding-top: 150px;
+     padding: 150px 0 90px 0;
 }
 
 .glasses .titlepage {
@@ -548,10 +552,14 @@ button {
 /** Our shop section **/
 
 .shop {
-     padding-top: 150px;
-     background: #fefdf9;
+/*     padding-top: 200px;*/
+/*     background: #fefdf9;*/
      border-top: #f2f1ed solid 1px;
-     border-bottom: #f2f1ed solid 1px;
+/*     border-bottom: #f2f1ed solid 1px;*/
+}
+
+.home-shop {
+    padding-top: 200px;
 }
 
 .shop .shop_img figure {
@@ -686,8 +694,12 @@ button {
 
 /** contact section **/
 
+.home-contact {
+    padding-top: 150px;
+}
+
 .contact {
-     padding-top: 150px;
+/*     padding-top: 150px;*/
 }
 
 .contact .main_form h3 {
@@ -706,11 +718,14 @@ button {
 }
 
 .main_form {
-     position: absolute;
-     z-index: 999;
+/*     position: absolute;
+     z-index: 999;*/
      background: #fff;
      padding: 40px 50px;
-     margin-top: 107px;
+     border-radius: 10px;
+     border: solid 2px #000;
+     margin-bottom: 90px;
+/*     margin-top: 107px;*/
 }
 
 .main_form .contactus {
@@ -840,3 +855,112 @@ ul.location_icon li a {
 
 /*-------------------*/
 
+.carousel-image {
+    /*width: 100%;*/ /* Đảm bảo rằng ảnh chiếm toàn bộ chiều rộng của container */
+    width: 400px;
+    max-height: 400px; /* Đặt chiều cao tối đa cho ảnh */
+    object-fit: cover; /* Đảm bảo rằng ảnh sẽ hiển thị đầy đủ trong khung */
+}
+
+.icon-hover:hover {
+    border-color: #3b71ca !important;
+    background-color: white !important;
+}
+
+.icon-hover:hover i {
+    color: #3b71ca !important;
+}
+
+.slider-bar {
+    padding: 20px;
+}
+
+/*.accordion-header {
+    background-color: #fff;
+}*/
+
+.card-conten-shop {
+    position: absolute;
+}
+
+.border-select {
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,.125);
+}
+
+/* search */
+.search-box {
+    position: absolute;
+    padding: 0 20px;
+    top: 103%;
+    right: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: none;
+}
+
+.search-box input[type="text"] {
+    width: calc(100% - 30px);
+    border: none;
+    padding: 8px;
+    outline: none;
+}
+
+.search-box input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+.search-box i {
+    position: absolute;
+    padding: 0 20px;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.search-separator {
+    position: absolute;
+    top: 50%;
+    right: 64px; /* Chỉnh sửa giá trị tùy theo kích thước mong muốn */
+    height: 20px;
+    width: 1px;
+    background-color: #ccc; /* Màu của nét dọc */
+    transform: translateY(-50%);
+}
+
+.bg-none {
+    background: none;
+}
+
+.icon-search-link {
+    padding: 0 20px;
+    color: #070404;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.icon-search-link:hover {
+    color: #03cafc;
+}
+/*end-search*/
+
+/*detail-product*/
+
+.detail-product{
+    padding-top: 150px;
+}
+
+.icon-hover:hover {
+    border-color: #3b71ca !important;
+    background-color: white !important;
+    color: #3b71ca !important;
+}
+
+.icon-hover:hover i {
+    color: #3b71ca !important;
+}
