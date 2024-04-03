@@ -10,14 +10,33 @@
             <li data-target="#banner1" data-slide-to="1"></li>
             <li data-target="#banner1" data-slide-to="2"></li>
         </ol>
+
+        <div class="container">
+            <div class="carousel-caption">
+                <div class="text-bg">
+                    <h1> <span class="blu">Welcome <br></span>To Our SmartByGlasses</h1>
+                </div>
+            </div>
+        </div>
+
         <div class="carousel-inner">
+
+            @*<div class="carousel-item">*@
+            @*<div class="container">
+                <div class="carousel-caption">
+                    <div class="text-bg">
+                        <h1> <span class="blu">Welcome <br></span>To Our SmartByGlasses</h1>
+                    </div>
+                </div>
+            </div>*@
+            @*</div>*@
+
             <div class="carousel-item active">
                 <div class="container">
                     <div class="carousel-caption">
                         <div class="text-bg">
-                            <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
-                            <figure><img src="images/banner_img.png" alt="#" /></figure>
-                            <a class="read_more" href="#">Shop Now</a>
+                            <figure><img class="carousel-image" src="images/banner-1.jpeg" alt="banner-1" /></figure>
+                            @*<a class="read_more" href="#">Shop Now</a>*@
                         </div>
                     </div>
                 </div>
@@ -26,9 +45,9 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <div class="text-bg">
-                            <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
-                            <figure><img src="images/banner_img.png" alt="#" /></figure>
-                            <a class="read_more" href="#">Shop Now</a>
+                            @*<h1> <span class="blu">Welcome <br></span>To Our SmartByGlasses</h1>*@
+                            <figure><img class="carousel-image" src="images/banner-2.jpeg" alt="banner-2" /></figure>
+                            @*<a class="read_more" href="#">Shop Now</a>*@
                         </div>
                     </div>
                 </div>
@@ -37,9 +56,9 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <div class="text-bg">
-                            <h1> <span class="blu">Welcome <br></span>To Our Sunglasses</h1>
-                            <figure><img src="images/banner_img.png" alt="#" /></figure>
-                            <a class="read_more" href="#">Shop Now</a>
+                            @*<h1> <span class="blu">Welcome <br></span>To Our SmartByGlasses</h1>*@
+                            <figure><img class="carousel-image" src="images/banner-3.jpeg" alt="banner-3" /></figure>
+                            @*<a class="read_more" href="#">Shop Now</a>*@
                         </div>
                     </div>
                 </div>
@@ -53,8 +72,8 @@
         </a>
     </div>
 </section>
-
 <!-- end banner -->
+
 <!-- about section -->
 <div class="about">
     <div class="container">
@@ -69,14 +88,14 @@
                     <h2>About Our Shop</h2>
                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
                 </div>
-                <a class="read_more" href="#">Read More</a>
+                <a class="read_more" asp-controller="About" asp-action="Index">Read More</a>
             </div>
         </div>
     </div>
 </div>
+<!-- end about section -->
 
-<!-- about section -->
-<!-- Our  Glasses section -->
+<!-- Our Shop section -->
 <div class="glasses">
     <div class="container">
         <div class="row">
@@ -150,13 +169,14 @@
                 </div>
             </div>
             <div class="col-md-12">
-                <a class="read_more" href="#">Read More</a>
+                <a class="read_more" asp-controller="Shop" asp-action="Index">See More</a>
             </div>
         </div>
     </div>
 </div>
-<!-- end Our  Glasses section -->
-<!-- Our shop section -->
+<!-- end Our Shop section -->
+
+<!-- Suitable section -->
 <div id="about" class="shop">
     <div class="container-fluid">
         <div class="row">
@@ -170,92 +190,96 @@
                     <div class="titlepage">
                         <h2>Best SunGlasses  At Our shop</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-                        <a class="read_more" href="#">Shop Now</a>
+                        <a class="read_more" asp-controller="Suitable" asp-action="Index">See More</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- end Our shop section -->
+<!-- end Suitable section -->
+
 <!-- clients section -->
-<div class="clients">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="titlepage">
-                    <h2>What say our clients</h2>
-                    <p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la</p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div id="myCarousel" class="carousel slide clients_Carousel " data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="container">
-                                <div class="carousel-caption ">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="clients_box">
-                                                <figure><img src="images/our.png" alt="#" /></figure>
-                                                <h3>Sandy Mark</h3>
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="clients_box">
-                                                <figure><img src="images/our.png" alt="#" /></figure>
-                                                <h3>Sandy Mark</h3>
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="container">
-                                <div class="carousel-caption">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="clients_box">
-                                                <figure><img src="images/our.png" alt="#" /></figure>
-                                                <h3>Sandy Mark</h3>
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<div>
+    @*<div class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>What say our clients</h2>
+                        <p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la</p>
                     </div>
-                    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                        <i class='fa fa-angle-left'></i>
-                    </a>
-                    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                        <i class='fa fa-angle-right'></i>
-                    </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="myCarousel" class="carousel slide clients_Carousel " data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="container">
+                                    <div class="carousel-caption ">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="clients_box">
+                                                    <figure><img src="images/our.png" alt="#" /></figure>
+                                                    <h3>Sandy Mark</h3>
+                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="clients_box">
+                                                    <figure><img src="images/our.png" alt="#" /></figure>
+                                                    <h3>Sandy Mark</h3>
+                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="container">
+                                    <div class="carousel-caption">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="clients_box">
+                                                    <figure><img src="images/our.png" alt="#" /></figure>
+                                                    <h3>Sandy Mark</h3>
+                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                            <i class='fa fa-angle-left'></i>
+                        </a>
+                        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                            <i class='fa fa-angle-right'></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 </div>
 <!-- end clients section -->
+
 <!-- contact section -->
 <div id="contact" class="contact">
     <div class="container">
@@ -276,7 +300,7 @@
                             <input class="contactus" placeholder="Email" type="type" name="Email">
                         </div>
                         <div class="col-md-12">
-                            <input class="contactusmess" placeholder="Message" type="type" Message="Name">
+                            <textarea class="contactusmess" placeholder="Message" type="type" Message="Name"></textarea>
                         </div>
                         <div class="col-md-12">
                             <button class="send_btn">Send</button>
@@ -286,11 +310,11 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    @*<div class="container-fluid">
         <div class="map_section">
             <div id="map">
             </div>
         </div>
-    </div>
+    </div>*@
 </div>
 <!-- end contact section -->

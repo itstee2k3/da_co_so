@@ -27,20 +27,26 @@
 
   <ItemGroup>
     <None Remove="Views\About\" />
-    <None Remove="Views\Shop\" />
     <None Remove="Areas\Admin\" />
-    <None Remove="Views\Glasses\" />
     <None Remove="Views\Contact\" />
     <None Remove="Areas\Admin\Pages\" />
     <None Remove="Areas\Admin\Pages\Role\" />
+    <None Remove="Views\Suitable\" />
+    <None Remove="Views\Product\" />
+    <None Remove="Models\Category\" />
+    <None Remove="Models\ICategory\" />
+    <None Remove="Models\EFCategory\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\About\" />
-    <Folder Include="Views\Shop\" />
     <Folder Include="Areas\Admin\" />
-    <Folder Include="Views\Glasses\" />
     <Folder Include="Views\Contact\" />
     <Folder Include="Areas\Admin\Pages\" />
     <Folder Include="Areas\Admin\Pages\Role\" />
+    <Folder Include="Views\Suitable\" />
+    <Folder Include="Views\Product\" />
+    <Folder Include="Models\Category\" />
+    <Folder Include="Models\ICategory\" />
+    <Folder Include="Models\EFCategory\" />
   </ItemGroup>
 </Project>

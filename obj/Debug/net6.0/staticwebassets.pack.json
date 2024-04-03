@@ -5,14 +5,6 @@
       "PackagePath": "staticwebassets/do_an.bundle.scp.css"
     },
     {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/.DS_Store",
-      "PackagePath": "staticwebassets/.DS_Store"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/.DS_Store",
-      "PackagePath": "staticwebassets/css/.DS_Store"
-    },
-    {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/css/animate.min.css",
       "PackagePath": "staticwebassets/css/animate.min.css"
     },
@@ -241,16 +233,24 @@
       "PackagePath": "staticwebassets/fonts/fontawesome-webfont.woff2"
     },
     {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/.DS_Store",
-      "PackagePath": "staticwebassets/images/.DS_Store"
-    },
-    {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/about_img.png",
       "PackagePath": "staticwebassets/images/about_img.png"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/about_right_cross.jpg",
       "PackagePath": "staticwebassets/images/about_right_cross.jpg"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/banner-1.jpeg",
+      "PackagePath": "staticwebassets/images/banner-1.jpeg"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/banner-2.jpeg",
+      "PackagePath": "staticwebassets/images/banner-2.jpeg"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/banner-3.jpeg",
+      "PackagePath": "staticwebassets/images/banner-3.jpeg"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/banner_img.png",
@@ -289,8 +289,20 @@
       "PackagePath": "staticwebassets/images/glass8.png"
     },
     {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/glass_1.webp",
+      "PackagePath": "staticwebassets/images/glass_1.webp"
+    },
+    {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/loading.gif",
       "PackagePath": "staticwebassets/images/loading.gif"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/logo-s.png",
+      "PackagePath": "staticwebassets/images/logo-s.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/logo-t.png",
+      "PackagePath": "staticwebassets/images/logo-t.png"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/logo.png",
@@ -311,10 +323,6 @@
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/images/shop_img.png",
       "PackagePath": "staticwebassets/images/shop_img.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/.DS_Store",
-      "PackagePath": "staticwebassets/js/.DS_Store"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/bootstrap.bundle.js",
@@ -379,10 +387,6 @@
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/popper.min.js",
       "PackagePath": "staticwebassets/js/popper.min.js"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/.DS_Store",
-      "PackagePath": "staticwebassets/js/revolution/.DS_Store"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/assets/coloredbg.png",
@@ -467,10 +471,6 @@
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/fonts/revicons/revicons90c6.woff",
       "PackagePath": "staticwebassets/js/revolution/fonts/revicons/revicons90c6.woff"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/.DS_Store",
-      "PackagePath": "staticwebassets/js/revolution/js/.DS_Store"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/wwwroot/js/revolution/js/extensions/revolution.extension.actions.min.js",

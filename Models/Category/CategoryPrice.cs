@@ -5,7 +5,7 @@ using do_an_ltweb.Models;
 
 namespace do_an_ltweb.Models;
 
-public partial class Category
+public partial class CategoryPrice
 {
     [Key]
     public int IdCategory { get; set; }
@@ -18,6 +18,10 @@ public partial class Category
     //public string Link { get; set; }
 
     public int? Hide { get; set; }
+
+    public int? PriceMin { get; set; }
+
+    public int? PriceMax { get; set; }
 
     public List<Product>? Products { get; set; }
 }

@@ -860,5 +860,6 @@ D:/do_an_ltweb/do_an/do_an/bin/Debug/net6.0/runtimes/win-x86/native/e_sqlite3.dl
 /Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/obj/Debug/net6.0/do_an.pdb
 /Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/obj/Debug/net6.0/do_an.genruntimeconfig.cache
 /Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/obj/Debug/net6.0/ref/do_an.dll
-/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/obj/Debug/net6.0/do_an.csproj.CopyComplete
 /Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/bin/Debug/net6.0/libman.json
+/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/obj/Debug/net6.0/do_an.sourcelink.json
+/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/obj/Debug/net6.0/do_an.csproj.Up2Date

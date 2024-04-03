@@ -12,8 +12,8 @@ using do_an_ltweb.Models;
 namespace do_an.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240330180913_m1")]
-    partial class m1
+    [Migration("20240403051425_v1")]
+    partial class v1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace do_an.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("do_an_ltweb.Models.Category", b =>
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryBrand", b =>
                 {
                     b.Property<int>("IdCategory")
                         .ValueGeneratedOnAdd()
@@ -42,7 +42,163 @@ namespace do_an.Migrations
 
                     b.HasKey("IdCategory");
 
-                    b.ToTable("Categories");
+                    b.ToTable("CategoryBrands");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryFrameColor", b =>
+                {
+                    b.Property<int>("IdCategory")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCategory"), 1L, 1);
+
+                    b.Property<int?>("Hide")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NameCategory")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("IdCategory");
+
+                    b.ToTable("CategoryFrameColors");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryFrameStyle", b =>
+                {
+                    b.Property<int>("IdCategory")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCategory"), 1L, 1);
+
+                    b.Property<int?>("Hide")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameCategory")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("IdCategory");
+
+                    b.ToTable("CategoryFrameStyles");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryIrisColor", b =>
+                {
+                    b.Property<int>("IdCategory")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCategory"), 1L, 1);
+
+                    b.Property<int?>("Hide")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NameCategory")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("IdCategory");
+
+                    b.ToTable("CategoryIrisColors");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryMaterial", b =>
+                {
+                    b.Property<int>("IdCategory")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCategory"), 1L, 1);
+
+                    b.Property<int?>("Hide")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NameCategory")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("IdCategory");
+
+                    b.ToTable("CategoryMaterials");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryOrigin", b =>
+                {
+                    b.Property<int>("IdCategory")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCategory"), 1L, 1);
+
+                    b.Property<int?>("Hide")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NameCategory")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("IdCategory");
+
+                    b.ToTable("CategoryOrigins");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryPrice", b =>
+                {
+                    b.Property<int>("IdCategory")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCategory"), 1L, 1);
+
+                    b.Property<int?>("Hide")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NameCategory")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int?>("PriceMax")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PriceMin")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdCategory");
+
+                    b.ToTable("CategoryPrices");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategorySex", b =>
+                {
+                    b.Property<int>("IdCategory")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCategory"), 1L, 1);
+
+                    b.Property<int?>("Hide")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NameCategory")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("IdCategory");
+
+                    b.ToTable("CategorySexes");
                 });
 
             modelBuilder.Entity("do_an_ltweb.Models.Feedback", b =>
@@ -57,7 +213,6 @@ namespace do_an.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Hide")
@@ -66,28 +221,23 @@ namespace do_an.Migrations
                     b.Property<int>("IdProduct")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdUser")
-                        .HasColumnType("int");
+                    b.Property<string>("IdUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("ProductIdProduct")
-                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("IdFeedback");
 
-                    b.HasIndex("ProductIdProduct");
+                    b.HasIndex("IdProduct");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("IdUser");
 
                     b.ToTable("Feedbacks");
                 });
@@ -106,15 +256,16 @@ namespace do_an.Migrations
                     b.Property<int?>("Hide")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdUser")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
+                    b.Property<string>("IdUser")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.HasKey("IdOrder");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("IdUser");
 
                     b.ToTable("Orders");
                 });
@@ -127,29 +278,20 @@ namespace do_an.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdOrderDetail"), 1L, 1);
 
-                    b.Property<int?>("Hide")
-                        .HasColumnType("int");
-
                     b.Property<int>("IdOrder")
                         .HasColumnType("int");
 
                     b.Property<int>("IdProduct")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdProductNavigationIdProduct")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrderIdOrder")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("SoldNum")
+                    b.Property<int?>("Nums")
                         .HasColumnType("int");
 
                     b.HasKey("IdOrderDetail");
 
-                    b.HasIndex("IdProductNavigationIdProduct");
+                    b.HasIndex("IdOrder");
 
-                    b.HasIndex("OrderIdOrder");
+                    b.HasIndex("IdProduct");
 
                     b.ToTable("OrderDetails");
                 });
@@ -162,16 +304,34 @@ namespace do_an.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdProduct"), 1L, 1);
 
-                    b.Property<int>("CategoryIdCategory")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Hide")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategory")
+                    b.Property<int>("IdCategoryBrand")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCategoryFrameColor")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCategoryFrameStyle")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCategoryIrisColor")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCategoryMaterial")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCategoryOrigin")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCategoryPrice")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCategorySex")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
@@ -182,15 +342,32 @@ namespace do_an.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int?>("Nums")
+                    b.Property<int>("Nums")
                         .HasColumnType("int");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Size")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdProduct");
 
-                    b.HasIndex("CategoryIdCategory");
+                    b.HasIndex("IdCategoryBrand");
+
+                    b.HasIndex("IdCategoryFrameColor");
+
+                    b.HasIndex("IdCategoryFrameStyle");
+
+                    b.HasIndex("IdCategoryIrisColor");
+
+                    b.HasIndex("IdCategoryMaterial");
+
+                    b.HasIndex("IdCategoryOrigin");
+
+                    b.HasIndex("IdCategoryPrice");
+
+                    b.HasIndex("IdCategorySex");
 
                     b.ToTable("Products");
                 });
@@ -203,7 +380,7 @@ namespace do_an.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("ProductId")
+                    b.Property<int>("IdProduct")
                         .HasColumnType("int");
 
                     b.Property<string>("Url")
@@ -211,7 +388,7 @@ namespace do_an.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("IdProduct");
 
                     b.ToTable("ProductImages");
                 });
@@ -425,13 +602,15 @@ namespace do_an.Migrations
                 {
                     b.HasOne("do_an_ltweb.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductIdProduct")
+                        .HasForeignKey("IdProduct")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("do_an_ltweb.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("IdUser")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Product");
 
@@ -442,46 +621,104 @@ namespace do_an.Migrations
                 {
                     b.HasOne("do_an_ltweb.Models.User", "User")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("IdUser")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("do_an_ltweb.Models.OrderDetail", b =>
                 {
-                    b.HasOne("do_an_ltweb.Models.Product", "IdProductNavigation")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("IdProductNavigationIdProduct")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("do_an_ltweb.Models.Order", "Order")
                         .WithMany("OrderDetails")
-                        .HasForeignKey("OrderIdOrder")
+                        .HasForeignKey("IdOrder")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("IdProductNavigation");
+                    b.HasOne("do_an_ltweb.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("IdProduct")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Order");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("do_an_ltweb.Models.Product", b =>
                 {
-                    b.HasOne("do_an_ltweb.Models.Category", "Category")
+                    b.HasOne("do_an_ltweb.Models.CategoryBrand", "CategoryBrand")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryIdCategory")
+                        .HasForeignKey("IdCategoryBrand")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.HasOne("do_an_ltweb.Models.CategoryFrameColor", "CategoryFrameColor")
+                        .WithMany("Products")
+                        .HasForeignKey("IdCategoryFrameColor")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("do_an_ltweb.Models.CategoryFrameStyle", "CategoryFrameStyle")
+                        .WithMany("Products")
+                        .HasForeignKey("IdCategoryFrameStyle")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("do_an_ltweb.Models.CategoryIrisColor", "CategoryIrisColor")
+                        .WithMany("Products")
+                        .HasForeignKey("IdCategoryIrisColor")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("do_an_ltweb.Models.CategoryMaterial", "CategoryMaterial")
+                        .WithMany("Products")
+                        .HasForeignKey("IdCategoryMaterial")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("do_an_ltweb.Models.CategoryOrigin", "CategoryOrigin")
+                        .WithMany("Products")
+                        .HasForeignKey("IdCategoryOrigin")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("do_an_ltweb.Models.CategoryPrice", "CategoryPrice")
+                        .WithMany("Products")
+                        .HasForeignKey("IdCategoryPrice")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("do_an_ltweb.Models.CategorySex", "CategorySex")
+                        .WithMany("Products")
+                        .HasForeignKey("IdCategorySex")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CategoryBrand");
+
+                    b.Navigation("CategoryFrameColor");
+
+                    b.Navigation("CategoryFrameStyle");
+
+                    b.Navigation("CategoryIrisColor");
+
+                    b.Navigation("CategoryMaterial");
+
+                    b.Navigation("CategoryOrigin");
+
+                    b.Navigation("CategoryPrice");
+
+                    b.Navigation("CategorySex");
                 });
 
             modelBuilder.Entity("do_an_ltweb.Models.ProductImage", b =>
                 {
                     b.HasOne("do_an_ltweb.Models.Product", "Product")
                         .WithMany("Images")
-                        .HasForeignKey("ProductId")
+                        .HasForeignKey("IdProduct")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -539,7 +776,42 @@ namespace do_an.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("do_an_ltweb.Models.Category", b =>
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryBrand", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryFrameColor", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryFrameStyle", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryIrisColor", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryMaterial", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryOrigin", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategoryPrice", b =>
+                {
+                    b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.CategorySex", b =>
                 {
                     b.Navigation("Products");
                 });
@@ -552,8 +824,6 @@ namespace do_an.Migrations
             modelBuilder.Entity("do_an_ltweb.Models.Product", b =>
                 {
                     b.Navigation("Images");
-
-                    b.Navigation("OrderDetails");
                 });
 #pragma warning restore 612, 618
         }

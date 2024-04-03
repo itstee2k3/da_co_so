@@ -12,6 +12,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IProductRepository, EFProductRepository>();
+builder.Services.AddScoped<ICategoryBrand, EFCategoryBrand>();
+builder.Services.AddScoped<ICategoryFrameColor, EFCategoryFrameColor>();
+builder.Services.AddScoped<ICategoryFrameStyle, EFCategoryFrameStyle>();
+builder.Services.AddScoped<ICategoryIrisColor, EFCategoryIrisColor>();
+builder.Services.AddScoped<ICategoryMaterial, EFCategoryMaterial>();
+builder.Services.AddScoped<ICategoryOrigin, EFCategoryOrigin>();
+builder.Services.AddScoped<ICategoryPrice, EFCategoryPrice>();
+builder.Services.AddScoped<ICategorySex, EFCategorySex>();
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DockerConnection")));
 
@@ -119,6 +129,6 @@ app.MapRazorPages();
 
 app.MapControllerRoute(
 name: "default",
-pattern: "{controller=Home}/{action=Index}/{id?}");
+pattern: "{controller=Product}/{action=Index}/{id?}");
 
 app.Run();

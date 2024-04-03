@@ -10,8 +10,17 @@ namespace do_an_ltweb.Models
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         { }
+
+        public DbSet<CategoryBrand> CategoryBrands { get; set; }
+        public DbSet<CategoryFrameColor> CategoryFrameColors { get; set; }
+        public DbSet<CategoryFrameStyle> CategoryFrameStyles { get; set; }
+        public DbSet<CategoryIrisColor> CategoryIrisColors { get; set; }
+        public DbSet<CategoryMaterial> CategoryMaterials { get; set; }
+        public DbSet<CategoryPrice> CategoryPrices { get; set; }
+        public DbSet<CategorySex> CategorySexes { get; set; }
+        public DbSet<CategoryOrigin> CategoryOrigins { get; set; }
+
         public DbSet<Product> Products { get; set; }
-        public DbSet<Category> Categories { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Order> Orders { get; set; }
