@@ -25,6 +25,7 @@ namespace do_an_ltweb.Models
         public DbSet<User> Users { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
         //public DbSet<Slider> Sliders { get; set; }
         //public DbSet<About> Abouts { get; set; }

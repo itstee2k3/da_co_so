@@ -11,7 +11,7 @@ public partial class OrderDetail
     [Key]
     public int IdOrderDetail { get; set; }
 
-    public int? Nums { get; set; }
+    public int Quantity { get; set; }
 
     [ForeignKey("IdOrder")]
     public Order Order { get; set; }

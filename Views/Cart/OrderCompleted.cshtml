@@ -1,0 +1,10 @@
+﻿@model Order
+@{
+    ViewData["Title"] = "OrderCompleted";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Hoan thanh don hang</h2>
+<p>Don hang voi ID @Model.IdOrder da duoc dat thanh cong</p>
+<div>
+    <a asp-action="Index" asp-controller="Products">Ve trang chu</a>
+</div>

@@ -24,15 +24,15 @@ public partial class CategoryBrand
 
 INSERT INTO [do_an_ltweb].[dbo].[CategoryBrands] ([NameCategory], [Hide])
 VALUES
-    ('EMPORIO ARMANI', 0);
-    ('PRADA', 0);
-    ('BOLON', 0);
-    ('TOMMY HILFIGER', 0);
-    ('VERSACE', 0);
-    ('BURBERRY', 0);
-    ('RAYBAN', 0);
-    ('PUMA', 0);
-    ('FLYER', 0);
+    ('EMPORIO ARMANI', 0),
+    ('PRADA', 0),
+    ('BOLON', 0),
+    ('TOMMY HILFIGER', 0),
+    ('VERSACE', 0),
+    ('BURBERRY', 0),
+    ('RAYBAN', 0),
+    ('PUMA', 0),
+    ('FLYER', 0),
     ('ARMANI EXCHANGE', 0);
 
 

@@ -21,11 +21,11 @@ namespace do_an_ltweb.Models
         public User User { get; set; } // Navigation property
         public string IdUser { get; set; }
 
-        public int Status { get; set; }
+        public int? Status { get; set; }
 
-        public List<OrderDetail>? OrderDetails { get; set; }
+        //public List<OrderDetail>? OrderDetails { get; set; }
 
         // Chi tiết đơn hàng
-        //public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }
 }

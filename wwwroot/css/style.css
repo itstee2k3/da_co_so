@@ -437,7 +437,7 @@ button {
 
 .about {
      border-bottom: #000 solid 1px;
-     padding: 130px 0 90px 0;
+     padding: 150px 0 90px 0;
 }
 
 .about .about_img {
@@ -559,7 +559,7 @@ button {
 }
 
 .home-shop {
-    padding-top: 200px;
+    padding-top: 150px;
 }
 
 .shop .shop_img figure {
@@ -964,3 +964,62 @@ ul.location_icon li a {
 .icon-hover:hover i {
     color: #3b71ca !important;
 }
+/*end-detail-product*/
+
+/*form-check*/
+.form-check-horizontal {
+    display: flex;
+    align-items: center;
+}
+
+.form-check-horizontal .form-check-input {
+    margin-right: 10px; /* Khoảng cách giữa input và hình ảnh */
+}
+
+.form-check-input-fs {
+    position: absolute;
+    margin-left: -1.25rem;
+}
+
+.form-check-img {
+    width: 30px; /* Độ rộng của hình ảnh */
+    height: auto; /* Đảm bảo tỷ lệ khung hình ảnh không bị méo */
+    margin-right: 10px; /* Khoảng cách giữa hình ảnh và label */
+}
+/*end-form-check*/
+
+.btn-main {
+    color: #fff;
+    background-color: #03cafa;
+/*    border-color: #03cafa;*/
+}
+
+.btn-main:hover {
+    background-color: #000 !important;
+    color: #fff;
+}
+
+/* cart */
+.cart{
+    padding-top: 150px;
+}
+
+.icon-hover-primary:hover {
+    border-color: #3b71ca !important;
+    background-color: white !important;
+}
+
+.icon-hover-primary:hover i {
+    color: #3b71ca !important;
+}
+
+.icon-hover-danger:hover {
+    border-color: #dc4c64 !important;
+    background-color: white !important;
+}
+
+.icon-hover-danger:hover i {
+    color: #dc4c64 !important;
+}
+
+/*end cart*/

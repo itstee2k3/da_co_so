@@ -23,6 +23,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
     <PackageReference Include="MimeKit" Version="4.4.0" />
     <PackageReference Include="MailKit" Version="4.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +39,7 @@
     <None Remove="Models\Category\" />
     <None Remove="Models\ICategory\" />
     <None Remove="Models\EFCategory\" />
+    <None Remove="Views\Cart\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\About\" />
@@ -48,5 +52,6 @@
     <Folder Include="Models\Category\" />
     <Folder Include="Models\ICategory\" />
     <Folder Include="Models\EFCategory\" />
+    <Folder Include="Views\Cart\" />
   </ItemGroup>
 </Project>
