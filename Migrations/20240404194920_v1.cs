@@ -178,13 +178,13 @@ namespace do_an.Migrations
                     ImageUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Size = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IdCategoryBrand = table.Column<int>(type: "int", nullable: false),
-                    IdCategoryFrameColor = table.Column<int>(type: "int", nullable: false),
-                    IdCategoryFrameStyle = table.Column<int>(type: "int", nullable: false),
-                    IdCategoryIrisColor = table.Column<int>(type: "int", nullable: false),
-                    IdCategoryMaterial = table.Column<int>(type: "int", nullable: false),
-                    IdCategoryPrice = table.Column<int>(type: "int", nullable: false),
-                    IdCategorySex = table.Column<int>(type: "int", nullable: false),
-                    IdCategoryOrigin = table.Column<int>(type: "int", nullable: false),
+                    IdCategoryFrameColor = table.Column<int>(type: "int", nullable: true),
+                    IdCategoryFrameStyle = table.Column<int>(type: "int", nullable: true),
+                    IdCategoryIrisColor = table.Column<int>(type: "int", nullable: true),
+                    IdCategoryMaterial = table.Column<int>(type: "int", nullable: true),
+                    IdCategoryPrice = table.Column<int>(type: "int", nullable: true),
+                    IdCategorySex = table.Column<int>(type: "int", nullable: true),
+                    IdCategoryOrigin = table.Column<int>(type: "int", nullable: true),
                     Hide = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -200,44 +200,37 @@ namespace do_an.Migrations
                         name: "FK_Products_CategoryFrameColors_IdCategoryFrameColor",
                         column: x => x.IdCategoryFrameColor,
                         principalTable: "CategoryFrameColors",
-                        principalColumn: "IdCategory",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IdCategory");
                     table.ForeignKey(
                         name: "FK_Products_CategoryFrameStyles_IdCategoryFrameStyle",
                         column: x => x.IdCategoryFrameStyle,
                         principalTable: "CategoryFrameStyles",
-                        principalColumn: "IdCategory",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IdCategory");
                     table.ForeignKey(
                         name: "FK_Products_CategoryIrisColors_IdCategoryIrisColor",
                         column: x => x.IdCategoryIrisColor,
                         principalTable: "CategoryIrisColors",
-                        principalColumn: "IdCategory",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IdCategory");
                     table.ForeignKey(
                         name: "FK_Products_CategoryMaterials_IdCategoryMaterial",
                         column: x => x.IdCategoryMaterial,
                         principalTable: "CategoryMaterials",
-                        principalColumn: "IdCategory",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IdCategory");
                     table.ForeignKey(
                         name: "FK_Products_CategoryOrigins_IdCategoryOrigin",
                         column: x => x.IdCategoryOrigin,
                         principalTable: "CategoryOrigins",
-                        principalColumn: "IdCategory",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IdCategory");
                     table.ForeignKey(
                         name: "FK_Products_CategoryPrices_IdCategoryPrice",
                         column: x => x.IdCategoryPrice,
                         principalTable: "CategoryPrices",
-                        principalColumn: "IdCategory",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IdCategory");
                     table.ForeignKey(
                         name: "FK_Products_CategorySexes_IdCategorySex",
                         column: x => x.IdCategorySex,
                         principalTable: "CategorySexes",
-                        principalColumn: "IdCategory",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IdCategory");
                 });
 
             migrationBuilder.CreateTable(
@@ -270,7 +263,7 @@ namespace do_an.Migrations
                     Datebegin = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Hide = table.Column<int>(type: "int", nullable: true),
                     IdUser = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -425,7 +418,7 @@ namespace do_an.Migrations
                 {
                     IdOrderDetail = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nums = table.Column<int>(type: "int", nullable: true),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
                     IdOrder = table.Column<int>(type: "int", nullable: false),
                     IdProduct = table.Column<int>(type: "int", nullable: false)
                 },

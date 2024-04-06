@@ -12,8 +12,8 @@ using do_an_ltweb.Models;
 namespace do_an.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240403051425_v1")]
-    partial class v1
+    [Migration("20240404212122_v3")]
+    partial class v3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -260,7 +260,7 @@ namespace do_an.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Status")
+                    b.Property<int?>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("IdOrder");
@@ -284,7 +284,7 @@ namespace do_an.Migrations
                     b.Property<int>("IdProduct")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Nums")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.HasKey("IdOrderDetail");
@@ -310,28 +310,28 @@ namespace do_an.Migrations
                     b.Property<int?>("Hide")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategoryBrand")
+                    b.Property<int?>("IdCategoryBrand")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategoryFrameColor")
+                    b.Property<int?>("IdCategoryFrameColor")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategoryFrameStyle")
+                    b.Property<int?>("IdCategoryFrameStyle")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategoryIrisColor")
+                    b.Property<int?>("IdCategoryIrisColor")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategoryMaterial")
+                    b.Property<int?>("IdCategoryMaterial")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategoryOrigin")
+                    b.Property<int?>("IdCategoryOrigin")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategoryPrice")
+                    b.Property<int?>("IdCategoryPrice")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdCategorySex")
+                    b.Property<int?>("IdCategorySex")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
@@ -620,7 +620,7 @@ namespace do_an.Migrations
             modelBuilder.Entity("do_an_ltweb.Models.Order", b =>
                 {
                     b.HasOne("do_an_ltweb.Models.User", "User")
-                        .WithMany()
+                        .WithMany("Orders")
                         .HasForeignKey("IdUser")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -651,51 +651,35 @@ namespace do_an.Migrations
                 {
                     b.HasOne("do_an_ltweb.Models.CategoryBrand", "CategoryBrand")
                         .WithMany("Products")
-                        .HasForeignKey("IdCategoryBrand")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdCategoryBrand");
 
                     b.HasOne("do_an_ltweb.Models.CategoryFrameColor", "CategoryFrameColor")
                         .WithMany("Products")
-                        .HasForeignKey("IdCategoryFrameColor")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdCategoryFrameColor");
 
                     b.HasOne("do_an_ltweb.Models.CategoryFrameStyle", "CategoryFrameStyle")
                         .WithMany("Products")
-                        .HasForeignKey("IdCategoryFrameStyle")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdCategoryFrameStyle");
 
                     b.HasOne("do_an_ltweb.Models.CategoryIrisColor", "CategoryIrisColor")
                         .WithMany("Products")
-                        .HasForeignKey("IdCategoryIrisColor")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdCategoryIrisColor");
 
                     b.HasOne("do_an_ltweb.Models.CategoryMaterial", "CategoryMaterial")
                         .WithMany("Products")
-                        .HasForeignKey("IdCategoryMaterial")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdCategoryMaterial");
 
                     b.HasOne("do_an_ltweb.Models.CategoryOrigin", "CategoryOrigin")
                         .WithMany("Products")
-                        .HasForeignKey("IdCategoryOrigin")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdCategoryOrigin");
 
                     b.HasOne("do_an_ltweb.Models.CategoryPrice", "CategoryPrice")
                         .WithMany("Products")
-                        .HasForeignKey("IdCategoryPrice")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdCategoryPrice");
 
                     b.HasOne("do_an_ltweb.Models.CategorySex", "CategorySex")
                         .WithMany("Products")
-                        .HasForeignKey("IdCategorySex")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("IdCategorySex");
 
                     b.Navigation("CategoryBrand");
 
@@ -824,6 +808,11 @@ namespace do_an.Migrations
             modelBuilder.Entity("do_an_ltweb.Models.Product", b =>
                 {
                     b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("do_an_ltweb.Models.User", b =>
+                {
+                    b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618
         }

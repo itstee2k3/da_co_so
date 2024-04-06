@@ -25,7 +25,7 @@ namespace do_an_ltweb.Models
 
         public List<ProductImage>? Images { get; set; }
 
-        [Required, ForeignKey("IdCategoryBrand")]
+        [ForeignKey("IdCategoryBrand")]
         public CategoryBrand? CategoryBrand { get; set; }
         public int? IdCategoryBrand { get; set; }
 
@@ -61,3 +61,13 @@ namespace do_an_ltweb.Models
 
     }
 }
+
+/*
+
+INSERT INTO [do_an_ltweb].[dbo].[Products] ([NameProduct], [Price], [Nums], [Description], [ImageUrl], [Size], [IdCategoryBrand], [IdCategoryFrameColor],
+[IdCategoryFrameStyle], [IdCategoryIrisColor], [IdCategoryMaterial], [IdCategoryPrice], [IdCategorySex], [IdCategoryOrigin], [Hide])
+VALUES
+    ('Kính Mát Nữ PRADA 0PR07YSF 14213055', 10180000, 100, Null, '/images/glass_1.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null),
+    ('Kính Mát Unisex PRADA 0PR06YSF 09Q5S054', 10480000, 990, Null, '/images/glass_2.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null);
+
+*/

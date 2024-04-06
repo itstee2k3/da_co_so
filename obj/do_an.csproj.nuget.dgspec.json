@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/do_an.csproj": {}
+    "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/do_an.csproj": {}
   },
   "projects": {
-    "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/do_an.csproj": {
+    "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/do_an.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/do_an.csproj",
+        "projectUniqueName": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/do_an.csproj",
         "projectName": "do_an",
-        "projectPath": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/do_an.csproj",
+        "projectPath": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/do_an.csproj",
         "packagesPath": "/Users/thang/.nuget/packages/",
-        "outputPath": "/Users/thang/CODE/lap-trinh-web/do-an/do_an_ltweb/do_an/do_an/obj/",
+        "outputPath": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/thang/.nuget/NuGet/NuGet.Config"
@@ -56,6 +56,10 @@
               "target": "Package",
               "version": "[6.0.28, )"
             },
+            "Microsoft.AspNetCore.Session": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -76,6 +80,10 @@
               "target": "Package",
               "version": "[6.0.28, )"
             },
+            "Microsoft.Extensions.Caching.Memory": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
               "version": "[6.0.28, )"
@@ -87,6 +95,10 @@
             "MimeKit": {
               "target": "Package",
               "version": "[4.4.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             }
           },
           "imports": [

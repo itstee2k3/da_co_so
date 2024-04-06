@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Album.Mail;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Session;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using Microsoft.Extensions.Options;
@@ -11,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//builder.Services.AddDistributedMemoryCache();           // Đăng ký dịch vụ lưu cache trong bộ nhớ (Session sẽ sử dụng nó)
+//builder.Services.AddSession(); // Thêm dịch vụ Session
 
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<ICategoryBrand, EFCategoryBrand>();
@@ -42,6 +45,7 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LogoutPath = "/logout/";
     options.AccessDeniedPath = "/cannotaccess.html";
 });
+
 builder.Services.Configure<IdentityOptions>(options => {
     // Thiết lập về Password
     options.Password.RequireDigit = false; // Không bắt phải có số
@@ -117,6 +121,9 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+//app.UseSession(); // Sử dụng session
+
+
 //app.UseEndpoints(endpoints =>
 //{
 //endpoints.MapControllerRoute(
@@ -129,6 +136,6 @@ app.MapRazorPages();
 
 app.MapControllerRoute(
 name: "default",
-pattern: "{controller=Product}/{action=Index}/{id?}");
+pattern: "{controller=Cart}/{action=Index}/{id?}");
 
 app.Run();

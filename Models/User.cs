@@ -34,5 +34,5 @@ public partial class User : IdentityUser
 
     //public virtual ICollection<Feedback> Feedbacks { get; } = new List<Feedback>();
 
-    //public virtual ICollection<Order> Orders { get; } = new List<Order>();
+    public virtual ICollection<Order> Orders { get; } = new List<Order>();
 }
