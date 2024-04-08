@@ -56,3 +56,12 @@ namespace do_an_ltweb.Models
         }
     }
 }
+/*
+
+INSERT INTO Roles (Id, Name, NormalizedName, ConcurrencyStamp)
+VALUES 
+    ('D48447A1-67DD-4D9B-B2B7-7D6E8A4C8E4F', 'admin', 'ADMIN', 'admin-concurrency-stamp'),
+    ('D59013F8-8D3C-4C15-BC8C-BE9B09853ACF', 'staff', 'STAFF', 'staff-concurrency-stamp'),
+    ('F7B9A045-AB81-41FA-90F7-58D26D17E74C', 'vip', 'VIP', 'vip-concurrency-stamp');
+
+*/

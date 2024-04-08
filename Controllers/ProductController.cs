@@ -2,10 +2,12 @@
 using do_an_ltweb.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using XTL.Helpers; // Đây là namespace chứa lớp PagingModel
 
 namespace do_an.Controllers
 {
@@ -16,6 +18,17 @@ namespace do_an.Controllers
         private readonly ICategoryBrand _categoryBrand;
         private readonly ICategoryFrameStyle _categoryFrameStyle;
 
+        IEnumerable<Product> products = null;
+
+        public const int ITEMS_PER_PAGE = 3;
+
+        [BindProperty(SupportsGet = true, Name = "p")]
+        public int currentPage { get; set; }
+
+        public int countPages { get; set; }
+
+        public int totalProducts { get; set; }
+
         public ProductController(ApplicationDbContext context, IProductRepository productRepository, ICategoryBrand categoryBrand, ICategoryFrameStyle categoryFrameStyle)
         {
             _context = context;
@@ -24,14 +37,34 @@ namespace do_an.Controllers
             _categoryFrameStyle = categoryFrameStyle;
         }
 
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> AllProducts()
         {
-            var products = await _productRepository.GetAllAsync();
-            if (!String.IsNullOrEmpty(searchString))
+            products = await _productRepository.GetAllAsync();
+
+            // Tính toán số lượng sản phẩm
+            totalProducts = products.Count(); // Số lượng sản phẩm trên trang hiện tại nếu có tìm kiếm
+            countPages = (int)Math.Ceiling((double)totalProducts / ITEMS_PER_PAGE);
+
+            // Đảm bảo trang hiện tại không vượt quá số trang có sẵn
+            if (countPages > 0)
             {
-                //products = products.Where(n => n.NameProduct.Contains(searchString)).ToList();
-                products = products.Where(n => n.NameProduct.IndexOf(searchString, StringComparison.OrdinalIgnoreCase) != -1).ToList();
+                currentPage = Math.Clamp(currentPage, 1, countPages);
             }
+            else
+            {
+                currentPage = 1;
+            }
+
+            // Lọc danh sách sản phẩm cho trang hiện tại
+            products = products.Skip((currentPage - 1) * ITEMS_PER_PAGE).Take(ITEMS_PER_PAGE).ToList();
+
+            // Tạo instance của PagingModel và đặt các thuộc tính
+            var pagingModel = new PagingModel()
+            {
+                currentpage = currentPage,
+                countpages = countPages
+            };
+
             ViewBag.Products = products;
 
             // Lấy danh sách CategoryBrand và truyền vào view
@@ -41,10 +74,92 @@ namespace do_an.Controllers
             var categoryFrameStyles = await _categoryFrameStyle.GetAllAsync();
             ViewBag.CategoryFrameStyles = categoryFrameStyles;
 
-            return View();
+            return View("Index", pagingModel);
         }
 
-        // Hiển thị thông tin chi tiết sản phẩm
+
+        public async Task<IActionResult> Index(string searchString)
+        {
+            // Lưu giá trị searchString vào session
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                // Lưu giá trị searchString vào session
+                HttpContext.Session.SetString("searchString", searchString);
+            }
+            else
+            {
+                //HttpContext.Session.SetString("searchString", "");
+                //HttpContext.Session.Remove("searchedProducts");
+                HttpContext.Session.Remove("searchString");
+            }
+
+            // Lấy giá trị searchString từ session
+            var searchStringFromSession = HttpContext.Session.GetString("searchString");
+
+            // Kiểm tra nếu searchString không null hoặc rỗng
+            if (!String.IsNullOrEmpty(searchStringFromSession))
+            {
+                // Tìm kiếm sản phẩm và lưu vào session
+                var searchedProducts = await _productRepository.GetAllAsync();
+                searchedProducts = searchedProducts.Where(n => n.NameProduct.IndexOf(searchStringFromSession, StringComparison.OrdinalIgnoreCase) != -1).ToList();
+                HttpContext.Session.SetString("searchedProducts", JsonConvert.SerializeObject(searchedProducts));
+
+                // Reset currentPage về 1 khi có tìm kiếm
+                currentPage = 1;
+                HttpContext.Session.SetInt32("currentPage", currentPage);
+
+                products = searchedProducts;
+            }
+            else
+            {
+                // Lấy danh sách sản phẩm từ session (nếu có)
+                var productsJson = HttpContext.Session.GetString("searchedProducts");
+                if (!String.IsNullOrEmpty(productsJson))
+                {
+                    products = JsonConvert.DeserializeObject<List<Product>>(productsJson);
+                }
+                else
+                {
+                    products = await _productRepository.GetAllAsync();
+                }
+            }
+
+            // Tính toán số lượng sản phẩm
+            totalProducts = products.Count(); // Số lượng sản phẩm trên trang hiện tại nếu có tìm kiếm
+            countPages = (int)Math.Ceiling((double)totalProducts / ITEMS_PER_PAGE);
+
+            // Đảm bảo trang hiện tại không vượt quá số trang có sẵn
+            if (countPages > 0)
+            {
+                currentPage = Math.Clamp(currentPage, 1, countPages);
+            }
+            else
+            {
+                currentPage = 1;
+            }
+
+            // Lọc danh sách sản phẩm cho trang hiện tại
+            products = products.Skip((currentPage - 1) * ITEMS_PER_PAGE).Take(ITEMS_PER_PAGE).ToList();
+
+            // Tạo instance của PagingModel và đặt các thuộc tính
+            var pagingModel = new PagingModel()
+            {
+                currentpage = currentPage,
+                countpages = countPages
+            };
+
+            ViewBag.Products = products;
+
+            // Lấy danh sách CategoryBrand và truyền vào view
+            var categoryBrands = await _categoryBrand.GetAllAsync();
+            ViewBag.CategoryBrands = categoryBrands;
+
+            var categoryFrameStyles = await _categoryFrameStyle.GetAllAsync();
+            ViewBag.CategoryFrameStyles = categoryFrameStyles;
+
+            return View(pagingModel);
+        }
+
         public async Task<IActionResult> Detail(int id)
         {
             var product = await _productRepository.GetByIdAsync(id);
@@ -66,98 +181,5 @@ namespace do_an.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        // Key lưu chuỗi json của Cart
-        //public const string CARTKEY = "cart";
-
-        ///// Thêm sản phẩm vào cart
-        ////[HttpGet("/products/detail/{id}")]
-        //public IActionResult AddToCart( int id, [FromQuery] int quantity)
-        //{
-        //    quantity = 1;
-        //    var product = _context.Products
-        //        .Where(p => p.IdProduct == id)
-        //        .FirstOrDefault();
-        //    if (product == null)
-        //        return NotFound("Không có sản phẩm");
-
-        //    // Xử lý đưa vào Cart ...
-        //    var cart = GetCartItems();
-        //    var cartitem = cart.Find(p => p.Product.IdProduct == id);
-        //    if (cartitem != null)
-        //    {
-        //        // Đã tồn tại, tăng thêm 1
-        //        cartitem.Quantity += quantity;
-        //    }
-        //    else
-        //    {
-        //        //  Thêm mới
-        //        cart.Add(new CartItem() { Quantity = quantity, Product = product });
-        //    }
-
-        //    // Lưu cart vào Session
-        //    SaveCartSession(cart);
-        //    // Chuyển đến trang hiện thị Cart
-        //    return RedirectToAction(nameof(Cart));
-        //}
-
-        ///// xóa item trong cart
-        //public IActionResult RemoveCart([FromRoute] int productId)
-        //{
-
-        //    // Xử lý xóa một mục của Cart ...
-        //    return RedirectToAction(nameof(Cart));
-        //}
-
-        ///// Cập nhật
-        //[HttpPost]
-        //public IActionResult UpdateCart([FromForm] int productid, [FromForm] int quantity)
-        //{
-        //    // Cập nhật Cart thay đổi số lượng quantity ...
-
-        //    return RedirectToAction(nameof(Cart));
-        //}
-
-
-        ////// Hiện thị giỏ hàng
-        ////[Route("/cart", Name = "cart")]
-        //public IActionResult Cart()
-        //{
-        //    return RedirectToAction("Index","Cart");
-        //}
-
-        //[Route("/checkout")]
-        //public IActionResult CheckOut()
-        //{
-        //    // Xử lý khi đặt hàng
-        //    return View();
-        //}
-
-        //// Lấy cart từ Session (danh sách CartItem)
-        //List<CartItem> GetCartItems()
-        //{
-
-        //    var session = HttpContext.Session;
-        //    string jsoncart = session.GetString(CARTKEY);
-        //    if (jsoncart != null)
-        //    {
-        //        return JsonConvert.DeserializeObject<List<CartItem>>(jsoncart);
-        //    }
-        //    return new List<CartItem>();
-        //}
-
-        //// Xóa cart khỏi session
-        //void ClearCart()
-        //{
-        //    var session = HttpContext.Session;
-        //    session.Remove(CARTKEY);
-        //}
-
-        //// Lưu Cart (Danh sách CartItem) vào session
-        //void SaveCartSession(List<CartItem> ls)
-        //{
-        //    var session = HttpContext.Session;
-        //    string jsoncart = JsonConvert.SerializeObject(ls);
-        //    session.SetString(CARTKEY, jsoncart);
-        //}
     }
 }

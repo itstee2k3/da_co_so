@@ -12,8 +12,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-//builder.Services.AddDistributedMemoryCache();           // Đăng ký dịch vụ lưu cache trong bộ nhớ (Session sẽ sử dụng nó)
-//builder.Services.AddSession(); // Thêm dịch vụ Session
+builder.Services.AddDistributedMemoryCache();           // Đăng ký dịch vụ lưu cache trong bộ nhớ (Session sẽ sử dụng nó)
+builder.Services.AddSession(options =>
+{
+    options.Cookie.IsEssential = true; // Make the session cookie essential
+}); // Thêm dịch vụ Session
 
 builder.Services.AddScoped<IProductRepository, EFProductRepository>();
 builder.Services.AddScoped<ICategoryBrand, EFCategoryBrand>();
@@ -71,31 +74,31 @@ builder.Services.Configure<IdentityOptions>(options => {
     options.SignIn.RequireConfirmedAccount = true;          // Xác thực account
 });
 
-builder.Services.AddAuthorization(options => {
+//builder.Services.AddAuthorization(options => {
 
-    options.AddPolicy("AllowEditRole", policyBuilder => {
-        // Dieu kien cua Policy
-        policyBuilder.RequireAuthenticatedUser();
-        //policyBuilder.RequireRole("Admin");
-        // policyBuilder.RequireRole("Editor");
+//    options.AddPolicy("AllowEditRole", policyBuilder => {
+//        // Dieu kien cua Policy
+//        policyBuilder.RequireAuthenticatedUser();
+//        //policyBuilder.RequireRole("Admin");
+//        // policyBuilder.RequireRole("Editor");
 
-        // policyBuilder.RequireClaim("manage.role", "add", "update");
-        policyBuilder.RequireClaim("canedit","role");
+//        // policyBuilder.RequireClaim("manage.role", "add", "update");
+//        policyBuilder.RequireClaim("canedit","role");
 
 
-        // Claims-based authorization
-        // policyBuilder.RequireClaim("Ten Claim", "giatri1", "giatri2");
-        // policyBuilder.RequireClaim("Ten Claim", new string[] {
-        //     "giatri1",
-        //     "giatri2"
-        // });
+//        // Claims-based authorization
+//        // policyBuilder.RequireClaim("Ten Claim", "giatri1", "giatri2");
+//        // policyBuilder.RequireClaim("Ten Claim", new string[] {
+//        //     "giatri1",
+//        //     "giatri2"
+//        // });
 
-        // IdentityRoleClaim<string> claim1; ->DbContext
-        // IdentityUserClaim<string> claim2; ->DbContext
-        // Claim claim3; -> tu dich vu cua Identity
+//        // IdentityRoleClaim<string> claim1; ->DbContext
+//        // IdentityUserClaim<string> claim2; ->DbContext
+//        // Claim claim3; -> tu dich vu cua Identity
 
-    });
-});
+//    });
+//});
 
 builder.Services.AddOptions();                                        // Kích hoạt Options
 var mailsettings = builder.Configuration.GetSection("MailSettings");  // đọc config
@@ -121,7 +124,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-//app.UseSession(); // Sử dụng session
+app.UseSession(); // Sử dụng session
 
 
 //app.UseEndpoints(endpoints =>
@@ -136,6 +139,6 @@ app.MapRazorPages();
 
 app.MapControllerRoute(
 name: "default",
-pattern: "{controller=Cart}/{action=Index}/{id?}");
+pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
