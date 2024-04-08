@@ -78,7 +78,7 @@
                                         <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
                                     </li>
                                     <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Product") ? "login_btn" : "")">
-                                        <a class="nav-link" asp-controller="Product" asp-action="Index">Shop</a>
+                                        <a class="nav-link" asp-controller="Product" asp-action="AllProducts">Shop</a>
                                     </li>
                                     <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("About") ? "login_btn" : "")">
                                         <a class="nav-link" asp-controller="About" asp-action="Index">About</a>
@@ -100,7 +100,7 @@
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </button>
                                         <form class="search-box" id="searchBox" asp-controller="Product" asp-action="Index">
-                                            <input name="searchString" type="text" id="searchInput" placeholder="Search...">
+                                            <input name="searchString" value="@ViewBag.SearchString" type="text" id="searchInput" placeholder="Search...">
                                             <span class="search-separator"></span>
                                             <button class="search-icon" id="searchIcon" type="submit">
                                                 <i class="icon-search-link bg-none fa fa-search"></i>
@@ -177,12 +177,32 @@
     <!-- end google map js -->
     <script>
         $(document).ready(function () {
+
+            $('#searchBox').submit(function (event) {
+                var searchString = $('#searchInput').val().trim(); // Lấy giá trị từ ô input và loại bỏ khoảng trắng ở đầu và cuối
+                if (searchString === "") { // Kiểm tra xem ô input có giá trị không
+                    event.preventDefault(); // Ngăn chặn việc gửi form nếu ô input rỗng
+                }
+            });
+
+            // Lưu giá trị của ô input vào sessionStorage khi người dùng nhập
+            $("#searchInput").on('input', function () {
+                var searchString = $(this).val();
+                if (!searchString.trim()) {
+                    // Nếu searchString rỗng, xoá giá trị 'searchString' khỏi sessionStorage
+                    sessionStorage.removeItem('searchString');
+                } else {
+                    sessionStorage.setItem('searchString', searchString);
+                }
+            });
+
             $("#searchLink").click(function (e) {
                 e.preventDefault();
                 $("#searchBox").fadeToggle(); // Hiển thị ô tìm kiếm
                 $("#searchLink").hide(); // Ẩn lại SearchIcon
                 $("#closeLink").show(); // Hiển thị CloseIcon
                 $("#searchInput").focus(); // Trỏ chuột vào input
+                $("#searchInput").select(); // Chọn toàn bộ giá trị trong ô tìm kiếm khi mở
             });
 
             $("#closeLink").click(function () {
@@ -200,12 +220,18 @@
                 }
             });
 
-            //$("#searchIcon").click(function () {
-            //    //e.stopPropagation(); // Ngăn chặn sự kiện click lan rộng đến phần tử cha
-            //    var searchText = $("#searchBox input").val(); // Lấy nội dung tìm kiếm từ ô input
-            //    console.log("Đang tìm kiếm: " + searchText); // In ra nội dung tìm kiếm để kiểm tra
-            //    // Thực hiện chức năng tìm kiếm dữ liệu ở đây
-            //});
+            // Khôi phục giá trị của ô input từ sessionStorage khi trang được tải lại
+            var savedSearchString = sessionStorage.getItem('searchString');
+            if (savedSearchString) {
+                $("#searchInput").val(savedSearchString);
+            }
+
+            // Di chuyển con trỏ vào cuối ô input khi trang được tải lại
+            var input = $('#searchInput');
+            if (input.val()) {
+                input.focus();
+                input[0].setSelectionRange(input.val().length, input.val().length);
+            }
         });
     </script>
 </body>

@@ -11,8 +11,7 @@ using do_an_ltweb.Models;
 
 namespace do_an_ltweb.Admin.Role
 {
-    [Authorize(Roles = "Admin")]
-
+    [Authorize(Roles = "admin")]
     public class CreateModel : RolePageModel
     {
         public CreateModel(RoleManager<IdentityRole> roleManager, ApplicationDbContext applicationDbContext) : base(roleManager, applicationDbContext)
@@ -55,8 +54,6 @@ namespace do_an_ltweb.Admin.Role
                     ModelState.AddModelError(string.Empty, error.Description);
                 });
             }
-
-
 
             return Page();
         }

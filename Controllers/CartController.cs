@@ -29,7 +29,7 @@ namespace do_an.Controllers
             var user = await _user.GetUserAsync(User);
             if (user == null)
             {
-                return Redirect("/login");
+                return Redirect("/login/");
             }
 
             // Lấy danh sách các sản phẩm trong giỏ hàng của người dùng
@@ -50,14 +50,14 @@ namespace do_an.Controllers
             // Kiểm tra xem người dùng có đăng nhập không
             if (user == null)
             {
-                return Redirect("/login");
+                return Json(new { error = "User is not logged in" });
             }
 
             // Kiểm tra xem sản phẩm có tồn tại không
             var product = await _context.Products.FindAsync(productId);
             if (product == null)
             {
-                return NotFound("Không tìm thấy sản phẩm");
+                return Json(new { error = "Product not found" });
             }
 
             // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
@@ -83,7 +83,7 @@ namespace do_an.Controllers
 
             await _context.SaveChangesAsync();
 
-            return RedirectToPage(Request.Headers["Referer"].ToString());
+            return Json(new { success = true });
         }
 
         [HttpPost]

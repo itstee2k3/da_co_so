@@ -11,7 +11,6 @@ using do_an_ltweb.Models;
 
 namespace do_an_ltweb.Admin.Users
 {
-
     [Authorize]
     public class IndexModel : PageModel
     {

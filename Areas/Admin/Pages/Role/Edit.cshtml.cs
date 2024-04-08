@@ -13,15 +13,15 @@ using do_an_ltweb.Models;
 namespace do_an_ltweb.Admin.Role
 {
     // Policy: Tao ra cac policy -> AllowEditRole
-    [Authorize(Policy = "AllowEditRole")]
+    [Authorize(Roles = "admin")]
     public class EditModel : RolePageModel
     {
         public EditModel(RoleManager<IdentityRole> roleManager, ApplicationDbContext applicationDbContext) : base(roleManager, applicationDbContext)
         {
 
         }
-        
-        public class InputModel 
+
+        public class InputModel
         {
             [Display(Name = "Tên của role")]
             [Required(ErrorMessage = "Phải nhập {0}")]
@@ -30,9 +30,7 @@ namespace do_an_ltweb.Admin.Role
         }
 
         [BindProperty]
-        public InputModel Input {set; get;}
-
-        public List<IdentityRoleClaim<string>> Claims { get; set; }
+        public InputModel Input { set; get; }
 
         public IdentityRole role { get; set; }
 
@@ -47,23 +45,17 @@ namespace do_an_ltweb.Admin.Role
                 {
                     Name = role.Name
                 };
-                Claims = await _context.RoleClaims.Where(rc => rc.RoleId == role.Id).ToListAsync();
                 return Page();
-            } 
+            }
             return NotFound("Không tìm thấy role");
         }
-
-
 
         public async Task<IActionResult> OnPostAsync(string roleid)
         {
             if (roleid == null) return NotFound("Không tìm thấy role");
-                role = await _roleManager.FindByIdAsync(roleid);
-
-            if  (role == null) return NotFound("Không tìm thấy role");
-                Claims = await _context.RoleClaims.Where(rc => rc.RoleId == role.Id).ToListAsync();
-            
-            if  (!ModelState.IsValid)
+            role = await _roleManager.FindByIdAsync(roleid);
+            if (role == null) return NotFound("Không tìm thấy role");
+            if (!ModelState.IsValid)
             {
                 return Page();
             }

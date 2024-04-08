@@ -40,9 +40,9 @@ namespace do_an_ltweb.Admin.Role
         {
             if (roleid == null) return NotFound("Không tìm thấy role");
             role = await _roleManager.FindByIdAsync(roleid);
-            if  (role == null) return NotFound("Không tìm thấy role");
-            
-            
+            if (role == null) return NotFound("Không tìm thấy role");
+
+
             var result = await _roleManager.DeleteAsync(role);
 
             if (result.Succeeded)

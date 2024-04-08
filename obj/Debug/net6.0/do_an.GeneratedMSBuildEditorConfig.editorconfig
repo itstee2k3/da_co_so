@@ -16,10 +16,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/Areas/Admin/Pages/Role/AddRoleClaim.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvUm9sZS9BZGRSb2xlQ2xhaW0uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/Areas/Admin/Pages/Role/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvUm9sZS9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -30,10 +26,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/Areas/Admin/Pages/Role/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvUm9sZS9FZGl0LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/Areas/Admin/Pages/Role/EditRoleClaim.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvUm9sZS9FZGl0Um9sZUNsYWltLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/Areas/Admin/Pages/Role/Index.cshtml]
@@ -54,10 +46,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/Areas/Admin/Pages/Users/AddRole.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvVXNlcnMvQWRkUm9sZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/Areas/Admin/Pages/Users/EditUserRoleClaim.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvVXNlcnMvRWRpdFVzZXJSb2xlQ2xhaW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/Areas/Admin/Pages/Users/Index.cshtml]

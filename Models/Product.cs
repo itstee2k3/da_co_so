@@ -68,6 +68,14 @@ INSERT INTO [do_an_ltweb].[dbo].[Products] ([NameProduct], [Price], [Nums], [Des
 [IdCategoryFrameStyle], [IdCategoryIrisColor], [IdCategoryMaterial], [IdCategoryPrice], [IdCategorySex], [IdCategoryOrigin], [Hide])
 VALUES
     ('Kính Mát Nữ PRADA 0PR07YSF 14213055', 10180000, 100, Null, '/images/glass_1.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null),
-    ('Kính Mát Unisex PRADA 0PR06YSF 09Q5S054', 10480000, 990, Null, '/images/glass_2.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null);
+    ('Kính Mát Unisex PRADA 0PR06YSF 09Q5S054', 10480000, 200, Null, '/images/glass_2.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null),
+    ('Kính Mát Nữ PRADA 0PR15WSF 09Q5S055', 9480000, 300, Null, '/images/glass_3.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null),
+    ('Kính Mát Nam PRADA 0PR09ZSF 19D5S055', 12880000, 400, Null, '/images/glass_4.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null),
+    ('Kính Mát Nữ PRADA 0PR17ZSF 1AB09S55', 7980000, 500, Null, '/images/glass_5.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null),
+    ('Kính Mát Nam PRADA 0PR66ZS AAV07T58', 11580000, 600, Null, '/images/glass_6.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null),
+    ('Kính Mát Nam PRADA 0PR66ZS YDC03R58', 13380000, 700, Null, '/images/glass_7.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null),
+    ('Kính Mát Nam PRADA 0PR60WS 1BO5G158', 8082000, 800, Null, '/images/glass_8.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null),
+    ('Kính Mát Unisex PRADA 0PR13WSF 1AB5S057', 5664000, 900, Null, '/images/glass_9.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null),
+    ('Kính Mát Nữ PRADA 0PR09WS 1AB5Z154', 6304000, 990, Null, '/images/glass_10.webp', Null, Null, Null, Null, Null, Null, Null, Null, Null, Null);
 
 */
