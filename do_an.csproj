@@ -40,6 +40,8 @@
     <None Remove="Models\ICategory\" />
     <None Remove="Models\EFCategory\" />
     <None Remove="Views\Cart\" />
+    <None Remove="Areas\Admin\Pages\AdProduct\" />
+    <None Remove="Areas\Admin\Pages\AdOrder\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\About\" />
@@ -53,5 +55,7 @@
     <Folder Include="Models\ICategory\" />
     <Folder Include="Models\EFCategory\" />
     <Folder Include="Views\Cart\" />
+    <Folder Include="Areas\Admin\Pages\AdProduct\" />
+    <Folder Include="Areas\Admin\Pages\AdOrder\" />
   </ItemGroup>
 </Project>

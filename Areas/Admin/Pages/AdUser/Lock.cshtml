@@ -1,0 +1,44 @@
+﻿@page "/admin/lock-user/{id}"
+@model do_an_ltweb.Admin.AdUser.LockModel
+@{
+    ViewData["Title"] = "Lock User";
+    var vnTimeZone = TimeZoneInfo.FindSystemTimeZoneById("SE Asia Standard Time");
+    var currentTimeVN = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, vnTimeZone);
+}
+
+<h4>Lock user: @Model.user.UserName</h4>
+<partial name="_StatusMessage" for="StatusMessage" />
+
+<div class="row">
+    <div class="col-md-6">
+        @if (Model.user.LockoutEnd != null && Model.user.LockoutEnd > DateTime.Now)
+        {
+            <div class="form-group">
+                <label for="lockoutTime">Lockdown time comes:</label>
+                <input type="datetime-local" class="form-control" value="@Model.user.LockoutEnd.Value.ToLocalTime().ToString("yyyy-MM-ddTHH:mm:ss")" readonly />
+            </div>
+
+            <form id="unlock-account-form" method="post" asp-page-handler="Unlock">
+                <button type="submit" class="btn btn-success">Unlock user</button>
+                <a class="btn btn-primary" asp-page="./Index">List Users</a>
+            </form>
+        }
+        else
+        {
+            <form id="set-password-form" method="post" asp-page-handler="Lock">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label for="lockoutTime">Set lock time:</label>
+                    <input type="datetime-local" class="form-control" asp-for="LockoutDateTime" value="@currentTimeVN.ToString("yyyy-MM-ddTHH:mm:ss")" />
+                </div>
+
+                <button type="submit" class="btn btn-danger">Lock User</button>
+                <a class="btn btn-primary" asp-page="./Index">List Users</a>
+            </form>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

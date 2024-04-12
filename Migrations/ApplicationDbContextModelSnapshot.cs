@@ -275,17 +275,21 @@ namespace do_an.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdOrder"), 1L, 1);
 
-                    b.Property<DateTime?>("Datebegin")
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateBegin")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("Hide")
-                        .HasColumnType("int");
+                    b.Property<DateTime?>("DateEnd")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("IdUser")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("Status")
+                    b.Property<int>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("IdOrder");

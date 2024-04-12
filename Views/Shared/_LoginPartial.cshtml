@@ -11,20 +11,25 @@
 @*<ul class="navbar-nav mr-auto">*@
 @if (SignInManager.IsSignedIn(User))
 {
+    var user = await UserManager.GetUserAsync(User);
+    if (await UserManager.IsInRoleAsync(user, "admin"))
+    {
+        <a class="nav-link" asp-area="Admin" asp-page="/AdHome/Index">Admin</a>
+    }
     <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Manage") ? "login_btn" : "")">
         <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@UserManager.GetUserName(User)!</a>
-    </li>
-
-    <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Cart") ? "login_btn" : "")">
-        <a class="nav-link" asp-controller="Cart" asp-action="Index">
-            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-        </a>
     </li>
 
     <li class="nav-item">
         <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
             <button type="submit" class="nav-link btn btn-link">Logout</button>
         </form>
+    </li>
+
+    <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Cart") ? "login_btn" : "")">
+        <a class="nav-link" asp-controller="Cart" asp-action="Index">
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+        </a>
     </li>
 }
 else
@@ -34,10 +39,10 @@ else
     </li>
 
     @*<li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Cart") ? "login_btn" : "")">
-        <a class="nav-link" asp-controller="Cart" asp-action="Index">
-            <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-        </a>
-    </li>*@
+            <a class="nav-link" asp-controller="Cart" asp-action="Index">
+                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+            </a>
+        </li>*@
 
     <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Register") ? "login_btn" : "")">
         <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>

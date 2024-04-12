@@ -319,26 +319,5 @@
         });
 
     });
-     @*$(document).ready(function () {
-        $("#add-to-cart-button").click(function () {
-            var productId = "@Model.IdProduct"; // Lấy ID sản phẩm từ Razor Model
-            var quantity = parseInt($("#display-number").text()); // Lấy giá trị quantity từ thẻ span
-            $.ajax({
-                type: "POST",
-                url: "/Cart/AddToCart", // Đường dẫn đến hành động AddToCart trên controller Cart
-                data: { productId: productId, quantity: quantity },
-                success: function (response) {
-                    if (response.error) {
-                        // Nếu có lỗi, chuyển hướng người dùng đến trang đăng nhập
-                        console.error(response.error);
-                        window.location.href = "/login";
-                    } else {
-                        // Nếu không có lỗi, thông báo thành công
-                        console.log("Thêm vào giỏ hàng thành công!");
-                        return;
-                    }
-                }
-            });
-        });*@
 
 </script>

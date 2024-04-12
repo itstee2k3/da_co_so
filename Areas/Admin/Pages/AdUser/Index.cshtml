@@ -1,0 +1,77 @@
+﻿@page "/admin/users"
+@model do_an_ltweb.Admin.AdUser.IndexModel
+@{
+    ViewData["Title"] = "List Users";
+}
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" model="@Model.StatusMessage"></partial>
+
+<div class="mb-2">
+    @*<a class="btn btn-secondary" asp-page="./Create">Create User</a>*@
+</div>
+
+<div class="card mb-4">
+
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable User
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+
+            <thead>
+                <tr>
+                    <th>UserName</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>LockoutEnd</th>
+                    <th>Role</th>
+                    <th>Tasks</th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <th>UserName</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>LockoutEnd</th>
+                    <th>Role</th>
+                    <th>Tasks</th>
+                </tr>
+            </tfoot>
+
+            <tbody>
+                @foreach (var user in Model.Users)
+                {
+                    <tr>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                        <td>@user.Address</td>
+                        <td>
+                            @if (user.LockoutEnd != null && user.LockoutEnd.Value > DateTime.Now)
+                            {
+                                @user.LockoutEnd.Value.ToLocalTime().ToString("HH:mm:ss dd-MM-yyyy");
+                            }
+                        </td>
+                        <td>
+                            @if (string.IsNullOrEmpty(user.RoleNames))
+                            {
+                                <a class="text-dark" asp-page="./AddRole" asp-route-id="@user.Id">+ Add roles</a>
+                            }
+                            else
+                            {
+                                <a asp-page="./AddRole" asp-route-id="@user.Id">@user.RoleNames</a>
+                            }
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" asp-page="./SetPassword" asp-route-id="@user.Id">Set Password</a>
+                            <a class="btn btn-danger btn-sm" asp-page="./Lock" asp-route-id="@user.Id">Lock</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

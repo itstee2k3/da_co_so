@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using do_an_ltweb.Models;
 
-namespace do_an_ltweb.Admin.Users 
+namespace do_an_ltweb.Admin.AdUser
 {
     public class AddRoleModel : PageModel
     {
@@ -42,27 +42,23 @@ namespace do_an_ltweb.Admin.Users
         public User user { get; set; }
 
         [BindProperty]
-        [DisplayName("Các role gán cho user")]
+        [DisplayName("Roles assigned to users")]
         public string[] RoleNames { get; set; }
 
         public SelectList allRoles { get; set; }
-
-        public List<IdentityRoleClaim<string>> claimsInRole { get; set; }
-        public List<IdentityUserClaim<string>> claimsInUserClaim { get; set; }
-
         
         public async Task<IActionResult> OnGetAsync(string id)
         {
             if (string.IsNullOrEmpty(id))
             {
-                return NotFound($"Không có user");
+                return NotFound($"No user");
             }
 
             user = await _userManager.FindByIdAsync(id);
 
             if (user == null)
             {
-                return NotFound($"Không thấy user, id = {id}.");
+                return NotFound($"User not found, id = {id}.");
             }
 
             RoleNames = (await _userManager.GetRolesAsync(user)).ToArray<string>();
@@ -70,48 +66,24 @@ namespace do_an_ltweb.Admin.Users
             List<string> roleNames = await _roleManager.Roles.Select(r => r.Name).ToListAsync();
             allRoles = new SelectList(roleNames);
 
-            await GetClaims(id);
-
-
-
-
             return Page();
-        }
-
-        async Task GetClaims(string id)
-        {
-            var listRoles = from r in _context.Roles
-                            join ur in _context.UserRoles on r.Id equals ur.RoleId
-                            where ur.UserId == id
-                            select r;
-
-            var _claimsInRole  = from c in _context.RoleClaims
-                                 join r in listRoles on c.RoleId  equals r.Id
-                                 select c;
-            claimsInRole = await _claimsInRole.ToListAsync();
-
-
-           claimsInUserClaim  = await (from c in _context.UserClaims
-            where c.UserId == id select c).ToListAsync();
         }
 
         public async Task<IActionResult> OnPostAsync(string id)
         {
             if (string.IsNullOrEmpty(id))
             {
-                return NotFound($"Không có user");
+                return NotFound($"No user");
             }
 
             user = await _userManager.FindByIdAsync(id);
 
             if (user == null)
             {
-                return NotFound($"Không thấy user, id = {id}.");
+                return NotFound($"User not found, id = {id}.");
             }
 
             // RoleNames
-
-            await GetClaims(id);
 
             var OldRoleNames = (await _userManager.GetRolesAsync(user)).ToArray();
 
@@ -140,7 +112,7 @@ namespace do_an_ltweb.Admin.Users
             }
 
             
-            StatusMessage = $"Vừa cập nhật role cho user: {user.UserName}";
+            StatusMessage = $"Just updated roles for user: {user.UserName}";
 
             return RedirectToPage("./Index");
         }

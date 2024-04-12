@@ -1,0 +1,53 @@
+﻿@page "/admin/detail-order/{orderId}"
+@model do_an_ltweb.Admin.AdOrder.DetailModel
+@{
+    ViewData["Title"] = "Chi tiết đơn hàng";
+}
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" model="@Model.StatusMessage"></partial>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Sản phẩm trong đơn hàng</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Products != null)
+                {
+                    foreach (var product in Model.Products)
+                    {
+                        <tr>
+                            <td>@product.Name</td>
+                            <td>@product.Quantity</td>
+                            <td>@product.Price.ToString("N0")</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">Không có sản phẩm trong đơn hàng.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<form method="post" asp-page-handler="ConfirmOrder">
+    @if (Model.Order != null && Model.Order.Status == 0)
+    {
+        <button type="submit" class="btn btn-success">Xác nhận đơn hàng</button>
+    }
+    <a class="btn btn-primary" asp-page="./Index">Quay lại</a>
+</form>
+

@@ -53,8 +53,10 @@ namespace do_an_ltweb.Admin.Role
         public async Task<IActionResult> OnPostAsync(string roleid)
         {
             if (roleid == null) return NotFound("Không tìm thấy role");
-            role = await _roleManager.FindByIdAsync(roleid);
+                role = await _roleManager.FindByIdAsync(roleid);
+
             if (role == null) return NotFound("Không tìm thấy role");
+
             if (!ModelState.IsValid)
             {
                 return Page();

@@ -101,18 +101,19 @@ namespace do_an.Controllers
             return Ok(new { success = true });
         }
 
-        public async Task<IActionResult> RemoveFromCart(int cartItemId)
+        [HttpPost]
+        public async Task<IActionResult> RemoveCartItem(int cartItemId)
         {
             var cartItem = await _context.CartItems.FindAsync(cartItemId);
             if (cartItem == null)
             {
-                return NotFound("Không tìm thấy mục trong giỏ hàng");
+                return NotFound(new { success = false, error = "Không tìm thấy mục trong giỏ hàng" });
             }
 
             _context.CartItems.Remove(cartItem);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
+            return Ok(new { success = true });
         }
 
         public IActionResult Privacy()
