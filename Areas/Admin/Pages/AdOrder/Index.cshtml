@@ -1,0 +1,89 @@
+﻿@page "/admin/orders"
+@model do_an_ltweb.Admin.AdOrder.IndexModel
+@{
+    ViewData["Title"] = "List Order";
+}
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" model="@Model.StatusMessage"></partial>
+
+<div class="card mb-4">
+
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Product
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+
+            <thead>
+                <tr>
+                    <th>IdOrder</th>
+                    <th>UserName/UserEmail</th>
+                    <th>DateBegin</th>
+                    <th>DateEnd</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Tasks</th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <th>IdOrder</th>
+                    <th>UserName/UserEmail</th>
+                    <th>DateBegin</th>
+                    <th>DateEnd</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Tasks</th>
+                </tr>
+            </tfoot>
+
+            <tbody>
+                @foreach (var order in Model.Orders)
+                {
+                    <tr>
+                        <td>@order.IdOrder</td>
+                        <td>
+                            @if (order != null && order.User != null && !string.IsNullOrEmpty(order.User.UserName))
+                            {
+                                <text>@order.User.UserName</text>
+                            }
+                            else
+                            {
+                                <text>@(order != null && order.User != null ? order.User.Email : "N/A")</text>
+                            }
+                        </td>
+                        <td>@order.DateBegin</td>
+                        <td>@order.DateEnd</td>
+                        <td>@order.Address</td>
+                        <td>@order.Status</td>
+                        <td>
+                            @{
+                                decimal total = 0;
+                                if (order.OrderDetails != null)
+                                {
+                                    foreach (var orderDetail in order.OrderDetails)
+                                    {
+                                        if (orderDetail != null && orderDetail.Product != null)
+                                        {
+                                            total += orderDetail.Quantity * orderDetail.Product.Price;
+                                        }
+                                    }
+                                }
+                                @total.ToString("N0") <span>đ</span>
+                            }
+                        </td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" asp-page="./Detail" asp-route-orderId="@order.IdOrder">Xem chi tiết</a>
+                            <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-orderId="@order.IdOrder">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

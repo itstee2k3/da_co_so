@@ -9,23 +9,45 @@
 
 
 <div class="mb-2">
-    <a class="btn btn-secondary"asp-page="./Create">Tạo role mới</a>
-    <a class="btn btn-secondary"asp-page="../Users/Index">Quản lý thành viên</a>
+    <a class="btn btn-secondary" asp-page="./Create">Create New Role</a>
+    @*<a class="btn btn-secondary"asp-page="../Users/Index">Quản lý thành viên</a>*@
 </div>
 
-<table class="table">
-    <tr>
-        <th>Tên Role (vai trò)</th>
-        <th>Tác vụ</th>
-    </tr>
-    @foreach (var role in Model.roles)
-    {
-        <tr>
-            <td>@role.Name</td>
-            <td>
-                <a class="btn btn-success btn-sm" asp-page="./Edit" asp-route-roleid="@role.Id">Cập nhật</a>
-                <a class="btn btn-success btn-sm" asp-page="./Delete" asp-route-roleid="@role.Id">Xóa</a>
-            </td>
-        </tr>
-    }
-</table>
+<div class="card mb-4">
+
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Role
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+
+            <thead>
+                <tr>
+                    <th>Role Name</th>
+                    <th>Tasks</th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <th>Role Name</th>
+                    <th>Tasks</th>
+                </tr>
+            </tfoot>
+
+            <tbody>
+                @foreach (var role in Model.roles)
+                {
+                    <tr>
+                        <td>@role.Name</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" asp-page="./Edit" asp-route-roleid="@role.Id">Cập nhật</a>
+                            <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-roleid="@role.Id">Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

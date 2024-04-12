@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using do_an_ltweb.Models;
 
-namespace do_an_ltweb.Admin.Users;
+namespace do_an_ltweb.Admin.AdUser;
 
 public class SetPasswordModel : PageModel
 {
@@ -23,23 +23,23 @@ public class SetPasswordModel : PageModel
         _signInManager = signInManager;
     }
 
-    [BindProperty]
-    public InputModel Input { get; set; }
-
     [TempData]
     public string StatusMessage { get; set; }
 
+    [BindProperty]
+    public InputModel Input { get; set; }
+
     public class InputModel
     {
-        [Required(ErrorMessage = "Phải nhập {0}")]
-        [StringLength(100, ErrorMessage = "{0} phải dài {2} đến {1} ký tự.", MinimumLength = 6)]
+        [Required(ErrorMessage = "Must enter {0}")]
+        [StringLength(100, ErrorMessage = "{0} must be {2} to {1} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Mật khẩu mới")]
+        [Display(Name = "New password")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Xác nhận mật khẩu")]
-        [Compare("NewPassword", ErrorMessage = "Lặp lại mật khẩu không chính xác.")]
+        [Display(Name = "Confirm password")]
+        [Compare("NewPassword", ErrorMessage = "Password confirmation is incorrect.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -49,14 +49,14 @@ public class SetPasswordModel : PageModel
     {
         if (string.IsNullOrEmpty(id))
         {
-            return NotFound($"Không có user");
+            return NotFound($"No user");
         }
 
         user = await _userManager.FindByIdAsync(id);
 
         if (user == null)
         {
-            return NotFound($"Không thấy user, id = {id}.");
+            return NotFound($"User no found, id = {id}.");
         }
 
         return Page();
@@ -66,14 +66,14 @@ public class SetPasswordModel : PageModel
     {
         if (string.IsNullOrEmpty(id))
         {
-            return NotFound($"Không có user");
+            return NotFound($"No user");
         }
 
         user = await _userManager.FindByIdAsync(id);
 
         if (user == null)
         {
-            return NotFound($"Không thấy user, id = {id}.");
+            return NotFound($"User no found, id = {id}.");
         }
 
         if (!ModelState.IsValid)
@@ -93,7 +93,7 @@ public class SetPasswordModel : PageModel
             return Page();
         }
 
-        StatusMessage = $"Vừa cập nhật mật khẩu cho user: {user.UserName}";
+        StatusMessage = $"Just updated the password for the user: {user.UserName}";
 
         return RedirectToPage("./Index");
     }

@@ -12,16 +12,18 @@ namespace do_an_ltweb.Models
         [Key]
         public int IdOrder { get; set; }
 
-        public DateTime? Datebegin { get; set; }
+        public string Address { get; set; }
 
-        public int? Hide { get; set; }
+        public DateTime? DateBegin { get; set; }
+
+        public DateTime? DateEnd { get; set; }
 
         // Liên kết với người dùng
         [ForeignKey("IdUser")]
         public User User { get; set; } // Navigation property
         public string IdUser { get; set; }
 
-        public int? Status { get; set; }
+        public int Status { get; set; }
 
         //public List<OrderDetail>? OrderDetails { get; set; }
 

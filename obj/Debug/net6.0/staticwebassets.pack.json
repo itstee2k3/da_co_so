@@ -9,6 +9,34 @@
       "PackagePath": "staticwebassets/.DS_Store"
     },
     {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/assets/.DS_Store",
+      "PackagePath": "staticwebassets/assets/.DS_Store"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/assets/demo/chart-area-demo.js",
+      "PackagePath": "staticwebassets/assets/demo/chart-area-demo.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/assets/demo/chart-bar-demo.js",
+      "PackagePath": "staticwebassets/assets/demo/chart-bar-demo.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/assets/demo/chart-pie-demo.js",
+      "PackagePath": "staticwebassets/assets/demo/chart-pie-demo.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/assets/demo/datatables-demo.js",
+      "PackagePath": "staticwebassets/assets/demo/datatables-demo.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/assets/img/error-404-monochrome.svg",
+      "PackagePath": "staticwebassets/assets/img/error-404-monochrome.svg"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/css-admin/styles.css",
+      "PackagePath": "staticwebassets/css-admin/styles.css"
+    },
+    {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/css/.DS_Store",
       "PackagePath": "staticwebassets/css/.DS_Store"
     },
@@ -415,6 +443,14 @@
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/shop_img.png",
       "PackagePath": "staticwebassets/images/shop_img.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/js-admin/datatables-simple-demo.js",
+      "PackagePath": "staticwebassets/js-admin/datatables-simple-demo.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/js-admin/scripts.js",
+      "PackagePath": "staticwebassets/js-admin/scripts.js"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/js/.DS_Store",
