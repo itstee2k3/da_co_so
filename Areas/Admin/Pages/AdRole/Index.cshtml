@@ -1,0 +1,53 @@
+﻿@page "/admin/roles"
+@model do_an_ltweb.Admin.AdRole.IndexModel
+@{
+    ViewData["Title"] = "List roles";
+}
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" model="@Model.StatusMessage"></partial>
+
+
+<div class="mb-2">
+    <a class="btn btn-secondary" asp-page="./Create">Create New Role</a>
+    @*<a class="btn btn-secondary"asp-page="../Users/Index">Quản lý thành viên</a>*@
+</div>
+
+<div class="card mb-4">
+
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Role
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+
+            <thead>
+                <tr>
+                    <th>RoleName</th>
+                    <th>Tasks</th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <th>RoleName</th>
+                    <th>Tasks</th>
+                </tr>
+            </tfoot>
+
+            <tbody>
+                @foreach (var role in Model.roles)
+                {
+                    <tr>
+                        <td>@role.Name</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" asp-page="./Edit" asp-route-roleid="@role.Id">Update</a>
+                            <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-roleid="@role.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

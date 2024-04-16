@@ -273,12 +273,24 @@
       "PackagePath": "staticwebassets/images/.DS_Store"
     },
     {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/0b4e1234-21ab-404d-8688-c128052aa7cd_2_f443e2aa0a174955b8f3603a0d3b266f_large.webp",
+      "PackagePath": "staticwebassets/images/0b4e1234-21ab-404d-8688-c128052aa7cd_2_f443e2aa0a174955b8f3603a0d3b266f_large.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/396e63aa-1c99-4df6-820e-30e683b51091_37177573_10156528970182840_1475777593566298112_o.jpg",
+      "PackagePath": "staticwebassets/images/396e63aa-1c99-4df6-820e-30e683b51091_37177573_10156528970182840_1475777593566298112_o.jpg"
+    },
+    {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/about_img.png",
       "PackagePath": "staticwebassets/images/about_img.png"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/about_right_cross.jpg",
       "PackagePath": "staticwebassets/images/about_right_cross.jpg"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/ae38ab0b-47e3-4081-a19b-73742e7576ff_bao_cao_tien_do_tuan_3.png",
+      "PackagePath": "staticwebassets/images/ae38ab0b-47e3-4081-a19b-73742e7576ff_bao_cao_tien_do_tuan_3.png"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/banner-1.jpeg",
@@ -295,6 +307,14 @@
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/banner_img.png",
       "PackagePath": "staticwebassets/images/banner_img.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/db77e5da-3ddb-4ba4-a49d-26f96f9255df_Bao_cao_tien_do_tuan_2.png",
+      "PackagePath": "staticwebassets/images/db77e5da-3ddb-4ba4-a49d-26f96f9255df_Bao_cao_tien_do_tuan_2.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/f402c988-cbfe-4fa2-806e-c678e574cfdf_bao_cao_tien_do_tuan_4.png",
+      "PackagePath": "staticwebassets/images/f402c988-cbfe-4fa2-806e-c678e574cfdf_bao_cao_tien_do_tuan_4.png"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/frame_style_1.webp",
@@ -349,78 +369,6 @@
       "PackagePath": "staticwebassets/images/frame_style_9.webp"
     },
     {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass1.png",
-      "PackagePath": "staticwebassets/images/glass1.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass2.png",
-      "PackagePath": "staticwebassets/images/glass2.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass3.png",
-      "PackagePath": "staticwebassets/images/glass3.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass4.png",
-      "PackagePath": "staticwebassets/images/glass4.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass5.png",
-      "PackagePath": "staticwebassets/images/glass5.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass6.png",
-      "PackagePath": "staticwebassets/images/glass6.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass7.png",
-      "PackagePath": "staticwebassets/images/glass7.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass8.png",
-      "PackagePath": "staticwebassets/images/glass8.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_1.webp",
-      "PackagePath": "staticwebassets/images/glass_1.webp"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_10.webp",
-      "PackagePath": "staticwebassets/images/glass_10.webp"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_2.webp",
-      "PackagePath": "staticwebassets/images/glass_2.webp"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_3.webp",
-      "PackagePath": "staticwebassets/images/glass_3.webp"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_4.webp",
-      "PackagePath": "staticwebassets/images/glass_4.webp"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_5.webp",
-      "PackagePath": "staticwebassets/images/glass_5.webp"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_6.webp",
-      "PackagePath": "staticwebassets/images/glass_6.webp"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_7.webp",
-      "PackagePath": "staticwebassets/images/glass_7.webp"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_8.webp",
-      "PackagePath": "staticwebassets/images/glass_8.webp"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_9.webp",
-      "PackagePath": "staticwebassets/images/glass_9.webp"
-    },
-    {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/loading.gif",
       "PackagePath": "staticwebassets/images/loading.gif"
     },
@@ -435,14 +383,6 @@
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/menu_icon.png",
       "PackagePath": "staticwebassets/images/menu_icon.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/our.png",
-      "PackagePath": "staticwebassets/images/our.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/shop_img.png",
-      "PackagePath": "staticwebassets/images/shop_img.png"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/js-admin/datatables-simple-demo.js",
@@ -659,6 +599,142 @@
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/js/slider-setting.js",
       "PackagePath": "staticwebassets/js/slider-setting.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/.DS_Store",
+      "PackagePath": "staticwebassets/lib/.DS_Store"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/lib/multiple-select/multiple-select.css",

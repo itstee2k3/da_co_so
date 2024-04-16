@@ -33,7 +33,6 @@
     <None Remove="Areas\Admin\" />
     <None Remove="Views\Contact\" />
     <None Remove="Areas\Admin\Pages\" />
-    <None Remove="Areas\Admin\Pages\Role\" />
     <None Remove="Views\Suitable\" />
     <None Remove="Views\Product\" />
     <None Remove="Models\Category\" />
@@ -42,13 +41,22 @@
     <None Remove="Views\Cart\" />
     <None Remove="Areas\Admin\Pages\AdProduct\" />
     <None Remove="Areas\Admin\Pages\AdOrder\" />
+    <None Remove="Areas\Admin\Pages\AdCategory\" />
+    <None Remove="Areas\Admin\Pages\AdCategory\AdCategoryBrand\" />
+    <None Remove="Areas\Admin\Pages\AdCategory\AdCategoryFrameColor\" />
+    <None Remove="Areas\Admin\Pages\AdCategory\AdCategoryFrameStyle\" />
+    <None Remove="Areas\Admin\Pages\AdCategory\AdCategoryMaterial\" />
+    <None Remove="Areas\Admin\Pages\AdCategory\AdCategoryOrigin\" />
+    <None Remove="Areas\Admin\Pages\AdCategory\AdCategoryPrice\" />
+    <None Remove="Areas\Admin\Pages\AdCategory\AdCategorySex\" />
+    <None Remove="Areas\Admin\Pages\AdRole\" />
+    <None Remove="Areas\Admin\Pages\AdContact\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\About\" />
     <Folder Include="Areas\Admin\" />
     <Folder Include="Views\Contact\" />
     <Folder Include="Areas\Admin\Pages\" />
-    <Folder Include="Areas\Admin\Pages\Role\" />
     <Folder Include="Views\Suitable\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Models\Category\" />
@@ -57,5 +65,18 @@
     <Folder Include="Views\Cart\" />
     <Folder Include="Areas\Admin\Pages\AdProduct\" />
     <Folder Include="Areas\Admin\Pages\AdOrder\" />
+    <Folder Include="Areas\Admin\Pages\AdCategory\" />
+    <Folder Include="Areas\Admin\Pages\AdCategory\AdCategoryBrand\" />
+    <Folder Include="Areas\Admin\Pages\AdCategory\AdCategoryFrameColor\" />
+    <Folder Include="Areas\Admin\Pages\AdCategory\AdCategoryFrameStyle\" />
+    <Folder Include="Areas\Admin\Pages\AdCategory\AdCategoryMaterial\" />
+    <Folder Include="Areas\Admin\Pages\AdCategory\AdCategoryOrigin\" />
+    <Folder Include="Areas\Admin\Pages\AdCategory\AdCategoryPrice\" />
+    <Folder Include="Areas\Admin\Pages\AdCategory\AdCategorySex\" />
+    <Folder Include="Areas\Admin\Pages\AdRole\" />
+    <Folder Include="Areas\Admin\Pages\AdContact\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\shop_img.png" />
   </ItemGroup>
 </Project>

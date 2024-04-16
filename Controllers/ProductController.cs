@@ -20,7 +20,7 @@ namespace do_an.Controllers
 
         IEnumerable<Product> products = null;
 
-        public const int ITEMS_PER_PAGE = 3;
+        public const int ITEMS_PER_PAGE = 15;
 
         [BindProperty(SupportsGet = true, Name = "p")]
         public int currentPage { get; set; }

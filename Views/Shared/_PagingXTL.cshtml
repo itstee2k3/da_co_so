@@ -1,4 +1,4 @@
-@* 
+@*
     Model:
       - currentPage:int - Trang hiện tại
       - countPages:int - tổng số trang
@@ -7,74 +7,68 @@
 
 @model XTL.Helpers.PagingModel
 @{
-    int currentPage  = Model.currentpage;
-    int countPages   = Model.countpages;
-    var generateUrl  = Model.generateUrl;
+    int currentPage = Model.currentpage;
+    int countPages = Model.countpages;
+    var generateUrl = Model.generateUrl;
 
+    if (currentPage > countPages)
+        currentPage = countPages;
 
-    
-    if (currentPage > countPages) 
-      currentPage = countPages;
+    if (countPages <= 1)
+        return;
 
-    if (countPages <= 1) return;
-    
+    int delta = 4; // Số trang mở rộng về mỗi bên trang hiện tại
+    int remain = delta; // Số trang hai bên trang hiện tại
 
-    int? preview = null;
-    int? next = null;
+    // Tính toán trang trước và trang sau
+    int? preview = currentPage > 1 ? currentPage - 1 : (int?)null;
+    int? next = currentPage < countPages ? currentPage + 1 : (int?)null;
 
+    // Tính toán các trang hiển thị trong phạm vi delta
+    List<int> pagesRanges = new List<int>();
+
+    // Thêm các trang phía trước của trang hiện tại
     if (currentPage > 1)
-        preview = currentPage - 1;
-
-    if (currentPage < countPages)
-        next = currentPage + 1;
-
-    // Các trang hiện thị trong điều hướng
-    List<int> pagesRanges = new List<int>();    
-
-        
-    int delta      = 5;             // Số trang mở rộng về mỗi bên trang hiện tại     
-    int remain     = delta * 2;     // Số trang hai bên trang hiện tại
-
-    pagesRanges.Add(currentPage);
-    // Các trang phát triển về hai bên trang hiện tại
-    for (int i = 1; i <= delta; i++)
     {
-        if (currentPage + i  <= countPages) {
-            pagesRanges.Add(currentPage + i); 
-            remain --;
+        for (int i = currentPage - delta; i < currentPage; i++)
+        {
+            if (i > 0)
+                pagesRanges.Add(i);
         }
-               
-        if (currentPage - i >= 1) {
-            pagesRanges.Insert(0, currentPage - i);
-            remain --;
-        }
-            
-    }    
-    // Xử lý thêm vào các trang cho đủ remain 
-    //(xảy ra ở đầu mút của khoảng trang không đủ trang chèn  vào)
-    if (remain > 0) {
-        if (pagesRanges[0] == 1) {
-            for (int i = 1; i <= remain; i++)
-            {
-                if (pagesRanges.Last() + 1 <= countPages) {
-                    pagesRanges.Add(pagesRanges.Last() + 1);
-                }
-            }
-        }
-        else {
-            for (int i = 1; i <= remain; i++)
-            {
-                if (pagesRanges.First() - 1 > 1) {
-                    pagesRanges.Insert(0, pagesRanges.First() - 1);
-                }
-            }
+    }
+    else
+    {
+        for (int i = 1; i < currentPage; i++)
+        {
+            pagesRanges.Add(i);
         }
     }
 
+    // Thêm trang hiện tại
+    pagesRanges.Add(currentPage);
+
+    // Thêm các trang phía sau của trang hiện tại
+    for (int i = currentPage + 1; i <= currentPage + delta; i++)
+    {
+        if (i <= countPages)
+            pagesRanges.Add(i);
+    }
+
+    // Kiểm tra xem có cần hiển thị dấu ba chấm ở giữa không
+    if (pagesRanges.Count > 0 && pagesRanges[0] > 1)
+    {
+        // Nếu không phải là trang đầu tiên, thêm dấu ba chấm ở đầu
+        pagesRanges.Insert(0, -1);
+    }
+
+    if (pagesRanges.Count > 0 && pagesRanges[pagesRanges.Count - 1] < countPages)
+    {
+        // Nếu không phải là trang cuối cùng, thêm dấu ba chấm ở cuối
+        pagesRanges.Add(-2);
+    }
 }
 
-@* PHÁT SINH HTML*@
-
+@* PHÁT SINH HTML *@
 <ul class="pagination">
     <!-- Previous page link -->
     @if (preview != null)
@@ -89,25 +83,40 @@
             <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&lt;&lt;</a>
         </li>
     }
-      
+
     <!-- Numbered page links -->
     @foreach (var pageitem in pagesRanges)
     {
-        if (pageitem != currentPage) {
-            <li class="page-item">
-                <a class="page-link" href="@generateUrl(pageitem)">
-                    @pageitem
-                </a>
-            </li>
-        }   
-        else 
+        if (pageitem == -1)
         {
-            <li class="page-item active" aria-current="page">
-                <a class="page-link" href="#">@pageitem <span class="sr-only">(current)</span></a>
+            <!-- Dấu ba chấm (...) ở đầu -->
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">...</a>
             </li>
         }
+        else if (pageitem == -2)
+        {
+            <!-- Dấu ba chấm (...) ở cuối -->
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">...</a>
+            </li>
+        }
+        else
+        {
+            @if (pageitem != currentPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="@generateUrl(pageitem)">@pageitem</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="#">@pageitem <span class="sr-only">(current)</span></a>
+                </li>
+            }
+        }
     }
-
 
     <!-- Next page link -->
     @if (next != null)
@@ -116,7 +125,7 @@
             <a class="page-link" href="@generateUrl(next)">&gt;&gt;</a>
         </li>
     }
-    else 
+    else
     {
         <li class="page-item disabled">
             <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&gt;&gt;</a>

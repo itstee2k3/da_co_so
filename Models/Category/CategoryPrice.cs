@@ -22,6 +22,4 @@ public partial class CategoryPrice
     public int? PriceMin { get; set; }
 
     public int? PriceMax { get; set; }
-
-    public List<Product>? Products { get; set; }
 }

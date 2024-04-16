@@ -1,0 +1,53 @@
+﻿@page "/admin/category/category-sex"
+@model do_an_ltweb.Admin.AdCategory.AdCategorySex.IndexModel
+@{
+    ViewData["Title"] = "List CategorySex";
+}
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" model="@Model.StatusMessage"></partial>
+
+<div class="mb-2">
+    <a class="btn btn-secondary" asp-page="./Create">Create New CategorySex</a>
+</div>
+<div class="card mb-4">
+
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable CategorySex
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+
+            <thead>
+                <tr>
+                    <th>NameCategorySex</th>
+                    <th>Hide</th>
+                    <th>Tasks</th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <th>NameCategorySex</th>
+                    <th>Hide</th>
+                    <th>Tasks</th>
+                </tr>
+            </tfoot>
+
+            <tbody>
+                @foreach (var categorySex in Model.CategorySexes)
+                {
+                    <tr>
+                        <td>@categorySex.NameCategory</td>
+                        <td>@categorySex.Hide</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" asp-page="./Edit" asp-route-sexid="@categorySex.IdCategory">Update</a>
+                            <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-sexid="@categorySex.IdCategory">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

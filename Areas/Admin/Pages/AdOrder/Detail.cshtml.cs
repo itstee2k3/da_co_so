@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using do_an_ltweb.Models;
-using do_an_ltweb.Admin.Role;
+using do_an_ltweb.Admin.AdRole;
 
 namespace do_an_ltweb.Admin.AdOrder
 {
@@ -31,6 +31,9 @@ namespace do_an_ltweb.Admin.AdOrder
             public decimal Price { get; set; }
         }
 
+        [TempData]
+        public string StatusMessage { get; set; }
+
         public int OrderId { get; set; }
         public List<ProductDetail> Products { get; set; }
         public Order Order { get; set; } // Thêm thuộc tính Order vào DetailModel
@@ -38,12 +41,12 @@ namespace do_an_ltweb.Admin.AdOrder
         public async Task<IActionResult> OnGet(int orderId)
         {
             if (orderId < 0)
-                return NotFound("Không tìm thấy đơn hàng");
+                return NotFound("Order not found");
 
             var order = await _context.Orders.FirstOrDefaultAsync(o => o.IdOrder == orderId);
 
             if (order == null)
-                return NotFound("Không tìm thấy đơn hàng");
+                return NotFound("Order not found");
 
             OrderId = orderId;
 
@@ -67,7 +70,7 @@ namespace do_an_ltweb.Admin.AdOrder
             var order = await _context.Orders.Include(o => o.OrderDetails).FirstOrDefaultAsync(o => o.IdOrder == orderId);
 
             if (order == null)
-                return NotFound("Không tìm thấy đơn hàng");
+                return NotFound("Order not found");
 
             // Duyệt qua từng chi tiết đơn hàng
             foreach (var orderDetail in order.OrderDetails)
@@ -76,7 +79,7 @@ namespace do_an_ltweb.Admin.AdOrder
 
                 if (product == null)
                 {
-                    return NotFound("Không tìm thấy sản phẩm trong kho");
+                    return NotFound("No products found in stock");
                 }
 
                 // Cập nhật số lượng sản phẩm trong kho
@@ -92,6 +95,14 @@ namespace do_an_ltweb.Admin.AdOrder
             // Lưu các thay đổi vào cơ sở dữ liệu
             await _context.SaveChangesAsync();
 
+            if (order != null)
+            {
+                StatusMessage = $"You just confirm IdOrder: {order.IdOrder}";
+            }
+            else
+            {
+                StatusMessage = "Order not found";
+            }
             return RedirectToPage("./Index");
         }
     }

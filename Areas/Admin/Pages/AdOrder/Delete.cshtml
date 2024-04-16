@@ -1,15 +1,15 @@
 ﻿@page "/admin/delete-order/{orderId}"
-@model do_an_ltweb.Admin.AdOrder.DeleteModel
+@model do_an_ltweb.Admin.AdOrder.DelateOrderModel
 @{
-    ViewData["Title"] = "Xóa Order";
+    ViewData["Title"] = "Delete Order";
 }
 
-<h1>Xóa Order</h1>
+<h2>@ViewData["Title"]</h2>
 
-<p>Bạn có chắc chắn muốn xóa order này không?</p>
+<p>Are you sure you want to delete this order?</p>
 
 <form method="post">
     <input type="hidden" asp-for="Order.IdOrder" />
-    <button type="submit" class="btn btn-danger">Xóa</button>
-    <a asp-page="/Index" class="btn btn-secondary">Hủy</a>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-page="./Index" class="btn btn-secondary">Return</a>
 </form>

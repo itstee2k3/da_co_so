@@ -1,0 +1,53 @@
+﻿@page "/admin/category/category-material"
+@model do_an_ltweb.Admin.AdCategory.AdCategoryMaterial.IndexModel
+@{
+    ViewData["Title"] = "List CategoryMaterial";
+}
+<h2>@ViewData["Title"]</h2>
+
+<partial name="_StatusMessage" model="@Model.StatusMessage"></partial>
+
+<div class="mb-2">
+    <a class="btn btn-secondary" asp-page="./Create">Create New CategoryMaterial</a>
+</div>
+<div class="card mb-4">
+
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable CategoryMaterial
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+
+            <thead>
+                <tr>
+                    <th>NameCategoryMaterial</th>
+                    <th>Hide</th>
+                    <th>Tasks</th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <th>NameCategoryMaterial</th>
+                    <th>Hide</th>
+                    <th>Tasks</th>
+                </tr>
+            </tfoot>
+
+            <tbody>
+                @foreach (var categoryMaterial in Model.CategoryMaterials)
+                {
+                    <tr>
+                        <td>@categoryMaterial.NameCategory</td>
+                        <td>@categoryMaterial.Hide</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" asp-page="./Edit" asp-route-materialid="@categoryMaterial.IdCategory">Update</a>
+                            <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-materialid="@categoryMaterial.IdCategory">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

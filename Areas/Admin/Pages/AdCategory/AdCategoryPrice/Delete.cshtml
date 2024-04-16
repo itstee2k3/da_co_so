@@ -1,0 +1,28 @@
+﻿@page "/admin/category/delete-category-price/{priceid}"
+@model do_an_ltweb.Admin.AdCategory.AdCategoryPrice.DeleteModel
+@{
+    ViewData["Title"] = "Delete CategoryPrice";
+}
+<h2>@ViewData["Title"]</h2>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+         
+            <p>Are you sure delete <strong>@Model.Category.NameCategory</strong></p>
+            <div class="form-group">
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a class="btn btn-primary" asp-page="./Index">Return</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

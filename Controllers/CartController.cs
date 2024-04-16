@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging; // Import thêm namespace này
 using System.Collections.Generic; // Import thêm namespace này
 using Microsoft.AspNetCore.Http; // Thêm namespace này
@@ -29,7 +30,8 @@ namespace do_an.Controllers
             var user = await _user.GetUserAsync(User);
             if (user == null)
             {
-                return Redirect("/login/");
+                var returnUrl = HttpContext.Request.Path;
+                return Redirect($"/login?returnUrl={returnUrl}");
             }
 
             // Lấy danh sách các sản phẩm trong giỏ hàng của người dùng

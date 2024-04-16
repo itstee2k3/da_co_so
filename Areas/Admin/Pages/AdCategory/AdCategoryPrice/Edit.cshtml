@@ -1,0 +1,44 @@
+﻿@page "/admin/category/edit-category-price/{priceid}"
+@model do_an_ltweb.Admin.AdCategory.AdCategoryPrice.EditModel
+@{
+    ViewData["Title"] = "Update CategoryBrand";
+}
+<h2>@ViewData["Title"]</h2>
+
+<hr>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Min" class="control-label"></label>
+                <input asp-for="Input.Min" class="form-control" />
+                <span asp-validation-for="Input.Min" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Max" class="control-label"></label>
+                <input asp-for="Input.Max" class="form-control" />
+                <span asp-validation-for="Input.Max" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Hide" class="control-label"></label>
+                <select asp-for="Input.Hide" class="form-control">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                </select>
+                <span asp-validation-for="Input.Hide" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-success" />
+                <a class="btn btn-primary" asp-page="./Index">Return</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

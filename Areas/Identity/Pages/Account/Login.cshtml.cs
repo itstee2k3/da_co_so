@@ -1,8 +1,4 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-#nullable disable
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -45,7 +41,7 @@ namespace do_an.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required(ErrorMessage = "Not null")]
-            [Display(Name = "Input your username orr email")]
+            [Display(Name = "Username or Email")]
             [StringLength(100, MinimumLength = 1, ErrorMessage = "Enter correct information")]
             public string UserNameOrEmail { get; set; }
 
@@ -83,13 +79,14 @@ namespace do_an.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                // Thực hiện xác thực đăng nhập và xử lý nếu không có lỗi nào được thêm vào ModelState
+                // Nếu có lỗi, ModelState.IsValid sẽ trả về false và lỗi sẽ được hiển thị trên giao diện người dùng
                 var result = await _signInManager.PasswordSignInAsync(
                     Input.UserNameOrEmail,
                     Input.Password,
                     Input.RememberMe,
                     lockoutOnFailure: true);
+
                 if (!result.Succeeded)
                 {
                     // Thất bại username/password -> tìm user theo email, nếu thấy thì thử đăng nhập
@@ -109,6 +106,15 @@ namespace do_an.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+
+                    // Kiểm tra xem người dùng có vai trò "admin" không
+                    var user = await _userManager.FindByNameAsync(Input.UserNameOrEmail);
+                    if (await _userManager.IsInRoleAsync(user, "admin"))
+                    {
+                        // Nếu có, chuyển hướng trực tiếp đến trang Admin
+                        return LocalRedirect("/admin/index");
+                    }
+
                     return LocalRedirect(returnUrl);
                 }
 
@@ -128,7 +134,7 @@ namespace do_an.Areas.Identity.Pages.Account
                 }
             }
 
-            // If we got this far, something failed, redisplay form
+            // Nếu ModelState.IsValid trả về false, quay trở lại trang đăng nhập để hiển thị lỗi
             return Page();
         }
     }

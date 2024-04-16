@@ -12,7 +12,6 @@ namespace do_an_ltweb.Models
         [Required, StringLength(100)]
         public string? NameProduct { get; set; }
 
-        [Range(0.01, 10000000.00)]
         public decimal Price { get; set; }
 
         public int Nums { get; set; }

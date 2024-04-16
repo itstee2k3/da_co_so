@@ -168,6 +168,19 @@ img {
      padding: 12px 40px;
      font-size: 16px;
 }
+.btn-blu {
+    color: #fff;
+    background-color: #03cafa;
+    border-color: #03cafa;
+}
+
+.btn-blu:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
+}
 
 .lead {
      font-size: 18px;
@@ -306,11 +319,20 @@ button {
 
 .header {
      width: 100%;
-     padding: 30px 30px;
+     padding: 30px 30px 0 30px;
      background: transparent;
      position: absolute;
      z-index: 999;
      border-top: #090102 solid 11px;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff; /* Màu nền của header */
+    /* Thêm bất kỳ style nào khác bạn muốn áp dụng cho header */
 }
 
 .logo {
@@ -325,8 +347,8 @@ button {
 /** banner section **/
 
 .banner_main {
-     background: #f5f6f6;
-     padding: 198px 0px 90px 0px;
+    border-bottom: #000 solid 1px;
+    padding: 198px 0px 90px 0px;
 }
 
 .text-bg {
@@ -1023,3 +1045,27 @@ ul.location_icon li a {
 }
 
 /*end cart*/
+
+/* suitable */
+
+.home-suitable {
+    padding-top: 150px;
+}
+
+/* end suitable */
+
+/* login*/
+.border-v:focus {
+    border: 1px solid #ced4da !important;
+}
+
+.custom-header {
+    background-color: #03cafa; /* Màu nền */
+    color: white; /* Màu chữ */
+}
+
+/* end login*/
+
+div.d-none {
+    display: none;
+}
