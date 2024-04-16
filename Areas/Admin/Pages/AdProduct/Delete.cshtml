@@ -1,10 +1,9 @@
-﻿@*@page "/admin/delelte-role/{roleid}"
+﻿@page "/admin/product/delete-product/{productid}"
 @model do_an_ltweb.Admin.AdProduct.DeleteModel
 @{
-    ViewData["Title"] = "Xóa role";
+    ViewData["Title"] = "Delete Product";
 }
 <h2>@ViewData["Title"]</h2>
-<partial name="_StatusMessage" model="@Model.StatusMessage"></partial>
 
 <hr>
 
@@ -13,10 +12,10 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
          
-            <p>Bạn có chắc chắn xóa <strong>@Model.role.Name</strong></p>
+            <p>Are you sure delete <strong>@Model.Product.NameProduct</strong></p>
             <div class="form-group">
-                <input type="submit" value="Đồng ý" class="btn btn-danger" />
-                <a class="btn btn-primary" asp-page="./Index">Danh sách các role</a>
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a class="btn btn-primary" asp-page="./Index">Return</a>
             </div>
         </form>
     </div>
@@ -25,5 +24,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}*@
+}
 

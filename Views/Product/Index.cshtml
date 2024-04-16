@@ -1,7 +1,6 @@
 ﻿@*@model IEnumerable<do_an_ltweb.Models.Product>*@
 
 @model XTL.Helpers.PagingModel
-
 @{
     ViewData["Title"] = "Product Page";
 
@@ -73,7 +72,7 @@
                                                 {
                                                     <!-- Checked checkbox -->
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" checked="false" />
+                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" />
                                                         <label class="form-check-label" for="flexCheckChecked1">@brand.NameCategory</label>
                                                         @*<span class="badge badge-secondary float-end">120</span>*@
                                                     </div>
@@ -105,7 +104,7 @@
                                                 {
                                                     <!-- Checked checkbox -->
                                                     <div class="form-check form-check-horizontal">
-                                                        <input class="form-check-input-fs" type="checkbox" value="" id="flexCheckChecked1" checked="false" />
+                                                        <input class="form-check-input-fs" type="checkbox" value="" id="flexCheckChecked1"/>
                                                         @if (framestyle.ImageUrl != null)
                                                         {
                                                             <img class="form-check-img" src="@framestyle.ImageUrl" />
@@ -162,7 +161,7 @@
                                     <a asp-action="Detail" asp-route-id="@product.IdProduct">
                                         <div class="card-body d-flex flex-column">
                                             <h3 class="card-title">@product.Price.ToString("N0")<span class="blu">đ</span></h3>
-                                            <p class="card-text">@product.NameProduct</p>
+                                            <p class="card-text text-truncate">@product.NameProduct</p>
                                         </div>
                                     </a>
                                 </div>

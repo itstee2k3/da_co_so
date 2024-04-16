@@ -494,6 +494,39 @@ namespace do_an.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
+            modelBuilder.Entity("do_an.Models.Contact", b =>
+                {
+                    b.Property<int>("IdContact")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdContact"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("IdContact");
+
+                    b.ToTable("Contacts");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -722,7 +755,7 @@ namespace do_an.Migrations
                         .HasForeignKey("IdCategoryOrigin");
 
                     b.HasOne("do_an_ltweb.Models.CategoryPrice", "CategoryPrice")
-                        .WithMany("Products")
+                        .WithMany()
                         .HasForeignKey("IdCategoryPrice");
 
                     b.HasOne("do_an_ltweb.Models.CategorySex", "CategorySex")
@@ -834,11 +867,6 @@ namespace do_an.Migrations
                 });
 
             modelBuilder.Entity("do_an_ltweb.Models.CategoryOrigin", b =>
-                {
-                    b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("do_an_ltweb.Models.CategoryPrice", b =>
                 {
                     b.Navigation("Products");
                 });

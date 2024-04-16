@@ -26,6 +26,15 @@ namespace do_an.Controllers
             // Lấy người dùng hiện tại (hoặc thông tin người dùng đang đăng nhập)
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
+            // Lấy các mục trong giỏ hàng của người dùng
+            var cartItems = _context.CartItems.Where(c => c.IdUser == userId).ToList();
+
+            if (cartItems.Count == 0)
+            {
+                // Nếu không có sản phẩm trong giỏ hàng, trả về một thông báo JSON yêu cầu thêm sản phẩm vào giỏ hàng
+                return Json(new { success = false, message = "Please add items to your cart before placing an order." });
+            }
+
             // Lấy thông tin người dùng
             var user = _context.Users.FirstOrDefault(u => u.Id == userId);
 
@@ -33,11 +42,8 @@ namespace do_an.Controllers
             if (user.Address == null)
             {
                 // Nếu địa chỉ là null, trả về một thông báo JSON yêu cầu người dùng cập nhật địa chỉ
-                return Json(new { success = false, message = "Vui lòng cập nhật địa chỉ trước khi đặt hàng." });
+                return Json(new { success = false, message = "Please update your address before ordering." });
             }
-
-            // Lấy các mục trong giỏ hàng của người dùng
-            var cartItems = _context.CartItems.Where(c => c.IdUser == userId).ToList();
 
             // Tạo một đơn hàng mới
             var order = new Order
@@ -66,7 +72,7 @@ namespace do_an.Controllers
             _context.CartItems.RemoveRange(cartItems);
             _context.SaveChanges();
 
-            return Json(new { success = true });
+            return Json(new { success = true, message = "Order created successfully." });
         }
 
         // GET: /<controller>/

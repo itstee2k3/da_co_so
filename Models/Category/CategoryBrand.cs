@@ -13,8 +13,6 @@ public partial class CategoryBrand
     [Required, StringLength(100)]
     public string NameCategory { get; set; }
 
-    //public int? Order { get; set; }
-
     public int? Hide { get; set; }
 
     public List<Product>? Products { get; set; }

@@ -1,14 +1,15 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using do_an_ltweb.Models
+@using Microsoft.AspNetCore.Mvc.RazorPages
 
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 @{
-    var cartUrl = User.Identity.IsAuthenticated ? Url.Action("Index", "Cart") : Url.Action("Login", "Account");
+    var returnUrl = Context.Request.Path;
+    var cartUrl = User.Identity.IsAuthenticated ? Url.Action("Index", "Cart") : Url.Action("Login", "Account", new { returnUrl = returnUrl });
     var iconClass = User.Identity.IsAuthenticated ? "fa fa-shopping-bag" : "fa fa-sign-in-alt";
 }
 
-@*<ul class="navbar-nav mr-auto">*@
 @if (SignInManager.IsSignedIn(User))
 {
     var user = await UserManager.GetUserAsync(User);
@@ -35,17 +36,10 @@
 else
 {
     <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Login") ? "login_btn" : "")">
-        <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="/Home/Index">Login</a>
     </li>
-
-    @*<li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Cart") ? "login_btn" : "")">
-            <a class="nav-link" asp-controller="Cart" asp-action="Index">
-                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-            </a>
-        </li>*@
 
     <li class="nav-item @(ViewContext.ActionDescriptor.DisplayName.Contains("Register") ? "login_btn" : "")">
-        <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register" asp-route-returnUrl="/Home/Index">Register</a>
     </li>
 }
-@*</ul>*@

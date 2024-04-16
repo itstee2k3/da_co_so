@@ -1,27 +1,160 @@
-﻿@*@page "/admin/edit-role/{roleid}"
-@model do_an_ltweb.Admin.AdProduct.EditModel
-@{
-    ViewData["Title"] = "Cập nhật role";
-}
-<h2>@ViewData["Title"]</h2>
+﻿@page "/admin/product/edit-product/{productid}"
+@model do_an_ltweb.Admin.AdProduct.EidtModel
 
-<partial name="_StatusMessage" model="@Model.StatusMessage"></partial>
+@{
+    ViewData["Title"] = "Create new Product";
+}
+
+<h2>@ViewData["Title"]</h2>
 
 <hr>
 
 <div class="row">
     <div class="col-md-6">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Input.Name" class="control-label"></label>
                 <input asp-for="Input.Name" class="form-control" />
                 <span asp-validation-for="Input.Name" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Input.Price" class="control-label"></label>
+                <input asp-for="Input.Price" class="form-control" />
+                <span asp-validation-for="Input.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Nums" class="control-label"></label>
+                <input asp-for="Input.Nums" class="form-control" />
+                <span asp-validation-for="Input.Nums" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Description" class="control-label"></label>
+                <textarea asp-for="Input.Description" class="form-control"></textarea>
+                <span asp-validation-for="Input.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ImageUrl" class="control-label"></label>
+                <input asp-for="Input.ImageUrl" type="file" class="form-control" onchange="previewImage(this)" />
+                <span asp-validation-for="Input.ImageUrl" class="text-danger"></span>
+                <img id="imagePreview" src="#" alt="Preview Image" style="display: none; margin-top: 10px; max-width: 100%;" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Size" class="control-label"></label>
+                <input asp-for="Input.Size" class="form-control" />
+                <span asp-validation-for="Input.Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.CategoryBrandId" class="control-label"></label>
+                <select asp-for="Input.CategoryBrandId" class="form-control">
+                    <option value="">-- Select a Category Brand --</option>
+                    @if (Model.CategoryBrands != null)
+                    {
+                        @foreach (var brand in Model.CategoryBrands)
+                        {
+                            <option value="@brand.IdCategory">@brand.NameCategory</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Input.CategoryBrandId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.CategoryFrameColorId" class="control-label"></label>
+                <select asp-for="Input.CategoryFrameColorId" class="form-control">
+                    <option value="">-- Select a Category Frame Color --</option>
+                    @if (Model.CategoryFrameColors != null)
+                    {
+                        @foreach (var brand in Model.CategoryFrameColors)
+                        {
+                            <option value="@brand.IdCategory">@brand.NameCategory</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Input.CategoryFrameColorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.CategoryFrameStyleId" class="control-label"></label>
+                <select asp-for="Input.CategoryFrameStyleId" class="form-control">
+                    <option value="">-- Select a Category Frame Style --</option>
+                    @if (Model.CategoryFrameStyles != null)
+                    {
+                        @foreach (var brand in Model.CategoryFrameStyles)
+                        {
+                            <option value="@brand.IdCategory">@brand.NameCategory</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Input.CategoryFrameStyleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.CategoryIrisColorId" class="control-label"></label>
+                <select asp-for="Input.CategoryIrisColorId" class="form-control">
+                    <option value="">-- Select a Category Iris Color --</option>
+                    @if (Model.CategoryIrisColors != null)
+                    {
+                        @foreach (var brand in Model.CategoryIrisColors)
+                        {
+                            <option value="@brand.IdCategory">@brand.NameCategory</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Input.CategoryIrisColorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.CategoryMaterialId" class="control-label"></label>
+                <select asp-for="Input.CategoryMaterialId" class="form-control">
+                    <option value="">-- Select a Category Material --</option>
+                    @if (Model.CategoryMaterials != null)
+                    {
+                        @foreach (var brand in Model.CategoryMaterials)
+                        {
+                            <option value="@brand.IdCategory">@brand.NameCategory</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Input.CategoryMaterialId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.CategoryOriginId" class="control-label"></label>
+                <select asp-for="Input.CategoryOriginId" class="form-control">
+                    <option value="">-- Select a Category Origin --</option>
+                    @if (Model.CategoryOrigins != null)
+                    {
+                        @foreach (var brand in Model.CategoryOrigins)
+                        {
+                            <option value="@brand.IdCategory">@brand.NameCategory</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Input.CategoryOriginId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.CategorySexId" class="control-label"></label>
+                <select asp-for="Input.CategorySexId" class="form-control">
+                    <option value="">-- Select a Category Sex --</option>
+                    @if (Model.CategorySexes != null)
+                    {
+                        @foreach (var brand in Model.CategorySexes)
+                        {
+                            <option value="@brand.IdCategory">@brand.NameCategory</option>
+                        }
+                    }
+                </select>
+                <span asp-validation-for="Input.CategorySexId" class="text-danger"></span>
+            </div>
 
             <div class="form-group">
-                <input type="submit" value="Cập nhật" class="btn btn-primary" />
-                <a class="btn btn-primary" asp-page="./Index">Danh sách các role</a>
+                <label asp-for="Input.Hide" class="control-label"></label>
+                <select asp-for="Input.Hide" class="form-control">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                </select>
+                <span asp-validation-for="Input.Hide" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-success" />
+                <a class="btn btn-primary" asp-page="./Index">Return</a>
             </div>
         </form>
     </div>
@@ -30,5 +163,23 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}*@
+}
+<script>
+    function previewImage(input) {
+        var preview = document.getElementById('imagePreview');
+        var file = input.files[0];
+        var reader = new FileReader();
 
+        reader.onloadend = function () {
+            preview.src = reader.result;
+            preview.style.display = 'block';
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = '';
+            preview.style.display = 'none';
+        }
+    }
+</script>

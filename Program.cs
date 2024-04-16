@@ -31,11 +31,10 @@ builder.Services.AddScoped<ICategorySex, EFCategorySex>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DockerConnection")));
 
-builder.Services.AddIdentity<User, IdentityRole>(/*options => options.SignIn.RequireConfirmedAccount = true*/)
+builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultUI()
     .AddRoles<IdentityRole>()
-    //.AddUserManager<IdentityUser>()
     .AddDefaultTokenProviders();
 
 //builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -74,31 +73,6 @@ builder.Services.Configure<IdentityOptions>(options => {
     options.SignIn.RequireConfirmedAccount = true;          // Xác thực account
 });
 
-//builder.Services.AddAuthorization(options => {
-
-//    options.AddPolicy("AllowEditRole", policyBuilder => {
-//        // Dieu kien cua Policy
-//        policyBuilder.RequireAuthenticatedUser();
-//        //policyBuilder.RequireRole("Admin");
-//        // policyBuilder.RequireRole("Editor");
-
-//        // policyBuilder.RequireClaim("manage.role", "add", "update");
-//        policyBuilder.RequireClaim("canedit","role");
-
-
-//        // Claims-based authorization
-//        // policyBuilder.RequireClaim("Ten Claim", "giatri1", "giatri2");
-//        // policyBuilder.RequireClaim("Ten Claim", new string[] {
-//        //     "giatri1",
-//        //     "giatri2"
-//        // });
-
-//        // IdentityRoleClaim<string> claim1; ->DbContext
-//        // IdentityUserClaim<string> claim2; ->DbContext
-//        // Claim claim3; -> tu dich vu cua Identity
-
-//    });
-//});
 
 builder.Services.AddOptions();                                        // Kích hoạt Options
 var mailsettings = builder.Configuration.GetSection("MailSettings");  // đọc config
@@ -113,13 +87,13 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
-app.UseHttpsRedirection();
 
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();;
 
+app.UseAuthentication();;
 app.UseAuthorization();
 
 app.MapRazorPages();

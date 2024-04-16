@@ -1,4 +1,5 @@
 ﻿using System.Reflection.Metadata;
+using do_an.Models;
 using do_an_ltweb.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -22,11 +23,18 @@ namespace do_an_ltweb.Models
 
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
+
         public DbSet<User> Users { get; set; }
+
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+
         public DbSet<CartItem> CartItems { get; set; }
+
         public DbSet<Feedback> Feedbacks { get; set; }
+
+        public DbSet<Contact> Contacts { get; set; }
+
         //public DbSet<Slider> Sliders { get; set; }
         //public DbSet<About> Abouts { get; set; }
         //public DbSet<Contact> Contacts { get; set; }

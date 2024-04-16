@@ -36,3 +36,52 @@ public partial class User : IdentityUser
 
     public virtual ICollection<Order> Orders { get; } = new List<Order>();
 }
+
+/*
+ 
+DECLARE @counter INT = 1;
+WHILE @counter <= 100
+BEGIN
+    INSERT INTO [dbo].[Users] (
+        [Id],
+        [Address],
+        [BirthDate],
+        [UserName],
+        [NormalizedUserName],
+        [Email],
+        [NormalizedEmail],
+        [EmailConfirmed],
+        [PasswordHash],
+        [SecurityStamp],
+        [ConcurrencyStamp],
+        [PhoneNumber],
+        [PhoneNumberConfirmed],
+        [TwoFactorEnabled],
+        [LockoutEnd],
+        [LockoutEnabled],
+        [AccessFailedCount]
+    )
+    VALUES (
+        NEWID(), -- Tạo một GUID ngẫu nhiên cho Id
+        'Address' + CAST(@counter AS NVARCHAR(3)), -- Địa chỉ
+        DATEADD(YEAR, -20, GETDATE()), -- Ngày sinh
+        'User' + CAST(@counter AS NVARCHAR(3)), -- Tên người dùng
+        'USER' + CAST(@counter AS NVARCHAR(3)), -- Tên người dùng chuẩn hóa
+        'user' + CAST(@counter AS NVARCHAR(3)) + '@example.com', -- Email
+        'USER' + CAST(@counter AS NVARCHAR(3)) + '@EXAMPLE.COM', -- Email chuẩn hóa
+        1, -- Đã xác nhận Email
+        'passwordhash', -- Hash mật khẩu
+        'securitystamp', -- Stamp bảo mật
+        NEWID(), -- Concurrency stamp
+        '1234567890', -- Số điện thoại
+        1, -- Đã xác nhận số điện thoại
+        0, -- Không kích hoạt 2 yếu tố
+        NULL, -- Khóa tài khoản hết hạn
+        1, -- Khóa tài khoản được bật
+        0 -- Số lần đăng nhập không thành công
+    );
+
+    SET @counter = @counter + 1;
+END;
+ 
+*/

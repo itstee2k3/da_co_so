@@ -7,36 +7,63 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <form id="request" class="main_form">
+                <form id="request" class="main_form" method="post">
                     <div class="row">
                         <div class="col-md-12 ">
                             <h3>Contact Us</h3>
                         </div>
                         <div class="col-md-12 ">
-                            <input class="contactus" placeholder="Name" type="type" name="Name">
+                            <input class="contactus" placeholder="Name" type="text" name="Name">
                         </div>
                         <div class="col-md-12">
-                            <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
+                            <input class="contactus" placeholder="PhoneNumber" type="text" name="PhoneNumber" pattern="\+[0-9]+|[0-9]+" title="Only allow + and numbers">
                         </div>
                         <div class="col-md-12">
-                            <input class="contactus" placeholder="Email" type="type" name="Email">
+                            <input class="contactus" placeholder="Email" type="email" name="Email">
                         </div>
                         <div class="col-md-12">
-                            <textarea class="contactusmess" placeholder="Message" type="type" Message="Name"></textarea>
+                            <textarea class="contactusmess" placeholder="Message" name="Message"></textarea>
                         </div>
                         <div class="col-md-12">
-                            <button class="send_btn">Send</button>
+                            <button type="submit" class="send_btn">Send</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    @*<div class="container-fluid">
-        <div class="map_section">
-            <div id="map">
-            </div>
-        </div>
-    </div>*@
 </div>
 <!-- end contact section -->
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#request").submit(function (e) {
+            var formData = $(this).serialize(); // Lấy dữ liệu form
+            console.log(formData); // Hiển thị dữ liệu form trong console
+            e.preventDefault(); // Ngăn chặn gửi form mặc định
+
+            $.ajax({
+                type: "POST",
+                url: "/Contact/SubmitContactForm",
+                data: formData,
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message); 
+                    } else {
+                        alert(response.message); 
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // Xử lý lỗi
+                    console.log(xhr.responseText);
+                }
+            });
+        });
+    });
+</script>

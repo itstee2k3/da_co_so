@@ -23,19 +23,19 @@
 
             @*<div class="carousel-item">*@
             @*<div class="container">
-                <div class="carousel-caption">
-                    <div class="text-bg">
-                        <h1> <span class="blu">Welcome <br></span>To Our SmartByGlasses</h1>
+                    <div class="carousel-caption">
+                        <div class="text-bg">
+                            <h1> <span class="blu">Welcome <br></span>To Our SmartByGlasses</h1>
+                        </div>
                     </div>
-                </div>
-            </div>*@
+                </div>*@
             @*</div>*@
 
             <div class="carousel-item active">
                 <div class="container">
                     <div class="carousel-caption">
                         <div class="text-bg">
-                            <figure><img class="carousel-image" src="images/banner-1.jpeg" alt="banner-1" /></figure>
+                            <figure><img class="carousel-image" src="/images/banner-1.jpeg" alt="banner-1" /></figure>
                             @*<a class="read_more" href="#">Shop Now</a>*@
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                     <div class="carousel-caption">
                         <div class="text-bg">
                             @*<h1> <span class="blu">Welcome <br></span>To Our SmartByGlasses</h1>*@
-                            <figure><img class="carousel-image" src="images/banner-2.jpeg" alt="banner-2" /></figure>
+                            <figure><img class="carousel-image" src="/images/banner-2.jpeg" alt="banner-2" /></figure>
                             @*<a class="read_more" href="#">Shop Now</a>*@
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                     <div class="carousel-caption">
                         <div class="text-bg">
                             @*<h1> <span class="blu">Welcome <br></span>To Our SmartByGlasses</h1>*@
-                            <figure><img class="carousel-image" src="images/banner-3.jpeg" alt="banner-3" /></figure>
+                            <figure><img class="carousel-image" src="/images/banner-3.jpeg" alt="banner-3" /></figure>
                             @*<a class="read_more" href="#">Shop Now</a>*@
                         </div>
                     </div>
@@ -73,20 +73,25 @@
     </div>
 </section>
 <!-- end banner -->
-
 <!-- about section -->
 <div class="about">
     <div class="container">
         <div class="row d_flex">
             <div class="col-md-5">
                 <div class="about_img">
-                    <figure><img src="images/about_img.png" alt="#" /></figure>
+                    <figure><img src="/images/about_img.png" alt="#" /></figure>
                 </div>
             </div>
             <div class="col-md-7">
                 <div class="titlepage">
                     <h2>About Our Shop</h2>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+                    <p>
+                        Welcome to our eyewear store, where style meets functionality and quality craftsmanship is paramount.
+                        <br />
+                        <br />
+
+                        At our store, we pride ourselves on offering an extensive range of eyewear options to cater to every individual's unique style and vision needs. Whether you're searching for fashionable sunglasses to elevate your look or durable prescription glasses to enhance your vision, we have something for everyone.
+                    </p>
                 </div>
                 <a class="read_more" asp-controller="About" asp-action="Index">Read More</a>
             </div>
@@ -94,7 +99,6 @@
     </div>
 </div>
 <!-- end about section -->
-
 <!-- Our Shop section -->
 <div class="glasses">
     <div class="container">
@@ -103,8 +107,7 @@
                 <div class="titlepage">
                     <h2>Our Glasses</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor
-                        e et dolore magna aliqua. Ut enim ad minim veniam, qui
+                        Explore our stylish eyewear collection, perfect for both fashion-forward individuals and those seeking functional vision solutions.
                     </p>
                 </div>
             </div>
@@ -112,62 +115,26 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="glasses_box">
-                    <figure><img src="images/glass1.png" alt="#" /></figure>
-                    <h3><span class="blu">$</span>50</h3>
-                    <p>Sunglasses</p>
+            @foreach (var product in ViewBag.Products)
+            {
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <div class="card w-100 my-2 shadow-2-strong">
+                        <div class="card-conten-shop d-flex px-0 pb-0">
+                            <a href="#!" class="btn border icon-hover px-2 pt-2">
+                                <i class="fa fa-heart fa-lg text-secondary px-1"></i>
+                            </a>
+                        </div>
+                        <img src="@product.ImageUrl" class="card-img-top" />
+                        <a asp-controller="Product" asp-action="Detail" asp-route-id="@product.IdProduct">
+                            <div class="card-body d-flex flex-column">
+                                <h3>@product.Price.ToString("N0")<span class="blu">đ</span></h3>
+                                <p class="card-text text-truncate">@product.NameProduct</p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="glasses_box">
-                    <figure><img src="images/glass2.png" alt="#" /></figure>
-                    <h3><span class="blu">$</span>50</h3>
-                    <p>Sunglasses</p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="glasses_box">
-                    <figure><img src="images/glass3.png" alt="#" /></figure>
-                    <h3><span class="blu">$</span>50</h3>
-                    <p>Sunglasses</p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="glasses_box">
-                    <figure><img src="images/glass4.png" alt="#" /></figure>
-                    <h3><span class="blu">$</span>50</h3>
-                    <p>Sunglasses</p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="glasses_box">
-                    <figure><img src="images/glass5.png" alt="#" /></figure>
-                    <h3><span class="blu">$</span>50</h3>
-                    <p>Sunglasses</p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="glasses_box">
-                    <figure><img src="images/glass6.png" alt="#" /></figure>
-                    <h3><span class="blu">$</span>50</h3>
-                    <p>Sunglasses</p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="glasses_box">
-                    <figure><img src="images/glass7.png" alt="#" /></figure>
-                    <h3><span class="blu">$</span>50</h3>
-                    <p>Sunglasses</p>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="glasses_box">
-                    <figure><img src="images/glass8.png" alt="#" /></figure>
-                    <h3><span class="blu">$</span>50</h3>
-                    <p>Sunglasses</p>
-                </div>
-            </div>
+            }
+
             <div class="col-md-12">
                 <a class="read_more" asp-controller="Product" asp-action="AllProducts">See More</a>
             </div>
@@ -175,21 +142,20 @@
     </div>
 </div>
 <!-- end Our Shop section -->
-
 <!-- Suitable section -->
 <div id="about" class="shop">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-5">
                 <div class="shop_img">
-                    <figure><img src="images/shop_img.png" alt="#" /></figure>
+                    <figure><img src="/images/shop_img.png" alt="#" /></figure>
                 </div>
             </div>
             <div class="col-md-7 padding_right0">
                 <div class="max_width">
                     <div class="titlepage">
-                        <h2>Best SunGlasses  At Our shop</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                        <h2>Choosing Glasses that Suit Your Face Shape</h2>
+                        <p>Choosing the perfect pair of glasses is more than just a fashion statement; it's about finding frames that not only suit your style but also complement your facial features. Your face shape plays a crucial role in determining which frames will look best on you. Whether you have a round, square, oval, heart-shaped, or diamond-shaped face, there are frames designed to enhance your natural contours and bring out your unique beauty. Experiment with different styles, shapes, and colors until you find the perfect match that not only helps you see better but also makes you look and feel your best.</p>
                         <a class="read_more" asp-controller="Suitable" asp-action="Index">See More</a>
                     </div>
                 </div>
@@ -198,123 +164,121 @@
     </div>
 </div>
 <!-- end Suitable section -->
-
 <!-- clients section -->
 <div>
     @*<div class="clients">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="titlepage">
-                        <h2>What say our clients</h2>
-                        <p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div id="myCarousel" class="carousel slide clients_Carousel " data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="container">
-                                    <div class="carousel-caption ">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="clients_box">
-                                                    <figure><img src="images/our.png" alt="#" /></figure>
-                                                    <h3>Sandy Mark</h3>
-                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="container">
-                                    <div class="carousel-caption">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="clients_box">
-                                                    <figure><img src="images/our.png" alt="#" /></figure>
-                                                    <h3>Sandy Mark</h3>
-                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="container">
-                                    <div class="carousel-caption">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="clients_box">
-                                                    <figure><img src="images/our.png" alt="#" /></figure>
-                                                    <h3>Sandy Mark</h3>
-                                                    <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="titlepage">
+                            <h2>What say our clients</h2>
+                            <p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la</p>
                         </div>
-                        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                            <i class='fa fa-angle-left'></i>
-                        </a>
-                        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                            <i class='fa fa-angle-right'></i>
-                        </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="myCarousel" class="carousel slide clients_Carousel " data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="container">
+                                        <div class="carousel-caption ">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="clients_box">
+                                                        <figure><img src="images/our.png" alt="#" /></figure>
+                                                        <h3>Sandy Mark</h3>
+                                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="clients_box">
+                                                        <figure><img src="images/our.png" alt="#" /></figure>
+                                                        <h3>Sandy Mark</h3>
+                                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="container">
+                                        <div class="carousel-caption">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="clients_box">
+                                                        <figure><img src="images/our.png" alt="#" /></figure>
+                                                        <h3>Sandy Mark</h3>
+                                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                                <i class='fa fa-angle-left'></i>
+                            </a>
+                            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                                <i class='fa fa-angle-right'></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
 </div>
 <!-- end clients section -->
-
 <!-- contact section -->
 <div id="contact" class="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <form id="request" class="main_form">
-                    <div class="row">
-                        <div class="col-md-12 ">
-                            <h3>Contact Us</h3>
+    @*<div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="request" class="main_form">
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                <h3>Contact Us</h3>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input class="contactus" placeholder="Name" type="type" name="Name">
+                            </div>
+                            <div class="col-md-12">
+                                <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
+                            </div>
+                            <div class="col-md-12">
+                                <input class="contactus" placeholder="Email" type="type" name="Email">
+                            </div>
+                            <div class="col-md-12">
+                                <textarea class="contactusmess" placeholder="Message" type="type" Message="Name"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="send_btn">Send</button>
+                            </div>
                         </div>
-                        <div class="col-md-12 ">
-                            <input class="contactus" placeholder="Name" type="type" name="Name">
-                        </div>
-                        <div class="col-md-12">
-                            <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
-                        </div>
-                        <div class="col-md-12">
-                            <input class="contactus" placeholder="Email" type="type" name="Email">
-                        </div>
-                        <div class="col-md-12">
-                            <textarea class="contactusmess" placeholder="Message" type="type" Message="Name"></textarea>
-                        </div>
-                        <div class="col-md-12">
-                            <button class="send_btn">Send</button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
+            </div>
+        </div>*@
+    <div class="container-fluid">
+        <div class="map_section">
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4206985418705!2d106.78253487570396!3d10.855572157727538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175276e7ea103df%3A0xb6cf10bb7d719327!2zSFVURUNIIC0gxJDhuqFpIGjhu41jIEPDtG5nIG5naOG7hyBUUC5IQ00gKFRodSBEdWMgQ2FtcHVzKQ!5e0!3m2!1svi!2s!4v1710172843840!5m2!1svi!2s" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>
-    @*<div class="container-fluid">
-        <div class="map_section">
-            <div id="map">
-            </div>
-        </div>
-    </div>*@
 </div>
-<!-- end contact section -->
