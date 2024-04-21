@@ -1,4 +1,6 @@
 ﻿@model do_an_ltweb.Models.Product
+@inject do_an_ltweb.Models.IProductRepository productRepository
+
 @{
     ViewData["Title"] = "Detail Product";
 }
@@ -62,9 +64,16 @@
 
                         <div class="row">
                             <dt class="col-3">Origin:</dt>
-                            @if (Model.CategoryOrigin != null)
+                            @if (Model.IdCategoryOrigin != null)
                             {
-                                <dd class="col-9">@Model.CategoryOrigin</dd>
+                                if (Model.CategoryOrigin != null && !string.IsNullOrEmpty(Model.CategoryOrigin.NameCategory))
+                                {
+                                    <dd class="col-9">@Model.CategoryOrigin.NameCategory</dd>
+                                }
+                                else
+                                {
+                                    <dd class="col-9">N/A</dd>
+                                }
                             }
                             else
                             {
@@ -72,9 +81,16 @@
                             }
 
                             <dt class="col-3">Frame Color:</dt>
-                            @if (Model.CategoryFrameColor != null)
+                            @if (Model.IdCategoryFrameColor != null)
                             {
-                                <dd class="col-9">@Model.CategoryFrameColor</dd>
+                                if (Model.CategoryFrameColor != null && !string.IsNullOrEmpty(Model.CategoryFrameColor.NameCategory))
+                                {
+                                    <dd class="col-9">@Model.CategoryFrameColor.NameCategory</dd>
+                                }
+                                else
+                                {
+                                    <dd class="col-9">N/A</dd>
+                                }
                             }
                             else
                             {
@@ -82,9 +98,16 @@
                             }
 
                             <dt class="col-3">Iris Color:</dt>
-                            @if (Model.CategoryIrisColor != null)
+                            @if (Model.IdCategoryIrisColor != null)
                             {
-                                <dd class="col-9">@Model.CategoryIrisColor</dd>
+                                if (Model.CategoryIrisColor != null && !string.IsNullOrEmpty(Model.CategoryIrisColor.NameCategory))
+                                {
+                                    <dd class="col-9">@Model.CategoryIrisColor.NameCategory</dd>
+                                }
+                                else
+                                {
+                                    <dd class="col-9">N/A</dd>
+                                }
                             }
                             else
                             {
@@ -102,14 +125,22 @@
                             }
 
                             <dt class="col-3">Brand:</dt>
-                            @if (Model.CategoryBrand != null)
+                            @if (Model.IdCategoryBrand != null)
                             {
-                                <dd class="col-9">@Model.CategoryBrand</dd>
+                                if (Model.CategoryBrand != null && !string.IsNullOrEmpty(Model.CategoryBrand.NameCategory))
+                                {
+                                    <dd class="col-9">@Model.CategoryBrand.NameCategory</dd>
+                                }
+                                else
+                                {
+                                    <dd class="col-9">N/A</dd>
+                                }
                             }
                             else
                             {
                                 <dd class="col-9">N/A</dd>
                             }
+
                         </div>
 
                         <hr />
@@ -129,7 +160,7 @@
                             </div>
                         </div>
                         @*<a href="#" class="btn btn-warning shadow-0"> Buy now </a>*@
-                        <a id="add-to-cart-button" class="btn btn-main shadow-0 text-white" data-product-id="@Model.IdProduct"> <i class="me-1 fa fa-shopping-basket text-white"></i> Add to cart </a>
+                        <a id="add-to-cart-button" class="btn-main btn shadow-0 text-white" style="background-color: #03cafa" data-product-id="@Model.IdProduct"> <i class="me-1 fa fa-shopping-basket text-white"></i> Add to cart </a>
                         <a href="#" class="btn btn-light border border-secondary icon-hover px-3"> <i class="me-1 fa fa-heart fa-lg"></i> Save </a>
                     </div>
                 </main>
@@ -292,8 +323,7 @@
 
 </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+<script>document.addEventListener("DOMContentLoaded", function () {
         // Lấy các phần tử cần xử lý
         var displayNumber = document.getElementById('display-number');
         var buttonSubtract = document.getElementById('button-subtract');
@@ -320,12 +350,17 @@
         });
 
         addToCartButton.addEventListener("click", function () {
-        //function addToCartButton(cartItemId, quantity) { 
             // Lấy ID sản phẩm từ thuộc tính data-product-id của thẻ button
             var productId = addToCartButton.getAttribute('data-product-id');
 
             // Lấy giá trị quantity từ nội dung của thẻ span
             var quantity = parseInt(displayNumber.textContent);
+
+            // Kiểm tra nếu số lượng đặt hàng lớn hơn số lượng có sẵn
+            if (quantity > @Model.Nums) {
+                alert("The quantity you are trying to order exceeds the available stock. Remaining stock: " + @Model.Nums);
+                return;
+            }
 
             // Hiển thị thông tin vừa lấy được trong console
             console.log("Product ID:", productId);
@@ -355,6 +390,4 @@
             xhr.send('productId=' + productId + '&quantity=' + quantity);
         });
 
-    });
-
-</script>
+    });</script>

@@ -1,11 +1,13 @@
 using System.Data;
 using System.Threading.Tasks;
 using do_an_ltweb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace do_an_ltweb.Admin.AdOrder
 {
+    [Authorize(Roles = "admin")]
     public class DelateOrderModel : PageModel
     {
         private readonly ApplicationDbContext _context; // Thay YourDbContext bằng tên DbContext của ứng dụng của bạn

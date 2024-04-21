@@ -5,9 +5,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using do_an_ltweb.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace do_an_ltweb.Admin.AdCategory.AdCategoryPrice
 {
+    [Authorize(Roles = "admin")]
     public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _context;
@@ -85,7 +88,7 @@ namespace do_an_ltweb.Admin.AdCategory.AdCategoryPrice
             }
             else if (Input.Min != null)
             {
-                newCategory.NameCategory = $"Over {Input.Min:N0}đ";
+                newCategory.NameCategory = $"Above {Input.Min:N0}đ";
             }
             else
             {

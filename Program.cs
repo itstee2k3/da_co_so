@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Session;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using Microsoft.Extensions.Options;
+using do_an_ltweb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -80,6 +81,8 @@ builder.Services.Configure<MailSettings>(mailsettings);               // đăng 
 
 builder.Services.AddTransient<IEmailSender, SendMailService>();        // Đăng ký dịch vụ Mail
 
+builder.Services.AddSingleton<IVnPayService, VnPayService>();
+ 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -99,17 +102,6 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.UseSession(); // Sử dụng session
-
-
-//app.UseEndpoints(endpoints =>
-//{
-//endpoints.MapControllerRoute(
-//        name: "Admin",
-//        pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-//endpoints.MapControllerRoute(
-//        name: "default",
-//        pattern: "{controller=Home}/{action=Index}/{id?}");
-//});
 
 app.MapControllerRoute(
 name: "default",

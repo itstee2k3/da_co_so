@@ -11,7 +11,7 @@ using do_an_ltweb.Models;
 
 namespace do_an_ltweb.Admin.AdUser
 {
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public class IndexModel : PageModel
     {
         private readonly UserManager<User> _userManager;

@@ -3,9 +3,12 @@ using do_an_ltweb.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using do_an.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace do_an_ltweb.Admin.AdContact
 {
+    [Authorize(Roles = "admin")]
     public class DeleteContactModel : PageModel
     {
         private readonly ApplicationDbContext _context;

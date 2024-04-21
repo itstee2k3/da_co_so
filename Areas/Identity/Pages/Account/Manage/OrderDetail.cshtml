@@ -1,0 +1,71 @@
+﻿@page "/user/your-order/{orderId}"
+@model DetailModel
+@{
+    ViewData["Title"] = "Order details";
+    ViewData["ActivePage"] = ManageNavPages.YourOrder;
+}
+<h3>@ViewData["Title"]</h3>
+
+@*@if (!string.IsNullOrEmpty(Model.StatusMessage))
+{
+    <div class="@(Model.StatusMessage.StartsWith("Not enough") ? "text-danger" : "")">
+        @Model.StatusMessage
+    </div>
+}*@
+
+<div class="card mb-4">
+
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Products in order
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+
+            <thead>
+                <tr>
+                    <th>ProductImage</th>
+                    <th>ProductName</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <th>ProductImage</th>
+                    <th>ProductName</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </tfoot>
+
+            <tbody>
+                @if (Model.Products != null)
+                {
+                    foreach (var product in Model.Products)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@product.ImageUrl" alt="@product.Name" style="max-width: 100px; max-height: 100px;" />
+                            </td>
+                            <td>@product.Name</td>
+                            <td>@product.Quantity</td>
+                            <td>@product.Price.ToString("N0")đ</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="3">There are no products in the order.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="d-flex justify-content-end">
+    <a class="btn btn-primary ml-2" asp-page="./Order">Return</a>
+</div>

@@ -7,9 +7,11 @@ using do_an.Models;
 using do_an_ltweb.Models;
 using Microsoft.AspNetCore.Identity;
 using System.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace do_an_ltweb.Admin.AdCategory.AdCategoryFrameColor
 {
+    [Authorize(Roles = "admin")]
     public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _context;

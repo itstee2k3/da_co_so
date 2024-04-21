@@ -12,7 +12,7 @@ using do_an_ltweb.Models;
 
 namespace do_an_ltweb.Admin.AdContact
 {
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _context;

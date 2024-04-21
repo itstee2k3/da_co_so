@@ -18,12 +18,18 @@ namespace do_an_ltweb.Models
 
         public DateTime? DateEnd { get; set; }
 
+        public decimal TotalBill { get; set; } // Thêm thuộc tính TotalBill để lưu tổng giá trị đơn hàng
+
         // Liên kết với người dùng
         [ForeignKey("IdUser")]
         public User User { get; set; } // Navigation property
         public string IdUser { get; set; }
 
-        public int Status { get; set; }
+        public int PaymentMethod { get; set; }
+
+        public int StatusUser { get; set; }
+
+        public int StatusAdmin { get; set; }
 
         //public List<OrderDetail>? OrderDetails { get; set; }
 

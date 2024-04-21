@@ -1,0 +1,101 @@
+﻿@page "/user/your-order"
+@model OrderModel
+@{
+    ViewData["Title"] = "Your Order";
+    ViewData["ActivePage"] = ManageNavPages.YourOrder;
+}
+
+<h3 class="mb-3">@ViewData["Title"]</h3>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Order
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>DateBegin</th>
+                    <th>Address</th>
+                    @*<th>StatusAdmin</th>*@
+                    <th>StatusUser</th>
+                    <th>PaymentMethod</th>
+                    <th>Total</th>
+                    <th>Tasks</th>
+                </tr>
+            </thead>
+
+            <tfoot>
+                <tr>
+                    <th>DateBegin</th>
+                    <th>Address</th>
+                    @*<th>StatusAdmin</th>*@
+                    <th>StatusUser</th>
+                    <th>PaymentMethod</th>
+                    <th>Total</th>
+                    <th>Tasks</th>
+                </tr>
+            </tfoot>
+
+            <tbody>
+                @foreach (var order in Model.Orders)
+                {
+                    <tr>
+                        <td>@order.DateBegin</td>
+                        <td>@order.Address</td>
+                        @*<td>@(order.StatusAdmin == 0 ? "Unconfirmed" : "Confirmed")</td>*@
+                        <td>
+                            @switch (order.StatusUser)
+                            {
+                                case 0:
+                                    <span>Not received</span>
+                                    break;
+                                case 1:
+                                    <span>Goods received</span>
+                                    break;
+                                case -1:
+                                    <span>Request cancellation</span>
+                                    break;
+                            }
+                        </td>
+                        <td>@(order.PaymentMethod == 0 ? "COD" : "VNPay")</td>
+                        <td>@order.TotalBill.ToString("N0")<span>đ</span></td>
+                        <td class="d-flex justify-content-start align-items-center">
+                            <a class="btn btn-primary btn-sm me-2" asp-page="./OrderDetail" asp-route-orderId="@order.IdOrder">See details</a>
+                            @if (order.StatusUser == 0 && order.StatusAdmin == 0)
+                            {
+                                <form method="post" asp-page-handler="RequestCancellation" asp-route-orderId="@order.IdOrder" class="d-inline">
+                                    <button type="submit" class="btn btn-danger btn-sm me-2">Request cancellation</button>
+                                </form>
+                            }
+                            else if (order.StatusUser == -1)
+                            {
+                                <form method="post" asp-page-handler="CancelCancellationRequest" asp-route-orderId="@order.IdOrder" class="d-inline">
+                                    <button type="submit" class="btn btn-success btn-sm me-2">Cancellation of Request</button>
+                                </form>
+                            }
+                            else if (order.StatusUser != 1 && order.StatusAdmin == 1)
+                            {
+                                <form method="post" asp-page-handler="ConfirmGoodsReceived" asp-route-orderId="@order.IdOrder" class="d-inline">
+                                    <button type="submit" class="btn btn-success btn-sm me-2">Goods received</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

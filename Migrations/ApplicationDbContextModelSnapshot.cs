@@ -289,8 +289,17 @@ namespace do_an.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("PaymentMethod")
                         .HasColumnType("int");
+
+                    b.Property<int>("StatusAdmin")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StatusUser")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalBill")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("IdOrder");
 

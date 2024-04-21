@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using do_an_ltweb.Models;
 using do_an_ltweb.Admin.AdRole;
+using Newtonsoft.Json;
 
 namespace do_an_ltweb.Admin.AdOrder
 {
@@ -26,6 +27,7 @@ namespace do_an_ltweb.Admin.AdOrder
 
         public class ProductDetail
         {
+            public string ImageUrl { get; set; } // Thêm thuộc tính để lưu đường dẫn đến ảnh sản phẩm
             public string Name { get; set; }
             public int Quantity { get; set; }
             public decimal Price { get; set; }
@@ -40,10 +42,11 @@ namespace do_an_ltweb.Admin.AdOrder
 
         public async Task<IActionResult> OnGet(int orderId)
         {
+            // Lưu đối tượng đơn hàng vào session thay vì chỉ lưu orderId
+            var order = await _context.Orders.FirstOrDefaultAsync(o => o.IdOrder == orderId);
+
             if (orderId < 0)
                 return NotFound("Order not found");
-
-            var order = await _context.Orders.FirstOrDefaultAsync(o => o.IdOrder == orderId);
 
             if (order == null)
                 return NotFound("Order not found");
@@ -56,6 +59,7 @@ namespace do_an_ltweb.Admin.AdOrder
                 .Where(oi => oi.IdOrder == orderId)
                 .Select(oi => new ProductDetail
                 {
+                    ImageUrl = oi.Product.ImageUrl,
                     Name = oi.Product.NameProduct,
                     Quantity = oi.Quantity,
                     Price = oi.Product.Price
@@ -67,13 +71,14 @@ namespace do_an_ltweb.Admin.AdOrder
 
         public async Task<IActionResult> OnPostConfirmOrder(int orderId)
         {
-            var order = await _context.Orders.Include(o => o.OrderDetails).FirstOrDefaultAsync(o => o.IdOrder == orderId);
 
-            if (order == null)
+            var orderFromDb = await _context.Orders.Include(o => o.OrderDetails).FirstOrDefaultAsync(o => o.IdOrder == orderId);
+
+            if (orderFromDb == null)
                 return NotFound("Order not found");
 
             // Duyệt qua từng chi tiết đơn hàng
-            foreach (var orderDetail in order.OrderDetails)
+            foreach (var orderDetail in orderFromDb.OrderDetails)
             {
                 var product = await _context.Products.FirstOrDefaultAsync(p => p.IdProduct == orderDetail.IdProduct);
 
@@ -82,22 +87,32 @@ namespace do_an_ltweb.Admin.AdOrder
                     return NotFound("No products found in stock");
                 }
 
+                // Kiểm tra số lượng sản phẩm trong kho
+                if (product.Nums < orderDetail.Quantity)
+                {
+
+                    StatusMessage = $"Not enough stock for product: {product.NameProduct}";
+                    return RedirectToPage("./Index");
+                }
+
                 // Cập nhật số lượng sản phẩm trong kho
                 product.Nums -= orderDetail.Quantity;
             }
 
             // Gán DateEnd của đơn hàng bằng DateTime.Now
-            order.DateEnd = DateTime.Now;
+            orderFromDb.DateEnd = DateTime.Now;
 
             // Thực hiện xác nhận đơn hàng
-            order.Status = 1; // Giả sử 1 là mã trạng thái cho đơn hàng đã được xác nhận
+            orderFromDb.StatusAdmin = 1; // Giả sử 1 là mã trạng thái cho đơn hàng đã được xác nhận
 
             // Lưu các thay đổi vào cơ sở dữ liệu
             await _context.SaveChangesAsync();
 
-            if (order != null)
+            if (orderFromDb != null)
             {
-                StatusMessage = $"You just confirm IdOrder: {order.IdOrder}";
+                HttpContext.Session.Remove("OrderData");
+
+                StatusMessage = $"You just confirm IdOrder: {orderFromDb.IdOrder}";
             }
             else
             {

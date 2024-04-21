@@ -191,8 +191,8 @@ img {
 }
 
 .form-control:focus {
-     border-color: #ffffff !important;
-     box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
+    border: 1px solid #ced4da; /* Màu viền mặc định của Bootstrap cho form control */
+    box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
 }
 
 .navbar-form input {
@@ -956,6 +956,10 @@ ul.location_icon li a {
 
 .bg-none {
     background: none;
+}
+
+.bg-blu {
+    background-color: #03cafa;
 }
 
 .icon-search-link {

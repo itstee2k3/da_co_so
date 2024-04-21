@@ -23,6 +23,9 @@
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
 
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="/css-admin/styles.css" rel="stylesheet" />
+
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
@@ -88,7 +91,7 @@
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </button>
                                         <form class="search-box" id="searchBox" asp-controller="Product" asp-action="Index">
-                                            <input name="searchString" value="@ViewBag.SearchString" type="text" id="searchInput" placeholder="Search...">
+                                            <input name="searchString" value="@(!string.IsNullOrEmpty(ViewBag.SearchString) ? ViewBag.SearchString : "")" type="text" id="searchInput" placeholder="Search...">
                                             <span class="search-separator"></span>
                                             <button class="search-icon" id="searchIcon" type="submit">
                                                 <i class="icon-search-link bg-none fa fa-search"></i>
@@ -111,21 +114,79 @@
     </div>
     <!-- end render -->
     <!--  footer -->
-    <footer>
-        <div class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 offset-md-2">
-                        <ul class="location_icon">
-                            <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i></a><br> Location</li>
-                            <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a><br> +01 1234567890</li>
-                            <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a><br> demo@gmail.com</li>
-                        </ul>
+    <!-- Remove the container if you want to extend the Footer to full width. -->
+    <footer class="text-white text-center text-lg-start bg-dark">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row mt-4">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4 text-white">ABOUT COMPANY</h5>
+
+                    <p>
+                        SmartByGlasses offers premium eyewear solutions, blending style and function seamlessly. Our diverse collection ensures every customer finds the perfect pair. Committed to innovation, we deliver eyewear that enhances vision and fashion.
+                    </p>
+
+                    <div class="mt-4">
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/xthang.2909" type="button" class="btn btn-floating btn-lg text-white"><i class="fa fa-facebook-f"></i></a>
+                        <!-- Dribbble -->
+                        <a type="button" class="btn btn-floating btn-lg"><i class="fa fa-dribbble"></i></a>
+                        <!-- Twitter -->
+                        <a type="button" class="btn btn-floating btn-lg"><i class="fa fa-twitter"></i></a>
+                        <!-- Google + -->
+                        <a type="button" class="btn btn-floating btn-lg text-white"><i class="fa fa-google-plus"></i></a>
+                        <!-- Linkedin -->
                     </div>
                 </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4 pb-1 text-white">CONTACT</h5>
+
+                    <ul class="fa-ul" style="margin-left: 1.65em;">
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa fa-home"></i></span><span class="ms-2">HUTECH-THU DUC CAMPUS</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa fa-envelope"></i></span><span class="ms-2">hutech@gmail.com</span>
+                        </li>
+                        <li class="mb-3">
+                            <span class="fa-li"><i class="fa fa-phone"></i></span><span class="ms-2">+84 522 383 757</span>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4 text-white">OPENING HOURS</h5>
+
+                    <table class="table text-center text-white">
+                        <tbody class="fw-normal">
+                            <tr>
+                                <td>Mon - Thu:</td>
+                                <td>8am - 9pm</td>
+                            </tr>
+                            <tr>
+                                <td>Fri - Sat:</td>
+                                <td>8am - 1am</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday:</td>
+                                <td>9am - 10pm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--Grid column-->
             </div>
+            <!--Grid row-->
         </div>
+        <!-- Grid container -->
+
     </footer>
+    <!-- End of .container -->
     <!-- end footer -->
     <!-- Javascript files-->
     <script src="/js/jquery.min.js"></script>
@@ -133,9 +194,16 @@
     <script src="/js/bootstrap.bundle.min.js"></script>
     @*<script src="/js/jquery-3.0.0.min.js"></script>*@
 
-     <!-- sidebar -->
+    <!-- sidebar -->
     <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/js/custom.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="/js-admin/scripts.js"></script>
+    <script src="/assets/demo/chart-area-demo.js"></script>
+    <script src="/assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+    <script src="/js-admin/datatables-simple-demo.js"></script>
 
     <!-- Render additional scripts from views if available -->
     @RenderSection("Scripts", required: false)
@@ -143,10 +211,13 @@
     <script>
         $(document).ready(function () {
 
+            var searchString = "@(ViewBag.SearchString)";
+            sessionStorage.setItem('searchString', searchString);
+
             $('#searchBox').submit(function (event) {
                 var searchString = $('#searchInput').val().trim(); // Lấy giá trị từ ô input và loại bỏ khoảng trắng ở đầu và cuối
-                if (searchString === "") { // Kiểm tra xem ô input có giá trị không
-                    event.preventDefault(); // Ngăn chặn việc gửi form nếu ô input rỗng
+                if (searchString !== "") { // Kiểm tra xem ô input có giá trị không
+                    sessionStorage.setItem('searchString', searchString);
                 }
             });
 
@@ -185,7 +256,6 @@
                 }
             });
 
-            // Khôi phục giá trị của ô input từ sessionStorage khi trang được tải lại
             var savedSearchString = sessionStorage.getItem('searchString');
             if (savedSearchString) {
                 $("#searchInput").val(savedSearchString);
@@ -197,6 +267,21 @@
                 input.focus();
                 input[0].setSelectionRange(input.val().length, input.val().length);
             }
-        });</script>
+
+            // Xác định hành động khi người dùng thực hiện tìm kiếm
+            $("#searchInput").on('input', function () {
+                var searchString = $(this).val();
+                if (!searchString.trim()) {
+                    // Nếu searchString rỗng, xoá giá trị 'searchString' khỏi sessionStorage
+                    sessionStorage.removeItem('searchString');
+                } else {
+                    // Nếu có giá trị trong ô input, lưu vào sessionStorage chỉ khi người dùng đã thực hiện tìm kiếm
+                    if (isSearched) {
+                        sessionStorage.setItem('searchString', searchString);
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -9,39 +9,40 @@
     <div class="row justify-content-center">
         <div class="col-lg-5">
             <div class="card shadow-lg border-0 rounded-lg mt-5">
-                <div class="card-header custom-header"><h1 class="text-center font-weight-bold my-4 text-white">Register</h1></div>
+                <div class="card-header custom-header bg-blu"><h1 class="text-center font-weight-bold my-4 text-white">Register</h1></div>
                 <div class="card-body">
                     <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                         <div class="form-floating mb-3">
+                            <input asp-for="Input.UserName" autocomplete="username" class="form-control" id="Input_UserName" aria-required="true" />
                             <label asp-for="Input.UserName"></label>
-                            <input asp-for="Input.UserName" autocomplete="username" class="form-control border-v" aria-required="true" />
                             <span asp-validation-for="Input.UserName" class="text-danger"></span>
                         </div>
 
                         <div class="form-floating mb-3">
+                            <input asp-for="Input.Email" autocomplete="email" class="form-control" id="Input_Email" aria-required="true" />
                             <label asp-for="Input.Email"></label>
-                            <input asp-for="Input.Email" autocomplete="email" class="form-control border-v" aria-required="true" />
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
                         </div>
 
                         <div class="form-floating mb-3">
+                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" id="Input_Password" aria-required="true" />
                             <label asp-for="Input.Password" class="form-label"></label>
-                            <input asp-for="Input.Password" class="form-control border-v" autocomplete="current-password" aria-required="true" />
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
                         </div>
 
                         <div class="form-floating mb-3">
+                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" id="Input_ConfirmPassword" aria-required="true" />
                             <label asp-for="Input.ConfirmPassword"></label>
-                            <input asp-for="Input.ConfirmPassword" class="form-control border-v" autocomplete="new-password" aria-required="true" />
                             <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                         </div>
 
-                        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                            <p><a id="forgot-password" asp-page="./ForgotPassword">Forgot Password?</a></p>
+                        <div class="d-flex justify-content-between mt-4 mb-0">
+                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot Password?</a>
                             <button class="btn btn-primary" id="registerSubmit" type="submit">Register</button>
                         </div>
+
                     </form>
                 </div>
                 <div class="card-footer text-center py-3">
@@ -53,7 +54,7 @@
                         <p>
                             <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
                         </p>
-                        <p>Or register with:</p>
+                        @*<p>Or register with:</p>
                         <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
                             <i class="fa fa-facebook-f"></i>
                         </button>
@@ -68,7 +69,7 @@
 
                         <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
                             <i class="fa fa-github"></i>
-                        </button>
+                        </button>*@
                     </div>
                 </div>
             </div>

@@ -273,12 +273,8 @@
       "PackagePath": "staticwebassets/images/.DS_Store"
     },
     {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/0b4e1234-21ab-404d-8688-c128052aa7cd_2_f443e2aa0a174955b8f3603a0d3b266f_large.webp",
-      "PackagePath": "staticwebassets/images/0b4e1234-21ab-404d-8688-c128052aa7cd_2_f443e2aa0a174955b8f3603a0d3b266f_large.webp"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/396e63aa-1c99-4df6-820e-30e683b51091_37177573_10156528970182840_1475777593566298112_o.jpg",
-      "PackagePath": "staticwebassets/images/396e63aa-1c99-4df6-820e-30e683b51091_37177573_10156528970182840_1475777593566298112_o.jpg"
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/56283450-53e0-4984-af0c-fa790932bc8c_glass_1.webp",
+      "PackagePath": "staticwebassets/images/56283450-53e0-4984-af0c-fa790932bc8c_glass_1.webp"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/about_img.png",
@@ -287,10 +283,6 @@
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/about_right_cross.jpg",
       "PackagePath": "staticwebassets/images/about_right_cross.jpg"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/ae38ab0b-47e3-4081-a19b-73742e7576ff_bao_cao_tien_do_tuan_3.png",
-      "PackagePath": "staticwebassets/images/ae38ab0b-47e3-4081-a19b-73742e7576ff_bao_cao_tien_do_tuan_3.png"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/banner-1.jpeg",
@@ -307,14 +299,6 @@
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/banner_img.png",
       "PackagePath": "staticwebassets/images/banner_img.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/db77e5da-3ddb-4ba4-a49d-26f96f9255df_Bao_cao_tien_do_tuan_2.png",
-      "PackagePath": "staticwebassets/images/db77e5da-3ddb-4ba4-a49d-26f96f9255df_Bao_cao_tien_do_tuan_2.png"
-    },
-    {
-      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/f402c988-cbfe-4fa2-806e-c678e574cfdf_bao_cao_tien_do_tuan_4.png",
-      "PackagePath": "staticwebassets/images/f402c988-cbfe-4fa2-806e-c678e574cfdf_bao_cao_tien_do_tuan_4.png"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/frame_style_1.webp",
@@ -367,6 +351,106 @@
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/frame_style_9.webp",
       "PackagePath": "staticwebassets/images/frame_style_9.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_10.webp",
+      "PackagePath": "staticwebassets/images/glass_10.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_11.webp",
+      "PackagePath": "staticwebassets/images/glass_11.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_12.webp",
+      "PackagePath": "staticwebassets/images/glass_12.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_13.webp",
+      "PackagePath": "staticwebassets/images/glass_13.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_14.webp",
+      "PackagePath": "staticwebassets/images/glass_14.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_15.webp",
+      "PackagePath": "staticwebassets/images/glass_15.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_16.webp",
+      "PackagePath": "staticwebassets/images/glass_16.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_17.webp",
+      "PackagePath": "staticwebassets/images/glass_17.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_18.webp",
+      "PackagePath": "staticwebassets/images/glass_18.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_19.webp",
+      "PackagePath": "staticwebassets/images/glass_19.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_2.webp",
+      "PackagePath": "staticwebassets/images/glass_2.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_20.webp",
+      "PackagePath": "staticwebassets/images/glass_20.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_21.webp",
+      "PackagePath": "staticwebassets/images/glass_21.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_22.webp",
+      "PackagePath": "staticwebassets/images/glass_22.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_23.webp",
+      "PackagePath": "staticwebassets/images/glass_23.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_24.webp",
+      "PackagePath": "staticwebassets/images/glass_24.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_25.webp",
+      "PackagePath": "staticwebassets/images/glass_25.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_26.webp",
+      "PackagePath": "staticwebassets/images/glass_26.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_3.webp",
+      "PackagePath": "staticwebassets/images/glass_3.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_4.webp",
+      "PackagePath": "staticwebassets/images/glass_4.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_5.webp",
+      "PackagePath": "staticwebassets/images/glass_5.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_6.webp",
+      "PackagePath": "staticwebassets/images/glass_6.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_7.webp",
+      "PackagePath": "staticwebassets/images/glass_7.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_8.webp",
+      "PackagePath": "staticwebassets/images/glass_8.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/glass_9.webp",
+      "PackagePath": "staticwebassets/images/glass_9.webp"
     },
     {
       "Id": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/wwwroot/images/loading.gif",
