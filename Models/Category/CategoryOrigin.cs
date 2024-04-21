@@ -21,3 +21,16 @@ public partial class CategoryOrigin
 
     public List<Product>? Products { get; set; }
 }
+
+/*
+ 
+INSERT INTO[do_an_ltweb].[dbo].CategoryOrigins
+([NameCategory], [Hide])
+VALUES
+    ('United States', 0),
+    ('United Kingdom', 0),
+    ('Canada', 0),
+    ('Australia', 0),
+    ('Germany', 0); 
+ 
+*/

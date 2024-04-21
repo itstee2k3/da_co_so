@@ -51,6 +51,7 @@
     <None Remove="Areas\Admin\Pages\AdCategory\AdCategorySex\" />
     <None Remove="Areas\Admin\Pages\AdRole\" />
     <None Remove="Areas\Admin\Pages\AdContact\" />
+    <None Remove="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\About\" />
@@ -75,6 +76,7 @@
     <Folder Include="Areas\Admin\Pages\AdCategory\AdCategorySex\" />
     <Folder Include="Areas\Admin\Pages\AdRole\" />
     <Folder Include="Areas\Admin\Pages\AdContact\" />
+    <Folder Include="Views\Order\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\shop_img.png" />

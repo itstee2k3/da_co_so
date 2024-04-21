@@ -20,7 +20,7 @@
                         <div class="mt-4 ml-4 mr-4">
                             <h4 class="card-title mb-4">Your shopping cart</h4>
                             @if (Model != null)
-                             {
+                            {
                                 foreach (var cart in Model)
                                 {
                                     <div class="row gy-3 mb-4 align-items-center cart-item" data-cart-item-id="@cart.IdCartItem">
@@ -29,14 +29,15 @@
                                                 <div class="d-flex">
                                                     <img src="@cart.Product.ImageUrl" class="border rounded me-3" style="width: 96px; height: 96px; margin-right: 1rem;" />
                                                     <div class="">
-                                                        <a href="#">@cart.Product.NameProduct</a>
-                                                        @if (cart.Product.CategoryFrameColor != null && cart.Product.CategoryFrameColor.NameCategory != null)
+                                                        <a asp-controller="Product" asp-action="Detail" asp-route-id="@cart.IdProduct">@cart.Product.NameProduct</a>
+
+                                                        @if (cart.Product.IdCategoryFrameColor != null && cart.Product.CategoryFrameColor.NameCategory != null)
                                                         {
-                                                            <p style="font-size: 13px;" class="text-muted">Color: @cart.Product.CategoryFrameColor.NameCategory</p>
+                                                            <p style="font-size: 13px;" class="text-muted">Frame Color: @cart.Product.CategoryFrameColor.NameCategory</p>
                                                         }
                                                         else
                                                         {
-                                                            <p style="font-size: 13px;" class="text-muted">Color: N/A</p>
+                                                            <p style="font-size: 13px;" class="text-muted">Frame Color: N/A</p>
                                                         }
                                                         @if (cart.Product.Size != null)
                                                         {
@@ -70,12 +71,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                        decimal itemPrice = cart.Product.Price * cart.Quantity; // Tính giá của mỗi sản phẩm
-                                        totalPrice1 += itemPrice; // Cộng vào tổng giá trị
-                                    }
-                                    tax = totalPrice1 / 10;
-                                    totalPrice2 = totalPrice1 + tax;
+                                    decimal itemPrice = cart.Product.Price * cart.Quantity; // Tính giá của mỗi sản phẩm
+                                    totalPrice1 += itemPrice; // Cộng vào tổng giá trị
                                 }
+                                tax = totalPrice1 / 10;
+                                totalPrice2 = totalPrice1 + tax;
+                            }
                         </div>
 
                         <div class="border-top pt-4 mx-4 mb-4">
@@ -100,8 +101,8 @@
                                 <div class="form-group">
                                     <label class="form-label">Have coupon?</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control border" name="" placeholder="Coupon code" />
-                                        <button class="btn btn-light border">Apply</button>
+                                        <input type="text" class="form-control border" id="couponCode" placeholder="Coupon code" />
+                                        <button class="btn btn-light border" id="applyCoupon">Apply</button>
                                     </div>
                                 </div>
                             </form>
@@ -134,7 +135,7 @@
                         <div class="card-body">
                             <div class="d-flex justify-content-between">
                                 <p class="mb-2">Total price:</p>
-                                <p class="mb-2" id="total-price1">@totalPrice1.ToString("N0")</p>
+                                <p class="mb-2" id="total-price1">@totalPrice1.ToString("N0")đ</p>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <p class="mb-2">Discount:</p>
@@ -151,7 +152,7 @@
                             </div>
 
                             <div class="mt-3">
-                                <a id="makePurchaseBtn" class="btn btn-blu w-100 shadow-0 mb-2 text-white"> Make Purchase </a>
+                                <a id="makePurchaseBtn" class="btn btn-main w-100 shadow-0 mb-2 text-white" style="background-color: #03cafa"> Make Purchase </a>
                                 <a class="btn btn-light w-100 border mt-2" asp-controller="Product" asp-action="AllProducts"> Back to shop </a>
                             </div>
                         </div>
@@ -166,95 +167,95 @@
 <!-- end cart + summary -->
 <div class="d-none">
     <section>
-            <div class="container my-5">
-                <header class="mb-4">
-                    <h3>Recommended items</h3>
-                </header>
+        <div class="container my-5">
+            <header class="mb-4">
+                <h3>Recommended items</h3>
+            </header>
 
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card px-4 border shadow-0 mb-4 mb-lg-0">
-                            <div class="mask px-2" style="height: 50px;">
-                                <div class="d-flex justify-content-between">
-                                    <h6><span class="badge bg-danger pt-1 mt-3 ms-2">New</span></h6>
-                                    <a href="#"><i class="fas fa-heart text-primary fa-lg float-end pt-3 m-2"></i></a>
-                                </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card px-4 border shadow-0 mb-4 mb-lg-0">
+                        <div class="mask px-2" style="height: 50px;">
+                            <div class="d-flex justify-content-between">
+                                <h6><span class="badge bg-danger pt-1 mt-3 ms-2">New</span></h6>
+                                <a href="#"><i class="fas fa-heart text-primary fa-lg float-end pt-3 m-2"></i></a>
                             </div>
-                            <a href="#" class="">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/7.webp" class="card-img-top rounded-2" />
-                            </a>
-                            <div class="card-body d-flex flex-column pt-3 border-top">
-                                <a href="#" class="nav-link">Gaming Headset with Mic</a>
-                                <div class="price-wrap mb-2">
-                                    <strong class="">$18.95</strong>
-                                    <del class="">$24.99</del>
-                                </div>
-                                <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-                                    <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
-                                </div>
+                        </div>
+                        <a href="#" class="">
+                            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/7.webp" class="card-img-top rounded-2" />
+                        </a>
+                        <div class="card-body d-flex flex-column pt-3 border-top">
+                            <a href="#" class="nav-link">Gaming Headset with Mic</a>
+                            <div class="price-wrap mb-2">
+                                <strong class="">$18.95</strong>
+                                <del class="">$24.99</del>
+                            </div>
+                            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card px-4 border shadow-0 mb-4 mb-lg-0">
-                            <div class="mask px-2" style="height: 50px;">
-                                <a href="#"><i class="fas fa-heart text-primary fa-lg float-end pt-3 m-2"></i></a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card px-4 border shadow-0 mb-4 mb-lg-0">
+                        <div class="mask px-2" style="height: 50px;">
+                            <a href="#"><i class="fas fa-heart text-primary fa-lg float-end pt-3 m-2"></i></a>
+                        </div>
+                        <a href="#" class="">
+                            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/5.webp" class="card-img-top rounded-2" />
+                        </a>
+                        <div class="card-body d-flex flex-column pt-3 border-top">
+                            <a href="#" class="nav-link">Apple Watch Series 1 Sport </a>
+                            <div class="price-wrap mb-2">
+                                <strong class="">$120.00</strong>
                             </div>
-                            <a href="#" class="">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/5.webp" class="card-img-top rounded-2" />
-                            </a>
-                            <div class="card-body d-flex flex-column pt-3 border-top">
-                                <a href="#" class="nav-link">Apple Watch Series 1 Sport </a>
-                                <div class="price-wrap mb-2">
-                                    <strong class="">$120.00</strong>
-                                </div>
-                                <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-                                    <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
-                                </div>
+                            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card px-4 border shadow-0">
-                            <div class="mask px-2" style="height: 50px;">
-                                <a href="#"><i class="fas fa-heart text-primary fa-lg float-end pt-3 m-2"></i></a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card px-4 border shadow-0">
+                        <div class="mask px-2" style="height: 50px;">
+                            <a href="#"><i class="fas fa-heart text-primary fa-lg float-end pt-3 m-2"></i></a>
+                        </div>
+                        <a href="#" class="">
+                            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/9.webp" class="card-img-top rounded-2" />
+                        </a>
+                        <div class="card-body d-flex flex-column pt-3 border-top">
+                            <a href="#" class="nav-link">Men's Denim Jeans Shorts</a>
+                            <div class="price-wrap mb-2">
+                                <strong class="">$80.50</strong>
                             </div>
-                            <a href="#" class="">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/9.webp" class="card-img-top rounded-2" />
-                            </a>
-                            <div class="card-body d-flex flex-column pt-3 border-top">
-                                <a href="#" class="nav-link">Men's Denim Jeans Shorts</a>
-                                <div class="price-wrap mb-2">
-                                    <strong class="">$80.50</strong>
-                                </div>
-                                <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-                                    <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
-                                </div>
+                            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card px-4 border shadow-0">
-                            <div class="mask px-2" style="height: 50px;">
-                                <a href="#"><i class="fas fa-heart text-primary fa-lg float-end pt-3 m-2"></i></a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="card px-4 border shadow-0">
+                        <div class="mask px-2" style="height: 50px;">
+                            <a href="#"><i class="fas fa-heart text-primary fa-lg float-end pt-3 m-2"></i></a>
+                        </div>
+                        <a href="#" class="">
+                            <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/10.webp" class="card-img-top rounded-2" />
+                        </a>
+                        <div class="card-body d-flex flex-column pt-3 border-top">
+                            <a href="#" class="nav-link">Mens T-shirt Cotton Base Layer Slim fit </a>
+                            <div class="price-wrap mb-2">
+                                <strong class="">$13.90</strong>
                             </div>
-                            <a href="#" class="">
-                                <img src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/10.webp" class="card-img-top rounded-2" />
-                            </a>
-                            <div class="card-body d-flex flex-column pt-3 border-top">
-                                <a href="#" class="nav-link">Mens T-shirt Cotton Base Layer Slim fit </a>
-                                <div class="price-wrap mb-2">
-                                    <strong class="">$13.90</strong>
-                                </div>
-                                <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
-                                    <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
-                                </div>
+                            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+                                <a href="#" class="btn btn-outline-primary w-100">Add to cart</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 </div>
 <!-- Recommended -->
 <script>
@@ -262,6 +263,25 @@
         var cartItems = document.querySelectorAll('.cart-item');
         var removeButtons = document.querySelectorAll('.button-remove');
         var makePurchaseBtn = document.getElementById('makePurchaseBtn');
+
+        // Lấy tổng giá trị từ phần tử trên giao diện
+        var totalBill = parseFloat(document.getElementById("total-price2").textContent.replace(/\D/g, '')); // Loại bỏ tất cả các ký tự không phải số
+
+        // Gửi yêu cầu POST đến phương thức SaveTotalBill trong Controller của bạn để lưu giá trị vào session
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '/Order/SaveTotalBill', true); // Điều chỉnh đường dẫn và tên phương thức tương ứng với ứng dụng của bạn
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log('Total bill saved successfully');
+                } else {
+                    console.error('Error saving total bill:', xhr.statusText);
+                }
+            }
+        };
+        xhr.send('totalBill=' + totalBill); // Gửi giá trị mới của totalBill trong yêu cầu POST
+
 
         cartItems.forEach(function (cartItem) {
             var displayNumber = cartItem.querySelector('.display-number');
@@ -293,6 +313,12 @@
         makePurchaseBtn.addEventListener('click', function (event) {
             event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ <a>
 
+            // Lấy tổng giá trị từ phần tử trên giao diện
+            //var totalBill = parseFloat(document.getElementById("total-price2").textContent.replace(/\D/g, '')); // Loại bỏ tất cả các ký tự không phải số
+
+            // Lấy giá trị của phương thức thanh toán đã chọn
+            var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
             // Gửi yêu cầu POST đến phương thức MakePurchase trong Controller của bạn
             var xhr = new XMLHttpRequest();
             xhr.open("POST", '/Order/MakePurchase', true);
@@ -302,40 +328,55 @@
                     if (xhr.status === 200) {
                         var response = JSON.parse(xhr.responseText);
                         if (response.success) {
-                            console.log('Purchase successful');
-                            window.location.reload();
-                            alert(response.message); // Hiển thị thông báo tạo đơn hàng thành công
-                        } else {
-                            // Kiểm tra xem phản hồi có chứa thông báo yêu cầu cập nhật địa chỉ không
-                            if (response.message) {
-                                alert(response.message); // Hiển thị thông báo yêu cầu cập nhật địa chỉ/ thêm sản phẩm
+                            // Nếu mua hàng thành công và phương thức thanh toán là "vnPay"
+                            if (paymentMethod === 'vnPay') {
+                                // Chuyển hướng đến URL thanh toán VNPay
+                                window.location.href = response.redirectUrl;
+                            } else {
+                                console.log('Purchase successful');
+                                window.location.reload(); // Tải lại trang sau khi mua hàng thành công
+                                alert(response.message); // Hiển thị thông báo tạo đơn hàng thành công
                             }
-                            console.error('Failed to make purchase:', response.error);
+                        } else {
+                            // Kiểm tra xem có thông tin chi tiết về sản phẩm không hợp lệ không
+                            if (response.invalidItems) {
+                                // Hiển thị thông báo lỗi chi tiết về các sản phẩm không hợp lệ
+                                var errorMessage = "Some items in your cart have exceeded the available stock:\n";
+                                response.invalidItems.forEach(function (item) {
+                                    errorMessage += item + "\n";
+                                });
+                                alert(errorMessage);
+                            }
+                            console.error('Failed to make purchase:', response.message);
+                            alert(response.message);
                         }
                     } else {
                         console.error('Error sending request to make purchase:', xhr.statusText);
                     }
                 }
             };
-            xhr.send();
+            //xhr.send('totalBill=' + totalBill); // Gửi tổng giá trị đơn hàng trong yêu cầu POST
+            // Truyền thông tin về phương thức thanh toán qua yêu cầu POST
+            var postData = 'paymentMethod=' + encodeURIComponent(paymentMethod);
+            xhr.send(postData);
         });
 
         var timeout = null;
         function updateCartItem(cartItemId, quantity) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", '/Cart/UpdateCart', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        var response = JSON.parse(xhr.responseText);
+            var xhrUpdate = new XMLHttpRequest();
+            xhrUpdate.open("POST", '/Cart/UpdateCart', true);
+            xhrUpdate.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhrUpdate.onreadystatechange = function () {
+                if (xhrUpdate.readyState === XMLHttpRequest.DONE) {
+                    if (xhrUpdate.status === 200) {
+                        var response = JSON.parse(xhrUpdate.responseText);
                         if (response.success) {
                             var displayNumber = document.querySelector('.display-number[data-cart-item-id="' + cartItemId + '"]');
                             displayNumber.textContent = quantity;
                             displayNumber.dataset.quantity = quantity;
 
                             // Cập nhật các giá trị khác trên giao diện
-                        //    updateOtherValues(response.data);
+                            //    updateOtherValues(response.data);
 
                             // Nếu đã có một hẹn giờ đang chạy, xóa nó đi
                             if (timeout) {
@@ -346,16 +387,16 @@
                                 // Load lại trang sau khi hết 1 giây
                                 window.location.reload();
                             }, 1000);
-                            
+
                         } else {
                             console.error('Lỗi khi cập nhật giỏ hàng:', response.error);
                         }
                     } else {
-                        console.error('Lỗi khi gửi yêu cầu cập nhật giỏ hàng:', xhr.statusText);
+                        console.error('Lỗi khi gửi yêu cầu cập nhật giỏ hàng:', xhrUpdate.statusText);
                     }
                 }
             };
-            xhr.send('cartItemId=' + cartItemId + '&quantity=' + quantity);
+            xhrUpdate.send('cartItemId=' + cartItemId + '&quantity=' + quantity);
         }
 
         removeButtons.forEach(function (button) {
@@ -365,31 +406,82 @@
                 var cartItemId = button.dataset.cartItemId; // Lấy ID của sản phẩm từ thuộc tính data
 
                 // Gửi yêu cầu AJAX để xoá sản phẩm
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", '/Cart/RemoveCartItem', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function () {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            var response = JSON.parse(xhr.responseText);
+                var xhrRemove = new XMLHttpRequest();
+                xhrRemove.open("POST", '/Cart/RemoveCartItem', true);
+                xhrRemove.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhrRemove.onreadystatechange = function () {
+                    if (xhrRemove.readyState === XMLHttpRequest.DONE) {
+                        if (xhrRemove.status === 200) {
+                            var response = JSON.parse(xhrRemove.responseText);
                             if (response.success) {
                                 // Xoá sản phẩm khỏi DOM
                                 var cartItem = document.querySelector('.cart-item[data-cart-item-id="' + cartItemId + '"]');
                                 cartItem.remove();
+                                window.location.reload();
                                 alert("Product removed from cart");
                             } else {
                                 //console.error('Error removing product from cart:', response.error);
                                 console.error('Lỗi khi xoá sản phẩm khỏi giỏ hàng:', response.error);
                             }
                         } else {
-                            console.error('Lỗi khi gửi yêu cầu xoá sản phẩm khỏi giỏ hàng:', xhr.statusText);
+                            console.error('Lỗi khi gửi yêu cầu xoá sản phẩm khỏi giỏ hàng:', xhrRemove.statusText);
                         }
                     }
                 };
-                xhr.send('cartItemId=' + cartItemId);
+                xhrRemove.send('cartItemId=' + cartItemId);
             });
         });
 
-    });
+        document.getElementById("applyCoupon").addEventListener("click", function () {
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của nút
 
+            // Lấy giá trị mã coupon từ input
+            var couponCode = document.getElementById("couponCode").value;
+
+            // Kiểm tra xem mã coupon có đúng không
+            if (couponCode.trim() === "THANG") {
+                // Nếu đúng, giảm giá 5% và cập nhật tổng hóa đơn
+                applyDiscount(5);
+            } else {
+                // Nếu không đúng, hiển thị thông báo lỗi
+                alert("Invalid coupon code!");
+            }
+        });
+
+
+        function applyDiscount(discountPercent) {
+            // Lấy tổng hóa đơn từ trang web hoặc tính toán từ các phần khác
+            var totalPriceElement = document.getElementById("total-price2");
+            var totalPriceText = totalPriceElement.textContent.trim(); // Lấy văn bản và loại bỏ các khoảng trắng
+            var totalBill = parseFloat(totalPriceText.replace(/[^\d.]/g, ''));
+            console.log(totalBill)
+
+            // Tính toán giảm giá
+            var discountAmount = (totalBill * discountPercent) / 100;
+            console.log(discountAmount)
+
+            // Áp dụng giảm giá vào tổng hóa đơn
+            var discountedTotal = totalBill - discountAmount;
+            console.log(discountedTotal)
+
+            // Cập nhật tổng hóa đơn trên giao diện
+            document.getElementById("total-price2").textContent = discountedTotal.toLocaleString("vi-VN", { style: "currency", currency: "VND" }).replace(/₫/g, '').replace(/\./g, ',').trim() + "đ";
+            document.getElementById("discount").textContent = discountAmount.toLocaleString("vi-VN", { style: "currency", currency: "VND" }).replace(/₫/g, '').replace(/\./g, ',').trim() + "đ";;
+
+            // Gửi yêu cầu POST để lưu giá mới vào session
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", '/Order/SaveTotalBill', true); // Điều chỉnh đường dẫn và tên phương thức tương ứng với ứng dụng của bạn
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        console.log('Total bill saved successfully after applying discount');
+                    } else {
+                        console.error('Error saving total bill after applying discount:', xhr.statusText);
+                    }
+                }
+            };
+            xhr.send('totalBill=' + discountedTotal); // Gửi giá mới sau khi áp dụng mã giảm giá
+        }
+    });
 </script>

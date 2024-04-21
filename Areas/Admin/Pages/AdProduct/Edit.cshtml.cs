@@ -26,6 +26,8 @@ namespace do_an_ltweb.Admin.AdProduct
         {
             _webHostEnvironment = webHostEnvironment;
             _context = applicationDbContext;
+
+            Input = new InputModel();
         }
 
         [BindProperty]
@@ -90,6 +92,9 @@ namespace do_an_ltweb.Admin.AdProduct
 
             [Display(Name = "Hide")]
             public int? Hide { get; set; }
+
+            // Đường dẫn hình ảnh đã có sẵn
+            public string ExistingImageUrl { get; set; }
         }
 
         public async Task<IActionResult> OnGetAsync(int productid)
@@ -110,14 +115,6 @@ namespace do_an_ltweb.Admin.AdProduct
             CategoryOrigins = await _context.CategoryOrigins.ToListAsync() ?? new List<CategoryOrigin>();
             CategorySexes = await _context.CategorySexes.ToListAsync() ?? new List<CategorySex>();
 
-            // Kiểm tra xem ImageUrl có null hay không trước khi chuyển đổi
-            IFormFile imageFile = null;
-            if (!string.IsNullOrEmpty(product.ImageUrl))
-            {
-                imageFile = new FormFile(new MemoryStream(Encoding.UTF8.GetBytes(product.ImageUrl)),
-                                         0, product.ImageUrl.Length, "Image", product.ImageUrl);
-            }
-
             // Truyền giá trị của sản phẩm vào InputModel
             Input = new InputModel
             {
@@ -125,7 +122,7 @@ namespace do_an_ltweb.Admin.AdProduct
                 Price = (int?)product.Price,
                 Nums = product.Nums,
                 Description = product.Description,
-                ImageUrl = imageFile,
+                ExistingImageUrl = product.ImageUrl,
                 Size = product.Size,
                 CategoryBrandId = product.IdCategoryBrand,
                 CategoryFrameColorId = product.IdCategoryFrameColor,
@@ -135,7 +132,17 @@ namespace do_an_ltweb.Admin.AdProduct
                 CategoryOriginId = product.IdCategoryOrigin,
                 CategorySexId = product.IdCategorySex,
                 Hide = product.Hide
-        };
+            };
+
+            // Kiểm tra xem ImageUrl có null hay không trước khi chuyển đổi
+            if (Input.ImageUrl != null)
+            {
+                ViewData["PreviewImageUrl"] = Url.Content("~/images/" + Input.ImageUrl.FileName);
+            }
+            else
+            {
+                ViewData["PreviewImageUrl"] = null;
+            }
 
             return Page();
         }
@@ -161,13 +168,16 @@ namespace do_an_ltweb.Admin.AdProduct
                 return Page();
             }
 
-            // Xoá ảnh cũ
-            if (!string.IsNullOrEmpty(productToUpdate.ImageUrl))
+            if (Input.ImageUrl != null)
             {
-                string oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, productToUpdate.ImageUrl.TrimStart('/'));
-                if (System.IO.File.Exists(oldImagePath))
+                // Xoá ảnh cũ
+                if (!string.IsNullOrEmpty(productToUpdate.ImageUrl))
                 {
-                    System.IO.File.Delete(oldImagePath);
+                    string oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, productToUpdate.ImageUrl.TrimStart('/'));
+                    if (System.IO.File.Exists(oldImagePath))
+                    {
+                        System.IO.File.Delete(oldImagePath);
+                    }
                 }
             }
 
@@ -180,7 +190,17 @@ namespace do_an_ltweb.Admin.AdProduct
             productToUpdate.Price = Input.Price.GetValueOrDefault();
             productToUpdate.Nums = Input.Nums.GetValueOrDefault();
             productToUpdate.Description = Input.Description;
-            productToUpdate.ImageUrl = imageUrl;
+            //productToUpdate.ImageUrl = imageUrl;
+            // Kiểm tra xem có ảnh mới được tải lên không
+            if (!string.IsNullOrEmpty(imageUrl))
+            {
+                productToUpdate.ImageUrl = imageUrl;
+            }
+            else
+            {
+                // Nếu không có ảnh mới, sử dụng ảnh cũ
+                productToUpdate.ImageUrl = Input.ExistingImageUrl;
+            }
             productToUpdate.Size = Input.Size;
             productToUpdate.IdCategoryBrand = Input.CategoryBrandId;
             productToUpdate.IdCategoryFrameColor = Input.CategoryFrameColorId;
@@ -232,5 +252,6 @@ namespace do_an_ltweb.Admin.AdProduct
             // Trả về đường dẫn của tệp đã lưu
             return "/images/" + uniqueFileName; // Đường dẫn tương đối của ảnh
         }
+
     }
 }

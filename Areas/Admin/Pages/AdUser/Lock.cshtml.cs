@@ -5,9 +5,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using do_an_ltweb.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace do_an_ltweb.Admin.AdUser
 {
+    [Authorize(Roles = "admin")]
     public class LockModel : PageModel
     {
         private readonly UserManager<User> _userManager;

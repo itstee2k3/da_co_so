@@ -33,12 +33,25 @@
                 <textarea asp-for="Input.Description" class="form-control"></textarea>
                 <span asp-validation-for="Input.Description" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Input.ImageUrl" class="control-label"></label>
+                <label asp-for="Input.ImageUrl" class="control-label">Image</label>
                 <input asp-for="Input.ImageUrl" type="file" class="form-control" onchange="previewImage(this)" />
                 <span asp-validation-for="Input.ImageUrl" class="text-danger"></span>
+
                 <img id="imagePreview" src="#" alt="Preview Image" style="display: none; margin-top: 10px; max-width: 100%;" />
+
+
+                 @*Thêm input hidden để lưu ExistingImageUrl*@ 
+                <input type="hidden" asp-for="Input.ExistingImageUrl" />
+                @if (!string.IsNullOrEmpty(Model.Input.ExistingImageUrl))
+                {
+                    <!-- Hiển thị ảnh cũ nếu không có ảnh mới -->
+                    <img id="existingImage" src="@Model.Input.ExistingImageUrl" alt="Existing Image" style="max-width: 100%;" />
+                }
             </div>
+
+
             <div class="form-group">
                 <label asp-for="Input.Size" class="control-label"></label>
                 <input asp-for="Input.Size" class="form-control" />
@@ -164,22 +177,26 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-<script>
-    function previewImage(input) {
-        var preview = document.getElementById('imagePreview');
+
+<script>function previewImage(input) {
+        var imagePreview = document.getElementById('imagePreview');
         var file = input.files[0];
         var reader = new FileReader();
 
-        reader.onloadend = function () {
-            preview.src = reader.result;
-            preview.style.display = 'block';
+        // Ẩn ảnh cũ
+        var existingImage = document.getElementById('existingImage');
+        if (existingImage) {
+            existingImage.style.display = 'none';
+        }
+
+        reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+            imagePreview.style.display = 'block'; // Hiển thị hình ảnh xem trước
         }
 
         if (file) {
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(file); // Đọc dữ liệu ảnh dưới dạng URL
         } else {
-            preview.src = '';
-            preview.style.display = 'none';
+            imagePreview.style.display = 'none'; // Ẩn hình ảnh xem trước nếu không có ảnh được chọn
         }
-    }
-</script>
+    }</script>

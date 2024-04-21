@@ -21,3 +21,31 @@ public partial class CategoryIrisColor
 
     public List<Product>? Products { get; set; }
 }
+
+/*
+
+INSERT INTO[do_an_ltweb].[dbo].CategoryIrisColors
+([NameCategory], [Hide])
+VALUES
+
+    ('Black', 0),
+
+    ('Brown', 0),
+
+    ('Navy blue', 0),
+
+    ('Grey', 0),
+
+    ('Havana', 0),
+
+    ('Rose gold', 0),
+
+    ('Gray mix', 0),
+
+    ('Gold', 0),
+
+    ('Gunmetal', 0),
+
+    ('Silver', 0); 
+ 
+*/

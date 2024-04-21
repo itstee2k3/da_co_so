@@ -21,3 +21,24 @@ public partial class CategoryMaterial
 
     public List<Product>? Products { get; set; }
 }
+
+/*
+ 
+INSERT INTO[do_an_ltweb].[dbo].CategoryMaterials
+([NameCategory], [Hide])
+VALUES
+    ('Metal', 0),
+
+    ('Plastic', 0),
+
+    ('Acetate', 0),
+
+    ('Titanium', 0),
+
+    ('Nylon', 0),
+
+    ('TR90', 0),
+
+    ('Stainless steel', 0); 
+ 
+*/

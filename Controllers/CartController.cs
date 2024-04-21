@@ -9,6 +9,8 @@ using System.Collections.Generic; // Import thêm namespace này
 using Microsoft.AspNetCore.Http; // Thêm namespace này
 using Newtonsoft.Json;
 using System.Net.NetworkInformation;
+using Microsoft.AspNetCore.Authorization;
+using do_an_ltweb.Services;
 
 namespace do_an.Controllers
 {
@@ -17,12 +19,14 @@ namespace do_an.Controllers
         private readonly ILogger<CartController> _logger;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<User> _user;
+        private readonly IVnPayService _vnPayservice;
 
-        public CartController(ILogger<CartController> logger, ApplicationDbContext context, UserManager<User> user)
+        public CartController(ILogger<CartController> logger, ApplicationDbContext context, UserManager<User> user, IVnPayService vnPayservice)
         {
             _logger = logger;
             _context = context;
             _user = user;
+            _vnPayservice = vnPayservice;
         }
 
         public async Task<IActionResult> Index() // Đánh dấu phương thức này là async
@@ -37,6 +41,8 @@ namespace do_an.Controllers
             // Lấy danh sách các sản phẩm trong giỏ hàng của người dùng
             var cartItems = await _context.CartItems
                 .Include(ci => ci.Product)
+                    .ThenInclude(p => p.CategoryFrameColor) // Bao gồm thông tin về màu khung của sản phẩm
+
                 .Where(ci => ci.IdUser == user.Id)
                 .ToListAsync();
 
@@ -103,6 +109,8 @@ namespace do_an.Controllers
             return Ok(new { success = true });
         }
 
+
+
         [HttpPost]
         public async Task<IActionResult> RemoveCartItem(int cartItemId)
         {
@@ -128,6 +136,24 @@ namespace do_an.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //[Authorize]
+        //public IActionResult PaymentCallBack()
+        //{
+        //    var response = _vnPayservice.PaymentExecute(Request.Query);
+
+        //    if (response == null || response.VnPayResponseCode != "00")
+        //    {
+        //        TempData["Message"] = $"Lỗi thanh toán VN Pay: {response.VnPayResponseCode}";
+        //        return RedirectToAction("PaymentFail");
+        //    }
+
+
+        //    // Lưu đơn hàng vô database
+
+        //    TempData["Message"] = $"Thanh toán VNPay thành công";
+        //    return RedirectToAction("PaymentSuccess");
+        //}
     }
 }
         

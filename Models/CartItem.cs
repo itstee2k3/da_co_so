@@ -22,8 +22,4 @@ public class CartItem
     public User User { get; set; } // Đối tượng User tương ứng với UserId
     public string IdUser { get; set; } // Tùy chọn, nếu bạn muốn liên kết giỏ hàng với người dùng
 
-    //public CartItem()
-    //{
-    //    Quantity = 1; // Đặt giá trị mặc định cho Quantity là 1
-    //}
 }

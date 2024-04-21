@@ -8,10 +8,9 @@
 <partial name="_StatusMessage" model="@Model.StatusMessage"></partial>
 
 <div class="card mb-4">
-
     <div class="card-header">
         <i class="fas fa-table me-1"></i>
-        DataTable Product
+        DataTable Order
     </div>
     <div class="card-body">
         <table id="datatablesSimple">
@@ -23,7 +22,9 @@
                     <th>DateBegin</th>
                     <th>DateEnd</th>
                     <th>Address</th>
-                    <th>Status</th>
+                    <th>StatusAdmin</th>
+                    <th>StatusUser</th>
+                    <th>PaymentMethod</th>
                     <th>Total</th>
                     <th>Tasks</th>
                 </tr>
@@ -36,7 +37,9 @@
                     <th>DateBegin</th>
                     <th>DateEnd</th>
                     <th>Address</th>
-                    <th>Status</th>
+                    <th>StatusAdmin</th>
+                    <th>StatusUser</th>
+                    <th>PaymentMethod</th>
                     <th>Total</th>
                     <th>Tasks</th>
                 </tr>
@@ -60,22 +63,42 @@
                         <td>@order.DateBegin</td>
                         <td>@order.DateEnd</td>
                         <td>@order.Address</td>
-                        <td>@order.Status</td>
                         <td>
-                            @{
-                                decimal total = 0;
-                                if (order.OrderDetails != null)
-                                {
-                                    foreach (var orderDetail in order.OrderDetails)
-                                    {
-                                        if (orderDetail != null && orderDetail.Product != null)
-                                        {
-                                            total += orderDetail.Quantity * orderDetail.Product.Price;
-                                        }
-                                    }
-                                }
-                                @total.ToString("N0") <span>đ</span>
+                            @if (order.StatusAdmin == 0)
+                            {
+                                <span>Unconfimred</span>
                             }
+                            else if (order.StatusAdmin == 1)
+                            {
+                                <span>Confirmed</span>
+                            }
+                        </td>
+                        <td>
+                            @if (order.StatusUser == 0)
+                            {
+                                <span>Not received</span>
+                            }
+                            else if (order.StatusUser == 1)
+                            {
+                                <span>Goods received</span>
+                            }
+                            else if (order.StatusUser == -1)
+                            {
+                                <span>Request cancellation</span>
+                            }
+                        </td>
+                        <td>
+                            @if (order.PaymentMethod == 0)
+                            {
+                                <span>COD</span>
+                            }
+                            else if (order.PaymentMethod == 1)
+                            {
+                                <span>VNPay</span>
+                            }
+                        </td>
+                        <td>
+                            @order.TotalBill.ToString("N0")<span>đ</span>
                         </td>
                         <td>
                             <a class="btn btn-primary btn-sm" asp-page="./Detail" asp-route-orderId="@order.IdOrder">See details</a>

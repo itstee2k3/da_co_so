@@ -21,3 +21,16 @@ public partial class CategorySex
 
     public List<Product>? Products { get; set; }
 }
+
+/*
+ 
+INSERT INTO[do_an_ltweb].[dbo].CategorySexes
+([NameCategory], [Hide])
+VALUES
+    ('Male',  0),
+ 
+    ('Female',  0),
+    
+    ('Unisex',  0); 
+ 
+*/

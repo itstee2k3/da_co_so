@@ -11,7 +11,7 @@ using do_an_ltweb.Models;
 
 namespace do_an_ltweb.Admin.AdRole
 {
-    [Authorize]
+    [Authorize(Roles = "admin")]
     public class IndexModel : RolePageModel
     {
         public IndexModel(RoleManager<IdentityRole> roleManager, ApplicationDbContext applicationDbContext) : base(roleManager, applicationDbContext)

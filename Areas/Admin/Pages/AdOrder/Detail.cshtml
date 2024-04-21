@@ -5,28 +5,52 @@
 }
 <h2>@ViewData["Title"]</h2>
 
-<hr>
+@if (!string.IsNullOrEmpty(Model.StatusMessage))
+{
+    <div class="@(Model.StatusMessage.StartsWith("Not enough") ? "text-danger" : "")">
+        @Model.StatusMessage
+    </div>
+}
 
-<div class="row">
-    <div class="col-md-6">
-        <h3>Products in order</h3>
-        <table class="table">
+<div class="card mb-4">
+
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Products in order
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+
             <thead>
                 <tr>
+                    <th>ProductImage</th>
                     <th>ProductName</th>
                     <th>Quantity</th>
                     <th>Price</th>
                 </tr>
             </thead>
+
+            <tfoot>
+                <tr>
+                    <th>ProductImage</th>
+                    <th>ProductName</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+            </tfoot>
+
             <tbody>
                 @if (Model.Products != null)
                 {
                     foreach (var product in Model.Products)
                     {
                         <tr>
+                            <td>
+                                <img src="@product.ImageUrl" alt="@product.Name" style="max-width: 100px; max-height: 100px;" />
+                            </td>
                             <td>@product.Name</td>
                             <td>@product.Quantity</td>
-                            <td>@product.Price.ToString("N0")</td>
+                            <td>@product.Price.ToString("N0")đ</td>
                         </tr>
                     }
                 }
@@ -41,11 +65,12 @@
     </div>
 </div>
 
-<form method="post" asp-page-handler="ConfirmOrder">
-    @if (Model.Order != null && Model.Order.Status == 0)
-    {
-        <button type="submit" class="btn btn-success">Order confirmation</button>
-    }
-    <a class="btn btn-primary" asp-page="./Index">Return</a>
-</form>
-
+<div class="d-flex justify-content-end">
+    <form method="post" asp-page-handler="ConfirmOrder">
+        @if (Model.Order != null && Model.Order.StatusAdmin == 0)
+        {
+            <button type="submit" class="btn btn-success">Order confirmation</button>
+        }
+        <a class="btn btn-primary ml-2" asp-page="./Index">Return</a>
+    </form>
+</div>

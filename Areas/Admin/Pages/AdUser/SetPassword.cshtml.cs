@@ -7,11 +7,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using do_an_ltweb.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace do_an_ltweb.Admin.AdUser;
 
+[Authorize(Roles = "admin")]
 public class SetPasswordModel : PageModel
 {
+
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
 

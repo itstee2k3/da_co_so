@@ -10,9 +10,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using do_an_ltweb.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace do_an_ltweb.Admin.AdUser
 {
+    [Authorize(Roles = "admin")]
     public class AddRoleModel : PageModel
     {
         private readonly UserManager<User> _userManager;
