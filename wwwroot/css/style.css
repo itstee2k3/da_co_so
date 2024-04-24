@@ -1073,3 +1073,15 @@ ul.location_icon li a {
 div.d-none {
     display: none;
 }
+
+/* card-product*/
+.card-text {
+    color: black; /* Default text color */
+    transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+}
+
+.card-text:hover {
+    color: #03cafa; /* Color changes to light blue when hovered */
+}
+
+/* end-card-product*/

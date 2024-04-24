@@ -27,8 +27,8 @@
                     <!-- Toggle button -->
                     <button class="btn btn-outline-secondary mb-3 w-100 d-lg-none"
                             type="button"
-                            data-mdb-toggle="collapse"
-                            data-mdb-target="#navbarSupportedContent"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent"
                             aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -39,30 +39,28 @@
                         <div class="accordion" id="accordionPanelsStayOpenExample">
 
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <div class="accordion-button text-dark text-center"
+                                <h2 class="accordion-header" id="headingOne"></h2>
+                                    <div class="text-dark text-center"
                                          type="button"
-                                         data-mdb-toggle="collapse"
-                                         data-mdb-target="#panelsStayOpen-collapseOne"
+                                         data-bs-toggle="collapse"
+                                         data-bs-target="#panelsStayOpen-collapseOne"
                                          aria-expanded="true"
                                          aria-controls="panelsStayOpen-collapseOne">
                                         RELATED ITEMS
                                     </div>
-                                </h2>
+                                
                             </div>
-                            <hr />
 
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <div class="accordion-button text-dark bg-white"
-                                         type="button"
-                                         data-mdb-toggle="collapse"
-                                         data-mdb-target="#panelsStayOpen-collapseTwo"
-                                         aria-expanded="true"
-                                         aria-controls="panelsStayOpen-collapseTwo">
-                                        Brands
-                                    </div>
-                                </h2>
+                                <h2 class="accordion-header" id="headingTwo"></h2>
+                                <div class="accordion-button text-dark bg-white"
+                                     type="button"
+                                     data-bs-toggle="collapse"
+                                     data-bs-target="#panelsStayOpen-collapseTwo"
+                                     aria-expanded="true"
+                                     aria-controls="panelsStayOpen-collapseTwo">
+                                    Brands
+                                </div>
                                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
                                     <div class="accordion-body">
                                         <div>
@@ -82,19 +80,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr />
 
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo-2">
-                                    <div class="accordion-button text-dark bg-white"
-                                         type="button"
-                                         data-mdb-toggle="collapse"
-                                         data-mdb-target="#panelsStayOpen-collapseTwo"
-                                         aria-expanded="true"
-                                         aria-controls="panelsStayOpen-collapseTwo">
-                                        Frame Styles
-                                    </div>
-                                </h2>
+                                <h2 class="accordion-header" id="headingTwo-2"></h2>
+                                <div class="accordion-button text-dark bg-white"
+                                     type="button"
+                                     data-bs-toggle="collapse"
+                                     data-bs-target="#panelsStayOpen-collapseTwo"
+                                     aria-expanded="true"
+                                     aria-controls="panelsStayOpen-collapseTwo">
+                                    Frame Styles
+                                </div>
                                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo-2">
                                     <div class="accordion-body">
                                         <div>
@@ -110,7 +106,6 @@
                                                             <img class="form-check-img" src="@framestyle.ImageUrl" />
                                                         }
                                                         <label class="form-check-label" for="flexCheckChecked1">@framestyle.NameCategory</label>
-                                                        @*<span class="badge badge-secondary float-end">120</span>*@
                                                     </div>
                                                 }
                                             }
@@ -129,19 +124,12 @@
                     <header class="d-sm-flex align-items-center border-bottom mb-4 pb-3">
                         <strong class="d-block py-2">@ViewBag.TotalProducts Items found </strong>
                         <div class="ml-auto header-conten-shop">
-                            @*<select id="sortOrder" name="sortOrder" class="align-items-center form-select w-auto">
-                                    <option value="Default" selected="@(ViewBag.SortOrderFromSession == null)">Default</option>
-                                    <option value="PriceAsc" selected="@(ViewBag.SortOrderFromSession == "PriceAsc")">Price: Ascending</option>
-                                    <option value="PriceDesc" selected="@(ViewBag.SortOrderFromSession == "PriceDesc")">Price: Descending</option>
-                                </select>*@
+
                             <select id="sortOrder" name="sortOrder" class="align-items-center form-select w-auto">
                                 <option value="Default" selected="@((ViewBag.SortOrderFromSession == null) ? "selected" : null)">Default</option>
                                 <option value="PriceAsc" selected="@((ViewBag.SortOrderFromSession == "PriceAsc") ? "selected" : null)">Price: Ascending</option>
                                 <option value="PriceDesc" selected="@((ViewBag.SortOrderFromSession == "PriceDesc") ? "selected" : null)">Price: Descending</option>
                             </select>
-
-
-
 
                             @*<div class="btn-group shadow-0 border">
                                     <a href="#" class="btn btn-light" title="List view">

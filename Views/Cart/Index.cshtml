@@ -28,24 +28,24 @@
                                             <div class="me-lg-5">
                                                 <div class="d-flex">
                                                     <img src="@cart.Product.ImageUrl" class="border rounded me-3" style="width: 96px; height: 96px; margin-right: 1rem;" />
-                                                    <div class="">
-                                                        <a asp-controller="Product" asp-action="Detail" asp-route-id="@cart.IdProduct">@cart.Product.NameProduct</a>
+                                                    <div >
+                                                        <a class="card-text" asp-controller="Product" asp-action="Detail" asp-route-id="@cart.IdProduct">@cart.Product.NameProduct</a>
 
                                                         @if (cart.Product.IdCategoryFrameColor != null && cart.Product.CategoryFrameColor.NameCategory != null)
                                                         {
-                                                            <p style="font-size: 13px;" class="text-muted">Frame Color: @cart.Product.CategoryFrameColor.NameCategory</p>
+                                                            <p style="font-size: 13px;" class="text-muted mb-0">Frame Color: @cart.Product.CategoryFrameColor.NameCategory</p>
                                                         }
                                                         else
                                                         {
-                                                            <p style="font-size: 13px;" class="text-muted">Frame Color: N/A</p>
+                                                            <p style="font-size: 13px;" class="text-muted mb-0">Frame Color: N/A</p>
                                                         }
                                                         @if (cart.Product.Size != null)
                                                         {
-                                                            <p style="font-size: 13px;" class="text-muted">Size: @cart.Product.Size</p>
+                                                            <p style="font-size: 13px;" class="text-muted mb-0">Size: @cart.Product.Size</p>
                                                         }
                                                         else
                                                         {
-                                                            <p style="font-size: 13px;" class="text-muted">Size: N/A</p>
+                                                            <p style="font-size: 13px;" class="text-muted mb-0">Size: N/A</p>
                                                         }
                                                     </div>
                                                 </div>

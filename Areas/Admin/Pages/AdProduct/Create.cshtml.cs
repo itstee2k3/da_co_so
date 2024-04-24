@@ -11,6 +11,8 @@ using do_an_ltweb.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp;
 
 namespace do_an_ltweb.Admin.AdProduct
 {
@@ -167,20 +169,38 @@ namespace do_an_ltweb.Admin.AdProduct
             string filePath = Path.Combine(uploadsFolder, uniqueFileName);
 
             // Sao chép tệp ảnh vào thư mục lưu trữ
-            try
+            using (var imageStream = imageFile.OpenReadStream())
             {
+                // Đọc ảnh từ stream
+                var image = SixLabors.ImageSharp.Image.Load(imageStream);
+
+                // Tính toán kích thước để cắt thành hình vuông
+                int size = Math.Min(image.Width, image.Height);
+
+                // Cắt và thay đổi kích thước ảnh
+                var resizedImage = image.Clone(x => x.Crop(new Rectangle((image.Width - size) / 2, (image.Height - size) / 2, size, size))
+                                                     .Resize(size, size));
+
+                // Lưu ảnh đã chỉnh sửa
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
-                    await imageFile.CopyToAsync(fileStream);
+                    await resizedImage.SaveAsJpegAsync(fileStream);
                 }
             }
-            catch (Exception ex)
-            {
-                // Xử lý ngoại lệ nếu có
-                // Ví dụ: Ghi log, thông báo lỗi, vv.
-                Console.WriteLine($"An error occurred while saving the image: {ex.Message}");
-                return null;
-            }
+            //try
+            //{
+            //    using (var fileStream = new FileStream(filePath, FileMode.Create))
+            //    {
+            //        await imageFile.CopyToAsync(fileStream);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    // Xử lý ngoại lệ nếu có
+            //    // Ví dụ: Ghi log, thông báo lỗi, vv.
+            //    Console.WriteLine($"An error occurred while saving the image: {ex.Message}");
+            //    return null;
+            //}
 
             // Trả về đường dẫn của tệp đã lưu
             return "/images/" + uniqueFileName; // Đường dẫn tương đối của ảnh

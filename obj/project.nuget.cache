@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ckVXANjCYt6OMWhipjLAhUoDX20+TaXN9iEBlUi8LcE7bD8d4xh9btWPorLl6d26qnbkCm3CQnhyHttHkp8DJg==",
+  "dgSpecHash": "AyXvKAwZHAaOGVyt53+6bXEZ7gWN2E46BeDNsV9ltgnj9KT0P8zFM1mw3+sLMGuIKtqh57jXZFqQWNEybkov6Q==",
   "success": true,
-  "projectFilePath": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/do_an.csproj",
+  "projectFilePath": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/do_an/do_an.csproj",
   "expectedPackageFiles": [
     "/Users/thang/.nuget/packages/bouncycastle.cryptography/2.3.0/bouncycastle.cryptography.2.3.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/humanizer/2.14.1/humanizer.2.14.1.nupkg.sha512",
@@ -162,6 +162,7 @@
     "/Users/thang/.nuget/packages/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0/runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "/Users/thang/.nuget/packages/sixlabors.imagesharp/3.1.4/sixlabors.imagesharp.3.1.4.nupkg.sha512",
     "/Users/thang/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.2/sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512",
     "/Users/thang/.nuget/packages/sqlitepclraw.core/2.1.2/sqlitepclraw.core.2.1.2.nupkg.sha512",
     "/Users/thang/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.2/sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",

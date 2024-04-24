@@ -108,7 +108,14 @@ namespace do_an.Areas.Identity.Pages.Account
                     _logger.LogInformation("User logged in.");
 
                     // Kiểm tra xem người dùng có vai trò "admin" không
-                    var user = await _userManager.FindByNameAsync(Input.UserNameOrEmail);
+                    var user = Input.UserNameOrEmail.Contains('@')
+                               ? await _userManager.FindByEmailAsync(Input.UserNameOrEmail)
+                               : await _userManager.FindByNameAsync(Input.UserNameOrEmail);
+                    if (user == null)
+                    {
+                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                        return Page();
+                    }
                     if (await _userManager.IsInRoleAsync(user, "admin"))
                     {
                         // Nếu có, chuyển hướng trực tiếp đến trang Admin
