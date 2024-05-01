@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AyXvKAwZHAaOGVyt53+6bXEZ7gWN2E46BeDNsV9ltgnj9KT0P8zFM1mw3+sLMGuIKtqh57jXZFqQWNEybkov6Q==",
+  "dgSpecHash": "1snharkbGJ8kBaoyFIATuPWQAHP7pgScAQbBnPuplFSy7DwwLsrGaXT6wZNlr8LnzTCvG5KHwnU/SwLwPLdbmA==",
   "success": true,
-  "projectFilePath": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/do_an/do_an.csproj",
+  "projectFilePath": "/Users/thang/CODE/do-an-co-so/da_co_so/do_an.csproj",
   "expectedPackageFiles": [
     "/Users/thang/.nuget/packages/bouncycastle.cryptography/2.3.0/bouncycastle.cryptography.2.3.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/humanizer/2.14.1/humanizer.2.14.1.nupkg.sha512",

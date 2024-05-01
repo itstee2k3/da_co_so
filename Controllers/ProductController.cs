@@ -1,8 +1,10 @@
 ﻿
 using do_an_ltweb.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Build.Evaluation;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -39,32 +41,30 @@ namespace do_an.Controllers
 
         public async Task<IActionResult> AllProducts()
         {
+            // Khai báo và khởi tạo biến currentPage
+            int currentPage = 1;
+
             products = await _productRepository.GetAllAsync();
+
+            // Xóa sessionStorage bằng JavaScript
+            ViewBag.ClearSessionStorageScript = "sessionStorage.clear();";
 
             // Xóa tất cả các session
             HttpContext.Session.Clear();
 
-            //ViewBag.SearchString = ""; // or ViewBag.SearchString = "";
-
-            // Tính toán số lượng sản phẩm
-            totalProducts = products.Count(); // Số lượng sản phẩm trên trang hiện tại nếu có tìm kiếm
-            countPages = (int)Math.Ceiling((double)totalProducts / ITEMS_PER_PAGE);
-
-            // Đảm bảo trang hiện tại không vượt quá số trang có sẵn
-            if (countPages > 0)
+            // Kiểm tra xem có sản phẩm nào không
+            if (products.Any())
             {
+                // Tính toán số lượng sản phẩm
+                totalProducts = products.Count();
+                countPages = (int)Math.Ceiling((double)totalProducts / ITEMS_PER_PAGE);
+
+                // Đảm bảo trang hiện tại không vượt quá số trang có sẵn
                 currentPage = Math.Clamp(currentPage, 1, countPages);
-            }
-            else
-            {
-                currentPage = 1;
             }
 
             // Lọc danh sách sản phẩm cho trang hiện tại
             products = products.Skip((currentPage - 1) * ITEMS_PER_PAGE).Take(ITEMS_PER_PAGE).ToList();
-
-            //// Cập nhật giá trị totalProducts sau khi lọc danh sách sản phẩm
-            //totalProducts = products.Count();
 
             // Tạo instance của PagingModel và đặt các thuộc tính
             var pagingModel = new PagingModel()
@@ -79,30 +79,39 @@ namespace do_an.Controllers
 
             // Lấy danh sách CategoryBrand và truyền vào view
             var categoryBrands = await _categoryBrand.GetAllAsync();
-            ViewBag.CategoryBrands = categoryBrands;
+            ViewBag.CategoryBrands = categoryBrands.OrderBy(brand => brand.NameCategory).ToList();  // Sắp xếp ngay khi lấy;
 
             var categoryFrameStyles = await _categoryFrameStyle.GetAllAsync();
-            ViewBag.CategoryFrameStyles = categoryFrameStyles;
+            ViewBag.CategoryFrameStyles = categoryFrameStyles.OrderBy(fss => fss.NameCategory).ToList();
 
             return View("Index", pagingModel);
         }
 
-
-        public async Task<IActionResult> Index(string searchString, string sortOrder)
+        [HttpGet]
+        public string GetSearchString()
         {
-            // Lưu giá trị sortOrder vào session nếu có
-            if (!String.IsNullOrEmpty(sortOrder))
-            {
-                HttpContext.Session.SetString("sortOrder", sortOrder);
-            }
-            //else
-            //{
-            //    // Nếu không có sortOrder, loại bỏ nó khỏi session
-            //    HttpContext.Session.Remove("sortOrder");
-            //}
+            var searchString = HttpContext.Session.GetString("searchString");
+            return searchString ?? "";
+        }
 
+        // Phương thức để lấy tên của danh mục từ ID của danh mục thương hiệu
+        private async Task<string> GetNameCategoryBrandById(int? categoryId)
+        {
+            var categoryBrand = await _context.CategoryBrands.FindAsync(categoryId);
+            return categoryBrand?.NameCategory;
+        }
+
+        public async Task<IActionResult> Index(string searchString, string sortOrder, string[] selectedCategories, int p = 1)
+        {
+            // Khai báo và khởi tạo biến currentPage
+            int currentPage = p;
+
+            // Lấy giá trị searchString từ session
+            var searchStringFromSession = HttpContext.Session.GetString("searchString");
             // Lấy giá trị sortOrder từ session
             var sortOrderFromSession = HttpContext.Session.GetString("sortOrder");
+            // Lấy giá trị selectedCategories từ session
+            var selectedCategoriesFromSession = HttpContext.Session.GetString("selectedCategories");
 
             // Lấy danh sách sản phẩm từ repository
             var products = await _productRepository.GetAllAsync();
@@ -114,34 +123,56 @@ namespace do_an.Controllers
             }
             else
             {
-                HttpContext.Session.Remove("searchString");
+                // Kiểm tra xem searchString đã được lưu trong session chưa
+                if (!String.IsNullOrEmpty(searchStringFromSession))
+                {
+                    // Sử dụng giá trị từ session nếu nó tồn tại
+                    searchString = searchStringFromSession;
+                }
             }
 
-            // Lấy giá trị searchString từ session
-            var searchStringFromSession = HttpContext.Session.GetString("searchString");
-
-            // Lưu giá trị currentPage vào session nếu có
-            if (currentPage > 0)
+            // Lưu giá trị sortOrder vào session nếu có
+            if (!String.IsNullOrEmpty(sortOrder) && sortOrder != "Default")
             {
-                HttpContext.Session.SetInt32("currentPage", currentPage);
+                HttpContext.Session.SetString("sortOrder", sortOrder);
+            }
+            else
+            {
+                // Kiểm tra xem sortOrder đã được lưu trong session chưa
+                if (!String.IsNullOrEmpty(sortOrderFromSession) && sortOrder != "Default")
+                {
+                    // Sử dụng giá trị từ session nếu nó tồn tại
+                    sortOrder = sortOrderFromSession;
+                }
             }
 
-            // Lấy giá trị currentPage từ session
-            var currentPageFromSession = HttpContext.Session.GetInt32("currentPage");
+            // Lưu giá trị selectedCategories vào session nếu có
+            if (selectedCategories != null && selectedCategories.Length > 0)
+            {
+                HttpContext.Session.SetString("selectedCategories", JsonConvert.SerializeObject(selectedCategories));
+            }
+            else
+            {
+                // Kiểm tra xem selectedCategories đã được lưu trong session chưa
+                if (!string.IsNullOrEmpty(selectedCategoriesFromSession) && selectedCategories.Length > 0)
+                {
+                    // Sử dụng giá trị từ session nếu nó tồn tại
+                    selectedCategories = JsonConvert.DeserializeObject<string[]>(selectedCategoriesFromSession);
+                }
+            }
 
-            // Sử dụng giá trị currentPage từ session hoặc mặc định là 1 nếu không có
-            currentPage = currentPageFromSession ?? 1;
+            // Kiểm tra và khởi tạo biến currentPage
+            currentPage = currentPage > 0 ? currentPage : 1;
 
             // Tìm kiếm sản phẩm nếu có searchString
-            if (!String.IsNullOrEmpty(searchStringFromSession))
+            if (!String.IsNullOrEmpty(searchString))
             {
                 // Tìm kiếm sản phẩm và lưu vào session
-                var searchedProducts = await _productRepository.GetAllAsync();
-                searchedProducts = searchedProducts.Where(n => n.NameProduct.IndexOf(searchStringFromSession, StringComparison.OrdinalIgnoreCase) != -1).ToList();
+                var searchedProducts = products.Where(n => n.NameProduct.IndexOf(searchString, StringComparison.OrdinalIgnoreCase) != -1).ToList();
                 HttpContext.Session.SetString("searchedProducts", JsonConvert.SerializeObject(searchedProducts));
 
                 // Reset currentPage về 1 khi có tìm kiếm
-                currentPage = 1;
+                currentPage = p;
                 HttpContext.Session.SetInt32("currentPage", currentPage);
 
                 products = searchedProducts;
@@ -157,36 +188,41 @@ namespace do_an.Controllers
             }
 
             // Kiểm tra và áp dụng sắp xếp nếu có sortOrder
-            if (!String.IsNullOrEmpty(sortOrderFromSession))
+            switch (sortOrder)
             {
-                switch (sortOrderFromSession)
-                {
-                    case "PriceAsc":
-                        products = products.OrderBy(p => p.Price).ToList();
-                        break;
-                    case "PriceDesc":
-                        products = products.OrderByDescending(p => p.Price).ToList();
-                        break;
-                    case "Default":
-                        HttpContext.Session.Remove("sortOrder");
-                        break;
-                    default:
-                        break;
-                }
+                case "PriceAsc":
+                    products = products.OrderBy(p => p.Price).ToList();
+                    break;
+                case "PriceDesc":
+                    products = products.OrderByDescending(p => p.Price).ToList();
+                    break;
+                case "Default":
+                default:
+                    HttpContext.Session.Remove("sortOrder");
+                    break;
             }
-            else
+
+            // Lọc sản phẩm theo name danh mục đã chọn
+            if (selectedCategories != null && selectedCategories.Length > 0)
             {
-                // Lấy danh sách sản phẩm từ session (nếu có)
-                var productsJson = HttpContext.Session.GetString("sortOrder");
-                if (!String.IsNullOrEmpty(productsJson))
-                {
-                    products = JsonConvert.DeserializeObject<List<Product>>(productsJson);
-                }
+
+                // Chuyển đổi các name danh mục từ chuỗi sang một mảng 
+                var categoryNames = selectedCategories
+                    .SelectMany(ids => ids.Split(',')) // Tách các ID nếu có nhiều ID được truyền qua
+                    .ToList();
+
+                // Lấy category name từ Id và kiểm tra xem nó có tồn tại trong mảng selectedCategories không
+                products = products.Where(p => p.IdCategoryBrand != null &&
+                    categoryNames.Any(name => name == GetNameCategoryBrandById(p.IdCategoryBrand).Result)).ToList();
+
             }
 
             // Tính toán số lượng sản phẩm và phân trang
-            totalProducts = products.Count();
-            countPages = (int)Math.Ceiling((double)totalProducts / ITEMS_PER_PAGE);
+            var totalProducts = products.Count();
+            var countPages = (int)Math.Ceiling((double)totalProducts / ITEMS_PER_PAGE);
+
+            // Đảm bảo countPages không nhỏ hơn 0
+            countPages = Math.Max(countPages, 0);
 
             // Đảm bảo trang hiện tại không vượt quá số trang có sẵn
             if (countPages > 0)
@@ -195,7 +231,7 @@ namespace do_an.Controllers
             }
             else
             {
-                currentPage = 1; // Nếu countPages <= 0, đặt currentPage về 1
+                currentPage = 1; // Trang hiện tại luôn là 1 nếu không có sản phẩm nào
             }
 
             // Lọc danh sách sản phẩm cho trang hiện tại
@@ -208,16 +244,16 @@ namespace do_an.Controllers
                 countpages = countPages
             };
 
-            ViewBag.SortOrderFromSession = sortOrderFromSession;
-
+            ViewBag.SortOrderFromSession = sortOrder;
             ViewBag.Products = products;
+            ViewBag.TotalProducts = totalProducts;
 
             // Lấy danh sách CategoryBrand và CategoryFrameStyles và truyền vào view
             var categoryBrands = await _categoryBrand.GetAllAsync();
-            ViewBag.CategoryBrands = categoryBrands;
+            ViewBag.CategoryBrands = categoryBrands.OrderBy(brand => brand.NameCategory).ToList();
 
             var categoryFrameStyles = await _categoryFrameStyle.GetAllAsync();
-            ViewBag.CategoryFrameStyles = categoryFrameStyles;
+            ViewBag.CategoryFrameStyles = categoryFrameStyles.OrderBy(fss => fss.NameCategory).ToList();
 
             return View(pagingModel);
         }
