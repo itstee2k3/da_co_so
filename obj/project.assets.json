@@ -11950,11 +11950,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/do_an/do_an.csproj",
+      "projectUniqueName": "/Users/thang/CODE/do-an-co-so/da_co_so/do_an.csproj",
       "projectName": "do_an",
-      "projectPath": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/do_an/do_an.csproj",
+      "projectPath": "/Users/thang/CODE/do-an-co-so/da_co_so/do_an.csproj",
       "packagesPath": "/Users/thang/.nuget/packages/",
-      "outputPath": "/Users/thang/CODE/lap-trinh-web/do-an-ltweb/do-an/do_an/do_an/do_an/obj/",
+      "outputPath": "/Users/thang/CODE/do-an-co-so/da_co_so/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/thang/.nuget/NuGet/NuGet.Config"
@@ -11964,7 +11964,7 @@
       ],
       "sources": {
         "/usr/local/share/dotnet/library-packs": {},
-        "/usr/local/share/dotnet/sdk/7.0.314/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+        "/usr/local/share/dotnet/sdk/7.0.315/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -12063,7 +12063,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.314/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.315/RuntimeIdentifierGraph.json"
       }
     }
   }

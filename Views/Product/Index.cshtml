@@ -2,23 +2,23 @@
 @{
     ViewData["Title"] = "Product Page";
 
-    var sortOrder = ViewBag.SortOrder ?? "Default"; // Sử dụng ViewBag.SortOrder nếu có, nếu không, sử dụng "Default"
-
-    string searchString = ViewBag.SearchString;
-    //int currentPage = ViewBag.CurrentPage;
+    var sortOrder = ViewBag.SortOrderFromSession ?? "Default"; // Sử dụng ViewBag.SortOrder nếu có, nếu không, sử dụng "Default"
+    string searchString = ViewBag.SearchString ?? "";
+    string selectedCategories = ViewBag.SelectedCategories ?? "";
 
     var pagingmodel = new XTL.Helpers.PagingModel()
     {
         currentpage = Model.currentpage,
         countpages = Model.countpages,
-        generateUrl = (int? p) => Url.Page("/Product/Index", new { p = p })
+        generateUrl = (int? p) => Url.Action("Index", "Product", new { p = p, sortOrder = sortOrder, searchString = searchString, selectedCategories = selectedCategories })
     };
+
 }
 
 <!-- Our shop section -->
 <div id="about" class="shop home-shop">
     <!-- sidebar + content -->
-    <section class="">
+    <section>
         <div class="container">
             <div class="row">
 
@@ -39,68 +39,79 @@
                         <div class="accordion" id="accordionPanelsStayOpenExample">
 
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne"></h2>
-                                    <div class="text-dark text-center"
-                                         type="button"
-                                         data-bs-toggle="collapse"
-                                         data-bs-target="#panelsStayOpen-collapseOne"
-                                         aria-expanded="true"
-                                         aria-controls="panelsStayOpen-collapseOne">
-                                        RELATED ITEMS
-                                    </div>
-                                
+                                <h2 id="headingOne"></h2>
+                                <p class="text-dark text-center">
+                                    RELATED ITEMS
+                                </p>
+
                             </div>
 
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo"></h2>
-                                <div class="accordion-button text-dark bg-white"
-                                     type="button"
-                                     data-bs-toggle="collapse"
-                                     data-bs-target="#panelsStayOpen-collapseTwo"
-                                     aria-expanded="true"
-                                     aria-controls="panelsStayOpen-collapseTwo">
+                                @*<h2 class="accordion-header" id="headingTwo"></h2>*@
+                                <span class="accordion-button text-dark bg-white"
+                                      type="button"
+                                      data-bs-toggle="collapse"
+                                      data-bs-target="#brandsStayOpen-collapseBrands"
+                                      aria-expanded="true"
+                                      aria-controls="brandsStayOpen-collapseBrands">
                                     Brands
-                                </div>
-                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
+                                </span>
+                                <div id="brandsStayOpen-collapseBrands" class="accordion-collapse collapse show" aria-labelledby="headingTwo">
                                     <div class="accordion-body">
-                                        <div>
-                                            @foreach (var brand in ViewBag.CategoryBrands)
+                                        <div id="brand-checkboxes">
+                                            @foreach (var brand in ((List<CategoryBrand>)ViewBag.CategoryBrands).Take(4))
                                             {
-                                                @if (brand != null && brand.NameCategory != null && brand.Hide == -1)
+                                                @if (brand != null && brand.NameCategory != null)
                                                 {
                                                     <!-- Checked checkbox -->
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" />
-                                                        <label class="form-check-label" for="flexCheckChecked1">@brand.NameCategory</label>
-                                                        @*<span class="badge badge-secondary float-end">120</span>*@
+                                                        <input class="form-check-input product-filter cursor-pointer" type="checkbox" value="@brand.NameCategory" id="@brand.IdCategory" />
+                                                        <label class="form-check-label" for="@("brand-" + brand.NameCategory)">@brand.NameCategory</label>
                                                     </div>
                                                 }
                                             }
+
+                                            <div class="collapse" id="more-checkboxes">
+                                                @foreach (var brand in ((List<CategoryBrand>)ViewBag.CategoryBrands).Skip(4))
+                                                {
+                                                    if (brand != null && brand.NameCategory != null)
+                                                    {
+                                                        <div class="form-check">
+                                                            <input class="form-check-input product-filter cursor-pointer" type="checkbox" value="@brand.NameCategory" id="@brand.IdCategory" />
+                                                            <label class="form-check-label" for="@("brand-" + brand.NameCategory)">@brand.NameCategory</label>
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+
+                                            <button type="button" id="see-more" class="bg-none mt-2 text-secondary" data-bs-toggle="collapse" data-bs-target="#more-checkboxes" aria-expanded="false" aria-controls="more-checkboxes">See More</button>
+                                            @*<button type="button" id="see-more" class="bg-none mt-2 text-secondary" data-bs-toggle="collapse" data-bs-target="#more-checkboxes" aria-controls="more-checkboxes">See More</button>*@
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo-2"></h2>
-                                <div class="accordion-button text-dark bg-white"
-                                     type="button"
-                                     data-bs-toggle="collapse"
-                                     data-bs-target="#panelsStayOpen-collapseTwo"
-                                     aria-expanded="true"
-                                     aria-controls="panelsStayOpen-collapseTwo">
+                                @*<h2 class="accordion-header" id="headingTwo-2"></h2>*@
+                                <span class="accordion-button text-dark bg-white"
+                                      type="button"
+                                      data-bs-toggle="collapse"
+                                      data-bs-target="#panelsStayOpen-collapseFss"
+                                      aria-expanded="true"
+                                      aria-controls="panelsStayOpen-collapseFss">
                                     Frame Styles
-                                </div>
-                                <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo-2">
+                                </span>
+                                <div id="panelsStayOpen-collapseFss" class="accordion-collapse collapse show" aria-labelledby="headingTwo-2">
                                     <div class="accordion-body">
                                         <div>
                                             @foreach (var framestyle in ViewBag.CategoryFrameStyles)
                                             {
-                                                @if (framestyle != null && framestyle.NameCategory != null && framestyle.Hide == -1)
+                                                @if (framestyle != null && framestyle.NameCategory != null)
                                                 {
                                                     <!-- Checked checkbox -->
                                                     <div class="form-check form-check-horizontal">
-                                                        <input class="form-check-input-fs" type="checkbox" value="" id="flexCheckChecked1" />
+                                                        <input class="form-check-input" type="checkbox" value="" id="" />
                                                         @if (framestyle.ImageUrl != null)
                                                         {
                                                             <img class="form-check-img" src="@framestyle.ImageUrl" />
@@ -113,7 +124,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <hr />
 
                         </div>
                     </div>
@@ -122,7 +132,7 @@
                 <!-- content -->
                 <div class="col-lg-9">
                     <header class="d-sm-flex align-items-center border-bottom mb-4 pb-3">
-                        <strong class="d-block py-2">@ViewBag.TotalProducts Items found </strong>
+                        <strong id="total-products" class="d-block py-2">@ViewBag.TotalProducts Items found </strong>
                         <div class="ml-auto header-conten-shop">
 
                             <select id="sortOrder" name="sortOrder" class="align-items-center form-select w-auto">
@@ -131,14 +141,6 @@
                                 <option value="PriceDesc" selected="@((ViewBag.SortOrderFromSession == "PriceDesc") ? "selected" : null)">Price: Descending</option>
                             </select>
 
-                            @*<div class="btn-group shadow-0 border">
-                                    <a href="#" class="btn btn-light" title="List view">
-                                        <i class="fa fa-bars fa-lg"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-light active" title="Grid view">
-                                        <i class="fa fa-th fa-lg"></i>
-                                    </a>
-                                </div>*@
                         </div>
                     </header>
 
@@ -155,12 +157,12 @@
                                             </a>
                                         </div>
                                         <img src="@product.ImageUrl" class="card-img-top" />
-                                        <a asp-action="Detail" asp-route-id="@product.IdProduct">
-                                            <div class="card-body d-flex flex-column">
+                                        <div class="card-body d-flex flex-column">
+                                            <a asp-action="Detail" asp-route-id="@product.IdProduct">
                                                 <h3 class="card-title">@product.Price.ToString("N0")<span class="blu">đ</span></h3>
                                                 <p class="card-text text-truncate">@product.NameProduct</p>
-                                            </div>
-                                        </a>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             }
@@ -170,7 +172,7 @@
                     <hr />
 
                     <!-- Pagination -->
-                    <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
+                    <nav id="pagination" aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
                         <partial name="_PagingXTL" model="@pagingmodel" />
                     </nav>
                     <!-- end Pagination -->
@@ -182,60 +184,221 @@
 </div>
 
 <script>
-    // Function to update sortOrder select box based on sortOrder URL parameter
-    function updateSortOrderSelect() {
-        var urlParams = new URLSearchParams(window.location.search);
-        var sortOrder = urlParams.get('sortOrder');
-        if (sortOrder) {
-            document.getElementById("sortOrder").value = sortOrder;
-        }
-    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const productListElement = document.getElementById("product-list"); // Lấy ra phần tử chứa danh sách sản phẩm
+        const sortOrderElement = document.getElementById("sortOrder"); // Lấy ra phần tử chứa lựa chọn thứ tự sắp xếp
+        const seeMoreButton = document.getElementById('see-more');
+        const morecheckboxBrand = document.getElementById('more-checkboxes');
 
-    // Call updateSortOrderSelect function when the DOM content is loaded
-    window.addEventListener('DOMContentLoaded', (event) => {
-        updateSortOrderSelect();
+        // Lắng nghe sự kiện change của tất cả các checkbox trong collapse "Brands"
+        const brandCheckboxes = document.querySelectorAll('#brandsStayOpen-collapseBrands .product-filter');
+
+        // Khởi tạo trang dựa trên các tham số URL hiện tại
+        function initPage() {
+            const urlParams = new URLSearchParams(window.location.search); // Lấy các tham số từ URL
+
+            // Khôi phục giá trị thứ tự sắp xếp từ sessionStorage (nếu có)
+            const sortOrder = sessionStorage.getItem('sortOrder');
+            updateSortOrderSelect(sortOrder);
+
+            updatePageUrl();  // Đảm bảo nội dung ban đầu phù hợp với trạng thái URL
+        }
+
+        // Cập nhật hộp chọn thứ tự sắp xếp từ các tham số URL
+        function updateSortOrderSelect(sortOrder) {
+            if (sortOrder) {
+                sortOrderElement.value = sortOrder;
+
+                // Lưu giá trị thứ tự sắp xếp vào sessionStorage
+                sessionStorage.setItem('sortOrder', sortOrder);
+            }
+        }
+
+        // Lắng nghe sự thay đổi trong hộp chọn thứ tự sắp xếp
+        sortOrderElement.addEventListener("change", function () {
+            updateSortOrderSelect(this.value); // Cập nhật hộp chọn thứ tự sắp xếp
+
+            updatePageUrl({ sortOrder: this.value }); // Cập nhật URL và tải nội dung mới khi có sự thay đổi
+        });
+
+        // Lưu các giá trị checkbox đã chọn vào sessionStorage
+        function saveSelectedCheckboxes() {
+            const selectedValues = Array.from(document.querySelectorAll('.product-filter:checked')).map(cb => cb.value);
+            if (selectedValues.length > 0) {
+                sessionStorage.setItem('selectedCheckboxes', JSON.stringify(selectedValues));
+            } else {
+                // Nếu không có checkbox nào được chọn, xoá session
+                sessionStorage.removeItem('selectedCheckboxes');
+
+            }
+        }
+
+        // Khôi phục các giá trị đã chọn từ sessionStorage
+        function restoreSelectedCheckboxes() {
+            const selectedCheckboxesString = sessionStorage.getItem('selectedCheckboxes');
+            if (selectedCheckboxesString) {
+                const selectedCheckboxes = JSON.parse(selectedCheckboxesString);
+                selectedCheckboxes.forEach(value => {
+                    const checkbox = document.querySelector(`.product-filter[value="${value}"]`);
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+        }
+
+
+        // Lắng nghe sự kiện change của tất cả các checkbox
+        brandCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                saveSelectedCheckboxes(); // Lưu các giá trị checkbox đã chọn vào sessionStorage
+
+                // Tạo mảng mới để chứa các giá trị được chọn riêng biệt
+                const selectedValues = Array.from(document.querySelectorAll('.product-filter:checked')).map(cb => cb.value).join(',');
+
+                // Cập nhật URL với các giá trị được chọn riêng biệt
+                updatePageUrl({ selectedCategories: selectedValues });
+            });
+        });
+
+        function getSearchString() {
+            // Gửi yêu cầu GET đến phương thức GetSearchString của ProductController
+            return fetch('/Product/GetSearchString')
+                .then(response => response.text()) // Chuyển đổi phản hồi thành dạng văn bản
+                .then(data => {
+                    // Trả về giá trị tìm kiếm từ session
+                    return data.trim();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    return ''; // Trả về giá trị rỗng nếu có lỗi xảy ra
+                });
+        }
+
+        // Khôi phục trạng thái của collapse từ sessionStorage
+        function restoreCollapseState() {
+            const collapseStateString = sessionStorage.getItem('collapseState');
+            if (collapseStateString) {
+                const isExpanded = JSON.parse(collapseStateString);
+
+                // Cập nhật thuộc tính aria-expanded của nút seeMoreButton
+                seeMoreButton.setAttribute('aria-expanded', isExpanded);
+
+                // Cập nhật trạng thái của phần tử morecheckboxBrand dựa trên giá trị isExpanded
+                if (isExpanded === 'true') {
+                    seeMoreButton.textContent = 'Collapse';
+                    morecheckboxBrand.classList.add('show');
+                } else {
+                    seeMoreButton.textContent = 'See More';
+                    morecheckboxBrand.classList.remove('show');
+                }
+            }
+        }
+
+        // Xử lý sự kiện khi nút được nhấn để chuyển đổi trạng thái thu gọn
+        seeMoreButton.addEventListener('click', function () {
+            seeMoreButton.classList.toggle('show');  // Sử dụng phương thức toggle của Bootstrap để chuyển đổi trạng thái thu gọn
+
+            // Lấy giá trị của thuộc tính aria-expanded
+            const isExpanded = seeMoreButton.getAttribute('aria-expanded');
+            sessionStorage.setItem('collapseState', JSON.stringify(isExpanded));
+
+            // Kiểm tra giá trị của thuộc tính và thực hiện hành động tương ứng
+            if (isExpanded === 'true') {
+                // Phần tử đang được mở rộng, thực hiện hành động khi muốn thu gọn
+                seeMoreButton.textContent = 'Collapse';
+
+                console.log('Phần tử đang được mở rộng');
+            } else {
+                // Phần tử đang được thu gọn, thực hiện hành động khi muốn mở rộng
+                seeMoreButton.textContent = 'See More';
+
+                console.log('Phần tử đang được thu gọn');
+            }
+
+        });
+
+        // Cập nhật URL và tải nội dung mới khi có sự thay đổi trong bộ lọc hoặc trang
+        async function updatePageUrl(options = {}) {
+            const urlParams = new URLSearchParams(window.location.search); // Lấy các tham số từ URL
+            const currentPage = urlParams.get('p') || 1; // Giá trị mặc định là 1 nếu 'p' không tồn tại trong URL
+            const sortOrder = options.sortOrder || sortOrderElement.value; // Lấy thứ tự sắp xếp mới hoặc từ hộp chọn
+            const searchString = await getSearchString();; // Lấy giá trị tìm kiếm từ sessionStorage
+            const selectedCategories = Array.from(document.querySelectorAll('.product-filter:checked')).map(cb => cb.value).join(','); // Lấy danh sách name các danh mục được chọn
+
+            urlParams.set('p', currentPage); 
+
+            urlParams.set('sortOrder', sortOrder); // Cập nhật thứ tự sắp xếp trong URL
+
+
+            if (searchString) { // Kiểm tra nếu danh sách các danh mục được chọn không rỗng
+                urlParams.set('searchString', searchString); // Cập nhật giá trị search trong URL
+            }
+            else {
+                urlParams.delete('searchString'); // Xóa tham số selectedCategories nếu danh sách rỗng
+            }
+
+            if (selectedCategories) { // Kiểm tra nếu danh sách các danh mục được chọn không rỗng
+                urlParams.set('selectedCategories', selectedCategories); // Thêm tham số selectedCategories vào URL
+            }
+            else {
+                urlParams.delete('selectedCategories'); // Xóa tham số selectedCategories nếu danh sách rỗng
+            }
+
+            const newUrl = `/Product?${urlParams.toString().replace(/%2C/g, ',')}`; // Tạo URL mới dựa trên các tham số đã được cập nhật
+            window.history.pushState({ path: newUrl }, '', newUrl); // Cập nhật URL trong thanh địa chỉ
+            fetchUpdatedProducts(newUrl); // Gọi hàm fetchUpdatedProducts để tải sản phẩm mới từ URL mới
+        }
+
+        // Tải và thay thế nội dung danh sách sản phẩm
+        function fetchUpdatedProducts(url) {
+            fetch(url, {
+                headers: { 'Accept': 'text/html' }
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error(`Lỗi HTTP! Trạng thái: ${response.status}`);
+                    return response.text();
+                })
+                .then(html => {
+                    // Tạo một phần tử div tạm thời để chứa nội dung mới
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = html;
+                    // Lấy ra phần tử danh sách sản phẩm từ nội dung mới
+                    const newProductList = tempDiv.querySelector("#product-list");
+                    // Thay thế nội dung của phần tử danh sách sản phẩm hiện tại bằng nội dung mới
+                    productListElement.innerHTML = newProductList.innerHTML;
+
+                    // Lấy phần tử phân trang mới từ nội dung mới
+                    const newPagination = tempDiv.querySelector("#pagination");
+                    // Thay thế nội dung của phân trang hiện tại bằng nội dung mới
+                    const paginationElement = document.getElementById("pagination");
+                    paginationElement.innerHTML = newPagination.innerHTML;
+
+                    // Lấy số lượng sản phẩm mới từ nội dung mới
+                    const totalProducts = tempDiv.querySelector("#total-products");
+                    // Thay đổi nội dung phần tử hiển thị số lượng sản phẩm
+                    const totalproductElement = document.getElementById("total-products");
+                    totalproductElement.innerHTML = totalProducts.innerHTML;
+                })
+                .catch(error => {
+                    console.error('Lỗi khi tải sản phẩm:', error);
+                    productListElement.innerHTML = '<div class="error">Không thể tải sản phẩm. Vui lòng thử lại hoặc liên hệ hỗ trợ.</div>'; // Hiển thị thông báo lỗi nếu có lỗi xảy ra
+                });
+        }
+
+
+        // Khôi phục các giá trị đã chọn từ sessionStorage
+        restoreSelectedCheckboxes();
+
+        // Khôi phục trạng thái của collapse từ sessionStorage
+        restoreCollapseState();
+
+        // Khởi tạo trang dựa trên các tham số URL hiện tại
+        initPage();
+
     });
 
-    // Function to handle onchange event of sortOrder select box
-    document.getElementById("sortOrder").addEventListener("change", function () {
-        var selectedValue = this.value;
+    @ViewBag.ClearSessionStorageScript
 
-        // Get current page number from URL
-        var urlParams = new URLSearchParams(window.location.search);
-        var page = urlParams.get('p');
-
-        // If page number is selected, maintain it while changing sortOrder
-        if (page) {
-            goToPage(page, selectedValue);
-        } else {
-            // If no page number is selected, simply update the URL with new sortOrder
-            updateUrl(selectedValue);
-        }
-    });
-
-    // Function to navigate to a specific page with updated sortOrder
-    function goToPage(pageNumber, sortOrder) {
-        var newUrl = '/Product/Index?p=' + pageNumber;
-        // Add sortOrder to the new URL
-        newUrl += '&sortOrder=' + sortOrder;
-        window.location.href = newUrl;
-    }
-
-    // Function to update URL with new sortOrder
-    function updateUrl(sortOrder) {
-        var urlParams = new URLSearchParams(window.location.search);
-
-        // Set sortOrder to URL
-        if (sortOrder) {
-            urlParams.set('sortOrder', sortOrder);
-        } else {
-            urlParams.delete('sortOrder');
-        }
-
-        // Build new URL
-        var newUrl = '/Product/Index?' + urlParams.toString();
-
-        // Redirect to new URL
-        window.location.href = newUrl;
-    }
 </script>
+
