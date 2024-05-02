@@ -107,7 +107,7 @@
                                         <div>
                                             @foreach (var framestyle in ViewBag.CategoryFrameStyles)
                                             {
-                                                @if (framestyle != null && framestyle.NameCategory != null)
+                                                @if (framestyle != null && framestyle.NameCategory != null && framestyle.Hide == -1)
                                                 {
                                                     <!-- Checked checkbox -->
                                                     <div class="form-check form-check-horizontal">
