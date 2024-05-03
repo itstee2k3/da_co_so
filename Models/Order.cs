@@ -31,8 +31,6 @@ namespace do_an_ltweb.Models
 
         public int StatusAdmin { get; set; }
 
-        //public List<OrderDetail>? OrderDetails { get; set; }
-
         // Chi tiết đơn hàng
         public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
     }
