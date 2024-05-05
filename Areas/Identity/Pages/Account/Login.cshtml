@@ -25,15 +25,15 @@
                     <form id="account" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-                        <div class="form-floating mb-3">
-                            <input asp-for="Input.UserNameOrEmail" class="form-control" autocomplete="username" id="UserNameOrEmail" aria-required="true">
+                        <div class="form-group mb-3">
                             <label asp-for="Input.UserNameOrEmail"></label>
+                            <input asp-for="Input.UserNameOrEmail" class="form-control" autocomplete="username" id="UserNameOrEmail" aria-required="true">
                             <span asp-validation-for="Input.UserNameOrEmail" class="text-danger"></span>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" id="Password" aria-required="true">
+                        <div class="form-group mb-3">
                             <label asp-for="Input.Password"></label>
+                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" id="Password" aria-required="true">
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
                         </div>
 

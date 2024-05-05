@@ -108,31 +108,7 @@ function updateChart(data) {
             revenueData.push(0);
         }
         console.log(revenueData)
-        //labels.push("Month " + month);
-        //// Kiểm tra xem dữ liệu có tồn tại cho tháng này không
-        //if (data[month - 1]) {
-        //    revenueData.push(data[month - 1]);
-        //} else {
-        //    revenueData.push(0); // Nếu không có dữ liệu, đặt giá trị doanh thu là 0
-        //}
     }
-
-    //// Thêm cột cuối cùng cho tháng hiện tại nếu tháng hiện tại đã kết thúc
-    //if (currentDate.getDate() > 1) {
-    //    labels.push("Month " + currentMonth);
-    //    // Kiểm tra xem dữ liệu có tồn tại cho tháng hiện tại không
-    //    if (data[currentMonth - 1]) {
-    //        revenueData.push(data[currentMonth - 1]);
-    //    } else {
-    //        revenueData.push(0); // Nếu không có dữ liệu, đặt giá trị doanh thu là 0
-    //    }
-    //}
-
-    //// Thêm cột cuối cùng cho tháng hiện tại nếu tháng hiện tại đã kết thúc
-    //if (currentDate.getDate() > 1 && data[currentMonth - 1]) {
-    //    labels.push("Month " + currentMonth);
-    //    revenueData.push(data[currentMonth - 1]);
-    //}
 
     var ctx = document.getElementById("myBarChart");
     var myLineChart = new Chart(ctx, {

@@ -26,7 +26,7 @@
                     <th>DateBegin</th>
                     <th>Address</th>
                     @*<th>StatusAdmin</th>*@
-                    <th>StatusUser</th>
+                    <th>Status</th>
                     <th>PaymentMethod</th>
                     <th>Total</th>
                     <th>Tasks</th>
@@ -38,7 +38,7 @@
                     <th>DateBegin</th>
                     <th>Address</th>
                     @*<th>StatusAdmin</th>*@
-                    <th>StatusUser</th>
+                    <th>Status</th>
                     <th>PaymentMethod</th>
                     <th>Total</th>
                     <th>Tasks</th>
@@ -49,23 +49,31 @@
                 @foreach (var order in Model.Orders)
                 {
                     <tr>
-                        <td>@order.DateBegin</td>
+                        <td>@(order.DateBegin.HasValue ? order.DateBegin.Value.ToString("yyyy/MM/dd") : "N/A")</td>
+
+                        @*<td>@order.DateBegin</td>*@
                         <td>@order.Address</td>
                         @*<td>@(order.StatusAdmin == 0 ? "Unconfirmed" : "Confirmed")</td>*@
-                        <td>
-                            @switch (order.StatusUser)
-                            {
-                                case 0:
-                                    <span>Not received</span>
-                                    break;
-                                case 1:
-                                    <span>Goods received</span>
-                                    break;
-                                case -1:
-                                    <span>Request cancellation</span>
-                                    break;
-                            }
-                        </td>
+                    <td>
+
+
+                        @if (order.StatusUser == -1)
+                        {
+                            <span class="text-danger">Request cancellation</span>
+                        }
+                        else if (order.StatusAdmin == 0)
+                        {
+                            <span>Unconfimred</span>
+                        }
+                        else if (order.StatusUser == 0)
+                        {
+                            <span>Not received</span>
+                        }
+                        else if (order.StatusUser == 1)
+                        {
+                            <span class="text-success">Goods received</span>
+                        }
+                    </td>
                         <td>@(order.PaymentMethod == 0 ? "COD" : "VNPay")</td>
                         <td>@order.TotalBill.ToString("N0")<span>đ</span></td>
                         <td class="d-flex justify-content-start align-items-center">

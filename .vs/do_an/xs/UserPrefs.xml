@@ -1,30 +1,39 @@
 ﻿<Properties StartupConfiguration="{25F43D0C-DE9A-4EAB-A2C6-306D1D05A0A0}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Shared/_Layout.cshtml">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.do__an PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/assets/demo/chart-bar-demo.js">
     <Files>
-      <File FileName="Areas/Admin/Pages/AdHome/Index.cshtml" Line="1" Column="1" IsPinned="True" />
-      <File FileName="Areas/Admin/Pages/AdHome/Index.cshtml.cs" Line="17" Column="22" IsPinned="True" />
-      <File FileName="wwwroot/assets/demo/chart-bar-demo.js" Line="24" Column="21" IsPinned="True" />
+      <File FileName="Areas/Admin/Pages/AdHome/Index.cshtml" Line="62" Column="64" IsPinned="True" />
+      <File FileName="Areas/Admin/Pages/AdHome/Index.cshtml.cs" Line="56" Column="10" IsPinned="True" />
+      <File FileName="wwwroot/assets/demo/chart-bar-demo.js" Line="110" Column="33" IsPinned="True" />
       <File FileName="Views/Shared/_LayoutAdmin.cshtml" />
-      <File FileName="Views/Shared/_Layout.cshtml" Line="27" Column="7" />
+      <File FileName="Views/Shared/_Layout.cshtml" Line="27" Column="5" />
       <File FileName="Program.cs" />
-      <File FileName="wwwroot/js-admin/datatables-simple-demo.js" />
+      <File FileName="Areas/Admin/Pages/AdOrder/Index.cshtml" Line="66" Column="91" />
+      <File FileName="Models/Order.cs" Line="17" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="do_an">
-            <Node name="do_an" expanded="True">
+            <Node name="do_an" selected="True">
               <Node name="Areas" expanded="True">
                 <Node name="Admin" expanded="True">
                   <Node name="Pages" expanded="True">
-                    <Node name="AdHome" expanded="True" />
+                    <Node name="AdHome" expanded="True">
+                      <Node name="Index.cshtml" expanded="True" />
+                    </Node>
+                    <Node name="AdOrder" expanded="True" />
                   </Node>
                 </Node>
               </Node>
+              <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Shared" expanded="True">
-                  <Node name="_Layout.cshtml" selected="True" />
-                </Node>
+                <Node name="Shared" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
                 <Node name="assets" expanded="True">
@@ -40,11 +49,5 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.do__an PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
