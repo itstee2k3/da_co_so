@@ -60,8 +60,6 @@
                                 <text>@(order != null && order.User != null ? order.User.Email : "N/A")</text>
                             }
                         </td>
-                        @*<td>@order.DateBegin</td>
-        <td>@order.DateEnd</td>*@
                         <td>@(order.DateBegin.HasValue ? order.DateBegin.Value.ToString("yyyy/MM/dd") : "N/A")</td>
                         <td>@(order.DateEnd.HasValue ? order.DateEnd.Value.ToString("yyyy/MM/dd") : "N/A")</td>
 
@@ -74,7 +72,7 @@
                             }
                             else if (order.StatusAdmin == 1)
                             {
-                                <span>Confirmed</span>
+                                <span class="text-success">Confirmed</span>
                             }
                         </td>
                         <td>
@@ -84,11 +82,11 @@
                             }
                             else if (order.StatusUser == 1)
                             {
-                                <span>Goods received</span>
+                                <span class="text-success">Goods received</span>
                             }
                             else if (order.StatusUser == -1)
                             {
-                                <span>Request cancellation</span>
+                                <span class="text-danger">Request cancellation</span>
                             }
                         </td>
                         <td>

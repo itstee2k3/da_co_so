@@ -67,7 +67,7 @@
 
 <div class="d-flex justify-content-end">
     <form method="post" asp-page-handler="ConfirmOrder">
-        @if (Model.Order != null && Model.Order.StatusAdmin == 0)
+        @if (Model.Order != null && Model.Order.StatusAdmin == 0 && Model.Order.StatusUser != -1)
         {
             <button type="submit" class="btn btn-success">Order confirmation</button>
         }

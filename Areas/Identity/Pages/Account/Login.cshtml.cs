@@ -111,6 +111,13 @@ namespace do_an.Areas.Identity.Pages.Account
                     var user = Input.UserNameOrEmail.Contains('@')
                                ? await _userManager.FindByEmailAsync(Input.UserNameOrEmail)
                                : await _userManager.FindByNameAsync(Input.UserNameOrEmail);
+
+                    // Lưu thông tin đăng nhập nếu tùy chọn "RememberMe" được chọn
+                    if (Input.RememberMe)
+                    {
+                        await _signInManager.SignInAsync(user, Input.RememberMe);
+                    }
+
                     if (user == null)
                     {
                         ModelState.AddModelError(string.Empty, "Invalid login attempt.");

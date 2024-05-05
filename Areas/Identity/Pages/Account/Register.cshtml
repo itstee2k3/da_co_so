@@ -14,27 +14,27 @@
                     <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-                        <div class="form-floating mb-3">
-                            <input asp-for="Input.UserName" autocomplete="username" class="form-control" id="Input_UserName" aria-required="true" />
+                        <div class="form-group mb-3">
                             <label asp-for="Input.UserName"></label>
+                            <input asp-for="Input.UserName" autocomplete="username" class="form-control" id="Input_UserName" aria-required="true" />
                             <span asp-validation-for="Input.UserName" class="text-danger"></span>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input asp-for="Input.Email" autocomplete="email" class="form-control" id="Input_Email" aria-required="true" />
+                        <div class="form-group mb-3">
                             <label asp-for="Input.Email"></label>
+                            <input asp-for="Input.Email" autocomplete="email" class="form-control" id="Input_Email" aria-required="true" />
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" id="Input_Password" aria-required="true" />
+                        <div class="form-group mb-3">
                             <label asp-for="Input.Password" class="form-label"></label>
+                            <input asp-for="Input.Password" class="form-control" autocomplete="current-password" id="Input_Password" aria-required="true" />
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" id="Input_ConfirmPassword" aria-required="true" />
+                        <div class="form-group mb-3">
                             <label asp-for="Input.ConfirmPassword"></label>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" id="Input_ConfirmPassword" aria-required="true" />
                             <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                         </div>
 
