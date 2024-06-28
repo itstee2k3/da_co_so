@@ -94,6 +94,13 @@ namespace do_an.Controllers
             return searchString ?? "";
         }
 
+        [HttpPost]
+        public IActionResult ClearSearchString()
+        {
+            HttpContext.Session.Remove("searchString");
+            return Ok();
+        }
+
         // Phương thức để lấy tên của danh mục từ ID của danh mục thương hiệu
         private async Task<string> GetNameCategoryBrandById(int? categoryId)
         {
@@ -108,6 +115,7 @@ namespace do_an.Controllers
 
             // Lấy giá trị searchString từ session
             var searchStringFromSession = HttpContext.Session.GetString("searchString");
+
             // Lấy giá trị sortOrder từ session
             var sortOrderFromSession = HttpContext.Session.GetString("sortOrder");
             // Lấy giá trị selectedCategories từ session
@@ -129,6 +137,11 @@ namespace do_an.Controllers
                     // Sử dụng giá trị từ session nếu nó tồn tại
                     searchString = searchStringFromSession;
                 }
+                //else
+                //{
+                //    // Xóa searchString khỏi session nếu không có giá trị tìm kiếm mới
+                //    HttpContext.Session.Remove("searchString");
+                //}
             }
 
             // Lưu giá trị sortOrder vào session nếu có
@@ -177,15 +190,15 @@ namespace do_an.Controllers
 
                 products = searchedProducts;
             }
-            else
-            {
-                // Lấy danh sách sản phẩm từ session (nếu có)
-                var productsJson = HttpContext.Session.GetString("searchedProducts");
-                if (!String.IsNullOrEmpty(productsJson))
-                {
-                    products = JsonConvert.DeserializeObject<List<Product>>(productsJson);
-                }
-            }
+            //else
+            //{
+            //    // Lấy danh sách sản phẩm từ session (nếu có)
+            //    var productsJson = HttpContext.Session.GetString("searchedProducts");
+            //    if (!String.IsNullOrEmpty(productsJson))
+            //    {
+            //        products = JsonConvert.DeserializeObject<List<Product>>(productsJson);
+            //    }
+            //}
 
             // Kiểm tra và áp dụng sắp xếp nếu có sortOrder
             switch (sortOrder)
@@ -323,6 +336,18 @@ namespace do_an.Controllers
                     product.CategoryIrisColor = categoryIrisColor;
                 }
             }
+
+            // Kiểm tra xem sản phẩm có danh sách hình ảnh không
+            if (product.Images == null)
+            {
+                product.Images = new List<ProductImage>(); // Khởi tạo danh sách nếu nó là null
+            }
+
+            // Lấy danh sách hình ảnh từ cơ sở dữ liệu
+            var images = await _context.ProductImages.Where(pi => pi.IdProduct == product.IdProduct).ToListAsync();
+
+            // Gán danh sách hình ảnh cho sản phẩm (dù có hay không có hình ảnh)
+            product.Images = images;
 
             // Trả về view và truyền sản phẩm cho view
             return View(product);

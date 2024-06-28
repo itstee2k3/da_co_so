@@ -92,7 +92,7 @@
                                 </div>
                             </div>
 
-                            <div class="accordion-item">
+                            <div class="d-none accordion-item">
                                 @*<h2 class="accordion-header" id="headingTwo-2"></h2>*@
                                 <span class="accordion-button text-dark bg-white"
                                       type="button"
@@ -336,6 +336,9 @@
             }
             else {
                 urlParams.delete('searchString'); // Xóa tham số selectedCategories nếu danh sách rỗng
+                // Gọi API để xóa searchString trong session server-side
+                fetch('/Product/ClearSearchString', { method: 'POST' })
+                    .catch(error => console.error('Lỗi khi xóa searchString:', error));
             }
 
             if (selectedCategories) { // Kiểm tra nếu danh sách các danh mục được chọn không rỗng
@@ -346,8 +349,10 @@
             }
 
             const newUrl = `/Product?${urlParams.toString().replace(/%2C/g, ',')}`; // Tạo URL mới dựa trên các tham số đã được cập nhật
-            window.history.pushState({ path: newUrl }, '', newUrl); // Cập nhật URL trong thanh địa chỉ
             fetchUpdatedProducts(newUrl); // Gọi hàm fetchUpdatedProducts để tải sản phẩm mới từ URL mới
+
+            window.history.pushState({ path: newUrl }, '', newUrl); // Cập nhật URL trong thanh địa chỉ
+            //window.location.href = newUrl; // Thay đổi URL trực tiếp
         }
 
         // Tải và thay thế nội dung danh sách sản phẩm

@@ -1,53 +1,81 @@
 ﻿<Properties StartupConfiguration="{25F43D0C-DE9A-4EAB-A2C6-306D1D05A0A0}|Default">
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.do__an PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="wwwroot/assets/demo/chart-bar-demo.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Areas/Admin/Pages/AdProduct/Edit.cshtml">
     <Files>
-      <File FileName="Areas/Admin/Pages/AdHome/Index.cshtml" Line="62" Column="64" IsPinned="True" />
-      <File FileName="Areas/Admin/Pages/AdHome/Index.cshtml.cs" Line="56" Column="10" IsPinned="True" />
-      <File FileName="wwwroot/assets/demo/chart-bar-demo.js" Line="110" Column="33" IsPinned="True" />
-      <File FileName="Views/Shared/_LayoutAdmin.cshtml" />
-      <File FileName="Views/Shared/_Layout.cshtml" Line="27" Column="5" />
-      <File FileName="Program.cs" />
-      <File FileName="Areas/Admin/Pages/AdOrder/Index.cshtml" Line="66" Column="91" />
-      <File FileName="Models/Order.cs" Line="17" Column="1" />
+      <File FileName="Views/Product/Index.cshtml" />
+      <File FileName="Views/Home/Index.cshtml" />
+      <File FileName="Views/Shared/_Layout.cshtml" />
+      <File FileName="Areas/Admin/Pages/AdOrder/Index.cshtml" />
+      <File FileName="Areas/Admin/Pages/AdOrder/Detail.cshtml.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/Order.cshtml.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/Order.cshtml" />
+      <File FileName="Areas/Admin/Pages/AdUser/Index.cshtml" />
+      <File FileName="Areas/Admin/Pages/AdOrder/Index.cshtml.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/OrderDetail.cshtml" />
+      <File FileName="Areas/Admin/Pages/AdHome/Index.cshtml" />
+      <File FileName="wwwroot/assets/demo/chart-bar-demo.js" />
+      <File FileName="Areas/Admin/Pages/AdHome/Index.cshtml.cs" />
+      <File FileName="Views/Product/Detail.cshtml" />
+      <File FileName="wwwroot/js/tgdd.360.js" />
+      <File FileName="Models/ProductImage.cs" />
+      <File FileName="Models/Product.cs" />
+      <File FileName="Models/ApplicationDbContext.cs" />
+      <File FileName="Models/User.cs" />
+      <File FileName="Controllers/ProductController.cs" />
+      <File FileName="Controllers/SuitableController.cs" />
+      <File FileName="Views/Order/PaymentFail.cshtml" />
+      <File FileName="Views/Order/Success.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml" />
+      <File FileName="Controllers/HomeController.cs" />
+      <File FileName="Controllers/ContactController.cs" />
+      <File FileName="Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml" />
+      <File FileName="Views/Cart/Index.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/Email.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/AdProduct/Index.cshtml" />
+      <File FileName="Services/VnPayService.cs" />
+      <File FileName="Areas/Admin/Pages/AdProduct/Create.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/AdProduct/Edit.cshtml.cs" />
+      <File FileName="Areas/Admin/Pages/AdProduct/Edit.cshtml" Line="46" Column="69" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="do_an">
-            <Node name="do_an" selected="True">
+            <Node name="do_an">
               <Node name="Areas" expanded="True">
                 <Node name="Admin" expanded="True">
                   <Node name="Pages" expanded="True">
-                    <Node name="AdHome" expanded="True">
-                      <Node name="Index.cshtml" expanded="True" />
+                    <Node name="AdProduct" expanded="True">
+                      <Node name="Edit.cshtml" selected="True" />
                     </Node>
-                    <Node name="AdOrder" expanded="True" />
+                    <Node name="AdUser" expanded="True" />
                   </Node>
                 </Node>
               </Node>
+              <Node name="Controllers" expanded="True" />
+              <Node name="Helpers" expanded="True" />
               <Node name="Models" expanded="True" />
+              <Node name="Services" expanded="True" />
               <Node name="Views" expanded="True">
+                <Node name="Cart" expanded="True" />
+                <Node name="Home" expanded="True" />
+                <Node name="Order" expanded="True" />
+                <Node name="Product" expanded="True" />
                 <Node name="Shared" expanded="True" />
               </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="assets" expanded="True">
-                  <Node name="demo" expanded="True" />
-                </Node>
-                <Node name="css-admin" expanded="True" />
-                <Node name="js" expanded="True" />
-                <Node name="js-admin" expanded="True" />
-              </Node>
+              <Node name="wwwroot" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.do__an PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
 </Properties>

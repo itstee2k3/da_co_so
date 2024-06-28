@@ -52,7 +52,7 @@
                         <td>
                             @if (user.LockoutEnd != null && user.LockoutEnd.Value > DateTime.Now)
                             {
-                                @user.LockoutEnd.Value.ToLocalTime().ToString("HH:mm:ss dd-MM-yyyy");
+                                @user.LockoutEnd.Value.ToLocalTime().ToString("HH:mm:ss dd/MM/yyyy");
                             }
                         </td>
                         <td>

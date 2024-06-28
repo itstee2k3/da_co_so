@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- basic -->
@@ -9,7 +11,7 @@
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">*@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <!-- site metas -->
-    <title>SmartByGlasses</title>
+    <title>SmartGlasses</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -29,8 +31,9 @@
 
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    @*<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">*@
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
 </head>
 
 <!-- body -->
@@ -53,7 +56,7 @@
                                 <!-- <div class="logo"> -->
                                 <div>
                                     <a asp-controller="Home" asp-action="Index">
-                                        <img src="/images/logo-t.png" alt="logo" />
+                                        <img src="/images/logo.png" alt="logo" />
                                     </a>
                                 </div>
                             </div>
@@ -92,7 +95,7 @@
                                             <i class="fa fa-times" aria-hidden="true"></i>
                                         </button>
                                         <form class="search-box" id="searchBox" asp-controller="Product" asp-action="Index">
-                                            <input name="searchString" value="@(!string.IsNullOrEmpty(ViewBag.SearchString) ? ViewBag.SearchString : "")" type="text" id="searchInput" placeholder="Search...">
+                                            <input name="searchString" value="@ViewBag.SearchString" type="text" id="searchInput" placeholder="Search...">
                                             <span class="search-separator"></span>
                                             <button class="search-icon" id="searchIcon" type="submit">
                                                 <i class="icon-search-link bg-none fa fa-search"></i>
@@ -126,7 +129,7 @@
                     <h5 class="text-uppercase mb-4 text-white">ABOUT COMPANY</h5>
 
                     <p>
-                        SmartByGlasses offers premium eyewear solutions, blending style and function seamlessly. Our diverse collection ensures every customer finds the perfect pair. Committed to innovation, we deliver eyewear that enhances vision and fashion.
+                        SmartGlasses offers premium eyewear solutions, blending style and function seamlessly. Our diverse collection ensures every customer finds the perfect pair. Committed to innovation, we deliver eyewear that enhances vision and fashion.
                     </p>
 
                     <div class="mt-4">
@@ -151,7 +154,7 @@
                             <span class="fa-li"><i class="fa fa-home"></i></span><span class="ms-2">HUTECH-THU DUC CAMPUS</span>
                         </li>
                         <li class="mb-3">
-                            <span class="fa-li"><i class="fa fa-envelope"></i></span><span class="ms-2">hutech@gmail.com</span>
+                            <span class="fa-li"><i class="fa fa-envelope"></i></span><span class="ms-2">xthang.lib@gmail.com</span>
                         </li>
                         <li class="mb-3">
                             <span class="fa-li"><i class="fa fa-phone"></i></span><span class="ms-2">+84 522 383 757</span>
@@ -189,6 +192,7 @@
     </footer>
     <!-- End of .container -->
     <!-- end footer -->
+
     <!-- Javascript files-->
     <script src="/js/jquery.min.js"></script>
     <script src="/js/popper.min.js"></script>
@@ -210,29 +214,38 @@
     <!-- Render additional scripts from views if available -->
     @RenderSection("Scripts", required: false)
 
-    <script>
-        $(document).ready(function () {
+    <script>$(document).ready(function () {
 
-            @*var searchString = "@(ViewBag.SearchString)";
-            sessionStorage.setItem('searchString', searchString);*@
+            var searchString = $('#searchInput').val().trim(); // Lấy giá trị từ ô input và loại bỏ khoảng trắng ở đầu và cuối
+            //console.log("Search string:", searchString); // Log giá trị của searchString ra console
 
-            $('#searchBox').submit(function (event) {
-                var searchString = $('#searchInput').val().trim(); // Lấy giá trị từ ô input và loại bỏ khoảng trắng ở đầu và cuối
-                if (searchString !== "") { // Kiểm tra xem ô input có giá trị không
-                    sessionStorage.setItem('searchString', searchString);
-                }
-            });
+            //sessionStorage.setItem('searchString', searchString);
 
-            // Lưu giá trị của ô input vào sessionStorage khi người dùng nhập
-            $("#searchInput").on('input', function () {
-                var searchString = $(this).val();
-                //if (!searchString.trim()) {
-                //    // Nếu searchString rỗng, xoá giá trị 'searchString' khỏi sessionStorage
-                //    sessionStorage.removeItem('searchString');
-                //} else {
-                    sessionStorage.setItem('searchString', searchString);
-                //}
-            });
+            //$('#searchBox').submit(function (event) {
+            //    event.preventDefault();
+            //    console.log("Remove");
+
+            //    var searchString = $('#searchInput').val().trim(); // Lấy giá trị từ ô input và loại bỏ khoảng trắng ở đầu và cuối
+            //    if (!IsNullOrEmpty(searchString)) { // Kiểm tra xem ô input có giá trị không
+
+            //    }
+            //});
+
+            //$('#searchBox').submit(function (event) {
+            //    //sessionStorage.setItem('searchString', searchString);
+            //    if (!String.IsNullOrEmpty(searchString)) { // Kiểm tra xem giá trị tìm kiếm có rỗng không
+            //        // Nếu không rỗng, gán giá trị cho session
+            //        HttpContext.Session.SetString("searchString", searchString);
+            //        console.log("Set");
+
+            //    } else {
+            //        // Nếu giá trị tìm kiếm là rỗng, xóa giá trị của session
+            //        HttpContext.Session.Remove("searchString");
+
+            //        console.log("Remove");
+
+            //    }
+            //});
 
             $("#searchLink").click(function (e) {
                 e.preventDefault();
@@ -258,10 +271,33 @@
                 }
             });
 
-            var savedSearchString = sessionStorage.getItem('searchString');
-            if (savedSearchString) {
-                $("#searchInput").val(savedSearchString);
+            function getSearchString() {
+                // Gửi yêu cầu GET đến phương thức GetSearchString của ProductController
+                return fetch('/Product/GetSearchString')
+                    .then(response => response.text()) // Chuyển đổi phản hồi thành dạng văn bản
+                    .then(data => {
+                        // Trả về giá trị tìm kiếm từ session
+                        return data.trim();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        return ''; // Trả về giá trị rỗng nếu có lỗi xảy ra
+                    });
             }
+
+            //var savedSearchString = sessionStorage.getItem('searchString');
+            //if (savedSearchString) {
+            //    $("#searchInput").val(savedSearchString);
+            //}
+
+            // Gọi hàm getSearchString để lấy giá trị tìm kiếm từ session
+            getSearchString().then(savedSearchString => {
+                // Kiểm tra nếu giá trị tìm kiếm có tồn tại
+                if (savedSearchString) {
+                    // Thiết lập giá trị tìm kiếm cho ô input
+                    $("#searchInput").val(savedSearchString);
+                }
+            });
 
             // Di chuyển con trỏ vào cuối ô input khi trang được tải lại
             var input = $('#searchInput');
@@ -270,7 +306,6 @@
                 input[0].setSelectionRange(input.val().length, input.val().length);
             }
 
-        });
-    </script>
+        });</script>
 </body>
 </html>

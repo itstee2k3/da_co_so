@@ -19,8 +19,8 @@
                 <tr>
                     <th>IdOrder</th>
                     <th>UserName/UserEmail</th>
-                    <th>DateBegin</th>
-                    <th>DateEnd</th>
+                    <th>Order Creation Time</th>
+                    <th>Delivery Confirmation Time</th>
                     <th>Address</th>
                     <th>StatusAdmin</th>
                     <th>StatusUser</th>
@@ -34,8 +34,8 @@
                 <tr>
                     <th>IdOrder</th>
                     <th>UserName/UserEmail</th>
-                    <th>DateBegin</th>
-                    <th>DateEnd</th>
+                    <th>Order Creation Time</th>
+                    <th>Delivery Confirmation Time</th>
                     <th>Address</th>
                     <th>StatusAdmin</th>
                     <th>StatusUser</th>
@@ -60,8 +60,9 @@
                                 <text>@(order != null && order.User != null ? order.User.Email : "N/A")</text>
                             }
                         </td>
-                        <td>@(order.DateBegin.HasValue ? order.DateBegin.Value.ToString("yyyy/MM/dd") : "N/A")</td>
-                        <td>@(order.DateEnd.HasValue ? order.DateEnd.Value.ToString("yyyy/MM/dd") : "N/A")</td>
+                        
+                        <td>@(order.DateBegin.HasValue ? order.DateBegin.Value.ToString("HH:mm:ss dd/MM/yyyy") : "N/A")</td>
+                        <td>@(order.DateEnd.HasValue ? order.DateEnd.Value.ToString("HH:mm:ss dd/MM/yyyy") : "N/A")</td>
 
 
                         <td>@order.Address</td>

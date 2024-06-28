@@ -96,11 +96,11 @@ namespace do_an_ltweb.Admin.AdOrder
                 }
 
                 // Cập nhật số lượng sản phẩm trong kho
-                product.Nums -= orderDetail.Quantity;
+                //product.Nums -= orderDetail.Quantity;
             }
 
             // Gán DateEnd của đơn hàng bằng DateTime.Now
-            orderFromDb.DateEnd = DateTime.Now;
+            //orderFromDb.DateEnd = DateTime.Now;
 
             // Thực hiện xác nhận đơn hàng
             orderFromDb.StatusAdmin = 1; // Giả sử 1 là mã trạng thái cho đơn hàng đã được xác nhận
