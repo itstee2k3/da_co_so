@@ -88,6 +88,33 @@ namespace do_an.Areas.Identity.Pages.Account.Manage
                 return RedirectToPage();
             }
 
+            // Gán DateEnd của đơn hàng bằng DateTime.Now
+            order.DateEnd = DateTime.Now;
+
+            var orderFromDb = await _context.Orders.Include(o => o.OrderDetails).FirstOrDefaultAsync(o => o.IdOrder == orderId);
+
+            // Duyệt qua từng chi tiết đơn hàng
+            foreach (var orderDetail in orderFromDb.OrderDetails)
+            {
+                var product = await _context.Products.FirstOrDefaultAsync(p => p.IdProduct == orderDetail.IdProduct);
+
+                if (product == null)
+                {
+                    return NotFound("No products found");
+                }
+
+                // Kiểm tra số lượng sản phẩm trong kho
+                //if (product.Nums < orderDetail.Quantity)
+                //{
+
+                //    StatusMessage = $"Not enough stock for product: {product.NameProduct}";
+                //    return RedirectToPage("./Index");
+                //}
+
+                // Cập nhật số lượng sản phẩm trong kho
+                product.Nums -= orderDetail.Quantity;
+            }
+
             order.StatusUser = 1; // Status for goods received
             await _context.SaveChangesAsync();
             TempData["Message"] = "Receipt of goods confirmed successfully.";
