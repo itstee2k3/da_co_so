@@ -6,6 +6,20 @@
 }
 
 <div class="detail-product">
+    <h1>Virtual Glasses Effect</h1>
+
+
+    <!--<img src="@Model.BRImageUrl"/>-->
+    <!-- Nút bật/tắt kính mát -->
+    <button id="toggle-glasses-btn">Bật/Tắt Kính Mát</button>
+
+    <!-- Hiển thị video feed -->
+    <div>
+        <img id="video-feed" src="http://127.0.0.1:5000/video_feed" alt="Video feed" style="width: 640px; height: 480px;">
+    </div>
+
+
+
     <!-- content -->
     <section class="py-5">
         <div class="container">
@@ -37,6 +51,7 @@
                         <!-- Sử dụng một nút hoặc hình ảnh để kích hoạt mô hình 360 độ -->
                         @*<button id="show-360-button" class="border" style="max-width: 100%; max-height: 100vh; margin: auto;"><img src="/images/photo-360.jpg"/></button>*@
                         <img id="show-360-image" src="/images/photo-360.jpg" alt="Product 360" class="border" style="max-width: 100%; max-height: 100vh; margin: auto;">
+                        @*<a href="@Url.Action("Detail", "VirtualGlasses", new { id = Model.IdProduct })">Chi tiết</a>*@
 
                     </div>
 
@@ -376,5 +391,62 @@
             isDragging = false;
             startAutoRotate(); // Bắt đầu quay tự động sau khi kéo kết thúc
         });
+
+
+
+
+
+
+
+
+
+        // Khởi tạo biến trạng thái kính mát
+        let glassesEnabled = false;
+
+        // Xử lý sự kiện khi người dùng nhấn vào nút "Bật/Tắt Kính Mát"
+        const button = document.getElementById('toggle-glasses-btn');
+        button.addEventListener('click', async function () {
+            try {
+                const imageUrl = 'http://localhost:5005/' + '@Model.BRImageUrl'; // Thay đổi thành URL ảnh của bạn
+                console.log('Image URL being sent:', imageUrl);  // Kiểm tra URL trên client
+
+                // Tạo payload cho yêu cầu POST
+                const payload = {
+                    image_url: imageUrl
+                };
+
+                const response = await fetch('http://127.0.0.1:5000/toggle_glasses', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload) // Chuyển đổi payload thành chuỗi JSON
+                });
+
+                if (!response.ok) {
+                    throw new Error('Không thể bật/tắt kính mát');
+                }
+
+                const data = await response.json();
+
+                // Cập nhật trạng thái kính mát và nút
+                glassesEnabled = data.glasses_enabled;
+                button.textContent = glassesEnabled ? 'Tắt Kính Mát' : 'Bật Kính Mát';
+
+            } catch (error) {
+                console.error('Lỗi:', error);
+                alert('Đã xảy ra lỗi khi bật/tắt kính mát');
+            }
+        });
+
+        // Làm mới video feed định kỳ (cập nhật mỗi 5 giây)
+        setInterval(() => {
+            const videoFeed = document.getElementById('video-feed');
+
+            // Cập nhật nguồn video với timestamp để tránh cache
+            videoFeed.src = `http://127.0.0.1:5000/video_feed?timestamp=${new Date().getTime()}`;
+        }, 5000);
+
+
     });
 </script>

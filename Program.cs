@@ -94,14 +94,14 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseSession(); // Sử dụng session
+
 app.UseRouting();
 
 app.UseAuthentication();;
 app.UseAuthorization();
 
 app.MapRazorPages();
-
-app.UseSession(); // Sử dụng session
 
 app.MapControllerRoute(
 name: "default",

@@ -27,6 +27,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="6.0.1" />
     <PackageReference Include="SixLabors.ImageSharp" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -78,8 +79,10 @@
     <Folder Include="Areas\Admin\Pages\AdRole\" />
     <Folder Include="Areas\Admin\Pages\AdContact\" />
     <Folder Include="Views\Order\" />
+    <Folder Include="wwwroot\images\brimage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\images\shop_img.png" />
+    <Content Remove="wwwroot\images\brimage\" />
   </ItemGroup>
 </Project>

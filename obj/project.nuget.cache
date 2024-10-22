@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "one/qD0fuVHwKwZz15bU/YdxqeYAp+42nokcXFdKvI3e7YxMpMoLE3yi2pdGu4R8BeFJ43HT0C5GU4aqtSAsww==",
+  "dgSpecHash": "jph0MuoE1JJ2B7F6xnJKe0/+j7GoFygozZMxINuA2GNZ92tndydZtUgUg580kgitHJSNySolUdMMa7uDh9eLmg==",
   "success": true,
   "projectFilePath": "/Users/thang/CODE/do-an-co-so/da_co_so/do_an.csproj",
   "expectedPackageFiles": [
@@ -69,6 +69,8 @@
     "/Users/thang/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/6.0.28/microsoft.aspnetcore.identity.entityframeworkcore.6.0.28.nupkg.sha512",
     "/Users/thang/.nuget/packages/microsoft.aspnetcore.identity.ui/6.0.28/microsoft.aspnetcore.identity.ui.6.0.28.nupkg.sha512",
+    "/Users/thang/.nuget/packages/microsoft.aspnetcore.jsonpatch/6.0.0/microsoft.aspnetcore.jsonpatch.6.0.0.nupkg.sha512",
+    "/Users/thang/.nuget/packages/microsoft.aspnetcore.mvc.newtonsoftjson/6.0.0/microsoft.aspnetcore.mvc.newtonsoftjson.6.0.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/microsoft.aspnetcore.razor.language/6.0.0/microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/microsoft.aspnetcore.session/2.2.0/microsoft.aspnetcore.session.2.2.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/microsoft.bcl.asyncinterfaces/5.0.0/microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
@@ -84,7 +86,7 @@
     "/Users/thang/.nuget/packages/microsoft.codeanalysis.razor/6.0.0/microsoft.codeanalysis.razor.6.0.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/microsoft.codeanalysis.scripting.common/4.0.0/microsoft.codeanalysis.scripting.common.4.0.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/microsoft.codeanalysis.workspaces.common/4.0.0/microsoft.codeanalysis.workspaces.common.4.0.0.nupkg.sha512",
-    "/Users/thang/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",
+    "/Users/thang/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/microsoft.data.sqlclient/2.1.7/microsoft.data.sqlclient.2.1.7.nupkg.sha512",
     "/Users/thang/.nuget/packages/microsoft.data.sqlclient.sni.runtime/2.1.1/microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "/Users/thang/.nuget/packages/microsoft.data.sqlite.core/6.0.28/microsoft.data.sqlite.core.6.0.28.nupkg.sha512",
@@ -137,6 +139,7 @@
     "/Users/thang/.nuget/packages/mimekit/4.4.0/mimekit.4.4.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/netstandard.library/1.6.1/netstandard.library.1.6.1.nupkg.sha512",
     "/Users/thang/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
+    "/Users/thang/.nuget/packages/newtonsoft.json.bson/1.0.2/newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "/Users/thang/.nuget/packages/nuget.common/6.6.1/nuget.common.6.6.1.nupkg.sha512",
     "/Users/thang/.nuget/packages/nuget.configuration/6.6.1/nuget.configuration.6.6.1.nupkg.sha512",
     "/Users/thang/.nuget/packages/nuget.dependencyresolver.core/6.6.1/nuget.dependencyresolver.core.6.6.1.nupkg.sha512",
@@ -249,5 +252,46 @@
     "/Users/thang/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Extensions.Caching.Memory' 6.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-qj66-m88j-hmgj",
+      "libraryId": "Microsoft.Extensions.Caching.Memory",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'MimeKit' 4.4.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-gmc6-fwg3-75m5",
+      "libraryId": "MimeKit",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'SixLabors.ImageSharp' 3.1.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-63p8-c4ww-9cg7",
+      "libraryId": "SixLabors.ImageSharp",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'SixLabors.ImageSharp' 3.1.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-qxrv-gp6x-rc23",
+      "libraryId": "SixLabors.ImageSharp",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PPzwnEH8AE/Tfp2p07scKS8rXtEwvFEAQ2QxbUkfM28=",
+  "Hash": "bePn6VROgGzUzESMDmu10PWebm8mCczGfahkOitl+tI=",
   "Source": "do_an",
   "BasePath": "_content/do_an",
   "Mode": "Default",
@@ -2990,6 +2990,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/banner-3.jpeg"
+    },
+    {
+      "Identity": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/brimage/14213055.png",
+      "SourceId": "do_an",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/",
+      "BasePath": "_content/do_an",
+      "RelativePath": "images/brimage/14213055.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/brimage/14213055.png"
     },
     {
       "Identity": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/fff92570-de4c-4eb4-86d8-36706af3ddd1_bao_cao_tien_do_tuan_4.png",
