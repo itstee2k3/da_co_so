@@ -42,7 +42,7 @@ namespace do_an.Areas.Identity.Pages.Account
         {
             [Required(ErrorMessage = "Not null")]
             [Display(Name = "Username or Email")]
-            [StringLength(100, MinimumLength = 1, ErrorMessage = "Enter correct information")]
+            [StringLength(100, MinimumLength = 5, ErrorMessage = "Enter correct information")]
             public string UserNameOrEmail { get; set; }
 
             [Required]
@@ -75,32 +75,48 @@ namespace do_an.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
 
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             if (ModelState.IsValid)
             {
                 // Thực hiện xác thực đăng nhập và xử lý nếu không có lỗi nào được thêm vào ModelState
                 // Nếu có lỗi, ModelState.IsValid sẽ trả về false và lỗi sẽ được hiển thị trên giao diện người dùng
+                var user = Input.UserNameOrEmail.Contains('@')
+                   ? await _userManager.FindByEmailAsync(Input.UserNameOrEmail)
+                   : await _userManager.FindByNameAsync(Input.UserNameOrEmail);
+
+                //var result = await _signInManager.PasswordSignInAsync(
+                //    Input.UserNameOrEmail,
+                //    Input.Password,
+                //    Input.RememberMe,
+                //    lockoutOnFailure: true);
+                if (user == null)
+                {
+                    ModelState.AddModelError(string.Empty, "Username or email not found.");
+                    return Page();
+                }
+
                 var result = await _signInManager.PasswordSignInAsync(
-                    Input.UserNameOrEmail,
+                    user.UserName,
                     Input.Password,
                     Input.RememberMe,
                     lockoutOnFailure: true);
 
-                if (!result.Succeeded)
+                //var user = Input.UserNameOrEmail.Contains('@')
+                //   ? await _userManager.FindByEmailAsync(Input.UserNameOrEmail)
+                //   : await _userManager.FindByNameAsync(Input.UserNameOrEmail);
+
+                if (result.IsLockedOut)
                 {
-                    // Thất bại username/password -> tìm user theo email, nếu thấy thì thử đăng nhập
-                    // bằng user tìm được
-                    var user = await _userManager.FindByEmailAsync(Input.UserNameOrEmail);
-                    if (user != null)
-                    {
-                        result = await _signInManager.PasswordSignInAsync(
-                            user.UserName,
-                            Input.Password,
-                            Input.RememberMe,
-                            true
-                        );
-                    }
+                    _logger.LogWarning("User account locked out.");
+                    return RedirectToPage("./Lockout");
+                }
+
+                if (result.IsNotAllowed)
+                {
+                    _logger.LogWarning("User account has not been activated.");
+                    ModelState.AddModelError(string.Empty, "Your email is not confirmed. Please check your inbox to activate your account.");
+                    return Page();
                 }
 
                 if (result.Succeeded)
@@ -108,21 +124,21 @@ namespace do_an.Areas.Identity.Pages.Account
                     _logger.LogInformation("User logged in.");
 
                     // Kiểm tra xem người dùng có vai trò "admin" không
-                    var user = Input.UserNameOrEmail.Contains('@')
-                               ? await _userManager.FindByEmailAsync(Input.UserNameOrEmail)
-                               : await _userManager.FindByNameAsync(Input.UserNameOrEmail);
+                    //var user = Input.UserNameOrEmail.Contains('@')
+                    //           ? await _userManager.FindByEmailAsync(Input.UserNameOrEmail)
+                    //           : await _userManager.FindByNameAsync(Input.UserNameOrEmail);
 
                     // Lưu thông tin đăng nhập nếu tùy chọn "RememberMe" được chọn
-                    if (Input.RememberMe)
-                    {
-                        await _signInManager.SignInAsync(user, Input.RememberMe);
-                    }
+                    //if (Input.RememberMe)
+                    //{
+                    //    await _signInManager.SignInAsync(user, Input.RememberMe);
+                    //}
 
-                    if (user == null)
-                    {
-                        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-                        return Page();
-                    }
+                    //if (user == null)
+                    //{
+                    //    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    //    return Page();
+                    //}
                     if (await _userManager.IsInRoleAsync(user, "admin"))
                     {
                         // Nếu có, chuyển hướng trực tiếp đến trang Admin
@@ -131,21 +147,38 @@ namespace do_an.Areas.Identity.Pages.Account
 
                     return LocalRedirect(returnUrl);
                 }
+                //if (!result.Succeeded)
+                //{
+                    // Thất bại username/password -> tìm user theo email, nếu thấy thì thử đăng nhập
+                    // bằng user tìm được
+                    // Kiểm tra xem người dùng có vai trò "admin" không
+                    //var user = Input.UserNameOrEmail.Contains('@')
+                    //           ? await _userManager.FindByEmailAsync(Input.UserNameOrEmail)
+                    //           : await _userManager.FindByNameAsync(Input.UserNameOrEmail);
 
-                if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
-                }
-                if (result.IsLockedOut)
-                {
-                    _logger.LogWarning("User account locked out.");
-                    return RedirectToPage("./Lockout");
-                }
-                else
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    //var user = await _userManager.FindByEmailAsync(Input.UserNameOrEmail);
+                    //if (user != null)
+                    //{
+                    //    result = await _signInManager.PasswordSignInAsync(
+                    //        user.UserName,
+                    //        Input.Password,
+                    //        Input.RememberMe,
+                    //        true
+                    //    );
+                    //}
+                    ModelState.AddModelError(string.Empty, "Wrong password.");
                     return Page();
-                }
+                //}
+                //if (result.RequiresTwoFactor)
+                //{
+                //    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                //}
+
+                //else
+                //{
+                //    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                //    return Page();
+                //}
             }
 
             // Nếu ModelState.IsValid trả về false, quay trở lại trang đăng nhập để hiển thị lỗi

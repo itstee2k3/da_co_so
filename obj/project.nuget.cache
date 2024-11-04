@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "jph0MuoE1JJ2B7F6xnJKe0/+j7GoFygozZMxINuA2GNZ92tndydZtUgUg580kgitHJSNySolUdMMa7uDh9eLmg==",
+  "dgSpecHash": "ZCxwv3/yD4mT3NxvYOWYJI4/+lmcnU3EVlHXKbj78sdudth3HlZUwJJlv2WhCM27zH8Lg10vNytSYpzDHJqYwg==",
   "success": true,
   "projectFilePath": "/Users/thang/CODE/do-an-co-so/da_co_so/do_an.csproj",
   "expectedPackageFiles": [
@@ -250,48 +250,10 @@
     "/Users/thang/.nuget/packages/system.threading.timer/4.3.0/system.threading.timer.4.3.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg.sha512",
     "/Users/thang/.nuget/packages/system.xml.readerwriter/4.3.0/system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "/Users/thang/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512"
+    "/Users/thang/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
+    "/Users/thang/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.31/microsoft.aspnetcore.app.ref.6.0.31.nupkg.sha512",
+    "/Users/thang/.nuget/packages/microsoft.netcore.app.host.osx-arm64/6.0.31/microsoft.netcore.app.host.osx-arm64.6.0.31.nupkg.sha512",
+    "/Users/thang/.nuget/packages/microsoft.netcore.app.ref/6.0.31/microsoft.netcore.app.ref.6.0.31.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Extensions.Caching.Memory' 6.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-qj66-m88j-hmgj",
-      "libraryId": "Microsoft.Extensions.Caching.Memory",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'MimeKit' 4.4.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-gmc6-fwg3-75m5",
-      "libraryId": "MimeKit",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'SixLabors.ImageSharp' 3.1.4 has a known high severity vulnerability, https://github.com/advisories/GHSA-63p8-c4ww-9cg7",
-      "libraryId": "SixLabors.ImageSharp",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'SixLabors.ImageSharp' 3.1.4 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-qxrv-gp6x-rc23",
-      "libraryId": "SixLabors.ImageSharp",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }
