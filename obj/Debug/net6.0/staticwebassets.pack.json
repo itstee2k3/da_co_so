@@ -457,8 +457,20 @@
       "PackagePath": "staticwebassets/images/banner_img.png"
     },
     {
+      "Id": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/brimage/.DS_Store",
+      "PackagePath": "staticwebassets/images/brimage/.DS_Store"
+    },
+    {
       "Id": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/brimage/14213055.png",
       "PackagePath": "staticwebassets/images/brimage/14213055.png"
+    },
+    {
+      "Id": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/brimage/1AB09S55.jpg",
+      "PackagePath": "staticwebassets/images/brimage/1AB09S55.jpg"
+    },
+    {
+      "Id": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/dc62d1ab-0ecf-44f8-a295-a0de354166a6_Ảnh màn hình 2024-10-31 lúc 16.36.28.png",
+      "PackagePath": "staticwebassets/images/dc62d1ab-0ecf-44f8-a295-a0de354166a6_Ảnh màn hình 2024-10-31 lúc 16.36.28.png"
     },
     {
       "Id": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/fff92570-de4c-4eb4-86d8-36706af3ddd1_bao_cao_tien_do_tuan_4.png",
@@ -615,6 +627,14 @@
     {
       "Id": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/glass_9.webp",
       "PackagePath": "staticwebassets/images/glass_9.webp"
+    },
+    {
+      "Id": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/icon_tryglasses/.DS_Store",
+      "PackagePath": "staticwebassets/images/icon_tryglasses/.DS_Store"
+    },
+    {
+      "Id": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/icon_tryglasses/icon_tryglasses.png",
+      "PackagePath": "staticwebassets/images/icon_tryglasses/icon_tryglasses.png"
     },
     {
       "Id": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/loading.gif",
