@@ -1,7 +1,8 @@
 ﻿<Properties StartupConfiguration="{25F43D0C-DE9A-4EAB-A2C6-306D1D05A0A0}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Suitable/Index.cshtml">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Areas/Identity/Pages/Account/Login.cshtml.cs">
     <Files>
       <File FileName="Views/Product/Index.cshtml" />
       <File FileName="Views/Home/Index.cshtml" />
@@ -39,15 +40,49 @@
       <File FileName="Areas/Admin/Pages/AdProduct/Create.cshtml.cs" />
       <File FileName="Areas/Admin/Pages/AdProduct/Edit.cshtml.cs" />
       <File FileName="Areas/Admin/Pages/AdProduct/Edit.cshtml" />
-      <File FileName="appsettings.json" />
+      <File FileName="appsettings.json" Line="26" Column="56" />
       <File FileName="Areas/Admin/Pages/AdProduct/_StatusMessage.cshtml" />
       <File FileName="Areas/Admin/Pages/AdContact/_StatusMessage.cshtml" />
       <File FileName="Areas/Admin/Pages/AdContact/_ViewImports.cshtml" />
       <File FileName="Areas/Admin/Pages/AdProduct/_ViewImports.cshtml" />
       <File FileName="Areas/Admin/Pages/AdContact/_ViewStart.cshtml" />
       <File FileName="Areas/Admin/Pages/AdProduct/_ViewStart.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdProduct/Create.cshtml" Line="1" Column="1" />
-      <File FileName="Views/Suitable/Index.cshtml" Line="1" Column="1" />
+      <File FileName="Areas/Admin/Pages/AdProduct/Create.cshtml" />
+      <File FileName="Views/Suitable/Index.cshtml" />
+      <File FileName="Program.cs" />
+      <File FileName="Migrations/ApplicationDbContextModelSnapshot.cs" />
+      <File FileName="Migrations/20241018190547_v5.Designer.cs" />
+      <File FileName="Migrations/20241018190547_v5.cs" />
+      <File FileName="Controllers/CartController.cs" />
+      <File FileName="Models/OrderDetail.cs" />
+      <File FileName="Services/IVnPayService.cs" />
+      <File FileName="Services/SendMailService.cs" />
+      <File FileName="Properties/launchSettings.json" />
+      <File FileName="Controllers/AboutController.cs" />
+      <File FileName="Controllers/OrderController.cs" />
+      <File FileName="Areas/Admin/Pages/AdProduct/Delete.cshtml.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/Index.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ConfirmEmail.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/AccessDenied.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ExternalLogin.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/ForgotPassword.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Lockout.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Login.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Logout.cshtml" />
+      <File FileName="Areas/Admin/Pages/AdProduct/Index.cshtml.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/Email.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/_Layout.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/ManageNavPages.cs" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/SetPassword.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Manage/PersonalData.cshtml" />
+      <File FileName="Areas/Admin/Pages/AdProduct/Delete.cshtml" />
+      <File FileName="libman.json" />
+      <File FileName="Views/_ViewStart.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Register.cshtml.cs" Line="83" Column="49" />
+      <File FileName="Areas/Identity/Pages/Account/Register.cshtml" Line="1" Column="1" />
+      <File FileName="Areas/Identity/Pages/Account/Login.cshtml.cs" Line="41" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -55,35 +90,26 @@
           <Node name="do_an">
             <Node name="do_an">
               <Node name="Areas" expanded="True">
-                <Node name="Admin" expanded="True">
+                <Node name="Identity" expanded="True">
                   <Node name="Pages" expanded="True">
-                    <Node name="AdProduct" expanded="True">
-                      <Node name="Delete.cshtml" expanded="True" />
-                      <Node name="Edit.cshtml" expanded="True" />
+                    <Node name="Account" expanded="True">
+                      <Node name="Login.cshtml" expanded="True">
+                        <Node name="Login.cshtml.cs" selected="True" />
+                      </Node>
+                      <Node name="Register.cshtml" expanded="True" />
                     </Node>
-                    <Node name="AdRole" expanded="True" />
-                    <Node name="AdUser" expanded="True" />
                   </Node>
                 </Node>
               </Node>
-              <Node name="Views" expanded="True">
-                <Node name="Product" expanded="True" />
-                <Node name="Suitable" expanded="True">
-                  <Node name="Index.cshtml" selected="True" />
-                </Node>
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="images" expanded="True" />
-              </Node>
+              <Node name="Views" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.do__an PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
