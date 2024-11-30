@@ -1,26 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "/Users/thang/CODE/do-an-co-so/da_co_so/do_an.csproj": {}
+    "D:\\WORKSPACE\\da_co_so\\do_an.csproj": {}
   },
   "projects": {
-    "/Users/thang/CODE/do-an-co-so/da_co_so/do_an.csproj": {
+    "D:\\WORKSPACE\\da_co_so\\do_an.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/thang/CODE/do-an-co-so/da_co_so/do_an.csproj",
+        "projectUniqueName": "D:\\WORKSPACE\\da_co_so\\do_an.csproj",
         "projectName": "do_an",
-        "projectPath": "/Users/thang/CODE/do-an-co-so/da_co_so/do_an.csproj",
-        "packagesPath": "/Users/thang/.nuget/packages/",
-        "outputPath": "/Users/thang/CODE/do-an-co-so/da_co_so/obj/",
+        "projectPath": "D:\\WORKSPACE\\da_co_so\\do_an.csproj",
+        "packagesPath": "C:\\Users\\HOANG MINH\\.nuget\\packages\\",
+        "outputPath": "D:\\WORKSPACE\\da_co_so\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/thang/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\HOANG MINH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -46,7 +48,7 @@
           "dependencies": {
             "MailKit": {
               "target": "Package",
-              "version": "[4.4.0, )"
+              "version": "[4.8.0, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
@@ -56,6 +58,10 @@
               "target": "Package",
               "version": "[6.0.28, )"
             },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -63,6 +69,10 @@
             "Microsoft.AspNetCore.Session": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -86,7 +96,7 @@
             },
             "Microsoft.Extensions.Caching.Memory": {
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[7.0.0, )"
             },
             "Microsoft.Extensions.Identity.Core": {
               "target": "Package",
@@ -98,7 +108,7 @@
             },
             "MimeKit": {
               "target": "Package",
-              "version": "[4.4.0, )"
+              "version": "[4.8.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -128,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

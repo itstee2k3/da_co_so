@@ -9,569 +9,571 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = do_an
 build_property.RootNamespace = do_an
-build_property.ProjectDir = /Users/thang/CODE/do-an-co-so/da_co_so/
-build_property.RazorLangVersion = 6.0
+build_property.ProjectDir = D:\WORKSPACE\da_co_so\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 2.1
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/thang/CODE/do-an-co-so/da_co_so
+build_property.MSBuildProjectDirectory = D:\WORKSPACE\da_co_so
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5QnJhbmQvQ3JlYXRlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5QnJhbmRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5QnJhbmQvRGVsZXRlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5QnJhbmRcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5QnJhbmQvRWRpdC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5QnJhbmRcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5QnJhbmQvSW5kZXguY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5QnJhbmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5QnJhbmQvX1N0YXR1c01lc3NhZ2UuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5QnJhbmRcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5QnJhbmQvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5QnJhbmRcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5QnJhbmQvX1ZpZXdTdGFydC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryBrand/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5QnJhbmRcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVDb2xvci9DcmVhdGUuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVDb2xvclxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVDb2xvci9EZWxldGUuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVDb2xvclxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVDb2xvci9FZGl0LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVDb2xvclxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVDb2xvci9JbmRleC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVDb2xvclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVDb2xvci9fU3RhdHVzTWVzc2FnZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVDb2xvclxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVDb2xvci9fVmlld0ltcG9ydHMuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVDb2xvclxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVDb2xvci9fVmlld1N0YXJ0LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameColor/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVDb2xvclxfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVTdHlsZS9DcmVhdGUuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVTdHlsZVxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVTdHlsZS9EZWxldGUuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVTdHlsZVxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVTdHlsZS9FZGl0LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVTdHlsZVxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVTdHlsZS9JbmRleC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVTdHlsZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVTdHlsZS9fU3RhdHVzTWVzc2FnZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVTdHlsZVxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVTdHlsZS9fVmlld0ltcG9ydHMuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVTdHlsZVxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5RnJhbWVTdHlsZS9fVmlld1N0YXJ0LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryFrameStyle/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5RnJhbWVTdHlsZVxfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5SXJpc0NvbG9yL0NyZWF0ZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5SXJpc0NvbG9yXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5SXJpc0NvbG9yL0RlbGV0ZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5SXJpc0NvbG9yXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5SXJpc0NvbG9yL0VkaXQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5SXJpc0NvbG9yXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5SXJpc0NvbG9yL0luZGV4LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5SXJpc0NvbG9yXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5SXJpc0NvbG9yL19TdGF0dXNNZXNzYWdlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5SXJpc0NvbG9yXF9TdGF0dXNNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5SXJpc0NvbG9yL19WaWV3SW1wb3J0cy5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5SXJpc0NvbG9yXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5SXJpc0NvbG9yL19WaWV3U3RhcnQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryIrisColor/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5SXJpc0NvbG9yXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5TWF0ZXJpYWwvQ3JlYXRlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5TWF0ZXJpYWxcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5TWF0ZXJpYWwvRGVsZXRlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5TWF0ZXJpYWxcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5TWF0ZXJpYWwvRWRpdC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5TWF0ZXJpYWxcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5TWF0ZXJpYWwvSW5kZXguY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5TWF0ZXJpYWxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5TWF0ZXJpYWwvX1N0YXR1c01lc3NhZ2UuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5TWF0ZXJpYWxcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5TWF0ZXJpYWwvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5TWF0ZXJpYWxcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5TWF0ZXJpYWwvX1ZpZXdTdGFydC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryMaterial/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5TWF0ZXJpYWxcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5T3JpZ2luL0NyZWF0ZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5T3JpZ2luXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5T3JpZ2luL0RlbGV0ZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5T3JpZ2luXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5T3JpZ2luL0VkaXQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5T3JpZ2luXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5T3JpZ2luL0luZGV4LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5T3JpZ2luXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5T3JpZ2luL19TdGF0dXNNZXNzYWdlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5T3JpZ2luXF9TdGF0dXNNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5T3JpZ2luL19WaWV3SW1wb3J0cy5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5T3JpZ2luXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5T3JpZ2luL19WaWV3U3RhcnQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryOrigin/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5T3JpZ2luXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5UHJpY2UvQ3JlYXRlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5UHJpY2VcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5UHJpY2UvRGVsZXRlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5UHJpY2VcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5UHJpY2UvRWRpdC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5UHJpY2VcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5UHJpY2UvSW5kZXguY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5UHJpY2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5UHJpY2UvX1N0YXR1c01lc3NhZ2UuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5UHJpY2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5UHJpY2UvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5UHJpY2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5UHJpY2UvX1ZpZXdTdGFydC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategoryPrice/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5UHJpY2VcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5U2V4L0NyZWF0ZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5U2V4XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5U2V4L0RlbGV0ZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5U2V4XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5U2V4L0VkaXQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5U2V4XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5U2V4L0luZGV4LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5U2V4XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5U2V4L19TdGF0dXNNZXNzYWdlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5U2V4XF9TdGF0dXNNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5U2V4L19WaWV3SW1wb3J0cy5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5U2V4XF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDYXRlZ29yeS9BZENhdGVnb3J5U2V4L19WaWV3U3RhcnQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdCategory/AdCategorySex/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDYXRlZ29yeVxBZENhdGVnb3J5U2V4XF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdContact/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDb250YWN0L0RlbGV0ZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdContact/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDb250YWN0XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdContact/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDb250YWN0L0luZGV4LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdContact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDb250YWN0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdContact/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDb250YWN0L19TdGF0dXNNZXNzYWdlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdContact/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDb250YWN0XF9TdGF0dXNNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdContact/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDb250YWN0L19WaWV3SW1wb3J0cy5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdContact/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDb250YWN0XF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdContact/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRDb250YWN0L19WaWV3U3RhcnQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdContact/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRDb250YWN0XF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdHome/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRIb21lL0luZGV4LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdHome/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRIb21lXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdHome/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRIb21lL19TdGF0dXNNZXNzYWdlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdHome/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRIb21lXF9TdGF0dXNNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdHome/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRIb21lL19WaWV3SW1wb3J0cy5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdHome/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRIb21lXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdHome/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRIb21lL19WaWV3U3RhcnQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdHome/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRIb21lXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdOrder/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRPcmRlci9EZWxldGUuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdOrder/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRPcmRlclxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdOrder/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRPcmRlci9EZXRhaWwuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdOrder/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRPcmRlclxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdOrder/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRPcmRlci9JbmRleC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdOrder/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRPcmRlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdOrder/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRPcmRlci9fU3RhdHVzTWVzc2FnZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdOrder/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRPcmRlclxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdOrder/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRPcmRlci9fVmlld0ltcG9ydHMuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdOrder/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRPcmRlclxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdOrder/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRPcmRlci9fVmlld1N0YXJ0LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdOrder/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRPcmRlclxfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdProduct/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRQcm9kdWN0L0NyZWF0ZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdProduct/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRQcm9kdWN0XENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdProduct/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRQcm9kdWN0L0RlbGV0ZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdProduct/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRQcm9kdWN0XERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdProduct/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRQcm9kdWN0L0VkaXQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdProduct/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRQcm9kdWN0XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdProduct/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRQcm9kdWN0L0luZGV4LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdProduct/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRQcm9kdWN0XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdProduct/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRQcm9kdWN0L19TdGF0dXNNZXNzYWdlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdProduct/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRQcm9kdWN0XF9TdGF0dXNNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdProduct/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRQcm9kdWN0L19WaWV3SW1wb3J0cy5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdProduct/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRQcm9kdWN0XF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdProduct/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRQcm9kdWN0L19WaWV3U3RhcnQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdProduct/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRQcm9kdWN0XF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdRole/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRSb2xlL0NyZWF0ZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdRole/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRSb2xlXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdRole/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRSb2xlL0RlbGV0ZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdRole/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRSb2xlXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdRole/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRSb2xlL0VkaXQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdRole/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRSb2xlXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdRole/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRSb2xlL0luZGV4LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdRole/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRSb2xlXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdRole/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRSb2xlL19TdGF0dXNNZXNzYWdlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdRole/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRSb2xlXF9TdGF0dXNNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdRole/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRSb2xlL19WaWV3SW1wb3J0cy5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdRole/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRSb2xlXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdRole/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRSb2xlL19WaWV3U3RhcnQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdRole/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRSb2xlXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdUser/AddRole.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRVc2VyL0FkZFJvbGUuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdUser/AddRole.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRVc2VyXEFkZFJvbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdUser/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRVc2VyL0luZGV4LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdUser/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRVc2VyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdUser/Lock.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRVc2VyL0xvY2suY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdUser/Lock.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRVc2VyXExvY2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdUser/SetPassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRVc2VyL1NldFBhc3N3b3JkLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdUser/SetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRVc2VyXFNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdUser/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRVc2VyL19TdGF0dXNNZXNzYWdlLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdUser/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRVc2VyXF9TdGF0dXNNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdUser/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRVc2VyL19WaWV3SW1wb3J0cy5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdUser/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRVc2VyXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Admin/Pages/AdUser/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvQWRtaW4vUGFnZXMvQWRVc2VyL19WaWV3U3RhcnQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Admin/Pages/AdUser/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cUGFnZXNcQWRVc2VyXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/AccessDenied.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9BY2Nlc3NEZW5pZWQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Db25maXJtRW1haWwuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Db25maXJtRW1haWxDaGFuZ2UuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9FeHRlcm5hbExvZ2luLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Gb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Gb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Lockout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Mb2Nrb3V0LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Lockout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Login.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Mb2dpbi5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Logout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9Mb2dvdXQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Manage/Email.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvRW1haWwuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Manage/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvSW5kZXguY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Manage/Order.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvT3JkZXIuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Manage/Order.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcT3JkZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Manage/OrderDetail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvT3JkZXJEZXRhaWwuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Manage/OrderDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcT3JkZXJEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvUGVyc29uYWxEYXRhLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvU2V0UGFzc3dvcmQuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvX0xheW91dC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvX01hbmFnZU5hdi5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9NYW5hZ2UvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/Register.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9SZWdpc3Rlci5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9SZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/ResetPassword.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9SZXNldFBhc3N3b3JkLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9SZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9fU3RhdHVzTWVzc2FnZS5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/Account/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvQWNjb3VudC9fVmlld0ltcG9ydHMuY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Areas/Identity/Pages/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/About/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWJvdXQvSW5kZXguY3NodG1s
+[D:/WORKSPACE/da_co_so/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Cart/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2FydC9JbmRleC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Views/About/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWJvdXRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Contact/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29udGFjdC9JbmRleC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Order/PaymentFail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvUGF5bWVudEZhaWwuY3NodG1s
+[D:/WORKSPACE/da_co_so/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Order/Success.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvT3JkZXIvU3VjY2Vzcy5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Views/Order/PaymentFail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcUGF5bWVudEZhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Product/Detail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9EZXRhaWwuY3NodG1s
+[D:/WORKSPACE/da_co_so/Views/Order/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcU3VjY2Vzcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Product/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvZHVjdC9JbmRleC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Views/Product/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Shared/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Views/Product/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Shared/_AdminMenu.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19BZG1pbk1lbnUuY3NodG1s
+[D:/WORKSPACE/da_co_so/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Shared/_LayoutAdmin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXRBZG1pbi5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
+[D:/WORKSPACE/da_co_so/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Shared/_PagingXTL.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19QYWdpbmdYVEwuY3NodG1s
+[D:/WORKSPACE/da_co_so/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Shared/_ValidationScriptsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+[D:/WORKSPACE/da_co_so/Views/Shared/_PagingXTL.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYWdpbmdYVEwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Suitable/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3VpdGFibGUvSW5kZXguY3NodG1s
+[D:/WORKSPACE/da_co_so/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+[D:/WORKSPACE/da_co_so/Views/Suitable/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VpdGFibGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+[D:/WORKSPACE/da_co_so/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/thang/CODE/do-an-co-so/da_co_so/Views/Shared/_Layout.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = b-3v0b6zhv4h
+[D:/WORKSPACE/da_co_so/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

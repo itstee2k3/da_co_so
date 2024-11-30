@@ -32,6 +32,7 @@ builder.Services.AddScoped<ICategorySex, EFCategorySex>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DockerConnection")));
 
+
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultUI()
@@ -92,6 +93,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+// app.UseHttpRedirection();
 app.UseStaticFiles();
 
 app.UseSession(); // Sử dụng session
