@@ -64,6 +64,9 @@ namespace do_an_ltweb.Admin.AdProduct
             [Display(Name = "Image")]
             public IFormFile? ImageUrl { get; set; }
 
+            [Display(Name = "BRImageUrl")]
+            public IFormFile? BRImageUrl { get; set; }
+
             [Display(Name = "Size")]
             [StringLength(20, MinimumLength = 5, ErrorMessage = "{0} must be between {2} and {1} characters long")]
             public string? Size { get; set; }
@@ -123,6 +126,10 @@ namespace do_an_ltweb.Admin.AdProduct
             // Lưu ảnh và nhận đường dẫn
             string imageUrl = await SaveImage(Input.ImageUrl);
 
+            //Lưu ảnh BRImage và đường dẫn
+            string BRImageUrl = await SaveBRImage(Input.BRImageUrl);
+
+
 
             // Tạo mới danh mục
             var newProduct = new Product
@@ -134,6 +141,7 @@ namespace do_an_ltweb.Admin.AdProduct
                 Nums = Input.Nums.GetValueOrDefault(), // Gán giá trị Nums từ Input
                 Description = Input.Description,
                 ImageUrl = imageUrl,
+                BRImageUrl = BRImageUrl, // Lưu đường dẫn BRImageUrl
                 Size = Input.Size,
                 IdCategoryBrand = Input.CategoryBrandId,
                 IdCategoryFrameColor = Input.CategoryFrameColorId,
@@ -187,23 +195,77 @@ namespace do_an_ltweb.Admin.AdProduct
                     await resizedImage.SaveAsJpegAsync(fileStream);
                 }
             }
-            //try
-            //{
-            //    using (var fileStream = new FileStream(filePath, FileMode.Create))
-            //    {
-            //        await imageFile.CopyToAsync(fileStream);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    // Xử lý ngoại lệ nếu có
-            //    // Ví dụ: Ghi log, thông báo lỗi, vv.
-            //    Console.WriteLine($"An error occurred while saving the image: {ex.Message}");
-            //    return null;
-            //}
+            try
+            {
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await imageFile.CopyToAsync(fileStream);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ nếu có
+                // Ví dụ: Ghi log, thông báo lỗi, vv.
+                Console.WriteLine($"An error occurred while saving the image: {ex.Message}");
+                return null;
+            }
 
             // Trả về đường dẫn của tệp đã lưu
             return "/images/" + uniqueFileName; // Đường dẫn tương đối của ảnh
         }
+        private async Task<string> SaveBRImage(IFormFile brImageFile)
+        {
+            if (brImageFile == null || brImageFile.Length == 0)
+            {
+                return null;
+            }
+
+            // Tạo đường dẫn thư mục lưu ảnh BRImage
+            string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "brimage");
+
+            // Tạo tên file duy nhất bằng cách kết hợp GUID với tên file gốc
+            string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(brImageFile.FileName);
+
+            // Tạo đường dẫn đầy đủ đến tệp ảnh
+            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            // Sao chép tệp ảnh vào thư mục lưu trữ
+            using (var imageStream = brImageFile.OpenReadStream())
+            {
+                // Đọc ảnh từ stream
+                var image = SixLabors.ImageSharp.Image.Load(imageStream);
+
+                // Tính toán kích thước để cắt thành hình vuông
+                int size = Math.Min(image.Width, image.Height);
+
+                // Cắt và thay đổi kích thước ảnh
+                var resizedImage = image.Clone(x => x.Crop(new Rectangle((image.Width - size) / 2, (image.Height - size) / 2, size, size))
+                                                         .Resize(size, size));
+
+                // Lưu ảnh đã chỉnh sửa
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await resizedImage.SaveAsJpegAsync(fileStream);
+                }
+            }
+            try
+            {
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await brImageFile.CopyToAsync(fileStream);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ nếu có
+                // Ví dụ: Ghi log, thông báo lỗi, vv.
+                Console.WriteLine($"An error occurred while saving the image: {ex.Message}");
+                return null;
+            }
+            // Trả về đường dẫn của tệp đã lưu
+            return "/images/brimage/" + uniqueFileName; // Đường dẫn tương đối của ảnh
+            
+        }
+
     }
 }
