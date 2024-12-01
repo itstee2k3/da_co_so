@@ -1,88 +1,26 @@
 ﻿<Properties StartupConfiguration="{25F43D0C-DE9A-4EAB-A2C6-306D1D05A0A0}|Default">
+  <MonoDevelop.Ide.ItemProperties.do__an PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Areas/Identity/Pages/Account/Login.cshtml.cs">
+  <MonoDevelop.Ide.ItemProperties.TestUnitLogin PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Views/Product/Detail.cshtml">
     <Files>
-      <File FileName="Views/Product/Index.cshtml" />
-      <File FileName="Views/Home/Index.cshtml" />
-      <File FileName="Views/Shared/_Layout.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdOrder/Index.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdOrder/Detail.cshtml.cs" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/Order.cshtml.cs" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/Order.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdUser/Index.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdOrder/Index.cshtml.cs" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/OrderDetail.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdHome/Index.cshtml" />
-      <File FileName="wwwroot/assets/demo/chart-bar-demo.js" />
-      <File FileName="Areas/Admin/Pages/AdHome/Index.cshtml.cs" />
-      <File FileName="Views/Product/Detail.cshtml" />
-      <File FileName="wwwroot/js/tgdd.360.js" />
-      <File FileName="Models/ProductImage.cs" />
-      <File FileName="Models/Product.cs" />
-      <File FileName="Models/ApplicationDbContext.cs" />
-      <File FileName="Models/User.cs" />
-      <File FileName="Controllers/ProductController.cs" />
-      <File FileName="Controllers/SuitableController.cs" />
-      <File FileName="Views/Order/PaymentFail.cshtml" />
-      <File FileName="Views/Order/Success.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml" />
-      <File FileName="Controllers/HomeController.cs" />
-      <File FileName="Controllers/ContactController.cs" />
-      <File FileName="Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml.cs" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml.cs" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml" />
-      <File FileName="Views/Cart/Index.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/Email.cshtml.cs" />
-      <File FileName="Areas/Admin/Pages/AdProduct/Index.cshtml" />
-      <File FileName="Services/VnPayService.cs" />
-      <File FileName="Areas/Admin/Pages/AdProduct/Create.cshtml.cs" />
-      <File FileName="Areas/Admin/Pages/AdProduct/Edit.cshtml.cs" />
-      <File FileName="Areas/Admin/Pages/AdProduct/Edit.cshtml" />
-      <File FileName="appsettings.json" Line="26" Column="56" />
-      <File FileName="Areas/Admin/Pages/AdProduct/_StatusMessage.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdContact/_StatusMessage.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdContact/_ViewImports.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdProduct/_ViewImports.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdContact/_ViewStart.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdProduct/_ViewStart.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdProduct/Create.cshtml" />
-      <File FileName="Views/Suitable/Index.cshtml" />
-      <File FileName="Program.cs" />
-      <File FileName="Migrations/ApplicationDbContextModelSnapshot.cs" />
-      <File FileName="Migrations/20241018190547_v5.Designer.cs" />
-      <File FileName="Migrations/20241018190547_v5.cs" />
-      <File FileName="Controllers/CartController.cs" />
-      <File FileName="Models/OrderDetail.cs" />
-      <File FileName="Services/IVnPayService.cs" />
-      <File FileName="Services/SendMailService.cs" />
-      <File FileName="Properties/launchSettings.json" />
-      <File FileName="Controllers/AboutController.cs" />
-      <File FileName="Controllers/OrderController.cs" />
-      <File FileName="Areas/Admin/Pages/AdProduct/Delete.cshtml.cs" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/Index.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/ConfirmEmail.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/AccessDenied.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/ExternalLogin.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/ForgotPassword.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/Lockout.cshtml" />
+      <File FileName="Areas/Identity/Pages/Account/Login.cshtml.cs" />
       <File FileName="Areas/Identity/Pages/Account/Login.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/Logout.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdProduct/Index.cshtml.cs" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/Email.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/_Layout.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/ManageNavPages.cs" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/SetPassword.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/Manage/PersonalData.cshtml" />
-      <File FileName="Areas/Admin/Pages/AdProduct/Delete.cshtml" />
-      <File FileName="libman.json" />
-      <File FileName="Views/_ViewStart.cshtml" />
-      <File FileName="Areas/Identity/Pages/Account/Register.cshtml.cs" Line="83" Column="49" />
-      <File FileName="Areas/Identity/Pages/Account/Register.cshtml" Line="1" Column="1" />
-      <File FileName="Areas/Identity/Pages/Account/Login.cshtml.cs" Line="41" Column="1" />
+      <File FileName="Models/Contact.cs" />
+      <File FileName="Models/User.cs" />
+      <File FileName="Models/EFProductRepository.cs" />
+      <File FileName="Controllers/AboutController.cs" />
+      <File FileName="Controllers/CartController.cs" />
+      <File FileName="Program.cs" />
+      <File FileName="../TestUnitLogin/Usings.cs" />
+      <File FileName="Views/Product/Index.cshtml" />
+      <File FileName="Views/Product/Detail.cshtml" Line="425" Column="67" />
+      <File FileName="appsettings.json" />
+      <File FileName="wwwroot/css/style.css" Line="23" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -93,23 +31,29 @@
                 <Node name="Identity" expanded="True">
                   <Node name="Pages" expanded="True">
                     <Node name="Account" expanded="True">
-                      <Node name="Login.cshtml" expanded="True">
-                        <Node name="Login.cshtml.cs" selected="True" />
-                      </Node>
-                      <Node name="Register.cshtml" expanded="True" />
+                      <Node name="Login.cshtml" expanded="True" />
                     </Node>
                   </Node>
                 </Node>
               </Node>
-              <Node name="Views" expanded="True" />
+              <Node name="Views">
+                <Node name="Product">
+                  <Node name="Detail.cshtml" selected="True" />
+                </Node>
+              </Node>
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True" />
+                <Node name="images" expanded="True">
+                  <Node name="brimage" expanded="True" />
+                  <Node name="icon_tryglasses" expanded="True" />
+                </Node>
+              </Node>
             </Node>
+            <Node name="TestUnitLogin" expanded="True" />
           </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.do__an PreferredExecutionTarget="/Applications/Microsoft Edge.app" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
 </Properties>
