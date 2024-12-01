@@ -2,7 +2,7 @@
 @model do_an_ltweb.Admin.AdProduct.EidtModel
 
 @{
-    ViewData["Title"] = "Create new Product";
+    ViewData["Title"] = "Update Product";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -35,20 +35,49 @@
             </div>
 
             <div class="form-group">
-                <label asp-for="Input.ImageUrl" class="control-label">Image</label>
-                <input asp-for="Input.ImageUrl" type="file" class="form-control" onchange="previewImage(this)" />
-                <span asp-validation-for="Input.ImageUrl" class="text-danger"></span>
-
-                <img id="imagePreview" src="#" alt="Preview Image" style="display: none; margin-top: 10px; max-width: 100%;" />
 
 
-                 @*Thêm input hidden để lưu ExistingImageUrl*@ 
+
+                @*Thêm input hidden để lưu ExistingImageUrl*@
                 <input type="hidden" asp-for="Input.ExistingImageUrl" />
                 @if (!string.IsNullOrEmpty(Model.Input.ExistingImageUrl))
                 {
                     <!-- Hiển thị ảnh cũ nếu không có ảnh mới -->
                     <img id="existingImage" src="@Model.Input.ExistingImageUrl" alt="Existing Image" style="max-width: 100%;" />
                 }
+            
+                <img id="imagePreview" src="#" alt="Preview Image" style="display: none; margin-top: 10px; max-width: 100%;" />
+
+
+                <label asp-for="Input.ImageUrl" class="control-label">Image</label>
+                <input asp-for="Input.ImageUrl" type="file" class="form-control" onchange="previewImage(this)" />
+                <span asp-validation-for="Input.ImageUrl" class="text-danger"></span>
+
+
+            </div>
+
+            <!-- Edit Remove background Image -->
+
+            <div class="form-group">
+
+                @*Thêm input hidden để lưu ExistingImageUrl*@
+                <input type="hidden" asp-for="Input.ExistingBRImageUrl" />
+                @if (!string.IsNullOrEmpty(Model.Input.ExistingBRImageUrl))
+                {
+                    <!-- Hiển thị ảnh cũ nếu không có ảnh mới -->
+                    <img id="ExistingBRImageUrl" src="@Model.Input.ExistingBRImageUrl" alt="Existing Image" style="max-width: 100%;" />
+                }
+                
+                <img id="BRImagePreview" src="#" alt="Preview Image" style="display: none; margin-top: 10px; max-width: 100%;" />
+
+                <label asp-for="Input.BRImageUrl" class="control-label">BackgroundRemoveImage</label>
+                <input asp-for="Input.BRImageUrl" type="file" class="form-control" onchange="previewBRImage(this)" />
+                <span asp-validation-for="Input.BRImageUrl" class="text-danger"></span>
+
+                
+
+
+               
             </div>
 
 
@@ -178,26 +207,49 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-<script>
-    function previewImage(input) {
-        var imagePreview = document.getElementById('imagePreview');
-        var file = input.files[0];
-        var reader = new FileReader();
-
-        // Ẩn ảnh cũ
-        var existingImage = document.getElementById('existingImage');
-        if (existingImage) {
-            existingImage.style.display = 'none';
+    <script>
+        function previewImage(input) {
+            var imagePreview = document.getElementById('imagePreview');
+            var file = input.files[0];
+            var reader = new FileReader();
+            // Ẩn ảnh cũ nếu có
+            var existingImage = document.getElementById('existingImage');
+            if (existingImage) {
+                existingImage.style.display = 'none';
+            }
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block'; // Hiển thị hình ảnh xem trước
+            }
+            if (file) {
+                reader.readAsDataURL(file); // Đọc dữ liệu ảnh dưới dạng URL
+            } else {
+                imagePreview.style.display = 'none'; // Ẩn hình ảnh xem trước nếu không có ảnh được chọn
+            }
         }
 
-        reader.onload = function (e) {
-            imagePreview.src = e.target.result;
-            imagePreview.style.display = 'block'; // Hiển thị hình ảnh xem trước
+        function previewBRImage(input) {
+            console.log('previewBRImage is loaded');
+            // Lấy phần tử img để hiển thị ảnh xem trước
+        var BRImagePreview = document.getElementById('BRImagePreview');
+            // Kiểm tra nếu có file được chọn
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                // Ẩn ảnh BackgroundRemoveImage cũ nếu có
+                var existingBRImage = document.getElementById('ExistingBRImageUrl');
+                if (existingBRImage) {
+                    existingBRImage.style.display = 'none';
+                }
+                // Xử lý khi file được load xong
+                reader.onload = function (e) {
+                BRImagePreview.src = e.target.result; // Gán URL ảnh vào thẻ img
+                BRImagePreview.style.display = 'block'; // Hiển thị ảnh xem trước
+                };
+                // Đọc dữ liệu file dưới dạng URL
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                // Ẩn ảnh xem trước nếu không có file được chọn
+            BRImagePreview.style.display = 'none';
+            }
         }
-
-        if (file) {
-            reader.readAsDataURL(file); // Đọc dữ liệu ảnh dưới dạng URL
-        } else {
-            imagePreview.style.display = 'none'; // Ẩn hình ảnh xem trước nếu không có ảnh được chọn
-        }
-    }</script>
+    </script>
