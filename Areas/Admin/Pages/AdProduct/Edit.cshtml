@@ -178,7 +178,8 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-<script>function previewImage(input) {
+<script>
+    function previewImage(input) {
         var imagePreview = document.getElementById('imagePreview');
         var file = input.files[0];
         var reader = new FileReader();
