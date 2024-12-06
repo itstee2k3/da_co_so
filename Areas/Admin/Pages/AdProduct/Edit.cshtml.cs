@@ -67,6 +67,9 @@ namespace do_an_ltweb.Admin.AdProduct
             [Display(Name = "Image")]
             public IFormFile? ImageUrl { get; set; }
 
+            [Display(Name = "BRImageUrl")]
+            public IFormFile? BRImageUrl { get; set; }
+
             [Display(Name = "Size")]
             [StringLength(20, MinimumLength = 5, ErrorMessage = "{0} must be between {2} and {1} characters long")]
             public string? Size { get; set; }
@@ -97,6 +100,7 @@ namespace do_an_ltweb.Admin.AdProduct
 
             // Đường dẫn hình ảnh đã có sẵn
             public string ExistingImageUrl { get; set; }
+            public string ExistingBRImageUrl { get; set; }
         }
 
         public async Task<IActionResult> OnGetAsync(int productid)
@@ -125,6 +129,7 @@ namespace do_an_ltweb.Admin.AdProduct
                 Nums = product.Nums,
                 Description = product.Description,
                 ExistingImageUrl = product.ImageUrl,
+                ExistingBRImageUrl = product.BRImageUrl,
                 Size = product.Size,
                 CategoryBrandId = product.IdCategoryBrand,
                 CategoryFrameColorId = product.IdCategoryFrameColor,
@@ -144,6 +149,16 @@ namespace do_an_ltweb.Admin.AdProduct
             else
             {
                 ViewData["PreviewImageUrl"] = null;
+            }
+
+            // Kiểm tra xem BRImageUrl có null hay không trước khi chuyển đổi
+            if (Input.BRImageUrl != null)
+            {
+                ViewData["PreviewBRImageUrl"] = Url.Content("~/images/brimage" + Input.BRImageUrl.FileName);
+            }
+            else
+            {
+                ViewData["PreviewBRImageUrl"] = null;
             }
 
             return Page();
@@ -182,9 +197,26 @@ namespace do_an_ltweb.Admin.AdProduct
                     }
                 }
             }
+            if (Input.BRImageUrl != null)
+            {
+                // Xoá ảnh cũ
+                if (!string.IsNullOrEmpty(productToUpdate.BRImageUrl))
+                {
+                    string oldBRImagePath = Path.Combine(_webHostEnvironment.WebRootPath, productToUpdate.BRImageUrl.TrimStart('/'));
+                    if (System.IO.File.Exists(oldBRImagePath))
+                    {
+                        System.IO.File.Delete(oldBRImagePath);
+                    }
+                }
+            }
+
+
+
 
             // Lưu ảnh mới và nhận đường dẫn
             string imageUrl = await SaveImage(Input.ImageUrl);
+            // Lưu ảnh mới và nhận đường dẫn
+            string BRimageUrl = await SaveBRImage(Input.BRImageUrl);
 
             // Cập nhật thông tin sản phẩm
             productToUpdate.NameProduct = Input.Name;
@@ -193,16 +225,45 @@ namespace do_an_ltweb.Admin.AdProduct
             productToUpdate.Nums = Input.Nums.GetValueOrDefault();
             productToUpdate.Description = Input.Description;
             //productToUpdate.ImageUrl = imageUrl;
+
             // Kiểm tra xem có ảnh mới được tải lên không
+
+            // Xử lý ảnh thường
             if (!string.IsNullOrEmpty(imageUrl))
             {
+                // Nếu có ảnh mới, sử dụng ảnh mới
                 productToUpdate.ImageUrl = imageUrl;
+            }
+            else if (!string.IsNullOrEmpty(Input.ExistingImageUrl))
+            {
+                // Nếu không có ảnh mới nhưng có ảnh cũ, sử dụng ảnh cũ
+                productToUpdate.ImageUrl = Input.ExistingImageUrl;
             }
             else
             {
-                // Nếu không có ảnh mới, sử dụng ảnh cũ
-                productToUpdate.ImageUrl = Input.ExistingImageUrl;
+                // Không có ảnh mới và ảnh cũ, không gán giá trị (hoặc gán null nếu cần)
+                productToUpdate.ImageUrl = null;
             }
+
+            // Xử lý ảnh xóa nền
+            if (!string.IsNullOrEmpty(BRimageUrl))
+            {
+                // Nếu có ảnh xóa nền mới, sử dụng ảnh mới
+                productToUpdate.BRImageUrl = BRimageUrl;
+            }
+            else if (!string.IsNullOrEmpty(Input.ExistingBRImageUrl))
+            {
+                // Nếu không có ảnh mới nhưng có ảnh xóa nền cũ, sử dụng ảnh cũ
+                productToUpdate.BRImageUrl = Input.ExistingBRImageUrl;
+            }
+            else
+            {
+                // Không có ảnh xóa nền mới và ảnh cũ, không gán giá trị (hoặc gán null nếu cần)
+                productToUpdate.BRImageUrl = null;
+            }
+
+
+
             productToUpdate.Size = Input.Size;
             productToUpdate.IdCategoryBrand = Input.CategoryBrandId;
             productToUpdate.IdCategoryFrameColor = Input.CategoryFrameColorId;
@@ -272,6 +333,52 @@ namespace do_an_ltweb.Admin.AdProduct
             // Trả về đường dẫn của tệp đã lưu
             return "/images/" + uniqueFileName; // Đường dẫn tương đối của ảnh
         }
+
+        private async Task<string> SaveBRImage(IFormFile brImageFile)
+        {
+            if (brImageFile == null || brImageFile.Length == 0)
+            {
+                return null;
+            }
+
+            // Đảm bảo thư mục lưu ảnh tồn tại
+            string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "brimage");
+            Directory.CreateDirectory(uploadsFolder);
+
+            // Tạo tên file duy nhất
+            string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(brImageFile.FileName);
+            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            // Xử lý ảnh với ImageSharp
+            try
+            {
+                using (var imageStream = brImageFile.OpenReadStream())
+                {
+                    // Đọc ảnh từ stream
+                    var image = SixLabors.ImageSharp.Image.Load(imageStream);
+
+                    // Tính toán và cắt thành hình vuông
+                    int size = Math.Min(image.Width, image.Height);
+                    var resizedImage = image.Clone(x => x.Crop(new Rectangle((image.Width - size) / 2, (image.Height - size) / 2, size, size))
+                                                     .Resize(size, size));
+
+                    // Lưu ảnh đã chỉnh sửa
+                    using (var fileStream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await resizedImage.SaveAsJpegAsync(fileStream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while saving the BR image: {ex.Message}");
+                return null;
+            }
+
+            // Trả về đường dẫn tương đối của file
+            return "/images/brimage/" + uniqueFileName;
+        }
+
 
     }
 }

@@ -1,0 +1,4 @@
+﻿# Các file cần bỏ qua
+.vs/
+bin/
+obj/

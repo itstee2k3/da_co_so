@@ -6,19 +6,6 @@
 }
 
 <div class="detail-product">
-    <h1>Virtual Glasses Effect</h1>
-
-
-    <!--<img src="@Model.BRImageUrl"/>-->
-    <!-- Nút bật/tắt kính mát -->
-    <button id="toggle-glasses-btn">Bật/Tắt Kính Mát</button>
-
-    <!-- Hiển thị video feed -->
-    <div>
-        <img id="video-feed" src="http://127.0.0.1:5000/video_feed" alt="Video feed" style="width: 640px; height: 480px;">
-    </div>
-
-
 
     <!-- content -->
     <section class="py-5">
@@ -43,15 +30,22 @@
                         </div>
                     </div>
 
-                    <!--<div class="rounded-4 mb-3 d-flex justify-content-center">-->
-                    <!-- Thay thế nút button bằng thẻ img để hiển thị hình ảnh sản phẩm -->
-                    <!--<img id="show-360-image" src="/images/photo-360.jpg" alt="Product 360" class="border" style="max-width: 100%; max-height: 100vh; margin: auto;">
-                    </div>-->
                     <div class="rounded-4 mb-3 d-flex justify-content-center">
                         <!-- Sử dụng một nút hoặc hình ảnh để kích hoạt mô hình 360 độ -->
-                        @*<button id="show-360-button" class="border" style="max-width: 100%; max-height: 100vh; margin: auto;"><img src="/images/photo-360.jpg"/></button>*@
-                        <img id="show-360-image" src="/images/photo-360.jpg" alt="Product 360" class="border" style="max-width: 100%; max-height: 100vh; margin: auto;">
+                        <img id="show-360-image" src="/images/photo-360.jpg" alt="Product 360" class="border" style="max-width: 15%; max-height: 100vh;">
                         @*<a href="@Url.Action("Detail", "VirtualGlasses", new { id = Model.IdProduct })">Chi tiết</a>*@
+                        @*@if (!string.IsNullOrEmpty(Model.BRImageUrl))
+                        {
+                            <button id="toggle-glasses-btn" class="btn btn-outline-secondary ms-3" style="height: 50px;">🕶️</button>
+                        }*@
+                        @if (!string.IsNullOrEmpty(Model.BRImageUrl))
+                        {
+                            <img id="toggle-glasses-btn"
+                                 src="/images/icon_tryglasses/icon_tryglasses.png"
+                                 alt="Try Glasses"
+                                 class="border ms-3"
+                                 style="max-width: 15%; max-height: 100vh;" />
+                        }
 
                     </div>
 
@@ -187,11 +181,18 @@
         </div>
     </section>
     <!-- content -->
-    <!--<img src="/images/360/LapTop/Images/Macbook-360-org-1.jpg"/>-->
     <!-- Đổi cấu trúc HTML cho hiển thị 360 độ -->
     <div id="viewer-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
         <div id="viewer" style="position:relative; width:90%; height:90%; display:flex; justify-content:center; align-items:center;"></div>
         <button id="close-viewer" class="btn btn-danger mt-3" style="position:absolute; top:10px; right:10px;">Close</button>
+    </div>
+
+    <!-- Camera Viewer -->
+    <div id="camera-viewer-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
+        <div id="camera-viewer" style="position:relative; width:90%; height:90%; display:flex; justify-content:center; align-items:center;">
+            <img id="video-feed" src="http://127.0.0.1:5000/video_feed" alt="Video feed" style="max-width:100%; max-height:100%;">
+        </div>
+        <button id="close-camera-viewer" class="btn btn-danger mt-3" style="position:absolute; top:10px; right:10px;">Close</button>
     </div>
 
 </div>
@@ -392,61 +393,62 @@
             startAutoRotate(); // Bắt đầu quay tự động sau khi kéo kết thúc
         });
 
+        //chức năng thử kính
+        const toggleGlassesBtn = document.getElementById("toggle-glasses-btn");
+        const cameraViewerContainer = document.getElementById("camera-viewer-container");
+        const closeCameraViewerBtn = document.getElementById("close-camera-viewer");
 
+        let isRequestInProgress = false;  // Tránh gửi yêu cầu khi đang xử lý yêu cầu khác
+        let virtual_glasses_enabled = false;  // Biến kiểm soát trạng thái của kính mát
 
+        // Kiểm tra khi đã bật/tắt thử kính
+        if (toggleGlassesBtn) {
+            toggleGlassesBtn.addEventListener("click", async () => {
+                if (isRequestInProgress) return;  // Tránh gửi yêu cầu khi đang xử lý yêu cầu khác
 
+                isRequestInProgress = true;
 
+                // Kiểm tra trạng thái của virtual_glasses_enabled và thay đổi trạng thái
+                if (virtual_glasses_enabled) {
+                    // Nếu kính đã được bật, tắt camera và kính
+                    cameraViewerContainer.style.display = "none";  // Ẩn camera
+                    virtual_glasses_enabled = false;  // Đổi trạng thái của kính
+                } else {
+                    // Nếu kính chưa được bật, hiển thị camera và kính
+                    cameraViewerContainer.style.display = "flex"; // Hiển thị camera
+                    virtual_glasses_enabled = true;  // Đổi trạng thái của kính
 
+                    try {
+                        const imageUrl = 'http://localhost:5005/' + '@Model.BRImageUrl'; // Lấy URL hình ảnh kính
+                        const response = await fetch('http://127.0.0.1:5000/toggle_glasses', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ image_url: imageUrl }) // Gửi yêu cầu tới API
+                        });
 
+                        if (!response.ok) {
+                            const responseText = await response.text();
+                            throw new Error(`Không thể bật thử kính. Server trả về: ${responseText}`);
+                        }
 
+                        const data = await response.json();
+                        console.log(data);
 
-        // Khởi tạo biến trạng thái kính mát
-        let glassesEnabled = false;
-
-        // Xử lý sự kiện khi người dùng nhấn vào nút "Bật/Tắt Kính Mát"
-        const button = document.getElementById('toggle-glasses-btn');
-        button.addEventListener('click', async function () {
-            try {
-                const imageUrl = 'http://localhost:5005/' + '@Model.BRImageUrl'; // Thay đổi thành URL ảnh của bạn
-                console.log('Image URL being sent:', imageUrl);  // Kiểm tra URL trên client
-
-                // Tạo payload cho yêu cầu POST
-                const payload = {
-                    image_url: imageUrl
-                };
-
-                const response = await fetch('http://127.0.0.1:5000/toggle_glasses', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload) // Chuyển đổi payload thành chuỗi JSON
-                });
-
-                if (!response.ok) {
-                    throw new Error('Không thể bật/tắt kính mát');
+                    } catch (error) {
+                        console.error("Lỗi:", error);
+                        alert("Đã xảy ra lỗi khi bật thử kính.");
+                        cameraViewerContainer.style.display = "none";  // Ẩn camera
+                        virtual_glasses_enabled = false;  // Đổi trạng thái kính
+                    }
                 }
 
-                const data = await response.json();
+                isRequestInProgress = false;  // Đặt lại trạng thái yêu cầu đã hoàn tất
+            });
 
-                // Cập nhật trạng thái kính mát và nút
-                glassesEnabled = data.glasses_enabled;
-                button.textContent = glassesEnabled ? 'Tắt Kính Mát' : 'Bật Kính Mát';
-
-            } catch (error) {
-                console.error('Lỗi:', error);
-                alert('Đã xảy ra lỗi khi bật/tắt kính mát');
-            }
-        });
-
-        // Làm mới video feed định kỳ (cập nhật mỗi 5 giây)
-        setInterval(() => {
-            const videoFeed = document.getElementById('video-feed');
-
-            // Cập nhật nguồn video với timestamp để tránh cache
-            videoFeed.src = `http://127.0.0.1:5000/video_feed?timestamp=${new Date().getTime()}`;
-        }, 5000);
-
-
+            closeCameraViewerBtn.addEventListener("click", () => {
+                cameraViewerContainer.style.display = "none";  // Ẩn camera khi đóng
+                virtual_glasses_enabled = false;  // Đổi trạng thái kính khi đóng
+            });
+        }
     });
 </script>
