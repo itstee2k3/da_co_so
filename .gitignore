@@ -1,0 +1,4 @@
+﻿# Loại bỏ các file build và cache
+.vs/
+bin/
+obj/
