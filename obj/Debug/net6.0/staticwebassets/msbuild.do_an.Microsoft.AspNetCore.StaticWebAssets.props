@@ -1840,6 +1840,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\brimage\14213055.png))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dc62d1ab-0ecf-44f8-a295-a0de354166a6_Ảnh màn hình 2024-10-31 lúc 16.36.28.png))">
+      <SourceType>Package</SourceType>
+      <SourceId>do_an</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/do_an</BasePath>
+      <RelativePath>images/dc62d1ab-0ecf-44f8-a295-a0de354166a6_Ảnh màn hình 2024-10-31 lúc 16.36.28.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\dc62d1ab-0ecf-44f8-a295-a0de354166a6_Ảnh màn hình 2024-10-31 lúc 16.36.28.png))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\fff92570-de4c-4eb4-86d8-36706af3ddd1_bao_cao_tien_do_tuan_4.png))">
       <SourceType>Package</SourceType>
       <SourceId>do_an</SourceId>

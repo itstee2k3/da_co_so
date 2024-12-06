@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bePn6VROgGzUzESMDmu10PWebm8mCczGfahkOitl+tI=",
+  "Hash": "6WQsJ3ucsB8Bw/xi/nMiLsLKW1tRv4LEuA8vpNDwPQc=",
   "Source": "do_an",
   "BasePath": "_content/do_an",
   "Mode": "Default",
@@ -3007,6 +3007,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/brimage/14213055.png"
+    },
+    {
+      "Identity": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/dc62d1ab-0ecf-44f8-a295-a0de354166a6_Ảnh màn hình 2024-10-31 lúc 16.36.28.png",
+      "SourceId": "do_an",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/",
+      "BasePath": "_content/do_an",
+      "RelativePath": "images/dc62d1ab-0ecf-44f8-a295-a0de354166a6_Ảnh màn hình 2024-10-31 lúc 16.36.28.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/dc62d1ab-0ecf-44f8-a295-a0de354166a6_Ảnh màn hình 2024-10-31 lúc 16.36.28.png"
     },
     {
       "Identity": "/Users/thang/CODE/do-an-co-so/da_co_so/wwwroot/images/fff92570-de4c-4eb4-86d8-36706af3ddd1_bao_cao_tien_do_tuan_4.png",
