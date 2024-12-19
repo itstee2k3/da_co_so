@@ -378,6 +378,9 @@ namespace do_an.Migrations
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Model3D")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("NameProduct")
                         .IsRequired()
                         .HasMaxLength(100)
