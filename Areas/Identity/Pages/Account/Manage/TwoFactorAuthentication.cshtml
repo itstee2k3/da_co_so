@@ -1,73 +1,64 @@
 ﻿@page "/user/2fa"
-@using Microsoft.AspNetCore.Http.Features
-@model TwoFactorAuthenticationModel
+@model do_an.Areas.Identity.Pages.Account.Manage.TwoFactorAuthenticationPageModel
+
 @{
-    ViewData["Title"] = "Two-factor authentication (2FA)";
-    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+    ViewData["Title"] = "Favorite Products";
 }
 
 <h3>@ViewData["Title"]</h3>
 
-<partial name="_StatusMessage" for="StatusMessage" />
-
-@{
-    var consentFeature = HttpContext.Features.Get<ITrackingConsentFeature>();
-    @if (consentFeature?.CanTrack ?? true)
-    {
-        @if (Model.Is2faEnabled)
-        {
-            if (Model.RecoveryCodesLeft == 0)
-            {
-                <div class="alert alert-danger">
-                    <strong>You have no recovery codes left.</strong>
-                    <p>You must <a asp-page="./GenerateRecoveryCodes">generate a new set of recovery codes</a> before you can log in with a recovery code.</p>
-                </div>
-            }
-            else if (Model.RecoveryCodesLeft == 1)
-            {
-                <div class="alert alert-danger">
-                    <strong>You have 1 recovery code left.</strong>
-                    <p>You can <a asp-page="./GenerateRecoveryCodes">generate a new set of recovery codes</a>.</p>
-                </div>
-            }
-            else if (Model.RecoveryCodesLeft <= 3)
-            {
-                <div class="alert alert-warning">
-                    <strong>You have @Model.RecoveryCodesLeft recovery codes left.</strong>
-                    <p>You should <a asp-page="./GenerateRecoveryCodes">generate a new set of recovery codes</a>.</p>
-                </div>
-            }
-
-            if (Model.IsMachineRemembered)
-            {
-                <form method="post" style="display: inline-block">
-                    <button type="submit" class="btn btn-primary">Forget this browser</button>
-                </form>
-            }
-            <a asp-page="./Disable2fa" class="btn btn-primary">Disable 2FA</a>
-            <a asp-page="./GenerateRecoveryCodes" class="btn btn-primary">Reset recovery codes</a>
-        }
-
-        <h4>Authenticator app</h4>
-        @if (!Model.HasAuthenticator)
-        {
-            <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-primary">Add authenticator app</a>
-        }
-        else
-        {
-            <a id="enable-authenticator" asp-page="./EnableAuthenticator" class="btn btn-primary">Set up authenticator app</a>
-            <a id="reset-authenticator" asp-page="./ResetAuthenticator" class="btn btn-primary">Reset authenticator app</a>
-        }
-    }
-    else
-    {
-        <div class="alert alert-danger">
-            <strong>Privacy and cookie policy have not been accepted.</strong>
-            <p>You must accept the policy before you can enable two factor authentication.</p>
-        </div>
-    }
+@if (Model.FavoriteProducts == null || Model.FavoriteProducts.Count == 0)
+{
+    <div class="alert alert-warning">
+        <strong>You have no favorite products yet.</strong>
+    </div>
 }
-
+else
+{
+    <div class="row">
+        @foreach (var product in Model.FavoriteProducts)
+        {
+            <div class="col-md-4 mt-3" >
+                <div class="card">
+                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.NameProduct">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.NameProduct</h5>
+                        <p class="card-text">@product.Description</p>
+                        <p class="card-text"><strong>Price:</strong> @product.Price</p>
+                        <div class="action_products">
+                            <a href="@Url.Action("Detail", "Product", new { id=product.IdProduct })" class="btn btn-primary">View Details</a>
+                            <!-- Nút bỏ thích -->
+                            <button style="margin-top: 6px;" class="btn btn-danger btn-sm remove-favorite" data-product-id="@product.IdProduct">Remove from Favorites</button>
+                        </div>
+                        </div>
+                </div>
+            </div>
+        }
+    </div>
+}
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Khi người dùng nhấn vào nút "Remove from Favorites"
+        $(document).on('click', '.remove-favorite', function () {
+            var productId = $(this).data('product-id');  // Lấy ID sản phẩm từ data attribute
+
+            $.ajax({
+                type: 'POST',
+                url: '/Favourite/Remove',  // Đường dẫn đến action Remove trong controller
+                data: { productId: productId },
+                success: function (response) {
+                    if (response.success) {
+                        // Nếu xóa thành công, ẩn hoặc xóa sản phẩm khỏi giao diện
+                        $(this).closest('.col-md-4').fadeOut();  // Ẩn sản phẩm
+                        alert(response.message);  // Hiển thị thông báo
+                    } else {
+                        alert(response.message);  // Hiển thị thông báo nếu có lỗi
+                    }
+                },
+                error: function () {
+                    alert("An error occurred while removing the product.");
+                }
+            });
+        });
+    </script>
 }

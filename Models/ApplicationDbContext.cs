@@ -39,6 +39,8 @@ namespace do_an_ltweb.Models
         //public DbSet<About> Abouts { get; set; }
         //public DbSet<Contact> Contacts { get; set; }
 
+        public DbSet<Favourite> Favourites { get; set; }    
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
@@ -48,6 +50,17 @@ namespace do_an_ltweb.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Entity<Favourite>()
+            //.HasOne(f => f.UserId)
+            //.WithMany()
+            //.HasForeignKey(f => f.UserId);
+
+            //modelBuilder.Entity<Favourite>()
+            //    .HasOne(f => f.Product)
+            //    .WithMany()
+            //    .HasForeignKey(f => f.ProductId);
+
 
             //modelBuilder.Entity<Product>()
             //    .Property(p => p.Price)

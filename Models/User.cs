@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Identity;
+using do_an.Models; // Thay bằng namespace chứa class Favourite
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace do_an_ltweb.Models;
@@ -25,6 +26,9 @@ public partial class User : IdentityUser
 
     [DataType(DataType.Date)]
     public DateTime? BirthDate { get; set; }
+
+    public ICollection<Favourite> Favourites { get; set; }
+
 
     //public string? Phone { get; set; }
 
