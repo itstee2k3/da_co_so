@@ -23,6 +23,8 @@ namespace do_an_ltweb.Models
 
         public string? BRImageUrl { get; set; }
 
+        public string? Model3D { get; set; } 
+
         public string? Size { get; set; }
 
         public List<ProductImage>? Images { get; set; }

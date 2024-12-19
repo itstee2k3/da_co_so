@@ -99,8 +99,8 @@ namespace do_an_ltweb.Admin.AdProduct
             public int? Hide { get; set; }
 
             // Đường dẫn hình ảnh đã có sẵn
-            public string ExistingImageUrl { get; set; }
-            public string ExistingBRImageUrl { get; set; }
+            public string? ExistingImageUrl { get; set; }
+            public string? ExistingBRImageUrl { get; set; }
         }
 
         public async Task<IActionResult> OnGetAsync(int productid)
@@ -113,13 +113,13 @@ namespace do_an_ltweb.Admin.AdProduct
             }
 
             // Lấy danh sách các category brand từ database và gán cho CategoryBrands
-            CategoryBrands = await _context.CategoryBrands.ToListAsync() ?? new List<CategoryBrand>();
-            CategoryFrameColors = await _context.CategoryFrameColors.ToListAsync() ?? new List<CategoryFrameColor>();
-            CategoryFrameStyles = await _context.CategoryFrameStyles.ToListAsync() ?? new List<CategoryFrameStyle>();
-            CategoryIrisColors = await _context.CategoryIrisColors.ToListAsync() ?? new List<CategoryIrisColor>();
-            CategoryMaterials = await _context.CategoryMaterials.ToListAsync() ?? new List<CategoryMaterial>();
-            CategoryOrigins = await _context.CategoryOrigins.ToListAsync() ?? new List<CategoryOrigin>();
-            CategorySexes = await _context.CategorySexes.ToListAsync() ?? new List<CategorySex>();
+            CategoryBrands = await _context.CategoryBrands.ToListAsync();
+            CategoryFrameColors = await _context.CategoryFrameColors.ToListAsync();
+            CategoryFrameStyles = await _context.CategoryFrameStyles.ToListAsync();
+            CategoryIrisColors = await _context.CategoryIrisColors.ToListAsync();
+            CategoryMaterials = await _context.CategoryMaterials.ToListAsync();
+            CategoryOrigins = await _context.CategoryOrigins.ToListAsync();
+            CategorySexes = await _context.CategorySexes.ToListAsync();
 
             // Truyền giá trị của sản phẩm vào InputModel
             Input = new InputModel
@@ -175,6 +175,30 @@ namespace do_an_ltweb.Admin.AdProduct
 
             if (!ModelState.IsValid)
             {
+                Console.WriteLine("ModelState is invalid.");
+
+                CategoryBrands = await _context.CategoryBrands.ToListAsync();
+                CategoryFrameColors = await _context.CategoryFrameColors.ToListAsync();
+                CategoryFrameStyles = await _context.CategoryFrameStyles.ToListAsync();
+                CategoryIrisColors = await _context.CategoryIrisColors.ToListAsync();
+                CategoryMaterials = await _context.CategoryMaterials.ToListAsync();
+                CategoryOrigins = await _context.CategoryOrigins.ToListAsync();
+                CategorySexes = await _context.CategorySexes.ToListAsync();
+
+                foreach (var key in ModelState.Keys)
+                {
+                    var errors = ModelState[key].Errors;
+                    foreach (var error in errors)
+                    {
+                        Console.WriteLine($"ModelState Error for {key}: {error.ErrorMessage}");
+                    }
+                }
+                    // Log lỗi ModelState nếu có
+                foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    Console.WriteLine($"ModelState Error: {error.ErrorMessage}");
+                }
+
                 return Page();
             }
 
@@ -182,41 +206,17 @@ namespace do_an_ltweb.Admin.AdProduct
             if (_context.Products.Any(c => c.NameProduct == Input.Name && c.IdProduct != productid))
             {
                 ModelState.AddModelError(string.Empty, "Product name already exists.");
+
+                CategoryBrands = await _context.CategoryBrands.ToListAsync();
+                CategoryFrameColors = await _context.CategoryFrameColors.ToListAsync();
+                CategoryFrameStyles = await _context.CategoryFrameStyles.ToListAsync();
+                CategoryIrisColors = await _context.CategoryIrisColors.ToListAsync();
+                CategoryMaterials = await _context.CategoryMaterials.ToListAsync();
+                CategoryOrigins = await _context.CategoryOrigins.ToListAsync();
+                CategorySexes = await _context.CategorySexes.ToListAsync();
+
                 return Page();
             }
-
-            if (Input.ImageUrl != null)
-            {
-                // Xoá ảnh cũ
-                if (!string.IsNullOrEmpty(productToUpdate.ImageUrl))
-                {
-                    string oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, productToUpdate.ImageUrl.TrimStart('/'));
-                    if (System.IO.File.Exists(oldImagePath))
-                    {
-                        System.IO.File.Delete(oldImagePath);
-                    }
-                }
-            }
-            if (Input.BRImageUrl != null)
-            {
-                // Xoá ảnh cũ
-                if (!string.IsNullOrEmpty(productToUpdate.BRImageUrl))
-                {
-                    string oldBRImagePath = Path.Combine(_webHostEnvironment.WebRootPath, productToUpdate.BRImageUrl.TrimStart('/'));
-                    if (System.IO.File.Exists(oldBRImagePath))
-                    {
-                        System.IO.File.Delete(oldBRImagePath);
-                    }
-                }
-            }
-
-
-
-
-            // Lưu ảnh mới và nhận đường dẫn
-            string imageUrl = await SaveImage(Input.ImageUrl);
-            // Lưu ảnh mới và nhận đường dẫn
-            string BRimageUrl = await SaveBRImage(Input.BRImageUrl);
 
             // Cập nhật thông tin sản phẩm
             productToUpdate.NameProduct = Input.Name;
@@ -229,40 +229,73 @@ namespace do_an_ltweb.Admin.AdProduct
             // Kiểm tra xem có ảnh mới được tải lên không
 
             // Xử lý ảnh thường
-            if (!string.IsNullOrEmpty(imageUrl))
+            if (Input.ImageUrl != null)
             {
-                // Nếu có ảnh mới, sử dụng ảnh mới
-                productToUpdate.ImageUrl = imageUrl;
+                // Xoá ảnh cũ
+                if (!string.IsNullOrEmpty(productToUpdate.ImageUrl))
+                {
+                    string oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, productToUpdate.ImageUrl.TrimStart('/'));
+                    if (System.IO.File.Exists(oldImagePath))
+                    {
+                        try
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Ghi log lỗi nếu cần
+                            Console.WriteLine($"Error deleting old image: {ex.Message}");
+                        }
+                    }
+                }
+                string imageUrl = await SaveImage(Input.ImageUrl);
+                productToUpdate.ImageUrl = imageUrl; // Gán trực tiếp nếu có ảnh mới
             }
             else if (!string.IsNullOrEmpty(Input.ExistingImageUrl))
             {
-                // Nếu không có ảnh mới nhưng có ảnh cũ, sử dụng ảnh cũ
-                productToUpdate.ImageUrl = Input.ExistingImageUrl;
-            }
-            else
-            {
-                // Không có ảnh mới và ảnh cũ, không gán giá trị (hoặc gán null nếu cần)
-                productToUpdate.ImageUrl = null;
-            }
+                productToUpdate.ImageUrl = Input.ExistingImageUrl; // Dùng ảnh cũ nếu không có ảnh mới
 
-            // Xử lý ảnh xóa nền
-            if (!string.IsNullOrEmpty(BRimageUrl))
-            {
-                // Nếu có ảnh xóa nền mới, sử dụng ảnh mới
-                productToUpdate.BRImageUrl = BRimageUrl;
             }
-            else if (!string.IsNullOrEmpty(Input.ExistingBRImageUrl))
+            //else
+            //{
+            //    //ModelState.AddModelError("ImageUrl", "Image is required.");
+
+            //    productToUpdate.ImageUrl = null;
+            //}
+
+            if (Input.BRImageUrl != null)
             {
-                // Nếu không có ảnh mới nhưng có ảnh xóa nền cũ, sử dụng ảnh cũ
+                // Xoá ảnh cũ
+                if (!string.IsNullOrEmpty(productToUpdate.BRImageUrl))
+                {
+                    string oldBRImagePath = Path.Combine(_webHostEnvironment.WebRootPath, productToUpdate.BRImageUrl.TrimStart('/'));
+                    if (System.IO.File.Exists(oldBRImagePath))
+                    {
+                        try
+                        {
+                            System.IO.File.Delete(oldBRImagePath);
+                        }
+                        catch (Exception ex)
+                        {
+                            // Ghi log lỗi nếu cần
+                            Console.WriteLine($"Error deleting old BR image: {ex.Message}");
+                        }
+                    }
+                }
+                string brImageUrl = await SaveBRImage(Input.BRImageUrl);
+                productToUpdate.BRImageUrl = brImageUrl;
+            }
+            else if (string.IsNullOrEmpty(Input.ExistingBRImageUrl))
+            {
                 productToUpdate.BRImageUrl = Input.ExistingBRImageUrl;
             }
-            else
-            {
-                // Không có ảnh xóa nền mới và ảnh cũ, không gán giá trị (hoặc gán null nếu cần)
-                productToUpdate.BRImageUrl = null;
-            }
+            //else
+            //{
+            //    //ModelState.AddModelError("BRImageUrl", "Brand Image is required.");
 
-
+            //    productToUpdate.BRImageUrl = null;
+            //}
+            //TempData["ErrorMessage"] = "An error occurred while updating the product.";
 
             productToUpdate.Size = Input.Size;
             productToUpdate.IdCategoryBrand = Input.CategoryBrandId;
@@ -315,20 +348,6 @@ namespace do_an_ltweb.Admin.AdProduct
                     await resizedImage.SaveAsJpegAsync(fileStream);
                 }
             }
-            //try
-            //{
-            //    using (var fileStream = new FileStream(filePath, FileMode.Create))
-            //    {
-            //        await imageFile.CopyToAsync(fileStream);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    // Xử lý ngoại lệ nếu có
-            //    // Ví dụ: Ghi log, thông báo lỗi, vv.
-            //    Console.WriteLine($"An error occurred while saving the image: {ex.Message}");
-            //    return null;
-            //}
 
             // Trả về đường dẫn của tệp đã lưu
             return "/images/" + uniqueFileName; // Đường dẫn tương đối của ảnh
@@ -343,7 +362,7 @@ namespace do_an_ltweb.Admin.AdProduct
 
             // Đảm bảo thư mục lưu ảnh tồn tại
             string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "images", "brimage");
-            Directory.CreateDirectory(uploadsFolder);
+            //Directory.CreateDirectory(uploadsFolder);
 
             // Tạo tên file duy nhất
             string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(brImageFile.FileName);
@@ -378,7 +397,6 @@ namespace do_an_ltweb.Admin.AdProduct
             // Trả về đường dẫn tương đối của file
             return "/images/brimage/" + uniqueFileName;
         }
-
 
     }
 }

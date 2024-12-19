@@ -4,7 +4,18 @@
 @{
     ViewData["Title"] = "Detail Product";
 }
-
+<head>
+    <link rel='stylesheet' type='text/css' media='screen' href='https://unpkg.com/webcam-easy/demo/style/webcam-demo.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/css/virtual-glasses.css'>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/@@tensorflow/tfjs-core@2.4.0/dist/tf-core.min.js"></script>
+    <script src="https://unpkg.com/@@tensorflow/tfjs-converter@2.4.0/dist/tf-converter.min.js"></script>
+    <script src="https://unpkg.com/@@tensorflow/tfjs-backend-webgl@2.4.0/dist/tf-backend-webgl.min.js"></script>
+    <script src="https://unpkg.com/@@tensorflow/tfjs-backend-cpu@2.4.0/dist/tf-backend-cpu.min.js"></script>
+    <script src="https://unpkg.com/@@tensorflow-models/face-landmarks-detection@0.0.1/dist/face-landmarks-detection.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+    <script type="text/javascript" src="/js/webcam-ui-lib.js"></script>
+</head>
 <div class="detail-product">
 
     <!-- content -->
@@ -32,16 +43,13 @@
 
                     <div class="rounded-4 mb-3 d-flex justify-content-center">
                         <!-- Sử dụng một nút hoặc hình ảnh để kích hoạt mô hình 360 độ -->
-                        <img id="show-360-image" src="/images/photo-360.jpg" alt="Product 360" class="border" style="max-width: 15%; max-height: 100vh;">
-                        @*<a href="@Url.Action("Detail", "VirtualGlasses", new { id = Model.IdProduct })">Chi tiết</a>*@
-                        @*@if (!string.IsNullOrEmpty(Model.BRImageUrl))
+                        <img id="show-model3d" src="/images/photo-360.jpg" alt="Product 3d" class="border" style="max-width: 15%; max-height: 100vh;">
+
+                        @if (!string.IsNullOrEmpty(Model.Model3D))
                         {
-                            <button id="toggle-glasses-btn" class="btn btn-outline-secondary ms-3" style="height: 50px;">🕶️</button>
-                        }*@
-                        @if (!string.IsNullOrEmpty(Model.BRImageUrl))
-                        {
-                            <img id="toggle-glasses-btn"
+                            <img id="try-model3d"
                                  src="/images/icon_tryglasses/icon_tryglasses.png"
+                                 data-model3d="@Model.Model3D"
                                  alt="Try Glasses"
                                  class="border ms-3"
                                  style="max-width: 15%; max-height: 100vh;" />
@@ -181,220 +189,99 @@
         </div>
     </section>
     <!-- content -->
-    <!-- Đổi cấu trúc HTML cho hiển thị 360 độ -->
-    <div id="viewer-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
-        <div id="viewer" style="position:relative; width:90%; height:90%; display:flex; justify-content:center; align-items:center;"></div>
-        <button id="close-viewer" class="btn btn-danger mt-3" style="position:absolute; top:10px; right:10px;">Close</button>
-    </div>
-
     <!-- Camera Viewer -->
-    <div id="camera-viewer-container" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
-        <div id="camera-viewer" style="position:relative; width:90%; height:90%; display:flex; justify-content:center; align-items:center;">
-            <img id="video-feed" src="http://127.0.0.1:5000/video_feed" alt="Video feed" style="max-width:100%; max-height:100%;">
+    <div class="md-modal md-effect-12">
+        <div id="app-panel" class="app-panel md-content row p-0 m-0">
+            <div id="webcam-container" class="webcam-container col-12 d-none p-0 m-0">
+                <video id="webcam" autoplay playsinline width="640" height="480"></video>
+            </div>
+
         </div>
-        <button id="close-camera-viewer" class="btn btn-danger mt-3" style="position:absolute; top:10px; right:10px;">Close</button>
+        <button id="close-camera-viewer" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Close</button>
     </div>
 
+    <!--<div id="camera-viewer-container" style="display:none !important; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center; display:flex; box-shadow: 0 0 10px 2px black;">
+        <video id="webcam" autoplay playsinline style="position: absolute; width: 80%; height: 80%; transform: translate(-50%, -50%); object-fit: cover;"></video>-->
+    @*<canvas id="threejs-canvas" style="position:absolute; top:0; left:0; width:100%; height:100%;"></canvas>*@
+    <!--<button id="close-camera-viewer" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Close</button>
+    </div>-->
+    <!-- Đổi cấu trúc HTML cho hiển thị model3d -->
+    <div id="viewer-container" style="display:none !important; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center; display:flex; box-shadow: 0 0 10px 2px black;">
+        <canvas id="canvas" style="position: absolute; width: 80%; height: auto; transform: translate(-50%, -50%); top: 50%; left: 50%; display: block;"></canvas>
+        <button id="close-viewer" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Close</button>
+    </div>
+
+
+
+    <div id="image-container">
+
+        <div class="loading d-none">
+            Loading Model
+            <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+        <ul>
+            <li class="selected-glasses">
+                <img src="/3dmodel/glasses-01/glasses_01.png" data-3d-type="gltf"
+                     data-3d-model-path="/3dmodel/glasses-01/"
+                     data-3d-model="scene.gltf"
+                     data-3d-x="0"
+                     data-3d-y="0.5"
+                     data-3d-z="0"
+                     data-3d-up="0"
+                     data-3d-scale="0.01">
+            </li>
+        </ul>
+    </div>
+
+
+    <div id="errorMsg" class="col-12 col-md-6 alert-danger d-none">
+        Fail to start camera, please allow permision to access camera. <br />
+        If you are browsing through social media built in browsers, you would need to open the page in Sarafi (iPhone)/ Chrome (Android)
+        <button id="closeError" class="btn btn-primary ml-3">OK</button>
+    </div>
+    <div class="md-overlay"></div>
 </div>
+@section Scripts {
+    <!-- Tải Three.js từ unpkg -->
+    <script src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Lấy các phần tử cần xử lý
-        var displayNumber = document.getElementById('display-number');
-        var buttonSubtract = document.getElementById('button-subtract');
-        var buttonAdd = document.getElementById('button-add');
-        var addToCartButton = document.getElementById('add-to-cart-button');
-
-        // Khởi tạo giá trị ban đầu
-        var quantity = 1;
-        displayNumber.textContent = quantity;
-
-        // Xử lý khi click vào nút trừ
-        buttonSubtract.addEventListener('click', function () {
-            // Kiểm tra nếu giá trị số hiện tại lớn hơn 1
-            if (quantity > 1) {
-                quantity -= 1;
-                displayNumber.textContent = quantity;
-            }
-        });
-
-        // Xử lý khi click vào nút cộng
-        buttonAdd.addEventListener('click', function () {
-            quantity += 1;
-            displayNumber.textContent = quantity;
-        });
-
-        addToCartButton.addEventListener("click", function () {
-            // Lấy ID sản phẩm từ thuộc tính data-product-id của thẻ button
-            var productId = addToCartButton.getAttribute('data-product-id');
-
-            // Lấy giá trị quantity từ nội dung của thẻ span
-            var quantity = parseInt(displayNumber.textContent);
-
-            // Kiểm tra nếu số lượng đặt hàng lớn hơn số lượng có sẵn
-            if (quantity > @Model.Nums) {
-                alert("The quantity you are trying to order exceeds the available stock. Remaining stock: " + @Model.Nums);
-                return;
-            }
-
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", '/Cart/AddToCart', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        var response = JSON.parse(xhr.responseText);
-                        if (response.error) {
-                            alert("Log in to add to cart");
-                            console.error("Đăng nhập để thêm vào giỏ hàng");
-                        } else {
-                            alert("Add to cart successfully!");
-                            console.log("Thêm vào giỏ hàng thành công!");
-                        }
-                    } else {
-                        alert("Error sending request");
-                        console.error("Lỗi khi gửi yêu cầu: " + xhr.statusText);
-                    }
-                }
-            };
-            xhr.send('productId=' + productId + '&quantity=' + quantity);
-        });
-
-        var sizes = '@Model.Size';
-
-
-        // Tách chuỗi thành mảng
-        var sizeArray = sizes.split('-');
-
-        // Hàm để kiểm tra và trả về giá trị hoặc 'N/A'
-        function getSizeValue(size) {
-            return size && size.trim() !== '' ? size : 'N/A';
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@v0.163.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@v0.163.0/examples/jsm/"
+          }
         }
+    </script>
 
-        // Gán giá trị cho các thẻ span
-        document.getElementById('size1').innerText = getSizeValue(sizeArray[0]);
-        document.getElementById('size2').innerText = getSizeValue(sizeArray[1]);
-        document.getElementById('size3').innerText = getSizeValue(sizeArray[2]);
+    <script type="text/javascript">
+        var productNums = '@Model.Nums';
+        var productPrice = '@Model.Price';
+        var productSize = '@Model.Size';
+    </script>
 
-        // Lấy các phần tử cần xử lý
-        var show360Image = document.getElementById('show-360-image');
-        var viewerContainer = document.getElementById('viewer-container');
-        var closeViewerButton = document.getElementById('close-viewer');
-        var viewer = document.getElementById('viewer');
-        var currentImageIndex = 0;
-        var isDragging = false;
-        var startX;
-        var autoRotateInterval;
-        var autoRotateSpeed = 100; // Tốc độ quay tự động
+    <script type="module" src="/js/product-detail2.js"></script>
+    <script type="module" src="/js/webcam-ui-lib.js"></script>
 
-        // Kiểm tra xem sản phẩm có hình ảnh 360 không
-        var has360Image = @(Model.Images != null && Model.Images.Count > 0 ? "true" : "false");
+}
 
-        // Ẩn hình ảnh 360 nếu sản phẩm không có hình ảnh 360
-        if (!has360Image) {
-            show360Image.style.display = 'none';
-        }
 
-        // Hàm để tải hình ảnh vào trong phần xem 360 độ
-        function loadImages() {
-            @if(Model.Images != null && Model.Images.Count > 0)
-            {
-                for(var i = 0; i < Model.Images.Count; i++)
-                {
-                    var imageUrl = Model.Images[i].Url; // Lấy đường dẫn ảnh từ mỗi phần tử trong danh sách Images
-                    <text>
-                    var img = document.createElement('img');
-                    img.src = '@(imageUrl)';
-                    img.style.display = 'none'; // Ẩn hình ảnh ban đầu
-                    viewer.appendChild(img);
-                    </text>
-                }
-            }
-        }
 
-        // Hàm để hiển thị hình ảnh tại chỉ mục nhất định trong phần xem
-        function showImage(index) {
-            var images = viewer.getElementsByTagName('img');
-            for (var i = 0; i < images.length; i++) {
-                images[i].style.display = 'none'; // Ẩn tất cả hình ảnh
-            }
-            images[index].style.display = 'block'; // Hiển thị hình ảnh tại chỉ mục
-        }
 
-        // Hàm để bắt đầu quay tự động của phần xem
-        function startAutoRotate() {
-            stopAutoRotate(); // Dừng bất kỳ intervals nào đang tồn tại trước khi bắt đầu một intervals mới
-            autoRotateInterval = setInterval(function () {
-                currentImageIndex = (currentImageIndex + 1) % 36; // Lặp lại các hình ảnh
-                showImage(currentImageIndex);
-            }, autoRotateSpeed);
-        }
 
-        // Hàm để dừng quay tự động của phần xem
-        function stopAutoRotate() {
-            clearInterval(autoRotateInterval);
-        }
 
-        // Hàm để đặt lại tốc độ quay tự động về giá trị ban đầu
-        function resetAutoRotateSpeed() {
-            autoRotateSpeed = 100; // Đặt lại tốc độ về giá trị ban đầu
-        }
 
-        // Sự kiện click để mở phần xem hình ảnh 360 độ
-        show360Image.addEventListener('click', function () {
-            if (viewer.getElementsByTagName('img').length === 0) {
-                loadImages(); // Tải hình ảnh nếu chưa tải
-            }
-            viewerContainer.style.display = 'flex'; // Hiển thị phần xem
-            showImage(currentImageIndex); // Hiển thị hình ảnh ban đầu
-            resetAutoRotateSpeed(); // Đặt lại tốc độ mỗi khi phần xem được mở
-            startAutoRotate(); // Bắt đầu quay tự động
-        });
 
-        // Sự kiện click để đóng phần xem
-        closeViewerButton.addEventListener('click', function () {
-            viewerContainer.style.display = 'none'; // Ẩn phần xem
-            stopAutoRotate(); // Dừng quay tự động
-        });
 
-        // Sự kiện mousedown để bắt đầu kéo hình ảnh
-        viewer.addEventListener('mousedown', function (event) {
-            isDragging = true;
-            startX = event.clientX;
-            stopAutoRotate(); // Dừng quay tự động khi bắt đầu kéo
-            event.preventDefault(); // Ngăn chặn việc chọn văn bản khi kéo
-        });
 
-        // Sự kiện mousemove để di chuyển hình ảnh khi kéo
-        viewer.addEventListener('mousemove', function (event) {
-            if (isDragging) {
-                var dx = event.clientX - startX;
-                if (dx > 5) { // Nếu di chuyển sang phải hơn 5px
-                    currentImageIndex = (currentImageIndex + 1) % 36;
-                    showImage(currentImageIndex);
-                    startX = event.clientX;
-                } else if (dx < -5) { // Nếu di chuyển sang trái hơn 5px
-                    currentImageIndex = (currentImageIndex - 1 + 36) % 36;
-                    showImage(currentImageIndex);
-                    startX = event.clientX;
-                }
-            }
-        });
 
-        // Sự kiện mouseup để kết thúc kéo
-        viewer.addEventListener('mouseup', function () {
-            isDragging = false;
-            startAutoRotate(); // Bắt đầu quay tự động sau khi kéo kết thúc
-        });
 
-        // Sự kiện mouseleave để kết thúc kéo khi rời khỏi phần xem
-        viewer.addEventListener('mouseleave', function () {
-            isDragging = false;
-            startAutoRotate(); // Bắt đầu quay tự động sau khi kéo kết thúc
-        });
 
-        //chức năng thử kính
-        const toggleGlassesBtn = document.getElementById("toggle-glasses-btn");
+@*<script>
+        //chức năng thử kính với ảnh
+            const toggleGlassesBtn = document.getElementById("toggle-glasses-btn");
         const cameraViewerContainer = document.getElementById("camera-viewer-container");
         const closeCameraViewerBtn = document.getElementById("close-camera-viewer");
 
@@ -403,23 +290,39 @@
 
         // Kiểm tra khi đã bật/tắt thử kính
         if (toggleGlassesBtn) {
+            function showError(message) {
+                const errorDiv = document.createElement("div");
+                errorDiv.style.position = "absolute";
+                errorDiv.style.top = "10px";
+                errorDiv.style.left = "50%";
+                errorDiv.style.transform = "translateX(-50%)";
+                errorDiv.style.backgroundColor = "rgba(255, 0, 0, 0.7)";
+                errorDiv.style.color = "white";
+                errorDiv.style.padding = "10px";
+                errorDiv.style.borderRadius = "5px";
+                errorDiv.innerHTML = message;
+
+                cameraViewerContainer.appendChild(errorDiv);
+
+                setTimeout(() => {
+                    errorDiv.remove();
+                }, 5000); // Ẩn thông báo sau 5 giây
+            }
+
             toggleGlassesBtn.addEventListener("click", async () => {
                 if (isRequestInProgress) return;  // Tránh gửi yêu cầu khi đang xử lý yêu cầu khác
 
                 isRequestInProgress = true;
 
-                // Kiểm tra trạng thái của virtual_glasses_enabled và thay đổi trạng thái
                 if (virtual_glasses_enabled) {
-                    // Nếu kính đã được bật, tắt camera và kính
                     cameraViewerContainer.style.display = "none";  // Ẩn camera
                     virtual_glasses_enabled = false;  // Đổi trạng thái của kính
                 } else {
-                    // Nếu kính chưa được bật, hiển thị camera và kính
                     cameraViewerContainer.style.display = "flex"; // Hiển thị camera
                     virtual_glasses_enabled = true;  // Đổi trạng thái của kính
 
                     try {
-                        const imageUrl = 'http://localhost:5005/' + '@Model.BRImageUrl'; // Lấy URL hình ảnh kính
+                        const imageUrl = 'http://localhost:5005/' + '@Model.BRImageUrl';  // Thay URL hợp lệ
                         const response = await fetch('http://127.0.0.1:5000/toggle_glasses', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
@@ -433,10 +336,9 @@
 
                         const data = await response.json();
                         console.log(data);
-
                     } catch (error) {
                         console.error("Lỗi:", error);
-                        alert("Đã xảy ra lỗi khi bật thử kính.");
+                        showError("Đã xảy ra lỗi khi bật thử kính.");
                         cameraViewerContainer.style.display = "none";  // Ẩn camera
                         virtual_glasses_enabled = false;  // Đổi trạng thái kính
                     }
@@ -445,10 +347,128 @@
                 isRequestInProgress = false;  // Đặt lại trạng thái yêu cầu đã hoàn tất
             });
 
+
             closeCameraViewerBtn.addEventListener("click", () => {
                 cameraViewerContainer.style.display = "none";  // Ẩn camera khi đóng
                 virtual_glasses_enabled = false;  // Đổi trạng thái kính khi đóng
             });
         }
+    </script>*@
+
+<script>
+    @*//Xoay nhìu hình
+    // Lấy các phần tử cần xử lý
+        var show360Image = document.getElementById('show-360-image');
+    var viewerContainer = document.getElementById('viewer-container');
+    var closeViewerButton = document.getElementById('close-viewer');
+    var viewer = document.getElementById('viewer');
+    var currentImageIndex = 0;
+    var isDragging = false;
+    var startX;
+    var autoRotateInterval;
+    var autoRotateSpeed = 100; // Tốc độ quay tự động
+
+    // Kiểm tra xem sản phẩm có hình ảnh 360 không
+    var has360Image = @(Model.Images != null && Model.Images.Count > 0 ? "true" : "false");
+
+    // Ẩn hình ảnh 360 nếu sản phẩm không có hình ảnh 360
+    if (!has360Image) {
+        show360Image.style.display = 'none';
+    }
+
+    // Hàm để tải hình ảnh vào trong phần xem 360 độ
+    function loadImages() {
+        @if (Model.Images != null && Model.Images.Count > 0) {
+            for (var i = 0; i < Model.Images.Count; i++) {
+                var imageUrl = Model.Images[i].Url; // Lấy đường dẫn ảnh từ mỗi phần tử trong danh sách Images
+                <text>
+                    var img = document.createElement('img');
+                    img.src = '@(imageUrl)';
+                    img.style.display = 'none'; // Ẩn hình ảnh ban đầu
+                    viewer.appendChild(img);
+                </text>
+            }
+        }
+    }
+
+    // Hàm để hiển thị hình ảnh tại chỉ mục nhất định trong phần xem
+    function showImage(index) {
+        var images = viewer.getElementsByTagName('img');
+        for (var i = 0; i < images.length; i++) {
+            images[i].style.display = 'none'; // Ẩn tất cả hình ảnh
+        }
+        images[index].style.display = 'block'; // Hiển thị hình ảnh tại chỉ mục
+    }
+
+    // Hàm để bắt đầu quay tự động của phần xem
+    function startAutoRotate() {
+        stopAutoRotate(); // Dừng bất kỳ intervals nào đang tồn tại trước khi bắt đầu một intervals mới
+        autoRotateInterval = setInterval(function () {
+            currentImageIndex = (currentImageIndex + 1) % 36; // Lặp lại các hình ảnh
+            showImage(currentImageIndex);
+        }, autoRotateSpeed);
+    }
+
+    // Hàm để dừng quay tự động của phần xem
+    function stopAutoRotate() {
+        clearInterval(autoRotateInterval);
+    }
+
+    // Hàm để đặt lại tốc độ quay tự động về giá trị ban đầu
+    function resetAutoRotateSpeed() {
+        autoRotateSpeed = 100; // Đặt lại tốc độ về giá trị ban đầu
+    }
+
+    // Sự kiện click để mở phần xem hình ảnh 360 độ
+    show360Image.addEventListener('click', function () {
+        if (viewer.getElementsByTagName('img').length === 0) {
+            loadImages(); // Tải hình ảnh nếu chưa tải
+        }
+        viewerContainer.style.display = 'flex'; // Hiển thị phần xem
+        showImage(currentImageIndex); // Hiển thị hình ảnh ban đầu
+        resetAutoRotateSpeed(); // Đặt lại tốc độ mỗi khi phần xem được mở
+        startAutoRotate(); // Bắt đầu quay tự động
     });
+
+    // Sự kiện click để đóng phần xem
+    closeViewerButton.addEventListener('click', function () {
+        viewerContainer.style.display = 'none'; // Ẩn phần xem
+        stopAutoRotate(); // Dừng quay tự động
+    });
+
+    // Sự kiện mousedown để bắt đầu kéo hình ảnh
+    viewer.addEventListener('mousedown', function (event) {
+        isDragging = true;
+        startX = event.clientX;
+        stopAutoRotate(); // Dừng quay tự động khi bắt đầu kéo
+        event.preventDefault(); // Ngăn chặn việc chọn văn bản khi kéo
+    });
+
+    // Sự kiện mousemove để di chuyển hình ảnh khi kéo
+    viewer.addEventListener('mousemove', function (event) {
+        if (isDragging) {
+            var dx = event.clientX - startX;
+            if (dx > 5) { // Nếu di chuyển sang phải hơn 5px
+                currentImageIndex = (currentImageIndex + 1) % 36;
+                showImage(currentImageIndex);
+                startX = event.clientX;
+            } else if (dx < -5) { // Nếu di chuyển sang trái hơn 5px
+                currentImageIndex = (currentImageIndex - 1 + 36) % 36;
+                showImage(currentImageIndex);
+                startX = event.clientX;
+            }
+        }
+    });
+
+    // Sự kiện mouseup để kết thúc kéo
+    viewer.addEventListener('mouseup', function () {
+        isDragging = false;
+        startAutoRotate(); // Bắt đầu quay tự động sau khi kéo kết thúc
+    });
+
+    // Sự kiện mouseleave để kết thúc kéo khi rời khỏi phần xem
+    viewer.addEventListener('mouseleave', function () {
+        isDragging = false;
+        startAutoRotate(); // Bắt đầu quay tự động sau khi kéo kết thúc
+    });*@
 </script>
