@@ -542,6 +542,30 @@ namespace do_an.Migrations
                     b.ToTable("Contacts");
                 });
 
+            modelBuilder.Entity("do_an.Models.Favourite", b =>
+                {
+                    b.Property<int>("FavouriteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FavouriteId"), 1L, 1);
+
+                    b.Property<int>("IdProduct")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IdUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("FavouriteId");
+
+                    b.HasIndex("IdProduct");
+
+                    b.HasIndex("IdUser");
+
+                    b.ToTable("Favourites");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -805,6 +829,25 @@ namespace do_an.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("do_an.Models.Favourite", b =>
+                {
+                    b.HasOne("do_an_ltweb.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("IdProduct")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("do_an_ltweb.Models.User", "User")
+                        .WithMany("Favourites")
+                        .HasForeignKey("IdUser")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -903,6 +946,8 @@ namespace do_an.Migrations
 
             modelBuilder.Entity("do_an_ltweb.Models.User", b =>
                 {
+                    b.Navigation("Favourites");
+
                     b.Navigation("Orders");
                 });
 #pragma warning restore 612, 618

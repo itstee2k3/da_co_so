@@ -1,0 +1,22 @@
+﻿    # docker-compose up --build -d 
+    # docker-compose up -d # Khởi động lại các container với cấu hình mới
+    # docker-compose down -v  # Dừng và xóa các container, volume
+    # docker pull mcr.microsoft.com/mssql/server:2019-latest
+    version: '3.8'
+    services:
+      # service 1
+      app:
+        build:
+            context: . # Docker sẽ build từ thư mục hiện tại 
+            dockerfile: Dockerfile # build 1 file tên là Dockerfile
+        image: xthang
+        container_name: xthang
+        environment:
+            - ASPNETCORE_ENVIRONMENT=Development
+            - ConnectionStrings__DefaultConnection=Server=15.235.197.40;Database=do_an_ltweb;User Id=sa;Password=YourPassword123;TrustServerCertificate=True
+        ports:
+        - "5000:80"
+   
+   
+
+
