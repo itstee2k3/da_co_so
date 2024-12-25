@@ -23,21 +23,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const viewerContainer = document.getElementById('viewer-container');
 
-    document.getElementById('show-model3d').addEventListener('click', () => {
-        viewerContainer.style.display = 'flex';
-        // Lấy kích thước của viewer container
-        const containerWidth = viewerContainer.offsetWidth * 0.8;
-        const containerHeight = viewerContainer.offsetHeight * 0.8;
+    const showModel3d = document.getElementById('show-model3d');
+    if (showModel3d) {
+        showModel3d.addEventListener('click', () => {
+            viewerContainer.style.display = 'flex';
+            const containerWidth = viewerContainer.offsetWidth * 0.8;
+            const containerHeight = viewerContainer.offsetHeight * 0.8;
 
-        // Đặt lại kích thước renderer và camera
-        renderer.setSize(containerWidth, containerHeight);
-        camera.aspect = containerWidth / containerHeight;
-        camera.updateProjectionMatrix();
-        //canvasElement.setSize(viewerContainer.offsetWidth * 0.8, viewerContainer.offsetHeight * 0.8);
-        // Cập nhật camera
-        //viewerCamera.aspect = viewerContainer.offsetWidth / viewerContainer.offsetHeight;
-        //viewerCamera.updateProjectionMatrix();
-    });
+            renderer.setSize(containerWidth, containerHeight);
+            camera.aspect = containerWidth / containerHeight;
+            camera.updateProjectionMatrix();
+        });
+    } else {
+        console.warn("Element with ID 'show-model3d' not found.");
+    }
 
     window.addEventListener('resize', () => {
         // Lấy kích thước của container
@@ -63,8 +62,13 @@ document.addEventListener("DOMContentLoaded", function () {
         setup3dGlasses();
     });
 
-    $("#webcam-switch").change(function () {
-        if (this.checked) {
+    $('#closeError').click(function () {
+        $("#webcam-switch").prop('checked', false).change();
+    });
+
+    const tryModel3d = document.getElementById('try-model3d');
+    if (tryModel3d) {
+        tryModel3d.addEventListener('click', () => {
             $('.md-modal').addClass('md-show');
             webcam.start()
                 .then(result => {
@@ -78,41 +82,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 .catch(err => {
                     displayError();
                 });
-        }
-        else {
-            webcam.stop();
-            if (cameraFrame != null) {
-                clearglasses = true;
-                detectFace = false;
-                cancelAnimationFrame(cameraFrame);
-            }
-            isVideo = false;
-            switchSource();
-            cameraStopped();
-            console.log("webcam stopped");
-        }
-    });
-
-
-    $('#closeError').click(function () {
-        $("#webcam-switch").prop('checked', false).change();
-    });
-
-    document.getElementById('try-model3d').addEventListener('click', () => {
-        $('.md-modal').addClass('md-show');
-        webcam.start()
-            .then(result => {
-                console.log("webcam started");
-                isVideo = true;
-                cameraStarted();
-                switchSource();
-                glassesOnImage = false;
-                startVTGlasses();
-            })
-            .catch(err => {
-                displayError();
-            });
-    });
+        });
+    } else {
+        console.warn("Element with ID 'try-model3d' not found.");
+    }
 
     document.getElementById('close-camera-viewer').addEventListener('click', () => {
         webcam.stop();
@@ -125,6 +98,9 @@ document.addEventListener("DOMContentLoaded", function () {
         switchSource();
         cameraStopped();
         console.log("webcam stopped");
+        $('.md-modal').removeClass('md-show');
+        document.body.style.overflow = ''; // Cho phép cuộn
+        document.body.focus(); // Đặt lại focus
     });
 
     async function startVTGlasses() {
@@ -188,24 +164,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 let pointMidEye = face.scaledMesh[glassesKeyPoints.midEye];
                 let pointleftEye = face.scaledMesh[glassesKeyPoints.leftEye];
                 let pointNoseBottom = face.scaledMesh[glassesKeyPoints.noseBottom];
-                let pointrightEye = face.scaledMesh[glassesKeyPoints.rightEye];
-
-                // Kiểm tra xem có đủ 2 mắt không
-                let isOnlyOneEyeVisible = !pointleftEye || !pointrightEye;
-
-                if (isOnlyOneEyeVisible) {
-                    // Nếu chỉ có một mắt, sử dụng điểm mắt còn lại để giả định vị trí mắt còn lại
-                    if (pointleftEye) {
-                        pointrightEye = [pointleftEye[0] + 0.15, pointleftEye[1], pointleftEye[2]];
-                    } else if (pointrightEye) {
-                        pointleftEye = [pointrightEye[0] - 0.15, pointrightEye[1], pointrightEye[2]];
-                    }
-                }
+                let pointrightEye = face.scaledMesh[glassesKeyPoints.rightEye];                
 
                 // Cập nhật vị trí kính sao cho kính nằm trên tai
-                glasses.position.x = (pointMidEye[0] + pointleftEye[0] + pointrightEye[0]) / 3;
+                glasses.position.x = pointMidEye[0];
                 glasses.position.y = -pointMidEye[1] + parseFloat(selectedglasses.attr("data-3d-up"));
-                glasses.position.z = -camera.position.z + pointMidEye[2] - 0.1; // Điều chỉnh chút ít để kính không đâm vào mắt
+                glasses.position.z = -camera.position.z + pointMidEye[2]; // Điều chỉnh chút ít để kính không đâm vào mắt
 
                 // Tính toán góc quay của kính sao cho kính luôn xoay sát với khuôn mặt
                 let direction = new THREE.Vector3();
