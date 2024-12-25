@@ -111,6 +111,10 @@ app.UseStaticFiles(new StaticFileOptions
     ContentTypeProvider = new FileExtensionContentTypeProvider
     {
         Mappings = { [".gltf"] = "model/gltf+json" }
+    },
+    OnPrepareResponse = ctx =>
+    {
+        ctx.Context.Response.Headers.Append("Cache-Control", "public, max-age=31536000");
     }
 });
 

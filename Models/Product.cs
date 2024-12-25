@@ -27,6 +27,10 @@ namespace do_an_ltweb.Models
 
         public string? Size { get; set; }
 
+        public double? Scale { get; set; }
+
+        public double? Model3dUp { get; set; }
+
         public List<ProductImage>? Images { get; set; }
 
         [ForeignKey("IdCategoryBrand")]

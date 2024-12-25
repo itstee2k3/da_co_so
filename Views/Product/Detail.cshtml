@@ -43,13 +43,15 @@
 
                     <div class="rounded-4 mb-3 d-flex justify-content-center">
                         <!-- Sử dụng một nút hoặc hình ảnh để kích hoạt mô hình 360 độ -->
-                        <img id="show-model3d" src="/images/photo-360.jpg" alt="Product 3d" class="border" style="max-width: 15%; max-height: 100vh;">
 
                         @if (!string.IsNullOrEmpty(Model.Model3D))
                         {
+                            <img id="show-model3d"
+                                 src="/images/photo-360.jpg"
+                                 alt="Product 3d" class="border" style="max-width: 15%; max-height: 100vh;">
+
                             <img id="try-model3d"
                                  src="/images/icon_tryglasses/icon_tryglasses.png"
-                                 data-model3d="@Model.Model3D"
                                  alt="Try Glasses"
                                  class="border ms-3"
                                  style="max-width: 15%; max-height: 100vh;" />
@@ -195,7 +197,6 @@
             <div id="webcam-container" class="webcam-container col-12 d-none p-0 m-0">
                 <video id="webcam" autoplay playsinline width="640" height="480"></video>
             </div>
-
         </div>
         <button id="close-camera-viewer" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Close</button>
     </div>
@@ -207,7 +208,7 @@
     </div>-->
     <!-- Đổi cấu trúc HTML cho hiển thị model3d -->
     <div id="viewer-container" style="display:none !important; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center; display:flex; box-shadow: 0 0 10px 2px black;">
-        <canvas id="canvas" style="position: absolute; width: 80%; height: auto; transform: translate(-50%, -50%); top: 50%; left: 50%; display: block;"></canvas>
+        <canvas id="canvas" style="position: absolute; width: 80%; height: auto; display: block;"></canvas>
         <button id="close-viewer" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Close</button>
     </div>
 
@@ -221,20 +222,21 @@
                 <span class="sr-only"></span>
             </div>
         </div>
-        <ul>
+        <ul  ">
             <li class="selected-glasses">
-                <img src="/3dmodel/glasses-01/glasses_01.png" data-3d-type="gltf"
-                     data-3d-model-path="/3dmodel/glasses-01/"
+                <img src="" data-3d-type="gltf"
+                     data-3d-model-path="@Model.Model3D"
                      data-3d-model="scene.gltf"
                      data-3d-x="0"
-                     data-3d-y="0.5"
+                     data-3d-y="0"
                      data-3d-z="0"
-                     data-3d-up="0"
-                     data-3d-scale="0.01">
+                     data-3d-up="@Model.Model3dUp"
+                     data-3d-scale="@Model.Scale">
             </li>
         </ul>
     </div>
-
+    <p>@Model.Scale</p>
+    <p>@Model.Model3dUp</p>
 
     <div id="errorMsg" class="col-12 col-md-6 alert-danger d-none">
         Fail to start camera, please allow permision to access camera. <br />
@@ -255,7 +257,7 @@
           }
         }
     </script>
-
+    
     <script type="text/javascript">
         var productNums = '@Model.Nums';
         var productPrice = '@Model.Price';
