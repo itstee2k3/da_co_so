@@ -13,7 +13,7 @@
         container_name: xthang
         environment:
             - ASPNETCORE_ENVIRONMENT=Development
-            - ConnectionStrings__DockerConnection=Server=15.235.197.40;Database=do_an_ltweb;User Id=sa;Password=YourPassword123;TrustServerCertificate=True
+            - ConnectionStrings__DockerConnection=Server=15.235.197.40;Database=do_an_ltweb;User Id=sa;Password=gB2X1zjqzaHN7AW;TrustServerCertificate=True
         ports:
         - "5000:80"
    
