@@ -21,16 +21,6 @@
 
         <div class="carousel-inner">
 
-            @*<div class="carousel-item">*@
-            @*<div class="container">
-                    <div class="carousel-caption">
-                        <div class="text-bg">
-                            <h1> <span class="blu">Welcome <br></span>To Our SmartGlasses</h1>
-                        </div>
-                    </div>
-                </div>*@
-            @*</div>*@
-
             <div class="carousel-item active">
                 <div class="container">
                     <div class="carousel-caption">
@@ -117,11 +107,16 @@
         <div class="row">
             @foreach (var product in ViewBag.Products)
             {
+                var isFavorited = ViewBag.FavoriteProducts != null && ViewBag.FavoriteProducts.Contains(product.IdProduct);
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                     <div class="card w-100 my-2 shadow-2-strong">
                         <div class="card-conten-shop d-flex px-0 pb-0">
-                            <a href="#!" class="btn border icon-hover px-2 pt-2">
-                                <i class="fa fa-heart fa-lg text-secondary px-1"></i>
+                            <!-- Thêm biểu tượng yêu thích -->
+                            <a href="javascript:void(0)"
+                               class="btn border icon-hover px-2 pt-2 add-to-favorite"
+                               data-product-id="@product.IdProduct"
+                               onclick="toggleFavorite(this)">
+                                <i class="fa fa-heart fa-lg @(isFavorited ? "text-danger" : "text-secondary") px-1"></i>
                             </a>
                         </div>
                         <img src="@product.ImageUrl" class="card-img-top" />
@@ -164,116 +159,9 @@
     </div>
 </div>
 <!-- end Suitable section -->
-<!-- clients section -->
-<div>
-    @*<div class="clients">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="titlepage">
-                            <h2>What say our clients</h2>
-                            <p>orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="myCarousel" class="carousel slide clients_Carousel " data-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="container">
-                                        <div class="carousel-caption ">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="clients_box">
-                                                        <figure><img src="images/our.png" alt="#" /></figure>
-                                                        <h3>Sandy Mark</h3>
-                                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="container">
-                                        <div class="carousel-caption">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="clients_box">
-                                                        <figure><img src="images/our.png" alt="#" /></figure>
-                                                        <h3>Sandy Mark</h3>
-                                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="container">
-                                        <div class="carousel-caption">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="clients_box">
-                                                        <figure><img src="images/our.png" alt="#" /></figure>
-                                                        <h3>Sandy Mark</h3>
-                                                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact  a more-or-less normal distribution of letters,</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                                <i class='fa fa-angle-left'></i>
-                            </a>
-                            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                                <i class='fa fa-angle-right'></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>*@
-</div>
-<!-- end clients section -->
+
 <!-- contact section -->
 <div id="contact" class="contact">
-    @*<div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <form id="request" class="main_form">
-                        <div class="row">
-                            <div class="col-md-12 ">
-                                <h3>Contact Us</h3>
-                            </div>
-                            <div class="col-md-12 ">
-                                <input class="contactus" placeholder="Name" type="type" name="Name">
-                            </div>
-                            <div class="col-md-12">
-                                <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
-                            </div>
-                            <div class="col-md-12">
-                                <input class="contactus" placeholder="Email" type="type" name="Email">
-                            </div>
-                            <div class="col-md-12">
-                                <textarea class="contactusmess" placeholder="Message" type="type" Message="Name"></textarea>
-                            </div>
-                            <div class="col-md-12">
-                                <button class="send_btn">Send</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>*@
     <div class="container-fluid">
         <div class="map_section">
             <div class="map">
@@ -282,3 +170,52 @@
         </div>
     </div>
 </div>
+
+<script>
+    function toggleFavorite(element) {
+        var productId = $(element).data("product-id");
+
+        // Gửi yêu cầu AJAX để thêm hoặc xóa sản phẩm khỏi danh sách yêu thích
+        $.ajax({
+            url: '/Favourite/Toggle', // Gọi đến action Toggle
+            type: 'POST',
+            data: { productId: productId },
+            success: function (response) {
+                if (response.success) {
+                    // Nếu thành công, thay đổi màu sắc biểu tượng
+                    var icon = $(element).find("i");
+                    if (response.isFavorited) {
+                        icon.removeClass("text-secondary").addClass("text-danger"); // Đã yêu thích
+                    } else {
+                        icon.removeClass("text-danger").addClass("text-secondary"); // Bỏ yêu thích
+                    }
+
+                    // Hiển thị thông báo thành công bằng SweetAlert2
+                    Swal.fire({
+                        title: 'Thành công!',
+                        text: response.message,
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    // Hiển thị thông báo lỗi bằng SweetAlert2
+                    Swal.fire({
+                        title: 'Lỗi!',
+                        text: response.message,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            },
+            error: function () {
+                // Hiển thị thông báo lỗi nếu xảy ra lỗi trong quá trình AJAX
+                Swal.fire({
+                    title: 'Lỗi!',
+                    text: 'Đã xảy ra lỗi trong quá trình cập nhật trạng thái yêu thích.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    }
+</script>

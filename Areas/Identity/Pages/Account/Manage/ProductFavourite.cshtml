@@ -1,0 +1,106 @@
+﻿@page "/user/favourite"
+@model do_an.Areas.Identity.Pages.Account.Manage.TwoFactorAuthenticationPageModel
+
+@{
+    ViewData["Title"] = "Favorite Products";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+@if (Model.FavoriteProducts == null || Model.FavoriteProducts.Count == 0)
+{
+    <div class="alert alert-warning">
+        <strong>You have no favorite products yet.</strong>
+    </div>
+}
+else
+{
+    <div class="row" id="product-list">
+        @foreach (var product in Model.FavoriteProducts)
+        {
+            <div class="col-lg-4 col-md-6 col-sm-6 d-flex">
+                <div class="card w-100 my-2 shadow-2-strong">
+                    <div class="card-conten-shop d-flex px-0 pb-0">
+                        <!-- Nút yêu thích với trái tim màu đỏ nếu đã yêu thích -->
+                        <a href="javascript:void(0)"
+                           class="btn border icon-hover px-2 pt-2 add-to-favorite"
+                           data-product-id="@product.IdProduct"
+                           onclick="toggleFavorite(this)">
+                            <i class="fa fa-heart fa-lg text-danger px-1"></i>
+                        </a>
+                    </div>
+                    <!-- Hình ảnh sản phẩm -->
+                    <img src="@product.ImageUrl" class="card-img-top" alt="@product.NameProduct" />
+                    <div class="card-body d-flex flex-column">
+                        <!-- Tên và giá sản phẩm -->
+                        <a asp-controller="Product" asp-action="Detail" asp-route-id="@product.IdProduct">
+                            <h3 class="card-title">@product.Price.ToString("N0")<span class="blu">đ</span></h3>
+                            <p class="card-text text-truncate">@product.NameProduct</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@section Scripts {
+    <script>
+        function toggleFavorite(element) {
+            var productId = $(element).data("product-id");
+
+            console.log("Product ID:", productId); // Kiểm tra ID sản phẩm
+
+            // Gửi yêu cầu AJAX để thêm hoặc xóa sản phẩm khỏi danh sách yêu thích
+            $.ajax({
+                url: '/Favourite/Toggle', // Gọi đến action Toggle
+                type: 'POST',
+                data: { productId: productId },
+                success: function (response) {
+                    if (response.success) {
+                        var icon = $(element).find("i");
+
+                        if (response.isFavorited) {
+                            icon.removeClass("text-secondary").addClass("text-danger"); // Đã yêu thích
+                        } else {
+                            icon.removeClass("text-danger").addClass("text-secondary"); // Bỏ yêu thích
+                        }
+
+                        // Hiển thị thông báo thành công
+                        Swal.fire({
+                            title: 'Thành công!',
+                            text: response.message,
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        });
+
+                        // Cập nhật lại giao diện nếu cần thiết (ví dụ, xóa hoặc thêm sản phẩm)
+                        if (response.isFavorited) {
+                            // Nếu sản phẩm được thêm vào yêu thích, không cần làm gì thêm.
+                        } else {
+                            // Nếu sản phẩm bị xóa khỏi yêu thích, ẩn hoặc xóa sản phẩm khỏi giao diện
+                            $(element).closest('.col-md-4').fadeOut();  // Ẩn sản phẩm
+                        }
+                    } else {
+                        // Hiển thị thông báo lỗi nếu có
+                        Swal.fire({
+                            title: 'Lỗi!',
+                            text: response.message,
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error("AJAX Error:", textStatus, errorThrown); // Log lỗi AJAX
+                    Swal.fire({
+                        title: 'Lỗi!',
+                        text: 'Đã xảy ra lỗi trong quá trình cập nhật trạng thái yêu thích.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+        }
+    </script>
+}

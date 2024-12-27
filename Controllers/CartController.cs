@@ -11,6 +11,7 @@ using Newtonsoft.Json;
 using System.Net.NetworkInformation;
 using Microsoft.AspNetCore.Authorization;
 using do_an_ltweb.Services;
+using System.Security.Claims;
 
 namespace do_an.Controllers
 {
@@ -31,6 +32,19 @@ namespace do_an.Controllers
 
         public async Task<IActionResult> Index() // Đánh dấu phương thức này là async
         {
+            // Lấy userId từ thông tin xác thực
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            // Lấy danh sách sản phẩm yêu thích của người dùng
+            var favoriteProductIds = new List<int>();
+            if (!string.IsNullOrEmpty(userId))
+            {
+                favoriteProductIds = await _context.Favourites
+                    .Where(f => f.IdUser == userId)
+                    .Select(f => f.IdProduct)
+                    .ToListAsync();
+            }
+
             var user = await _user.GetUserAsync(User);
             if (user == null)
             {
@@ -45,6 +59,9 @@ namespace do_an.Controllers
 
                 .Where(ci => ci.IdUser == user.Id)
                 .ToListAsync();
+
+            ViewBag.FavoriteProducts = favoriteProductIds;
+
 
             return View(cartItems);
         }

@@ -346,7 +346,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Kiểm tra nếu số lượng đặt hàng lớn hơn số lượng có sẵn
         if (quantity > productNums) {
-            alert("The quantity you are trying to order exceeds the available stock. Remaining stock: " + productNums)
+            Swal.fire({
+                title: 'Số lượng vượt quá tồn kho',
+                text: 'Số lượng còn lại: ' + productNums,
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
             return;
         }
 
@@ -358,14 +363,28 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (xhr.status === 200) {
                     var response = JSON.parse(xhr.responseText);
                     if (response.error) {
-                        alert("Log in to add to cart");
+                        Swal.fire({
+                            title: 'Lỗi',
+                            text: 'Vui lòng đăng nhập để thêm vào giỏ hàng.',
+                            icon: 'warning',
+                            confirmButtonText: 'OK'
+                        });
                         console.error("Đăng nhập để thêm vào giỏ hàng");
                     } else {
-                        alert("Add to cart successfully!");
+                        Swal.fire({
+                            title: 'Thêm vào giỏ hàng thành công!',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        });
                         console.log("Thêm vào giỏ hàng thành công!");
                     }
                 } else {
-                    alert("Error sending request");
+                    Swal.fire({
+                        title: 'Lỗi khi gửi yêu cầu',
+                        text: 'Mã lỗi: ' + xhr.statusText,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
                     console.error("Lỗi khi gửi yêu cầu: " + xhr.statusText);
                 }
             }
@@ -388,5 +407,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('size1').innerText = getSizeValue(sizeArray[0]);
     document.getElementById('size2').innerText = getSizeValue(sizeArray[1]);
     document.getElementById('size3').innerText = getSizeValue(sizeArray[2]);
+
+
 
 });

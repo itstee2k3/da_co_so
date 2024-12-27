@@ -184,7 +184,14 @@
                         </div>
                         @*<a href="#" class="btn btn-warning shadow-0"> Buy now </a>*@
                         <a id="add-to-cart-button" class="btn-main btn shadow-0 text-white" style="background-color: #03cafa" data-product-id="@Model.IdProduct"> <i class="me-1 fa fa-shopping-basket text-white"></i> Add to cart </a>
-                        <a href="#" class="btn btn-light border border-secondary icon-hover px-3"> <i class="me-1 fa fa-heart fa-lg"></i> Save </a>
+                        <a href="javascript:void(0)"
+                           data-product-id="@Model.IdProduct"
+                           class="btn btn-light border border-secondary icon-hover px-3 pt-2"
+                           onclick="toggleFavorite(this)">
+                            <i class="fa fa-heart fa-lg @(ViewData["IsFavorited"] != null && (bool)ViewData["IsFavorited"] ? "text-danger" : "text-secondary")"></i>
+                        </a>
+
+
                     </div>
                 </main>
             </div>
@@ -201,11 +208,6 @@
         <button id="close-camera-viewer" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Close</button>
     </div>
 
-    <!--<div id="camera-viewer-container" style="display:none !important; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center; display:flex; box-shadow: 0 0 10px 2px black;">
-        <video id="webcam" autoplay playsinline style="position: absolute; width: 80%; height: 80%; transform: translate(-50%, -50%); object-fit: cover;"></video>-->
-    @*<canvas id="threejs-canvas" style="position:absolute; top:0; left:0; width:100%; height:100%;"></canvas>*@
-    <!--<button id="close-camera-viewer" class="btn btn-danger" style="position:absolute; top:10px; right:10px;">Close</button>
-    </div>-->
     <!-- Đổi cấu trúc HTML cho hiển thị model3d -->
     <div id="viewer-container" style="display:none !important; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center; display:flex; box-shadow: 0 0 10px 2px black;">
         <canvas id="canvas" style="position: absolute; width: 80%; height: auto; display: block;"></canvas>
@@ -222,7 +224,7 @@
                 <span class="sr-only"></span>
             </div>
         </div>
-        <ul  ">
+        <ul ">
             <li class="selected-glasses">
                 <img src="" data-3d-type="gltf"
                      data-3d-model-path="@Model.Model3D"
@@ -257,11 +259,13 @@
           }
         }
     </script>
-    
+
     <script type="text/javascript">
         var productNums = '@Model.Nums';
         var productPrice = '@Model.Price';
         var productSize = '@Model.Size';
+
+        
     </script>
 
     <script type="module" src="/js/product-detail2.js"></script>
@@ -270,207 +274,259 @@
 }
 
 
+<script>
+    function toggleFavorite(element) {
+        var productId = $(element).data("product-id");
 
+        console.log("Product ID:", productId); // Kiểm tra ID sản phẩm
 
-
-
-
-
-
-
-
-
-
-@*<script>
-        //chức năng thử kính với ảnh
-            const toggleGlassesBtn = document.getElementById("toggle-glasses-btn");
-        const cameraViewerContainer = document.getElementById("camera-viewer-container");
-        const closeCameraViewerBtn = document.getElementById("close-camera-viewer");
-
-        let isRequestInProgress = false;  // Tránh gửi yêu cầu khi đang xử lý yêu cầu khác
-        let virtual_glasses_enabled = false;  // Biến kiểm soát trạng thái của kính mát
-
-        // Kiểm tra khi đã bật/tắt thử kính
-        if (toggleGlassesBtn) {
-            function showError(message) {
-                const errorDiv = document.createElement("div");
-                errorDiv.style.position = "absolute";
-                errorDiv.style.top = "10px";
-                errorDiv.style.left = "50%";
-                errorDiv.style.transform = "translateX(-50%)";
-                errorDiv.style.backgroundColor = "rgba(255, 0, 0, 0.7)";
-                errorDiv.style.color = "white";
-                errorDiv.style.padding = "10px";
-                errorDiv.style.borderRadius = "5px";
-                errorDiv.innerHTML = message;
-
-                cameraViewerContainer.appendChild(errorDiv);
-
-                setTimeout(() => {
-                    errorDiv.remove();
-                }, 5000); // Ẩn thông báo sau 5 giây
-            }
-
-            toggleGlassesBtn.addEventListener("click", async () => {
-                if (isRequestInProgress) return;  // Tránh gửi yêu cầu khi đang xử lý yêu cầu khác
-
-                isRequestInProgress = true;
-
-                if (virtual_glasses_enabled) {
-                    cameraViewerContainer.style.display = "none";  // Ẩn camera
-                    virtual_glasses_enabled = false;  // Đổi trạng thái của kính
-                } else {
-                    cameraViewerContainer.style.display = "flex"; // Hiển thị camera
-                    virtual_glasses_enabled = true;  // Đổi trạng thái của kính
-
-                    try {
-                        const imageUrl = 'http://localhost:5005/' + '@Model.BRImageUrl';  // Thay URL hợp lệ
-                        const response = await fetch('http://127.0.0.1:5000/toggle_glasses', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ image_url: imageUrl }) // Gửi yêu cầu tới API
-                        });
-
-                        if (!response.ok) {
-                            const responseText = await response.text();
-                            throw new Error(`Không thể bật thử kính. Server trả về: ${responseText}`);
-                        }
-
-                        const data = await response.json();
-                        console.log(data);
-                    } catch (error) {
-                        console.error("Lỗi:", error);
-                        showError("Đã xảy ra lỗi khi bật thử kính.");
-                        cameraViewerContainer.style.display = "none";  // Ẩn camera
-                        virtual_glasses_enabled = false;  // Đổi trạng thái kính
+        // Gửi yêu cầu AJAX để thêm hoặc xóa sản phẩm khỏi danh sách yêu thích
+        $.ajax({
+            url: '/Favourite/Toggle', // Gọi đến action Toggle
+            type: 'POST',
+            data: { productId: productId },
+            success: function (response) {
+                if (response.success) {
+                    // Nếu thành công, thay đổi màu sắc biểu tượng
+                    var icon = $(element).find("i");
+                    if (response.isFavorited) {
+                        icon.removeClass("text-secondary").addClass("text-danger"); // Đã yêu thích
+                    } else {
+                        icon.removeClass("text-danger").addClass("text-secondary"); // Bỏ yêu thích
                     }
+
+                    // Hiển thị thông báo thành công bằng SweetAlert2
+                    Swal.fire({
+                        title: 'Thành công!',
+                        text: response.message,
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    // Hiển thị thông báo lỗi bằng SweetAlert2
+                    Swal.fire({
+                        title: 'Lỗi!',
+                        text: response.message,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.error("AJAX Error:", textStatus, errorThrown); // Log lỗi AJAX
+                Swal.fire({
+                    title: 'Lỗi!',
+                    text: 'Đã xảy ra lỗi trong quá trình cập nhật trạng thái yêu thích.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+@*
+    <script>
+            //chức năng thử kính với ảnh
+                const toggleGlassesBtn = document.getElementById("toggle-glasses-btn");
+            const cameraViewerContainer = document.getElementById("camera-viewer-container");
+            const closeCameraViewerBtn = document.getElementById("close-camera-viewer");
+
+            let isRequestInProgress = false;  // Tránh gửi yêu cầu khi đang xử lý yêu cầu khác
+            let virtual_glasses_enabled = false;  // Biến kiểm soát trạng thái của kính mát
+
+            // Kiểm tra khi đã bật/tắt thử kính
+            if (toggleGlassesBtn) {
+                function showError(message) {
+                    const errorDiv = document.createElement("div");
+                    errorDiv.style.position = "absolute";
+                    errorDiv.style.top = "10px";
+                    errorDiv.style.left = "50%";
+                    errorDiv.style.transform = "translateX(-50%)";
+                    errorDiv.style.backgroundColor = "rgba(255, 0, 0, 0.7)";
+                    errorDiv.style.color = "white";
+                    errorDiv.style.padding = "10px";
+                    errorDiv.style.borderRadius = "5px";
+                    errorDiv.innerHTML = message;
+
+                    cameraViewerContainer.appendChild(errorDiv);
+
+                    setTimeout(() => {
+                        errorDiv.remove();
+                    }, 5000); // Ẩn thông báo sau 5 giây
                 }
 
-                isRequestInProgress = false;  // Đặt lại trạng thái yêu cầu đã hoàn tất
-            });
+                toggleGlassesBtn.addEventListener("click", async () => {
+                    if (isRequestInProgress) return;  // Tránh gửi yêu cầu khi đang xử lý yêu cầu khác
+
+                    isRequestInProgress = true;
+
+                    if (virtual_glasses_enabled) {
+                        cameraViewerContainer.style.display = "none";  // Ẩn camera
+                        virtual_glasses_enabled = false;  // Đổi trạng thái của kính
+                    } else {
+                        cameraViewerContainer.style.display = "flex"; // Hiển thị camera
+                        virtual_glasses_enabled = true;  // Đổi trạng thái của kính
+
+                        try {
+                            const imageUrl = 'http://localhost:5005/' + '@Model.BRImageUrl';  // Thay URL hợp lệ
+                            const response = await fetch('http://127.0.0.1:5000/toggle_glasses', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ image_url: imageUrl }) // Gửi yêu cầu tới API
+                            });
+
+                            if (!response.ok) {
+                                const responseText = await response.text();
+                                throw new Error(`Không thể bật thử kính. Server trả về: ${responseText}`);
+                            }
+
+                            const data = await response.json();
+                            console.log(data);
+                        } catch (error) {
+                            console.error("Lỗi:", error);
+                            showError("Đã xảy ra lỗi khi bật thử kính.");
+                            cameraViewerContainer.style.display = "none";  // Ẩn camera
+                            virtual_glasses_enabled = false;  // Đổi trạng thái kính
+                        }
+                    }
+
+                    isRequestInProgress = false;  // Đặt lại trạng thái yêu cầu đã hoàn tất
+                });
 
 
-            closeCameraViewerBtn.addEventListener("click", () => {
-                cameraViewerContainer.style.display = "none";  // Ẩn camera khi đóng
-                virtual_glasses_enabled = false;  // Đổi trạng thái kính khi đóng
-            });
+                closeCameraViewerBtn.addEventListener("click", () => {
+                    cameraViewerContainer.style.display = "none";  // Ẩn camera khi đóng
+                    virtual_glasses_enabled = false;  // Đổi trạng thái kính khi đóng
+                });
+            }
+        </script>
+
+    <script>
+        //Xoay nhìu hình
+        // Lấy các phần tử cần xử lý
+            var show360Image = document.getElementById('show-360-image');
+        var viewerContainer = document.getElementById('viewer-container');
+        var closeViewerButton = document.getElementById('close-viewer');
+        var viewer = document.getElementById('viewer');
+        var currentImageIndex = 0;
+        var isDragging = false;
+        var startX;
+        var autoRotateInterval;
+        var autoRotateSpeed = 100; // Tốc độ quay tự động
+
+        // Kiểm tra xem sản phẩm có hình ảnh 360 không
+        var has360Image = @(Model.Images != null && Model.Images.Count > 0 ? "true" : "false");
+
+        // Ẩn hình ảnh 360 nếu sản phẩm không có hình ảnh 360
+        if (!has360Image) {
+            show360Image.style.display = 'none';
         }
-    </script>*@
 
-<script>
-    @*//Xoay nhìu hình
-    // Lấy các phần tử cần xử lý
-        var show360Image = document.getElementById('show-360-image');
-    var viewerContainer = document.getElementById('viewer-container');
-    var closeViewerButton = document.getElementById('close-viewer');
-    var viewer = document.getElementById('viewer');
-    var currentImageIndex = 0;
-    var isDragging = false;
-    var startX;
-    var autoRotateInterval;
-    var autoRotateSpeed = 100; // Tốc độ quay tự động
-
-    // Kiểm tra xem sản phẩm có hình ảnh 360 không
-    var has360Image = @(Model.Images != null && Model.Images.Count > 0 ? "true" : "false");
-
-    // Ẩn hình ảnh 360 nếu sản phẩm không có hình ảnh 360
-    if (!has360Image) {
-        show360Image.style.display = 'none';
-    }
-
-    // Hàm để tải hình ảnh vào trong phần xem 360 độ
-    function loadImages() {
-        @if (Model.Images != null && Model.Images.Count > 0) {
-            for (var i = 0; i < Model.Images.Count; i++) {
-                var imageUrl = Model.Images[i].Url; // Lấy đường dẫn ảnh từ mỗi phần tử trong danh sách Images
-                <text>
-                    var img = document.createElement('img');
-                    img.src = '@(imageUrl)';
-                    img.style.display = 'none'; // Ẩn hình ảnh ban đầu
-                    viewer.appendChild(img);
-                </text>
+        // Hàm để tải hình ảnh vào trong phần xem 360 độ
+        function loadImages() {
+            @if (Model.Images != null && Model.Images.Count > 0) {
+                for (var i = 0; i < Model.Images.Count; i++) {
+                    var imageUrl = Model.Images[i].Url; // Lấy đường dẫn ảnh từ mỗi phần tử trong danh sách Images
+                    <text>
+                        var img = document.createElement('img');
+                        img.src = '@(imageUrl)';
+                        img.style.display = 'none'; // Ẩn hình ảnh ban đầu
+                        viewer.appendChild(img);
+                    </text>
+                }
             }
         }
-    }
 
-    // Hàm để hiển thị hình ảnh tại chỉ mục nhất định trong phần xem
-    function showImage(index) {
-        var images = viewer.getElementsByTagName('img');
-        for (var i = 0; i < images.length; i++) {
-            images[i].style.display = 'none'; // Ẩn tất cả hình ảnh
-        }
-        images[index].style.display = 'block'; // Hiển thị hình ảnh tại chỉ mục
-    }
-
-    // Hàm để bắt đầu quay tự động của phần xem
-    function startAutoRotate() {
-        stopAutoRotate(); // Dừng bất kỳ intervals nào đang tồn tại trước khi bắt đầu một intervals mới
-        autoRotateInterval = setInterval(function () {
-            currentImageIndex = (currentImageIndex + 1) % 36; // Lặp lại các hình ảnh
-            showImage(currentImageIndex);
-        }, autoRotateSpeed);
-    }
-
-    // Hàm để dừng quay tự động của phần xem
-    function stopAutoRotate() {
-        clearInterval(autoRotateInterval);
-    }
-
-    // Hàm để đặt lại tốc độ quay tự động về giá trị ban đầu
-    function resetAutoRotateSpeed() {
-        autoRotateSpeed = 100; // Đặt lại tốc độ về giá trị ban đầu
-    }
-
-    // Sự kiện click để mở phần xem hình ảnh 360 độ
-    show360Image.addEventListener('click', function () {
-        if (viewer.getElementsByTagName('img').length === 0) {
-            loadImages(); // Tải hình ảnh nếu chưa tải
-        }
-        viewerContainer.style.display = 'flex'; // Hiển thị phần xem
-        showImage(currentImageIndex); // Hiển thị hình ảnh ban đầu
-        resetAutoRotateSpeed(); // Đặt lại tốc độ mỗi khi phần xem được mở
-        startAutoRotate(); // Bắt đầu quay tự động
-    });
-
-    // Sự kiện click để đóng phần xem
-    closeViewerButton.addEventListener('click', function () {
-        viewerContainer.style.display = 'none'; // Ẩn phần xem
-        stopAutoRotate(); // Dừng quay tự động
-    });
-
-    // Sự kiện mousedown để bắt đầu kéo hình ảnh
-    viewer.addEventListener('mousedown', function (event) {
-        isDragging = true;
-        startX = event.clientX;
-        stopAutoRotate(); // Dừng quay tự động khi bắt đầu kéo
-        event.preventDefault(); // Ngăn chặn việc chọn văn bản khi kéo
-    });
-
-    // Sự kiện mousemove để di chuyển hình ảnh khi kéo
-    viewer.addEventListener('mousemove', function (event) {
-        if (isDragging) {
-            var dx = event.clientX - startX;
-            if (dx > 5) { // Nếu di chuyển sang phải hơn 5px
-                currentImageIndex = (currentImageIndex + 1) % 36;
-                showImage(currentImageIndex);
-                startX = event.clientX;
-            } else if (dx < -5) { // Nếu di chuyển sang trái hơn 5px
-                currentImageIndex = (currentImageIndex - 1 + 36) % 36;
-                showImage(currentImageIndex);
-                startX = event.clientX;
+        // Hàm để hiển thị hình ảnh tại chỉ mục nhất định trong phần xem
+        function showImage(index) {
+            var images = viewer.getElementsByTagName('img');
+            for (var i = 0; i < images.length; i++) {
+                images[i].style.display = 'none'; // Ẩn tất cả hình ảnh
             }
+            images[index].style.display = 'block'; // Hiển thị hình ảnh tại chỉ mục
         }
-    });
 
-    // Sự kiện mouseup để kết thúc kéo
-    viewer.addEventListener('mouseup', function () {
-        isDragging = false;
-        startAutoRotate(); // Bắt đầu quay tự động sau khi kéo kết thúc
-    });
+        // Hàm để bắt đầu quay tự động của phần xem
+        function startAutoRotate() {
+            stopAutoRotate(); // Dừng bất kỳ intervals nào đang tồn tại trước khi bắt đầu một intervals mới
+            autoRotateInterval = setInterval(function () {
+                currentImageIndex = (currentImageIndex + 1) % 36; // Lặp lại các hình ảnh
+                showImage(currentImageIndex);
+            }, autoRotateSpeed);
+        }
 
-    // Sự kiện mouseleave để kết thúc kéo khi rời khỏi phần xem
-    viewer.addEventListener('mouseleave', function () {
-        isDragging = false;
-        startAutoRotate(); // Bắt đầu quay tự động sau khi kéo kết thúc
-    });*@
-</script>
+        // Hàm để dừng quay tự động của phần xem
+        function stopAutoRotate() {
+            clearInterval(autoRotateInterval);
+        }
+
+        // Hàm để đặt lại tốc độ quay tự động về giá trị ban đầu
+        function resetAutoRotateSpeed() {
+            autoRotateSpeed = 100; // Đặt lại tốc độ về giá trị ban đầu
+        }
+
+        // Sự kiện click để mở phần xem hình ảnh 360 độ
+        show360Image.addEventListener('click', function () {
+            if (viewer.getElementsByTagName('img').length === 0) {
+                loadImages(); // Tải hình ảnh nếu chưa tải
+            }
+            viewerContainer.style.display = 'flex'; // Hiển thị phần xem
+            showImage(currentImageIndex); // Hiển thị hình ảnh ban đầu
+            resetAutoRotateSpeed(); // Đặt lại tốc độ mỗi khi phần xem được mở
+            startAutoRotate(); // Bắt đầu quay tự động
+        });
+
+        // Sự kiện click để đóng phần xem
+        closeViewerButton.addEventListener('click', function () {
+            viewerContainer.style.display = 'none'; // Ẩn phần xem
+            stopAutoRotate(); // Dừng quay tự động
+        });
+
+        // Sự kiện mousedown để bắt đầu kéo hình ảnh
+        viewer.addEventListener('mousedown', function (event) {
+            isDragging = true;
+            startX = event.clientX;
+            stopAutoRotate(); // Dừng quay tự động khi bắt đầu kéo
+            event.preventDefault(); // Ngăn chặn việc chọn văn bản khi kéo
+        });
+
+        // Sự kiện mousemove để di chuyển hình ảnh khi kéo
+        viewer.addEventListener('mousemove', function (event) {
+            if (isDragging) {
+                var dx = event.clientX - startX;
+                if (dx > 5) { // Nếu di chuyển sang phải hơn 5px
+                    currentImageIndex = (currentImageIndex + 1) % 36;
+                    showImage(currentImageIndex);
+                    startX = event.clientX;
+                } else if (dx < -5) { // Nếu di chuyển sang trái hơn 5px
+                    currentImageIndex = (currentImageIndex - 1 + 36) % 36;
+                    showImage(currentImageIndex);
+                    startX = event.clientX;
+                }
+            }
+        });
+
+        // Sự kiện mouseup để kết thúc kéo
+        viewer.addEventListener('mouseup', function () {
+            isDragging = false;
+            startAutoRotate(); // Bắt đầu quay tự động sau khi kéo kết thúc
+        });
+
+        // Sự kiện mouseleave để kết thúc kéo khi rời khỏi phần xem
+        viewer.addEventListener('mouseleave', function () {
+            isDragging = false;
+            startAutoRotate(); // Bắt đầu quay tự động sau khi kéo kết thúc
+        });
+    </script>
+
+*@

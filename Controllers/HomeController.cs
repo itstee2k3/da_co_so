@@ -1,7 +1,9 @@
 ﻿using do_an_ltweb.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace do_an.Controllers
@@ -10,9 +12,11 @@ namespace do_an.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IProductRepository _productRepository;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger, IProductRepository productRepository)
+        public HomeController(ApplicationDbContext context, ILogger<HomeController> logger, IProductRepository productRepository)
         {
+            _context = context;
             _logger = logger;
             _productRepository = productRepository;
         }
@@ -21,6 +25,21 @@ namespace do_an.Controllers
         {
             // Lấy toàn bộ danh sách sản phẩm từ repository
             var allProducts = await _productRepository.GetAllAsync();
+
+            // Lấy userId từ thông tin xác thực
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            // Lấy danh sách sản phẩm yêu thích của người dùng
+            var favoriteProductIds = new List<int>();
+            if (!string.IsNullOrEmpty(userId))
+            {
+                favoriteProductIds = await _context.Favourites
+                    .Where(f => f.IdUser == userId)
+                    .Select(f => f.IdProduct)
+                    .ToListAsync();
+            }
+
+            ViewBag.FavoriteProducts = favoriteProductIds;
 
             // Lấy 8 sản phẩm ngẫu nhiên từ danh sách sản phẩm
             var randomProducts = allProducts.OrderBy(p => Guid.NewGuid()).Take(8).ToList();

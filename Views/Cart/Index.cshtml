@@ -23,6 +23,8 @@
                             {
                                 foreach (var cart in Model)
                                 {
+                                    var isFavorited = ViewBag.FavoriteProducts != null && ViewBag.FavoriteProducts.Contains(cart.IdProduct);
+
                                     <div class="row gy-3 mb-4 align-items-center cart-item" data-cart-item-id="@cart.IdCartItem">
                                         <div class="col-lg-5">
                                             <div class="me-lg-5">
@@ -66,7 +68,13 @@
 
                                         <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
                                             <div class="float-md-end">
-                                                <a href="#!" class="btn btn-light border px-2 icon-hover-primary"><i class="fa fa-heart fa-lg px-1 text-secondary"></i></a>
+                                                @*<a href="#!" class="btn btn-light border px-2 icon-hover-primary"><i class="fa fa-heart fa-lg px-1 text-secondary"></i></a>*@
+                                                <a href="javascript:void(0)"
+                                                   class="btn border icon-hover px-2 pt-2 add-to-favorite"
+                                                   data-product-id="@cart.IdProduct"
+                                                   onclick="toggleFavorite(this)">
+                                                    <i class="fa fa-heart fa-lg @(isFavorited ? "text-danger" : "text-secondary") px-1"></i>
+                                                </a>
                                                 <a href="#" class="btn btn-light border text-danger icon-hover-danger button-remove" data-cart-item-id="@cart.IdCartItem"> Remove</a>
                                             </div>
                                         </div>
@@ -417,10 +425,17 @@
                                 // Xoá sản phẩm khỏi DOM
                                 var cartItem = document.querySelector('.cart-item[data-cart-item-id="' + cartItemId + '"]');
                                 cartItem.remove();
-                                window.location.reload();
-                                alert("Product removed from cart");
+
+                                // Hiển thị thông báo thành công bằng SweetAlert2
+                                Swal.fire({
+                                    title: 'Success!',
+                                    text: 'Product removed from cart.',
+                                    icon: 'success',
+                                    confirmButtonText: 'OK'
+                                }).then(function () {
+                                    window.location.reload(); // Reload trang sau khi hiển thị thông báo
+                                });
                             } else {
-                                //console.error('Error removing product from cart:', response.error);
                                 console.error('Lỗi khi xoá sản phẩm khỏi giỏ hàng:', response.error);
                             }
                         } else {
@@ -431,6 +446,7 @@
                 xhrRemove.send('cartItemId=' + cartItemId);
             });
         });
+
 
         document.getElementById("applyCoupon").addEventListener("click", function () {
             event.preventDefault(); // Ngăn chặn hành vi mặc định của nút
@@ -484,4 +500,54 @@
             xhr.send('totalBill=' + discountedTotal); // Gửi giá mới sau khi áp dụng mã giảm giá
         }
     });
+
+
+
+    function toggleFavorite(element) {
+        var productId = $(element).data("product-id");
+
+        // Gửi yêu cầu AJAX để thêm hoặc xóa sản phẩm khỏi danh sách yêu thích
+        $.ajax({
+            url: '/Favourite/Toggle', // Gọi đến action Toggle
+            type: 'POST',
+            data: { productId: productId },
+            success: function (response) {
+                if (response.success) {
+                    // Nếu thành công, thay đổi màu sắc biểu tượng
+                    var icon = $(element).find("i");
+                    if (response.isFavorited) {
+                        icon.removeClass("text-secondary").addClass("text-danger"); // Đã yêu thích
+                    } else {
+                        icon.removeClass("text-danger").addClass("text-secondary"); // Bỏ yêu thích
+                    }
+
+                    // Hiển thị thông báo thành công bằng SweetAlert2
+                    Swal.fire({
+                        title: 'Thành công!',
+                        text: response.message,
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    // Hiển thị thông báo lỗi bằng SweetAlert2
+                    Swal.fire({
+                        title: 'Lỗi!',
+                        text: response.message,
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            },
+            error: function () {
+                // Hiển thị thông báo lỗi nếu xảy ra lỗi trong quá trình AJAX
+                Swal.fire({
+                    title: 'Lỗi!',
+                    text: 'Đã xảy ra lỗi trong quá trình cập nhật trạng thái yêu thích.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    }
+
 </script>

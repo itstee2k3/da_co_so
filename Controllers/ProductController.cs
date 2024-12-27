@@ -9,6 +9,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Security.Claims;
 using XTL.Helpers; // Đây là namespace chứa lớp PagingModel
 
 namespace do_an.Controllers
@@ -113,6 +114,19 @@ namespace do_an.Controllers
             // Khai báo và khởi tạo biến currentPage
             int currentPage = p;
 
+            // Lấy userId từ thông tin xác thực
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            // Lấy danh sách sản phẩm yêu thích của người dùng
+            var favoriteProductIds = new List<int>();
+            if (!string.IsNullOrEmpty(userId))
+            {
+                favoriteProductIds = await _context.Favourites
+                    .Where(f => f.IdUser == userId)
+                    .Select(f => f.IdProduct)
+                    .ToListAsync();
+            }
+
             // Lấy giá trị searchString từ session
             var searchStringFromSession = HttpContext.Session.GetString("searchString");
 
@@ -137,11 +151,6 @@ namespace do_an.Controllers
                     // Sử dụng giá trị từ session nếu nó tồn tại
                     searchString = searchStringFromSession;
                 }
-                //else
-                //{
-                //    // Xóa searchString khỏi session nếu không có giá trị tìm kiếm mới
-                //    HttpContext.Session.Remove("searchString");
-                //}
             }
 
             // Lưu giá trị sortOrder vào session nếu có
@@ -190,15 +199,6 @@ namespace do_an.Controllers
 
                 products = searchedProducts;
             }
-            //else
-            //{
-            //    // Lấy danh sách sản phẩm từ session (nếu có)
-            //    var productsJson = HttpContext.Session.GetString("searchedProducts");
-            //    if (!String.IsNullOrEmpty(productsJson))
-            //    {
-            //        products = JsonConvert.DeserializeObject<List<Product>>(productsJson);
-            //    }
-            //}
 
             // Kiểm tra và áp dụng sắp xếp nếu có sortOrder
             switch (sortOrder)
@@ -260,6 +260,7 @@ namespace do_an.Controllers
             ViewBag.SortOrderFromSession = sortOrder;
             ViewBag.Products = products;
             ViewBag.TotalProducts = totalProducts;
+            ViewBag.FavoriteProducts = favoriteProductIds;
 
             // Lấy danh sách CategoryBrand và CategoryFrameStyles và truyền vào view
             var categoryBrands = await _categoryBrand.GetAllAsync();
@@ -348,6 +349,18 @@ namespace do_an.Controllers
 
             // Gán danh sách hình ảnh cho sản phẩm (dù có hay không có hình ảnh)
             product.Images = images;
+
+            // Kiểm tra trạng thái yêu thích của người dùng (nếu có)
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            bool isFavorited = false;
+            if (userId != null)
+            {
+                isFavorited = await _context.Favourites.AnyAsync(f => f.IdProduct == product.IdProduct && f.IdUser == userId);
+            }
+
+            // Truyền dữ liệu vào View
+            ViewData["IsFavorited"] = isFavorited;
+            ViewData["ProductId"] = product.IdProduct;
 
             // Trả về view và truyền sản phẩm cho view
             return View(product);
